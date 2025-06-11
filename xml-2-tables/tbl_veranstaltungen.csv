@@ -1,352 +1,352 @@
 id_semester~id_veranstaltung~id_veranstaltung_legacy~id_dozent~nachname_dozent~vorname_dozent~grad_dozent~thema~zusatz~zeit~wochenstunden~fakultaet_id
-1833s~[1]~v-1~rettig_h~Rettig~Heinrich~O~Dogmatik~~~8~4
-1833s~[2]~v-2~rettig_h~Rettig~Heinrich~O~Kirchengeschichte~~~4~4
-1833s~[3]~v-3~hitzig_f~Hitzig~Ferdinand~O~Erklärung des Pentateuch's~~~6~4
-1833s~[4]~v-4~hitzig_f~Hitzig~Ferdinand~O~Erklärung der Propheten Joël und Amos~~~3~4
-1833s~[5]~v-5~hitzig_f~Hitzig~Ferdinand~O~Hebräisch-jüdische Archäologie, oder Geschichte, Geographie und Antiquitäten der Hebräer, nach de Wette's Lehrbuche~~~4~4
-1833s~[6]~v-6~hirzel_l~Hirzel~Ludwig~EO~Theologische Enzyklopädie und Methodologie~~~4~4
-1833s~[7]~v-7~hirzel_l~Hirzel~Ludwig~EO~Biblische Theologie des Neuen Testamentes, oder kritische Darstellung der Religionslehre des Urchristenthums~~~2~4
-1833s~[8]~v-8~usteri_hk~Usteri~Hans Kaspar~PD~Erklärung von Paulus Brief an die Römer~~~3~4
-1833s~[9]~v-9~schinz_wh~Schinz~Wilhelm Heinrich~PD~Erklärung der Briefe an die Kolosser, Epheser und an Philemon~~~3~4
-1833s~[10]~v-10~ulrich_m~Ulrich~Melchior~PD~Erklärung des ersten Briefes an die Korinther~~~4~4
-1833s~[11]~v-11~usteri_hk~Usteri~Hans Kaspar~PD~Christliche Archäologie oder kirchengeschichtliche Alterthumskunde~~~3~4
-1833s~[12]~v-12~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Einleitung in die gesammte Rechtswissenschaft nach Falk's juristischer Encyklopädie, 3te Aufl., Kiel 1830~~~4~3
-1833s~[13]~v-13~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Deutsches Privatrecht mit Einschluss des Handelsrechts nach Eichhorns Lehrbuch, 3te Aufl., Göttingen 1829~~~8~3
-1833s~[14]~v-14~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Geschichte der städtischen Verfassung~~~2-3~3
-1833s~[15]~v-15~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Deutsche Rechtsalterthümer~~~2~3
-1833s~[16]~v-16~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Exegese wichtiger Stellen des Sachsenspiegels (Ausgabe von Homeyer, Berlin 1827)~~~1~3
-1833s~[17]~v-17~snell_jw~Snell~Johann Wilhelm~O~Pandekten~~~12~3
-1833s~[18]~v-18~snell_jw~Snell~Johann Wilhelm~O~Gemeines deutsches Kriminalrecht mit Rücksicht auf neuere, besonders schweizerische Gesetzgebungen~~~6~3
-1833s~[19]~v-19~bluntschli_jc~Bluntschli~Johann Caspar~EO~Rechtsgeschichte und Institutionen des römischen Rechts~~~10~3
-1833s~[20]~v-20~weiland_c~Weiland~Carl~PD~Römisches Erbrecht~~~3~3
-1833s~[21]~v-21~weiland_c~Weiland~Carl~PD~Erklärung der Institutionen des Gaius, mit Vergleichung derjenigen des Justinianus und mit Beiziehung der übrigen rechtsgeschichtlichen Quellen~~~4~3
-1833s~[22]~v-22~keller_fl~Keller~Friedrich Ludwig~EO~Abriss des Zürcherischen Civilprocesses mit praktischen Uebungen, vorzüglich für das mündliche Verfahren~~~4~3
-1833s~[23]~v-23~escher_h-1789~Escher~Heinrich~EO~Theorie der Staatswissenschaft nach Rau's Lehrbuch der politischen Oekonomie, Heidelberg 1829~~~4~3
-1833s~[24]~v-24~escher_h-1789~Escher~Heinrich~EO~Erklärung und Prüfung von Montesquieu's Geist der Gesetze, nebst der einschlägigen Literatur~~~4~3
-1833s~[25]~v-25~escher_h-1789~Escher~Heinrich~EO~Kriminalprocess, nach Mittermaiers deutschem Strafverfahren~~~4~3
-1833s~[26]~v-26~sartorius_jb~Sartorius~Johann Baptist~PD~Allgemeines Staatsrecht, mit besonderer Rücksicht auf die Institutionen der Schweiz~~~6~3
-1833s~[27]~v-27~gidoni_f~Gidoni~Franz~PD~Cours du droit public, appliqué aux progrès des sociétés modernes~~~2-3~3
-1833s~[28]~v-28~schoenlein_jl~Schönlein~Johann Lukas~O~Specielle Pathologie und Therapie~~~6~1
-1833s~[29]~v-29~schoenlein_jl~Schönlein~Johann Lukas~O~Medicinische Diagnostik~~~2~1
-1833s~[30]~v-30~schoenlein_jl~Schönlein~Johann Lukas~O~Leitung der medicinischen Klinik~~Mo-Sa~~1
-1833s~[31]~v-31~locher-zwingli_h~Locher-Zwingli~Heinrich~EO~Chirurgie~~~5~1
-1833s~[32]~v-32~locher-zwingli_h~Locher-Zwingli~Heinrich~EO~Chirurgische Klinik~~~~1
-1833s~[33]~v-33~spoendly_hc~Spöndly~Hans Conrad~EO~Geburtshülfe~~~5~1
-1833s~[34]~v-34~spoendly_hc~Spöndly~Hans Conrad~EO~Geburtshülfliche Klinik~~~~1
-1833s~[35]~v-35~demme_h~Demme~Hermann~EO~Theoretische Anatomie des gesunden menschlichen Körpers, erste Hälfte: Osteologie, Syndesmologie, Myologie, Splanchnologie~~~5~1
-1833s~[36]~v-36~demme_h~Demme~Hermann~EO~Histologie~~~3~1
-1833s~[37]~v-37~demme_h~Demme~Hermann~EO~Chirurgische Anatomie~~~4~1
-1833s~[38]~v-38~demme_h~Demme~Hermann~EO~Ueber Blutungen aus äusserer Verletzung und Blutstillung, mit vergleichenden Versuchen über Ligatur und Torsion der Arterien an lebenden Thieren~~~2~1
-1833s~[39]~v-39~demme_h~Demme~Hermann~EO~Ueber das Heinische Osteotom, seine Anwendung auf Trepanation und Resektion und die dabei zu befolgenden Operations-Typen~~~2~1
-1833s~[40]~v-40~meyer_hc~Meyer~Hans Conrad~PD~Ueber Krankheiten der Knochen und der Gelenke~~~3~1
-1833s~[41]~v-41~meyer_hc~Meyer~Hans Conrad~PD~Verband- und Instrumentenlehre~~~2~1
-1833s~[42]~v-42~meyer_hc~Meyer~Hans Conrad~PD~Operativchirurgie~~~4~1
-1833s~[43]~v-43~muralt_l~Muralt~Leonhard von~PD~Praktischer Kurs über Augenoperationen~~~2~1
-1833s~[44]~v-44~locher-balber_h~Locher-Balber~Hans~EO~"Propädeutik zum Studium der Medicin nach seinen ""Grundzügen der Propädeutik"", Zürich 1832"~~~4~1
-1833s~[45]~v-45~locher-balber_h~Locher-Balber~Hans~EO~Semiotik nach F. G. Danz allg. medic. Zeichenlehre, neu bearb. v. Heinroth~~~2~1
-1833s~[46]~v-46~finsler_hj~Finsler~Hans Jakob~PD~Medicinische Receptirkunst~~~2~1
-1833s~[47]~v-47~finsler_hj~Finsler~Hans Jakob~PD~Pharmaceutische Chemie~~~5~1
-1833s~[48]~v-48~finsler_hj~Finsler~Hans Jakob~PD~Pharmakognosie, oder zweiter Theil der Pharmacie~~~5~1
-1833s~[49]~v-49~finsler_hj~Finsler~Hans Jakob~PD~Die Lehre von den Giften~~~2~1
-1833s~[50]~v-50~hess_hr~Hess~Hans Rudolf~PD~Pharmaceutische Chemie~~~5~1
-1833s~[51]~v-51~schinz_cs~Schinz~Christoph Salomon~PD~Pharmakologie~~~3~1
-1833s~[52]~v-52~bobrik_e~Bobrik~Eduard~O~Allgemeine Einleitung in die Philosophie~~~4~2
-1833s~[53]~v-53~bobrik_e~Bobrik~Eduard~O~Logik~~~4~2
-1833s~[54]~v-54~bobrik_e~Bobrik~Eduard~O~Empirische und rationelle Psychologie~~~5~2
-1833s~[55]~v-55~bobrik_e~Bobrik~Eduard~O~Pädagogik~~~4~2
-1833s~[56]~v-56~snell_l~Snell~Ludwig~EO~Geschichte der alten Philosophie, insbesondere der Griechen und Römer, mit besonderer Rücksicht auf das klassische Zeitalter dieser Völker, als Einleitung in das Studium der Philosophie~~~5~2
-1833s~[57]~v-57~oken_l~Oken~Lorenz~O~Allgemeine Naturgeschichte~~~4~2
-1833s~[58]~v-58~oken_l~Oken~Lorenz~O~Physiologie des Menschen~~~4~2
-1833s~[59]~v-59~oken_l~Oken~Lorenz~O~Vergleichende Osteologie~~~4~2
-1833s~[60]~v-60~schinz_hr~Schinz~Heinrich Rudolf~EO~Vergleichende Physiologie~~~4~2
-1833s~[61]~v-61~schulthess_hr~Schulthess~Hans Rudolf~PD~Botanik~~~4~2
-1833s~[62]~v-62~horner_l~Horner~Ludwig~PD~Mineralogie und Geologie~~~5~2
-1833s~[63]~v-63~escher_g~Escher~Gottfried von~PD~Physik, erster Theil, oder Einleitung in die Physik, Lehre von der Schwere, von den Molekularkräften, von der Elektricität, vom Magnetismus und Elektromagnetismus~~~4~2
-1833s~[64]~v-64~loewig_c~Löwig~Carl~EO~Experimental-Chemie, nach seinem Lehrbuche der Chemie, Heidelberg 1832~~~5~2
-1833s~[65]~v-65~finsler_hj~Finsler~Hans Jakob~PD~Lehre von den chemischen Reagentien~~~3~2
-1833s~[66]~v-66~eschmann_j~Eschmann~Johannes~PD~Reine Mathematik~~~6~2
-1833s~[67]~v-67~graeffe_kh~Gräffe~Karl Heinrich~PD~Differenzial- und Integral-Rechnung, nebst einer kombinatorischen Entwickelung der vorzüglichsten Reihen, als Einleitung~~~6~2
-1833s~[68]~v-68~raabe_jl~Raabe~Joseph Ludwig~PD~Analytische Mechanik sammt deren Anwendung auf das Weltgebäude~~~4~2
-1833s~[69]~v-69~raabe_jl~Raabe~Joseph Ludwig~PD~Theorie der partiellen Differenzialgleichungen, deren Integrazion und Anwendung derselben auf einige Theile der Physik~~~2~2
-1833s~[70]~v-70~eschmann_j~Eschmann~Johannes~PD~Populäre Astronomie~~~1~2
-1833s~[71]~v-71~eschmann_j~Eschmann~Johannes~PD~Beobachtende und rechnende Astronomie~~~3~2
-1833s~[72]~v-72~ehrenberg_kf~Ehrenberg~Karl Ferdinand von~PD~Allgemeine bürgerliche und höhere Baukunst, Strassen-, Brücken- und Wasserbau~~~4~2
-1833s~[73]~v-73~weiland_c~Weiland~Carl~PD~Geschichte der Staaten des Alterthums~~~5~2
-1833s~[74]~v-74~escher_h-1781~Escher~Heinrich~PD~Geschichte des Mittelalters bis zum Untergange der Hohenstaufen und Encyklopädie der historischen Wissenschaften als Einleitung~~~4~2
-1833s~[75]~v-75~hottinger_jj~Hottinger~Johann Jakob~EO~Einleitung in die Geschichte der Eidsgenossenschaft~~~3~2
-1833s~[76]~v-76~hottinger_jj~Hottinger~Johann Jakob~EO~Geschichte der Eidsgenossenschaft vom Stanzerverkommniss bis zur Unabhängigkeitserklärung durch den westphälischen Frieden~~~3~2
-1833s~[77]~v-77~gidoni_f~Gidoni~Franz~PD~Cours d'histoire moderne~~~4~2
-1833s~[78]~v-78~hardmeyer_cw~Hardmeyer~Carl Wilhelm~PD~Uebersicht der modernen Kunst und Literatur, ihrer Entstehung und ihres Entwicklungsganges bei den Hauptnationen Europa's mit Hinsicht auf die Kultur- und Staatsgeschichte derselben~~~3~2
-1833s~[79]~v-79~ettmueller_eml~Ettmüller~Ernst Moritz Ludwig~PD~Deutsche Alterthümer~~~2~2
-1833s~[80]~v-80~winkelmann_aw~Winkelmann~August Wilhelm~PD~Encyklopädie und Methodologie der philologischen Wissenschaften~~~2~2
-1833s~[81]~v-81~baiter_jg~Baiter~Johann Georg~PD~Griechische Alterthümer~~~4~2
-1833s~[82]~v-82~baiter_jg~Baiter~Johann Georg~PD~Geschichte der Griechischen Sprache und Grammatik~~~1~2
-1833s~[83]~v-83~winkelmann_aw~Winkelmann~August Wilhelm~PD~Syntax der griechischen Sprache~~~4~2
-1833s~[84]~v-84~sauppe_h~Sauppe~Hermann~PD~Syntax der griechischen Sprache~~~3~2
-1833s~[85]~v-85~mueller_kw~Müller~Karl Wilhelm~PD~Ueber das Studium Homers~~~2~2
-1833s~[86]~v-86~voegelin_as~Vögelin~Anton Salomon~PD~Sophokles, Oedipus auf Kolonos~~~2~2
-1833s~[87]~v-87~baiter_jg~Baiter~Johann Georg~PD~Sophokles, Antigone~~~2~2
-1833s~[88]~v-88~baiter_jg~Baiter~Johann Georg~PD~Lykurgos, Rede gegen den Leokrates~~~3~2
-1833s~[89]~v-89~weiland_c~Weiland~Carl~PD~Erklärung der Bücher Platons vom Staate, mit staatswissenschaftlichen Erläuterungen verbunden~~~4~2
-1833s~[90]~v-90~winkelmann_aw~Winkelmann~August Wilhelm~PD~Erklärung von Plato's Büchern über den Staat~~~2~2
-1833s~[91]~v-91~keller_fl~Keller~Friedrich Ludwig~EO~Erklärung einzelner Reden und rhetorischer Schriften Cicero's aus den Antiquitäten des öffentlichen und Privatrechts~~~3~2
-1833s~[92]~v-92~mueller_kw~Müller~Karl Wilhelm~PD~Tacitus, Annalen~~~4~2
-1833s~[93]~v-93~winkelmann_aw~Winkelmann~August Wilhelm~PD~Iuvenals Satiren~~~2~2
-1833s~[94]~v-94~orelli_jk~Orelli~Johann Kaspar von~EO~Erklärung des Heautontimorumenos des Terentius, nach Faernus Recension~~~3~2
-1833s~[95]~v-95~orelli_jk~Orelli~Johann Kaspar von~EO~Appuleius, Psyche und Amor, mit Rücksicht auf die Mischung der ältern und spätern Latinität~~~3~2
-1833s~[96]~v-96~orelli_jk~Orelli~Johann Kaspar von~EO~Plinius, Briefe, zehntes Buch, kritisch behandelt~~~3~2
-1833s~[97]~v-97~orelli_jk~Orelli~Johann Kaspar von~EO~v. Raumer's Handbuch merkwürdiger Stellen aus den Lat. Geschichtschreibern des Mittelalters, Breslau 1813,~~~3~2
-1833s~[98]~v-98~orelli_jk~Orelli~Johann Kaspar von~EO~Geschichte der römischen Litteratur, mit Rücksicht auf die Leistungen der Kritiker seit Petrarca~~~2~2
-1833s~[99]~v-99~sauppe_h~Sauppe~Hermann~PD~Uebungen im Lateinisch Sprechen und Schreiben~~~3~2
-1833s~[100]~v-100~hitzig_f~Hitzig~Ferdinand~O~Elemente der arabischen Sprache~~~2~2
-1833s~[101]~v-101~ettmueller_eml~Ettmüller~Ernst Moritz Ludwig~PD~Erklärung des Nibelungenliedes nach Lachmann's Ausgabe~~~3~2
-1833s~[102]~v-102~orelli_jk~Orelli~Johann Kaspar von~EO~Spiegazione dell' Orlando furioso di M. Lodovico Ariosto~~~2~2
-1833s~[103]~v-103~daverio_lh~Daverio~Ludwig Herkules~PD~Vorträge über Italiänische Sprache und Literatur~~~4~2
-1833s~[104]~v-104~sangrain_ja~Sangrain~Jakob Anton~PD~Cours de littérature française~~~4~2
-1833s~[105]~v-105~sangrain_ja~Sangrain~Jakob Anton~PD~Cours pratique, théorique et grammatical de la langue française~~~4~2
-1833w~[1]~v-106~hitzig_f~Hitzig~Ferdinand~O~Einleitung in das alte Testament~~3x 9-10~3~4
-1833w~[2]~v-107~hirzel_l~Hirzel~Ludwig~EO~Einleitung in das Neue Testament~~Mo, Mi, Fr 8-9~3~4
-1833w~[3]~v-108~hitzig_f~Hitzig~Ferdinand~O~Erklärung des Propheten Jesajas, nach seinem Commentar (Heidelberg 1833)~~5x 15-16~5~4
-1833w~[4]~v-109~hitzig_f~Hitzig~Ferdinand~O~Erklärung der Propheten Joel und Amos~~2x~~4
-1833w~[5]~v-110~rettig_h~Rettig~Heinrich~O~Synopsis der drei ersten Evangelien~~Mo-Do 5-6~4~4
-1833w~[6]~v-111~usteri_hk~Usteri~Hans Kaspar~PD~Erklärung des Evangeliums Johannis~~3x~~4
-1833w~[7]~v-112~schulthess_j~Schulthess~Johannes~EO~Erklärung des Briefes Pauli an die Römer~~Mo-Do 10-11~4~4
-1833w~[7a]~v-113~schinz_wh~Schinz~Wilhelm Heinrich~PD~Erklärung des Briefes Pauli an die Römer~~3x~~4
-1833w~[8]~v-114~ulrich_m~Ulrich~Melchior~PD~Erklärung der beiden Briefe Pauli an die Corinther~~5x 7-8~5~4
-1833w~[9]~v-115~zimmermann_jh~Zimmermann~Johann Heinrich~PD~Erklärung des zweiten Briefes an die Corinther mit vorherrschend praktischer Beziehung~~~2~4
-1833w~[10]~v-116~schinz_wh~Schinz~Wilhelm Heinrich~PD~Erklärung der beiden Briefe Pauli an die Thessalonicher~öffentlich~1x~1~4
-1833w~[11]~v-117~rettig_h~Rettig~Heinrich~O~Fortsetzung exegetischer Uebungen~~~~4
-1833w~[12]~v-118~schulthess_j~Schulthess~Johannes~EO~Geschichte der Religionen~~2x 10-11~2~4
-1833w~[13]~v-119~rettig_h~Rettig~Heinrich~O~Kirchengeschichte erster Theil~~Mo-Sa 11-12, Fr, Sa 5-6~8~4
-1833w~[14]~v-120~usteri_hk~Usteri~Hans Kaspar~PD~Christliche Archäologie~~2x~~4
-1833w~[15]~v-121~hirzel_l~Hirzel~Ludwig~EO~Biblische Theologie des Neuen Testamentes~~3x 14-15~3~4
-1833w~[16]~v-122~hess_s~Hess~Salomon~EO~Christliche Moral~~5x~~4
-1833w~[17]~v-123~hess_s~Hess~Salomon~EO~Homiletik mit praktischen Uebungen~~5x~~4
-1833w~[18]~v-124~schauberg_j~Schauberg~Joseph~PD~Allgemeine Geschichte und Encyclopädie der Staatswissenschaften~~4x 9-10~4~3
-1833w~[19]~v-125~sartorius_jb~Sartorius~Johann Baptist~PD~Encyclopädie und Methodologie der Rechtswissenschaften~~3x 15-16~3~3
-1833w~[20]~v-126~snell_jw~Snell~Johann Wilhelm~O~Philosophische Rechtslehre~~~~3
-1833w~[21]~v-127~sartorius_jb~Sartorius~Johann Baptist~PD~Allgemeine Staatslehre in ihrer philosophischen Begründung mit Berücksichtigung positiver, namentlich schweizerischer Institute~~5x 5-6~5~3
-1833w~[22]~v-128~snell_jw~Snell~Johann Wilhelm~O~Geschichte und Institutionen des Römischen Rechts~~Mo-Sa 10-11, 2x 14-15~8~3
-1833w~[23]~v-129~bluntschli_jc~Bluntschli~Johann Caspar~EO~Pandecten nach Blume's Grundriss (Halle 1829)~~Mo, Di, Do, Fr 10-12, Mi 14-16~10~3
-1833w~[24]~v-130~bluntschli_jc~Bluntschli~Johann Caspar~EO~Exegetische Uebungen mit steter Berücksichtigung der Vorlesungen über Pandecten~privatissime~Sa 10-12~2~3
-1833w~[25]~v-131~weiland_c~Weiland~Carl~PD~Erklärung der Institutionen des Gajus mit Vergleichung derjenigen des Justinianus und mit Beiziehung der übrigen rechtsgeschichtlichen Quellen~~4x 14-15~4~3
-1833w~[26]~v-132~weiland_c~Weiland~Carl~PD~Exegeticum über Tit. Pand. ad legem Falcidiam~öffentlich~1x~~3
-1833w~[27]~v-133~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Deutsches Privatrecht mit Ausschluss des Handels-, Wechsel- und Seerechts nach Eichhorn's Lehrbuch~~~6~3
-1833w~[28]~v-134~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Handels-, Wechsel- und Seerecht nach Martens Lehrbuch~~4x 15-16~4~3
-1833w~[29]~v-135~keller_fl~Keller~Friedrich Ludwig~EO~Zürcherisches Partikularrecht mit Inbegriff des Wechselrechtes und mit Rücksicht auf die übrigen Kantone der deutschen Schweiz. Erste Hälfte~~Mi, Fr 7-9~4~3
-1833w~[30]~v-136~weiland_c~Weiland~Carl~PD~Französisches Privatrecht, in steter Vergleichung mit dem Römischen~~Mo-Sa 16-17~6~3
-1833w~[31]~v-137~schauberg_j~Schauberg~Joseph~PD~Kriminalrecht mit besonderer Rücksicht auf die neuern Strafgesetzgebungen der schweizerischen Kantone~~Mo-Sa 8-9~6~3
-1833w~[32]~v-138~weiland_c~Weiland~Carl~PD~Kirchenrecht zugleich als Geschichte der Gesellschaftsverfassung der christlichen Kirche~~5x 6-7~5~3
-1833w~[33]~v-139~schauberg_j~Schauberg~Joseph~PD~Allgemeines und europäisches Völkerrecht~~4x 14-15~4~3
-1833w~[34]~v-140~escher_h-1789~Escher~Heinrich~EO~Civilprocess nach Martins Lehrbuch~~5x 9-10~5~3
-1833w~[35]~v-141~snell_jw~Snell~Johann Wilhelm~O~Kriminalprocess und Kriminalpracticum~~4x 11-12~4~3
-1833w~[36]~v-142~sartorius_jb~Sartorius~Johann Baptist~PD~Civilprocess-Practicum und Relatorium mit Uebungen im Fache des Anwaltes und Richters~~2x 15-16~2~3
-1833w~[37]~v-143~escher_h-1789~Escher~Heinrich~EO~Politische Oekonomie nach Rau's Lehrbuch der politische Oekonomie~~5x 11-12~5~3
-1833w~[38]~v-144~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~"Deutsche und schweizerische Staats- und Rechtsgeschichte mit Beiziehung auf seine Schrift: ""Geschichte der deutschen Reichs- und Territorialverfassung (Heidelberg 1832)"""~~4x 16-17 oder 5-6~4~3
-1833w~[39]~v-145~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Deutsche Rechtsalterthümer~öffentlich~1x~~3
-1833w~[40]~v-146~gidoni_f~Gidoni~Franz~PD~Cours de droit public, appliqué aux progrès des sociétés modernes~~Mo, Mi, Fr~~3
-1833w~[40a]~v-147~linz_f~Linz~Ferdinand~PD~Gemeiner deutscher Civilprozess nach Martin~~~6~3
-1833w~[40b]~v-148~linz_f~Linz~Ferdinand~PD~Katholisches und protestantisches Kirchenrecht nach Walters Lehrbuch~~~4~3
-1833w~[40c]~v-149~linz_f~Linz~Ferdinand~PD~Deutsche Reichs- und Staatsgeschichte nach Lindeloff~~~4~3
-1833w~[40d]~v-150~linz_f~Linz~Ferdinand~PD~Examinatorien und Repetitorien in einzelnen Theilen des Rechts~~~~3
-1833w~[41]~v-151~demme_h~Demme~Hermann~EO~Specielle Anatomie~~~6~1
-1833w~[42]~v-152~demme_h~Demme~Hermann~EO~Leitung der Secirübungen~~~2~1
-1833w~[43]~v-153~demme_h~Demme~Hermann~EO~Pathologische Anatomie~~~4~1
-1833w~[44]~v-154~hodes_m~Hodes~Martin~PD~Osteologie und Syndesmologie~~~2~1
-1833w~[45]~v-155~hodes_m~Hodes~Martin~PD~Examinatorien über die gesammte Anatomie und privatissime über einzelne Theile derselben~~~~1
-1833w~[46]~v-156~pommer_cf~Pommer~Christoph Friedrich von~O~Physiologie des Menschen mit vergleichenden Andeutungen dieser Lehre bei Thieren und Pflanzen~~~~1
-1833w~[47]~v-157~loewig_c~Löwig~Carl~EO~Medicinische Chemie~~4x~~1
-1833w~[48]~v-158~finsler_hj~Finsler~Hans Jakob~PD~Pharmacognosie~~5x 14-15~5~1
-1833w~[49]~v-159~finsler_hj~Finsler~Hans Jakob~PD~Medicinische Receptirkunst~~~2~1
-1833w~[50]~v-160~finsler_hj~Finsler~Hans Jakob~PD~Pharmaceutische Chemie~~4x 8-9~4~1
-1833w~[51]~v-161~hess_hr~Hess~Hans Rudolf~PD~Pharmaceutische Chemie~~~4~1
-1833w~[52]~v-162~locher-balber_h~Locher-Balber~Hans~EO~"Praktische Arzneimittellehre, nach ""Vogt's Pharmakodynamik 1832"""~~~5~1
-1833w~[53]~v-163~schinz_cs~Schinz~Christoph Salomon~PD~Praktische Arzneimittellehre~~Mo, Di, Do, Fr 15-16~4~1
-1833w~[54]~v-164~hodes_m~Hodes~Martin~PD~Gerichtliche Medicin~~~4~1
-1833w~[55]~v-165~pommer_cf~Pommer~Christoph Friedrich von~O~Allgemeine Pathologie mit vergleichenden Andeutungen dieser Lehre bei Thieren und Pflanzen~~~~1
-1833w~[56]~v-166~schoenlein_jl~Schönlein~Johann Lukas~O~Specielle Pathologie und Therapie~~~6~1
-1833w~[57]~v-167~schoenlein_jl~Schönlein~Johann Lukas~O~Syphilitische Krankheiten mit praktischen Vorweisungen am Krankenbette~~~2~1
-1833w~[58]~v-168~locher-zwingli_h~Locher-Zwingli~Heinrich~EO~Theoretische Chirurgie~~~5~1
-1833w~[59]~v-169~locher-balber_h~Locher-Balber~Hans~EO~Augen-Heilkunde, nach Beck's Handbuch der Augenheilkunde, 1832~~~3~1
-1833w~[60]~v-170~meyer_hc~Meyer~Hans Conrad~PD~Lehre von den Krankheiten der Gehörorgane~~~2~1
-1833w~[61]~v-171~spoendly_hc~Spöndly~Hans Conrad~EO~Theoretische Geburtshülfe~~~4~1
-1833w~[62]~v-172~locher-zwingli_h~Locher-Zwingli~Heinrich~EO~Uebungen in chirurgischen Operazionen an Leichnamen~~~~1
-1833w~[63]~v-173~spoendly_hc~Spöndly~Hans Conrad~EO~Uebungen in geburtshülflichen Operazionen am Phantome~~~2~1
-1833w~[64]~v-174~schoenlein_jl~Schönlein~Johann Lukas~O~Medicinische Clinik im Kantonshospital~~Mo-Sa 9-10~6~1
-1833w~[65]~v-175~locher-zwingli_h~Locher-Zwingli~Heinrich~EO~Chirurgische Clinik~~Mo-Sa 8-9~6~1
-1833w~[66]~v-176~spoendly_hc~Spöndly~Hans Conrad~EO~Geburtshülfliche Clinik~~~~1
-1833w~[67]~v-177~snell_l~Snell~Ludwig~EO~Geschichte der alten Philosophie, zugleich als Einleitung in das Studium der Philosophie~~~5~2
-1833w~[68]~v-178~bobrik_e~Bobrik~Eduard~O~Dialektik und Rhetorik~privatim~Mo, Di, Do, Fr 15-16~4~2
-1833w~[69]~v-179~bobrik_e~Bobrik~Eduard~O~Psychologie~privatim~Mo, Di, Do, Fr 9-10~4~2
-1833w~[70]~v-180~bobrik_e~Bobrik~Eduard~O~Metaphysik~privatim~Mo, Di, Do, Fr 16-17~4~2
-1833w~[71]~v-181~bobrik_e~Bobrik~Eduard~O~Pädagogik~privatim~Mo, Di, Do, Fr 8-9~4~2
-1833w~[72]~v-182~bobrik_e~Bobrik~Eduard~O~Staatsphilosophie~publice~Mi, Sa 11-12~2~2
-1833w~[73]~v-183~hirzel_b~Hirzel~Bernhard~PD~Sanskrit-Grammatik~~3x~~2
-1833w~[74]~v-184~hirzel_b~Hirzel~Bernhard~PD~Erklärung einzelner Stücke aus indischen Epikern~~3x~~2
-1833w~[75]~v-185~hitzig_f~Hitzig~Ferdinand~O~Elemente der arabischen Sprache~publice~2x~~2
-1833w~[76]~v-186~hirzel_b~Hirzel~Bernhard~PD~Chaldäische Grammatik~~2x~~2
-1833w~[77]~v-187~winkelmann_aw~Winkelmann~August Wilhelm~PD~Erklärung des eilften Buches der Ilias~~Mo-Mi 7-8~3~2
-1833w~[78]~v-188~voegelin_as~Vögelin~Anton Salomon~PD~Aeschylus, Prometheus oder andere auserlesene Stücke griechischer Dramatiker~~~2~2
-1833w~[79]~v-189~baiter_jg~Baiter~Johann Georg~EO~Sophocles, Aiax~~Mi, Fr 7-8~2~2
-1833w~[80]~v-190~mueller_kw~Müller~Karl Wilhelm~PD~Aristophanes, Plutus, mit einem Vortrage über das Theater der Alten~~Mo, Do, Fr 9-10~3~2
-1833w~[81]~v-191~winkelmann_aw~Winkelmann~August Wilhelm~PD~Platon's Euthydemus, nebst einer Einleitung in das Studium Platon's~~Do-Sa 7-8~3~2
-1833w~[82]~v-192~sauppe_h~Sauppe~Hermann~PD~Platon's Phädrus und Symposion~~Mo, Do 14-15~2~2
-1833w~[83]~v-193~baiter_jg~Baiter~Johann Georg~EO~Demosthenes, Rede für die Krone~~Mo, Di, Do 7-8~3~2
-1833w~[84]~v-194~orelli_jk~Orelli~Johann Kaspar von~EO~Aristoteles, Poetik, nach Bekker's Ausgabe~~Di, Mi 11-12~2~2
-1833w~[85]~v-195~orelli_jk~Orelli~Johann Kaspar von~EO~Geschichte der lateinischen Literatur~~Di, Mi 16-17~2~2
-1833w~[86]~v-196~orelli_jk~Orelli~Johann Kaspar von~EO~Satyren des Horatius~~Mo, Do 11-12~2~2
-1833w~[87]~v-197~mueller_kw~Müller~Karl Wilhelm~PD~Ueber die satyrische Poesie der Römer, verbunden mit Erklärung der Satyren des Persius~~Mo, Mi, Fr 8-9~3~2
-1833w~[88]~v-198~keller_fl~Keller~Friedrich Ludwig~EO~Ueber ausgewählte Kapitel von Gellius, mit vorzüglicher Hinsicht auf die Antiquitäten des öffentlichen und Privat-Rechts~~Mo, Di, Do, Sa 7-8~4~2
-1833w~[89]~v-199~weiland_c~Weiland~Carl~PD~Cicero, de legibus und de republica~~4x~~2
-1833w~[90]~v-200~weiland_c~Weiland~Carl~PD~Erklärung der auf das Staats- und Privatrecht bezüglichen Stellen Cicero's~privatissime~~~2
-1833w~[91]~v-201~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Erklärung der Germania des Tacitus~~2x 15-16~2~2
-1833w~[92]~v-202~meyer_jh~Meyer~Johann Heinrich~PD~Erklärung des Quintilianus~~~3~2
-1833w~[93]~v-203~sauppe_h~Sauppe~Hermann~PD~Uebungen im Lateinisch-Schreiben und Sprechen~~Mo, Fr 15-16~2~2
-1833w~[94]~v-204~mueller_kw~Müller~Karl Wilhelm~PD~Geschichte der Kunst~~Mo, Di, Do, Fr 10-11~4~2
-1833w~[95]~v-205~ettmueller_eml~Ettmüller~Ernst Moritz Ludwig~PD~Geschichte der deutschen Literatur~~Mo, Di, Do, Sa 14-15~4~2
-1833w~[96]~v-206~ettmueller_eml~Ettmüller~Ernst Moritz Ludwig~PD~Ueber Lyrik des Mittelalters, mit besonderer Rücksicht auf Walther's von der Vogelweide Gedichte, nach Lachmann's Ausgabe~~~~2
-1833w~[97]~v-207~ettmueller_eml~Ettmüller~Ernst Moritz Ludwig~PD~Hartmann's von der Ouwe Iwein nach Lachmann's Ausgabe~~Di, Fr 14-15~2~2
-1833w~[98]~v-208~bobrik_e~Bobrik~Eduard~O~Erklärung von Walter Scott's the lady of the lake, nebst praktischen Uebungen im Englischen~privatim~4x~~2
-1833w~[99]~v-209~gidoni_f~Gidoni~Franz~PD~Corso di letteratura italiana, cominciante dal 14 secolo~~Di, Do, Sa~3~2
-1833w~[100]~v-210~daverio_lh~Daverio~Ludwig Herkules~PD~Vorlesungen über die neuere italienische Literatur, vom Ende des letzten Jahrhunderts bis auf die neueste Zeit~~3x~~2
-1833w~[101]~v-211~sangrain_ja~Sangrain~Jakob Anton~PD~Cours de littérature française~~3x 15-16~3~2
-1833w~[102]~v-212~sangrain_ja~Sangrain~Jakob Anton~PD~Cours pratique, théorique et grammatical de langue française~~3x 16-17~3~2
-1833w~[103]~v-213~escher_h-1781~Escher~Heinrich~PD~Geschichte des Mittelalters vom Ende des eilften Jahrhunderts an~~3x~~2
-1833w~[104]~v-214~hottinger_jj~Hottinger~Johann Jakob~EO~Geschichte der Eidgenossen vom westphälischen Frieden bis zum Jahr 1814~~4x 5-6~4~2
-1833w~[105]~v-215~hottinger_jj~Hottinger~Johann Jakob~EO~Literatur der Schweizergeschichte~~2x 5-6~2~2
-1833w~[106]~v-216~ettmueller_eml~Ettmüller~Ernst Moritz Ludwig~PD~Geschichte der Kreuzzüge~~~~2
-1833w~[107]~v-217~escher_h-1789~Escher~Heinrich~EO~Geschichte der französischen Revolution nach Mignet~~5x 5-6 oder 6-7~5~2
-1833w~[108]~v-218~gidoni_f~Gidoni~Franz~PD~Cours d'histoire moderne depuis Charles V.~~~3~2
-1833w~[109]~v-219~graeffe_kh~Gräffe~Karl Heinrich~PD~Reine Mathematik~~Mo-Sa 15-16~6~2
-1833w~[110]~v-220~raabe_jl~Raabe~Joseph Ludwig~PD~Analytische Mechanik~~Mo, Mi, Sa 11-12~3~2
-1833w~[111]~v-221~raabe_jl~Raabe~Joseph Ludwig~PD~Integralrechnungen und elliptische Functionen~~2x~~2
-1833w~[112]~v-222~ehrenberg_kf~Ehrenberg~Karl Ferdinand von~PD~Aesthetik der Architektur~~~2~2
-1833w~[113]~v-223~ehrenberg_kf~Ehrenberg~Karl Ferdinand von~PD~Strassenbaukunst~~~2~2
-1833w~[114]~v-224~froebel_j~Fröbel~Julius~PD~Encyclopädie der Naturwissenschaften~~4x~~2
-1833w~[115]~v-225~loewig_c~Löwig~Carl~EO~Experimental-Chemie, nach seinem Lehrbuch~~Mo-Sa 8-9~6~2
-1833w~[116]~v-226~oken_l~Oken~Lorenz~O~Naturgeschichte, erste Hälfte~~Mo, Di, Do, Fr 16-17~4~2
-1833w~[117]~v-227~oken_l~Oken~Lorenz~O~Naturphilosophie, nach seinem Lehrbuch, zweite Auflage~~[Mo, Di, Do, Fr?] 5-6~[4]~2
-1833w~[118]~v-228~schinz_hr~Schinz~Heinrich Rudolf~EO~Zoologie, nach Cuvier~~Do-Sa 11-12~3~2
-1833w~[119]~v-229~schinz_hr~Schinz~Heinrich Rudolf~EO~Vergleichende Physiologie~~Di, Mi, Sa 14-15~3~2
-1833w~[120]~v-230~schinz_hr~Schinz~Heinrich Rudolf~EO~Anthropologie für Nichtärzte~~4x~~2
-1833w~[121]~v-231~horner_l~Horner~Ludwig~PD~Mineralogie~~4x~~2
-1833w~[122]~v-232~horner_l~Horner~Ludwig~PD~Geologie~~3x~~2
-1833w~[123]~v-233~froebel_j~Fröbel~Julius~PD~Allgemeine Erdkunde~~5x~~2
-1834s~[1]~v-234~hitzig_f~Hitzig~Ferdinand~O~Erklärung der Psalmen~~4x 16-17~4~4
-1834s~[2]~v-235~hitzig_f~Hitzig~Ferdinand~O~Fortsetzung der Erklärung des Jesajas~~1x~1~4
-1834s~[3]~v-236~hitzig_f~Hitzig~Ferdinand~O~Erklärung des Daniel~~3x 10-11~3~4
-1834s~[4]~v-237~hirzel_l~Hirzel~Ludwig~EO~Einleitung in das Neue Testament~~4x 7-8~4~4
-1834s~[5]~v-238~rettig_h~Rettig~Heinrich~O~Synoptische Erklärung der Evangelien, erste Hälfte~~Mo-Do 5-6~4~4
-1834s~[6]~v-239~schulthess_j~Schulthess~Johannes~EO~Erklärung des Briefes Pauli an die Römer, nach seinem unter der Presse befindlichen Kommentar~~2x 9-10~2~4
-1834s~[7]~v-240~schinz_wh~Schinz~Wilhelm Heinrich~PD~Erklärung des Briefes Pauli an die Römer, in Verbindung mit dem Briefe an die Galater~~4x~~4
-1834s~[8]~v-241~usteri_hk~Usteri~Hans Kaspar~PD~Erklärung der Briefe an die Korinther~~2x~~4
-1834s~[9]~v-242~schinz_wh~Schinz~Wilhelm Heinrich~PD~Erklärung der Briefe an die Kolosser, Epheser und Philemon~~2x~~4
-1834s~[10]~v-243~ulrich_m~Ulrich~Melchior~PD~Erklärung der katholischen Briefe~~3x~~4
-1834s~[11]~v-244~schulthess_j~Schulthess~Johannes~EO~Geschichte der Religionen, Fortsetzung~~2x 9-10~2~4
-1834s~[12]~v-245~rettig_h~Rettig~Heinrich~O~Geschichte der christlichen Religion und Kirche, zweite Hälfte~~Mo-Sa 11-12, Fr, Sa 5-6~8~4
-1834s~[13]~v-246~ulrich_m~Ulrich~Melchior~PD~Geschichte des Lebens Pauli~~1x~1~4
-1834s~[14]~v-247~usteri_hk~Usteri~Hans Kaspar~PD~Kirchliche Archäologie~~1x~1~4
-1834s~[15]~v-248~hirzel_l~Hirzel~Ludwig~EO~Erklärung der Helvetischen Confession~~3x 11-12~3~4
-1834s~[16]~v-249~hess_s~Hess~Salomon~EO~Christliche Moral~~5x~~4
-1834s~[17]~v-250~schulthess_j~Schulthess~Johannes~EO~Entwurf eines pädagogischen Katechismus für die Volksschulen~~2x 9-10~2~4
-1834s~[18]~v-251~hess_s~Hess~Salomon~EO~Homiletik mit praktischen Uebungen~~5x~~4
-1834s~[19]~v-252~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Einleitung in die gesammte Rechtswissenschaft (Encyclopädie, Methodologie und Hermeneutik), mit Beziehung auf Falcks Lehrbuch der Encyclopädie~~Mo-Sa 9-10~6~3
-1834s~[20]~v-253~schauberg_j~Schauberg~Joseph~PD~Philosophische Rechtslehre (Naturrecht)~~4x 9-10~4~3
-1834s~[21]~v-254~bluntschli_jc~Bluntschli~Johann Caspar~EO~Geschichte und Institutionen des römischen Rechts~~Mo-Fr 7-9~10~3
-1834s~[22]~v-255~keller_fl~Keller~Friedrich Ludwig~EO~Römisches Erbrecht~~~5~3
-1834s~[23]~v-256~escher_h-1789~Escher~Heinrich~EO~Erklärung einzelner merkwürdiger Pandektenstellen~~~2~3
-1834s~[24]~v-257~sartorius_jb~Sartorius~Johann Baptist~PD~Allgemeine Staatswissenschaft mit Berücksichtigung positiver, namentlich schweizerischer Institute~~5x 11-12~5~3
-1834s~[25]~v-258~schauberg_j~Schauberg~Joseph~PD~Allgemeines und europäisches Völkerrecht nach Klüber~~4x 15-16~4~3
-1834s~[26]~v-259~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Handels-, Wechsel- und Seerecht nach Martens Lehrbuch~~~3~3
-1834s~[27]~v-260~linz_f~Linz~Ferdinand~PD~Katholisches und protestantisches Kirchenrecht nach Walter~~4x~~3
-1834s~[28]~v-261~keller_fl~Keller~Friedrich Ludwig~EO~Zürcherisches Partikularrecht mit Inbegriff des Wechselrechts und mit Rücksicht auf die übrigen Kantone der deutschen Schweiz. Erste Hälfte~~~~3
-1834s~[29]~v-262~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Deutsche und schweizerische Staats- und Rechtsgeschichte, mit Beziehung auf seine Schrift: Geschichte der deutschen Reichs- und Territorialverfassung. Heidelberg 1832~~5x 10-11~5~3
-1834s~[30]~v-263~linz_f~Linz~Ferdinand~PD~Deutsche Reichs- und Staatsgeschichte nach Lindeloff~~4x~~3
-1834s~[31]~v-264~weiland_c~Weiland~Carl~PD~Kirchenrecht zugleich als Geschichte der Gesellschaftsverfassung der christlichen Kirche~~5x~~3
-1834s~[32]~v-265~schauberg_j~Schauberg~Joseph~PD~Gemeines deutsches Strafrecht, mit besonderer Berücksichtigung der neuern Strafgesetzgebungen der schweizerischen Kantone~~Mo-Sa 10-11~6~3
-1834s~[33]~v-266~sartorius_jb~Sartorius~Johann Baptist~PD~Civilprocess~~5x 8-9~5~3
-1834s~[34]~v-267~linz_f~Linz~Ferdinand~PD~Gemeiner deutscher Civilprocess nach Martin~~6x~~3
-1834s~[35]~v-268~escher_h-1789~Escher~Heinrich~EO~Criminalprocess nach Henke's Darstellung~~5x~~3
-1834s~[36]~v-269~schauberg_j~Schauberg~Joseph~PD~Gemeiner deutscher Criminalprocess mit besonderer Berücksichtigung des öffentlichen und mündlichen Verfahrens~~~5~3
-1834s~[37]~v-270~escher_h-1789~Escher~Heinrich~EO~Volkswirthschaftslehre nach Rau's Grundsätzen der Volkswirthschaftslehre, 2te Aufl., Heidelberg 1833~~5x~~3
-1834s~[38]~v-271~weiland_c~Weiland~Carl~PD~Examinatorien und Repetitorien~~~~3
-1834s~[39]~v-272~linz_f~Linz~Ferdinand~PD~Examinatorien und Repetitorien~~~~3
-1834s~[40]~v-273~locher-balber_h~Locher-Balber~Hans~EO~Propädeutik zum Studium der Medizin, nach seinem eigenen Lehrbuche (Zürich 1832)~publice~~2~1
-1834s~[41]~v-274~demme_h~Demme~Hermann~EO~Osteologie und Myologie~~~~1
-1834s~[42]~v-275~demme_h~Demme~Hermann~EO~Neurologie~~~~1
-1834s~[43]~v-276~demme_h~Demme~Hermann~EO~Chirurgische Anatomie~~~~1
-1834s~[44]~v-277~hodes_m~Hodes~Martin~PD~Pathologische Anatomie~~~2~1
-1834s~[45]~v-278~hodes_m~Hodes~Martin~PD~Anatomie der Hernien~öffentlich~~~1
-1834s~[46]~v-279~oken_l~Oken~Lorenz~O~Physiologie des Menschen~~Mo, Di, Do, Fr ab 7~~1
-1834s~[47]~v-280~schinz_hr~Schinz~Heinrich Rudolf~EO~Vergleichende Physiologie~~~~1
-1834s~[48]~v-281~locher-balber_h~Locher-Balber~Hans~EO~Allgemeiner Theil der praktischen Arzneimittellehre mit Formulare nach Vogt's Lehrbüchern~~~4~1
-1834s~[49]~v-282~finsler_hj~Finsler~Hans Jakob~PD~Pharmacognosie~~~4~1
-1834s~[50]~v-283~loewig_c~Löwig~Carl~EO~Lehre von den Mineralgiften~~~2~1
-1834s~[51]~v-284~pommer_cf~Pommer~Christoph Friedrich von~O~Allgemeine Therapie~~~5~1
-1834s~[52]~v-285~pommer_cf~Pommer~Christoph Friedrich von~O~Gerichtliche Medizin~~~5~1
-1834s~[53]~v-286~schoenlein_jl~Schönlein~Johann Lukas~O~Specielle Pathologie und Therapie~~~6~1
-1834s~[54]~v-287~schoenlein_jl~Schönlein~Johann Lukas~O~Ueber syphilitische Krankheiten~~~2~1
-1834s~[55]~v-288~locher-zwingli_h~Locher-Zwingli~Heinrich~EO~Theoretische und praktische Chirurgie~~~5~1
-1834s~[56]~v-289~locher-zwingli_h~Locher-Zwingli~Heinrich~EO~Operationskurs~~~2~1
-1834s~[57]~v-290~meyer_hc~Meyer~Hans Conrad~PD~Verbandlehre~~~~1
-1834s~[58]~v-291~muralt_l~Muralt~Leonhard von~PD~Ophthalmologie~~~~1
-1834s~[59]~v-292~spoendly_hc~Spöndly~Hans Conrad~EO~Theoretische Geburtshülfe~~~4~1
-1834s~[60]~v-293~spoendly_hc~Spöndly~Hans Conrad~EO~Uebungen am Phantome~~~2~1
-1834s~[61]~v-294~schoenlein_jl~Schönlein~Johann Lukas~O~Medicinische Klinik im Kantonshospital~~Mo-Sa 9-10~6~1
-1834s~[62]~v-295~locher-zwingli_h~Locher-Zwingli~Heinrich~EO~Chirurgische Klinik~~Mo-Sa 8-9~6~1
-1834s~[63]~v-296~spoendly_hc~Spöndly~Hans Conrad~EO~Geburtshülfliche Klinik~~~~1
-1834s~[64]~v-297~bobrik_e~Bobrik~Eduard~O~Allgemeine Einleitung in die Philosophie~~Mo, Di, Do, Fr 8-9~4~2
-1834s~[65]~v-298~bobrik_e~Bobrik~Eduard~O~Psychologie~~Mo, Di, Do, Fr 6-7~4~2
-1834s~[66]~v-299~bobrik_e~Bobrik~Eduard~O~Logik~~Mo, Di, Do, Fr 7-8~4~2
-1834s~[67]~v-300~bobrik_e~Bobrik~Eduard~O~Geschichte der Philosophie des Alterthums~~Mo, Di, Do, Fr 15-16~4~2
-1834s~[68]~v-301~snell_l~Snell~Ludwig~EO~Entwicklung der vier Hauptsysteme der griechischen Philosophie~~~3~2
-1834s~[69]~v-302~snell_l~Snell~Ludwig~EO~Philosophische Begründung der Principien der neuern schweizerischen Kantonalverfassungen~~~2~2
-1834s~[70]~v-303~hirzel_b~Hirzel~Bernhard~PD~Sanskrit-Grammatik~~~~2
-1834s~[71]~v-304~hirzel_b~Hirzel~Bernhard~PD~Erklärung indischer Epiker~~~~2
-1834s~[72]~v-305~hitzig_f~Hitzig~Ferdinand~O~Vorlesungen über hebräische Grammatik nach Ewald~~3x 10-11~3~2
-1834s~[73]~v-306~hitzig_f~Hitzig~Ferdinand~O~Elemente der arabischen Grammatik~~~2~2
-1834s~[74]~v-307~sauppe_h~Sauppe~Hermann~PD~Geschichte der griechischen Poesie~~~3~2
-1834s~[75]~v-308~winkelmann_aw~Winkelmann~August Wilhelm~PD~Griechische und Lateinische Metrik~~~2~2
-1834s~[76]~v-309~voegelin_as~Vögelin~Anton Salomon~PD~Aeschylus, Prometheus~~~2~2
-1834s~[77]~v-310~baiter_jg~Baiter~Johann Georg~EO~Sophocles, Oedipus auf Kolonos~~~3~2
-1834s~[78]~v-311~sauppe_h~Sauppe~Hermann~PD~Aristophanes, Ritter~privatissime~~2~2
-1834s~[79]~v-312~winkelmann_aw~Winkelmann~August Wilhelm~PD~Platon's Gorgias und Protagoras~privatim~~2~2
-1834s~[80]~v-313~voegelin_as~Vögelin~Anton Salomon~PD~Platon's Phädrus~~~2~2
-1834s~[81]~v-314~baiter_jg~Baiter~Johann Georg~EO~Thukydides erstes und zweites Buch~privatissime~~2~2
-1834s~[82]~v-315~orelli_jk~Orelli~Johann Kaspar von~EO~Demosthenes, Rede gegen den Leptines~~~3~2
-1834s~[83]~v-316~orelli_jk~Orelli~Johann Kaspar von~EO~Geschichte der lateinischen Literatur, zweite Hälfte und Uebersicht der Geschichte der Philologie~~~2~2
-1834s~[84]~v-317~winkelmann_aw~Winkelmann~August Wilhelm~PD~Syntax der lateinischen Sprache~~~4~2
-1834s~[85]~v-318~orelli_jk~Orelli~Johann Kaspar von~EO~Ausgewählte Stellen des Lucretius, nach seinen Eclogis poëtarum Latinorum, Ed. altera 1833~~~2~2
-1834s~[86]~v-319~meyer_jh~Meyer~Johann Heinrich~PD~Erklärung des Quintilianus~~~~2
-1834s~[87]~v-320~winkelmann_aw~Winkelmann~August Wilhelm~PD~Uebungen im philologischen Seminar~privatissime~~~2
-1834s~[88]~v-321~sauppe_h~Sauppe~Hermann~PD~Lateinische Disputir- und Schreibübungen~~~2~2
-1834s~[89]~v-322~hardmeyer_cw~Hardmeyer~Carl Wilhelm~PD~Geschichte der griechischen und römischen Kunst~~~3~2
-1834s~[90]~v-323~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Geschichte der dramatischen Literatur~~~2~2
-1834s~[91]~v-324~ettmueller_eml~Ettmüller~Ernst Moritz Ludwig~PD~Geschichte der deutschen Literatur~~~4~2
-1834s~[92]~v-325~ettmueller_eml~Ettmüller~Ernst Moritz Ludwig~PD~Erklärung des zweiten Theils des Nibelungenliedes~~~3~2
-1834s~[93]~v-326~bobrik_e~Bobrik~Eduard~O~Shakspeare's King Lear~~~4~2
-1834s~[94]~v-327~gidoni_f~Gidoni~Franz~PD~Corso di letteratura italiana dal seicento~~~3~2
-1834s~[95]~v-328~sangrain_ja~Sangrain~Jakob Anton~PD~Cours de lecture française (classiques anciens et modernes)~~~3~2
-1834s~[96]~v-329~sangrain_ja~Sangrain~Jakob Anton~PD~Cours pratique, théorique et grammatical de langue française~~~3~2
-1834s~[97]~v-330~escher_h-1781~Escher~Heinrich~PD~Encyclopädie der historischen Wissenschaften~~~~2
-1834s~[98]~v-331~bluntschli_jc~Bluntschli~Johann Caspar~EO~Römische Geschichte bis zur Schlacht bei Actium~~Di, Do, Fr, Sa 11-12~4~2
-1834s~[99]~v-332~hottinger_jj~Hottinger~Johann Jakob~EO~Uebersicht und Kritik der Literatur der Schweizergeschichte mit vorzüglicher Berücksichtigung der seit Gottl. Em. von Haller~~~3~2
-1834s~[100]~v-333~hottinger_jj~Hottinger~Johann Jakob~EO~Geschichte der vereinigten Staaten von Nordamerika~~~3~2
-1834s~[101]~v-334~gidoni_f~Gidoni~Franz~PD~Cours d'histoire moderne~~~3~2
-1834s~[102]~v-335~graeffe_kh~Gräffe~Karl Heinrich~PD~Reine Mathematik~~Mo-Fr 15-16~5~2
-1834s~[103]~v-336~raabe_jl~Raabe~Joseph Ludwig~PD~Analytische Mechanik~~Mo, Mi, Sa 10-11~3~2
-1834s~[104]~v-337~eschmann_j~Eschmann~Johannes~PD~Theoretische Astronomie~~~3~2
-1834s~[105]~v-338~ehrenberg_kf~Ehrenberg~Karl Ferdinand von~PD~Allgemeine Baukunst und Aesthetik derselben~~~4~2
-1834s~[106]~v-339~ehrenberg_kf~Ehrenberg~Karl Ferdinand von~PD~Strassen-, Brücken- und Wasserbaukunst~~~4~2
-1834s~[107]~v-340~oken_l~Oken~Lorenz~O~Naturgeschichte, zweiter Theil, nach seiner Naturgeschichte für Schulen~~Mo, Di, Do, Fr 5-6~4~2
-1834s~[108]~v-341~schinz_hr~Schinz~Heinrich Rudolf~EO~Anthropologie für Nichtärzte~~~~2
-1834s~[109]~v-342~schinz_hr~Schinz~Heinrich Rudolf~EO~Zoologie~~~~2
-1834s~[110]~v-343~heer_o~Heer~Oswald~PD~Grundzüge der Botanik~~~5~2
-1834s~[111]~v-344~escher-linth_a~Escher von der Linth~Arnold~PD~Geognosie~~~4~2
-1834s~[112]~v-345~froebel_j~Fröbel~Julius~PD~Oryktognosie~~~4~2
-1834s~[113]~v-346~loewig_c~Löwig~Carl~EO~Experimental-Chemie mit besonderer Berücksichtigung des technischen Theils~~~5~2
-1834s~[114]~v-347~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Chemie der indifferenten Verbindungen des Pflanzen- und Thierreichs~öffentlich~~1~2
-1834s~[115]~v-348~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Practische Uebungen im Laboratorium, verbunden mit einem Vortrage über analytische Chemie~~~~2
+1833s~1~v-1~rettig_h~Rettig~Heinrich~O~Dogmatik~~~8~4
+1833s~2~v-2~rettig_h~Rettig~Heinrich~O~Kirchengeschichte~~~4~4
+1833s~3~v-3~hitzig_f~Hitzig~Ferdinand~O~Erklärung des Pentateuch's~~~6~4
+1833s~4~v-4~hitzig_f~Hitzig~Ferdinand~O~Erklärung der Propheten Joël und Amos~~~3~4
+1833s~5~v-5~hitzig_f~Hitzig~Ferdinand~O~Hebräisch-jüdische Archäologie, oder Geschichte, Geographie und Antiquitäten der Hebräer, nach de Wette's Lehrbuche~~~4~4
+1833s~6~v-6~hirzel_l~Hirzel~Ludwig~EO~Theologische Enzyklopädie und Methodologie~~~4~4
+1833s~7~v-7~hirzel_l~Hirzel~Ludwig~EO~Biblische Theologie des Neuen Testamentes, oder kritische Darstellung der Religionslehre des Urchristenthums~~~2~4
+1833s~8~v-8~usteri_hk~Usteri~Hans Kaspar~PD~Erklärung von Paulus Brief an die Römer~~~3~4
+1833s~9~v-9~schinz_wh~Schinz~Wilhelm Heinrich~PD~Erklärung der Briefe an die Kolosser, Epheser und an Philemon~~~3~4
+1833s~10~v-10~ulrich_m~Ulrich~Melchior~PD~Erklärung des ersten Briefes an die Korinther~~~4~4
+1833s~11~v-11~usteri_hk~Usteri~Hans Kaspar~PD~Christliche Archäologie oder kirchengeschichtliche Alterthumskunde~~~3~4
+1833s~12~v-12~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Einleitung in die gesammte Rechtswissenschaft nach Falk's juristischer Encyklopädie, 3te Aufl., Kiel 1830~~~4~3
+1833s~13~v-13~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Deutsches Privatrecht mit Einschluss des Handelsrechts nach Eichhorns Lehrbuch, 3te Aufl., Göttingen 1829~~~8~3
+1833s~14~v-14~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Geschichte der städtischen Verfassung~~~2-3~3
+1833s~15~v-15~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Deutsche Rechtsalterthümer~~~2~3
+1833s~16~v-16~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Exegese wichtiger Stellen des Sachsenspiegels (Ausgabe von Homeyer, Berlin 1827)~~~1~3
+1833s~17~v-17~snell_jw~Snell~Johann Wilhelm~O~Pandekten~~~12~3
+1833s~18~v-18~snell_jw~Snell~Johann Wilhelm~O~Gemeines deutsches Kriminalrecht mit Rücksicht auf neuere, besonders schweizerische Gesetzgebungen~~~6~3
+1833s~19~v-19~bluntschli_jc~Bluntschli~Johann Caspar~EO~Rechtsgeschichte und Institutionen des römischen Rechts~~~10~3
+1833s~20~v-20~weiland_c~Weiland~Carl~PD~Römisches Erbrecht~~~3~3
+1833s~21~v-21~weiland_c~Weiland~Carl~PD~Erklärung der Institutionen des Gaius, mit Vergleichung derjenigen des Justinianus und mit Beiziehung der übrigen rechtsgeschichtlichen Quellen~~~4~3
+1833s~22~v-22~keller_fl~Keller~Friedrich Ludwig~EO~Abriss des Zürcherischen Civilprocesses mit praktischen Uebungen, vorzüglich für das mündliche Verfahren~~~4~3
+1833s~23~v-23~escher_h-1789~Escher~Heinrich~EO~Theorie der Staatswissenschaft nach Rau's Lehrbuch der politischen Oekonomie, Heidelberg 1829~~~4~3
+1833s~24~v-24~escher_h-1789~Escher~Heinrich~EO~Erklärung und Prüfung von Montesquieu's Geist der Gesetze, nebst der einschlägigen Literatur~~~4~3
+1833s~25~v-25~escher_h-1789~Escher~Heinrich~EO~Kriminalprocess, nach Mittermaiers deutschem Strafverfahren~~~4~3
+1833s~26~v-26~sartorius_jb~Sartorius~Johann Baptist~PD~Allgemeines Staatsrecht, mit besonderer Rücksicht auf die Institutionen der Schweiz~~~6~3
+1833s~27~v-27~gidoni_f~Gidoni~Franz~PD~Cours du droit public, appliqué aux progrès des sociétés modernes~~~2-3~3
+1833s~28~v-28~schoenlein_jl~Schönlein~Johann Lukas~O~Specielle Pathologie und Therapie~~~6~1
+1833s~29~v-29~schoenlein_jl~Schönlein~Johann Lukas~O~Medicinische Diagnostik~~~2~1
+1833s~30~v-30~schoenlein_jl~Schönlein~Johann Lukas~O~Leitung der medicinischen Klinik~~Mo-Sa~~1
+1833s~31~v-31~locher-zwingli_h~Locher-Zwingli~Heinrich~EO~Chirurgie~~~5~1
+1833s~32~v-32~locher-zwingli_h~Locher-Zwingli~Heinrich~EO~Chirurgische Klinik~~~~1
+1833s~33~v-33~spoendly_hc~Spöndly~Hans Conrad~EO~Geburtshülfe~~~5~1
+1833s~34~v-34~spoendly_hc~Spöndly~Hans Conrad~EO~Geburtshülfliche Klinik~~~~1
+1833s~35~v-35~demme_h~Demme~Hermann~EO~Theoretische Anatomie des gesunden menschlichen Körpers, erste Hälfte: Osteologie, Syndesmologie, Myologie, Splanchnologie~~~5~1
+1833s~36~v-36~demme_h~Demme~Hermann~EO~Histologie~~~3~1
+1833s~37~v-37~demme_h~Demme~Hermann~EO~Chirurgische Anatomie~~~4~1
+1833s~38~v-38~demme_h~Demme~Hermann~EO~Ueber Blutungen aus äusserer Verletzung und Blutstillung, mit vergleichenden Versuchen über Ligatur und Torsion der Arterien an lebenden Thieren~~~2~1
+1833s~39~v-39~demme_h~Demme~Hermann~EO~Ueber das Heinische Osteotom, seine Anwendung auf Trepanation und Resektion und die dabei zu befolgenden Operations-Typen~~~2~1
+1833s~40~v-40~meyer_hc~Meyer~Hans Conrad~PD~Ueber Krankheiten der Knochen und der Gelenke~~~3~1
+1833s~41~v-41~meyer_hc~Meyer~Hans Conrad~PD~Verband- und Instrumentenlehre~~~2~1
+1833s~42~v-42~meyer_hc~Meyer~Hans Conrad~PD~Operativchirurgie~~~4~1
+1833s~43~v-43~muralt_l~Muralt~Leonhard von~PD~Praktischer Kurs über Augenoperationen~~~2~1
+1833s~44~v-44~locher-balber_h~Locher-Balber~Hans~EO~"Propädeutik zum Studium der Medicin nach seinen ""Grundzügen der Propädeutik"", Zürich 1832"~~~4~1
+1833s~45~v-45~locher-balber_h~Locher-Balber~Hans~EO~Semiotik nach F. G. Danz allg. medic. Zeichenlehre, neu bearb. v. Heinroth~~~2~1
+1833s~46~v-46~finsler_hj~Finsler~Hans Jakob~PD~Medicinische Receptirkunst~~~2~1
+1833s~47~v-47~finsler_hj~Finsler~Hans Jakob~PD~Pharmaceutische Chemie~~~5~1
+1833s~48~v-48~finsler_hj~Finsler~Hans Jakob~PD~Pharmakognosie, oder zweiter Theil der Pharmacie~~~5~1
+1833s~49~v-49~finsler_hj~Finsler~Hans Jakob~PD~Die Lehre von den Giften~~~2~1
+1833s~50~v-50~hess_hr~Hess~Hans Rudolf~PD~Pharmaceutische Chemie~~~5~1
+1833s~51~v-51~schinz_cs~Schinz~Christoph Salomon~PD~Pharmakologie~~~3~1
+1833s~52~v-52~bobrik_e~Bobrik~Eduard~O~Allgemeine Einleitung in die Philosophie~~~4~2
+1833s~53~v-53~bobrik_e~Bobrik~Eduard~O~Logik~~~4~2
+1833s~54~v-54~bobrik_e~Bobrik~Eduard~O~Empirische und rationelle Psychologie~~~5~2
+1833s~55~v-55~bobrik_e~Bobrik~Eduard~O~Pädagogik~~~4~2
+1833s~56~v-56~snell_l~Snell~Ludwig~EO~Geschichte der alten Philosophie, insbesondere der Griechen und Römer, mit besonderer Rücksicht auf das klassische Zeitalter dieser Völker, als Einleitung in das Studium der Philosophie~~~5~2
+1833s~57~v-57~oken_l~Oken~Lorenz~O~Allgemeine Naturgeschichte~~~4~2
+1833s~58~v-58~oken_l~Oken~Lorenz~O~Physiologie des Menschen~~~4~2
+1833s~59~v-59~oken_l~Oken~Lorenz~O~Vergleichende Osteologie~~~4~2
+1833s~60~v-60~schinz_hr~Schinz~Heinrich Rudolf~EO~Vergleichende Physiologie~~~4~2
+1833s~61~v-61~schulthess_hr~Schulthess~Hans Rudolf~PD~Botanik~~~4~2
+1833s~62~v-62~horner_l~Horner~Ludwig~PD~Mineralogie und Geologie~~~5~2
+1833s~63~v-63~escher_g~Escher~Gottfried von~PD~Physik, erster Theil, oder Einleitung in die Physik, Lehre von der Schwere, von den Molekularkräften, von der Elektricität, vom Magnetismus und Elektromagnetismus~~~4~2
+1833s~64~v-64~loewig_c~Löwig~Carl~EO~Experimental-Chemie, nach seinem Lehrbuche der Chemie, Heidelberg 1832~~~5~2
+1833s~65~v-65~finsler_hj~Finsler~Hans Jakob~PD~Lehre von den chemischen Reagentien~~~3~2
+1833s~66~v-66~eschmann_j~Eschmann~Johannes~PD~Reine Mathematik~~~6~2
+1833s~67~v-67~graeffe_kh~Gräffe~Karl Heinrich~PD~Differenzial- und Integral-Rechnung, nebst einer kombinatorischen Entwickelung der vorzüglichsten Reihen, als Einleitung~~~6~2
+1833s~68~v-68~raabe_jl~Raabe~Joseph Ludwig~PD~Analytische Mechanik sammt deren Anwendung auf das Weltgebäude~~~4~2
+1833s~69~v-69~raabe_jl~Raabe~Joseph Ludwig~PD~Theorie der partiellen Differenzialgleichungen, deren Integrazion und Anwendung derselben auf einige Theile der Physik~~~2~2
+1833s~70~v-70~eschmann_j~Eschmann~Johannes~PD~Populäre Astronomie~~~1~2
+1833s~71~v-71~eschmann_j~Eschmann~Johannes~PD~Beobachtende und rechnende Astronomie~~~3~2
+1833s~72~v-72~ehrenberg_kf~Ehrenberg~Karl Ferdinand von~PD~Allgemeine bürgerliche und höhere Baukunst, Strassen-, Brücken- und Wasserbau~~~4~2
+1833s~73~v-73~weiland_c~Weiland~Carl~PD~Geschichte der Staaten des Alterthums~~~5~2
+1833s~74~v-74~escher_h-1781~Escher~Heinrich~PD~Geschichte des Mittelalters bis zum Untergange der Hohenstaufen und Encyklopädie der historischen Wissenschaften als Einleitung~~~4~2
+1833s~75~v-75~hottinger_jj~Hottinger~Johann Jakob~EO~Einleitung in die Geschichte der Eidsgenossenschaft~~~3~2
+1833s~76~v-76~hottinger_jj~Hottinger~Johann Jakob~EO~Geschichte der Eidsgenossenschaft vom Stanzerverkommniss bis zur Unabhängigkeitserklärung durch den westphälischen Frieden~~~3~2
+1833s~77~v-77~gidoni_f~Gidoni~Franz~PD~Cours d'histoire moderne~~~4~2
+1833s~78~v-78~hardmeyer_cw~Hardmeyer~Carl Wilhelm~PD~Uebersicht der modernen Kunst und Literatur, ihrer Entstehung und ihres Entwicklungsganges bei den Hauptnationen Europa's mit Hinsicht auf die Kultur- und Staatsgeschichte derselben~~~3~2
+1833s~79~v-79~ettmueller_eml~Ettmüller~Ernst Moritz Ludwig~PD~Deutsche Alterthümer~~~2~2
+1833s~80~v-80~winkelmann_aw~Winkelmann~August Wilhelm~PD~Encyklopädie und Methodologie der philologischen Wissenschaften~~~2~2
+1833s~81~v-81~baiter_jg~Baiter~Johann Georg~PD~Griechische Alterthümer~~~4~2
+1833s~82~v-82~baiter_jg~Baiter~Johann Georg~PD~Geschichte der Griechischen Sprache und Grammatik~~~1~2
+1833s~83~v-83~winkelmann_aw~Winkelmann~August Wilhelm~PD~Syntax der griechischen Sprache~~~4~2
+1833s~84~v-84~sauppe_h~Sauppe~Hermann~PD~Syntax der griechischen Sprache~~~3~2
+1833s~85~v-85~mueller_kw~Müller~Karl Wilhelm~PD~Ueber das Studium Homers~~~2~2
+1833s~86~v-86~voegelin_as~Vögelin~Anton Salomon~PD~Sophokles, Oedipus auf Kolonos~~~2~2
+1833s~87~v-87~baiter_jg~Baiter~Johann Georg~PD~Sophokles, Antigone~~~2~2
+1833s~88~v-88~baiter_jg~Baiter~Johann Georg~PD~Lykurgos, Rede gegen den Leokrates~~~3~2
+1833s~89~v-89~weiland_c~Weiland~Carl~PD~Erklärung der Bücher Platons vom Staate, mit staatswissenschaftlichen Erläuterungen verbunden~~~4~2
+1833s~90~v-90~winkelmann_aw~Winkelmann~August Wilhelm~PD~Erklärung von Plato's Büchern über den Staat~~~2~2
+1833s~91~v-91~keller_fl~Keller~Friedrich Ludwig~EO~Erklärung einzelner Reden und rhetorischer Schriften Cicero's aus den Antiquitäten des öffentlichen und Privatrechts~~~3~2
+1833s~92~v-92~mueller_kw~Müller~Karl Wilhelm~PD~Tacitus, Annalen~~~4~2
+1833s~93~v-93~winkelmann_aw~Winkelmann~August Wilhelm~PD~Iuvenals Satiren~~~2~2
+1833s~94~v-94~orelli_jk~Orelli~Johann Kaspar von~EO~Erklärung des Heautontimorumenos des Terentius, nach Faernus Recension~~~3~2
+1833s~95~v-95~orelli_jk~Orelli~Johann Kaspar von~EO~Appuleius, Psyche und Amor, mit Rücksicht auf die Mischung der ältern und spätern Latinität~~~3~2
+1833s~96~v-96~orelli_jk~Orelli~Johann Kaspar von~EO~Plinius, Briefe, zehntes Buch, kritisch behandelt~~~3~2
+1833s~97~v-97~orelli_jk~Orelli~Johann Kaspar von~EO~v. Raumer's Handbuch merkwürdiger Stellen aus den Lat. Geschichtschreibern des Mittelalters, Breslau 1813,~~~3~2
+1833s~98~v-98~orelli_jk~Orelli~Johann Kaspar von~EO~Geschichte der römischen Litteratur, mit Rücksicht auf die Leistungen der Kritiker seit Petrarca~~~2~2
+1833s~99~v-99~sauppe_h~Sauppe~Hermann~PD~Uebungen im Lateinisch Sprechen und Schreiben~~~3~2
+1833s~100~v-100~hitzig_f~Hitzig~Ferdinand~O~Elemente der arabischen Sprache~~~2~2
+1833s~101~v-101~ettmueller_eml~Ettmüller~Ernst Moritz Ludwig~PD~Erklärung des Nibelungenliedes nach Lachmann's Ausgabe~~~3~2
+1833s~102~v-102~orelli_jk~Orelli~Johann Kaspar von~EO~Spiegazione dell' Orlando furioso di M. Lodovico Ariosto~~~2~2
+1833s~103~v-103~daverio_lh~Daverio~Ludwig Herkules~PD~Vorträge über Italiänische Sprache und Literatur~~~4~2
+1833s~104~v-104~sangrain_ja~Sangrain~Jakob Anton~PD~Cours de littérature française~~~4~2
+1833s~105~v-105~sangrain_ja~Sangrain~Jakob Anton~PD~Cours pratique, théorique et grammatical de la langue française~~~4~2
+1833w~1~v-106~hitzig_f~Hitzig~Ferdinand~O~Einleitung in das alte Testament~~3x 9-10~3~4
+1833w~2~v-107~hirzel_l~Hirzel~Ludwig~EO~Einleitung in das Neue Testament~~Mo, Mi, Fr 8-9~3~4
+1833w~3~v-108~hitzig_f~Hitzig~Ferdinand~O~Erklärung des Propheten Jesajas, nach seinem Commentar (Heidelberg 1833)~~5x 15-16~5~4
+1833w~4~v-109~hitzig_f~Hitzig~Ferdinand~O~Erklärung der Propheten Joel und Amos~~2x~~4
+1833w~5~v-110~rettig_h~Rettig~Heinrich~O~Synopsis der drei ersten Evangelien~~Mo-Do 5-6~4~4
+1833w~6~v-111~usteri_hk~Usteri~Hans Kaspar~PD~Erklärung des Evangeliums Johannis~~3x~~4
+1833w~7~v-112~schulthess_j~Schulthess~Johannes~EO~Erklärung des Briefes Pauli an die Römer~~Mo-Do 10-11~4~4
+1833w~7a~v-113~schinz_wh~Schinz~Wilhelm Heinrich~PD~Erklärung des Briefes Pauli an die Römer~~3x~~4
+1833w~8~v-114~ulrich_m~Ulrich~Melchior~PD~Erklärung der beiden Briefe Pauli an die Corinther~~5x 7-8~5~4
+1833w~9~v-115~zimmermann_jh~Zimmermann~Johann Heinrich~PD~Erklärung des zweiten Briefes an die Corinther mit vorherrschend praktischer Beziehung~~~2~4
+1833w~10~v-116~schinz_wh~Schinz~Wilhelm Heinrich~PD~Erklärung der beiden Briefe Pauli an die Thessalonicher~öffentlich~1x~1~4
+1833w~11~v-117~rettig_h~Rettig~Heinrich~O~Fortsetzung exegetischer Uebungen~~~~4
+1833w~12~v-118~schulthess_j~Schulthess~Johannes~EO~Geschichte der Religionen~~2x 10-11~2~4
+1833w~13~v-119~rettig_h~Rettig~Heinrich~O~Kirchengeschichte erster Theil~~Mo-Sa 11-12, Fr, Sa 5-6~8~4
+1833w~14~v-120~usteri_hk~Usteri~Hans Kaspar~PD~Christliche Archäologie~~2x~~4
+1833w~15~v-121~hirzel_l~Hirzel~Ludwig~EO~Biblische Theologie des Neuen Testamentes~~3x 14-15~3~4
+1833w~16~v-122~hess_s~Hess~Salomon~EO~Christliche Moral~~5x~~4
+1833w~17~v-123~hess_s~Hess~Salomon~EO~Homiletik mit praktischen Uebungen~~5x~~4
+1833w~18~v-124~schauberg_j~Schauberg~Joseph~PD~Allgemeine Geschichte und Encyclopädie der Staatswissenschaften~~4x 9-10~4~3
+1833w~19~v-125~sartorius_jb~Sartorius~Johann Baptist~PD~Encyclopädie und Methodologie der Rechtswissenschaften~~3x 15-16~3~3
+1833w~20~v-126~snell_jw~Snell~Johann Wilhelm~O~Philosophische Rechtslehre~~~~3
+1833w~21~v-127~sartorius_jb~Sartorius~Johann Baptist~PD~Allgemeine Staatslehre in ihrer philosophischen Begründung mit Berücksichtigung positiver, namentlich schweizerischer Institute~~5x 5-6~5~3
+1833w~22~v-128~snell_jw~Snell~Johann Wilhelm~O~Geschichte und Institutionen des Römischen Rechts~~Mo-Sa 10-11, 2x 14-15~8~3
+1833w~23~v-129~bluntschli_jc~Bluntschli~Johann Caspar~EO~Pandecten nach Blume's Grundriss (Halle 1829)~~Mo, Di, Do, Fr 10-12, Mi 14-16~10~3
+1833w~24~v-130~bluntschli_jc~Bluntschli~Johann Caspar~EO~Exegetische Uebungen mit steter Berücksichtigung der Vorlesungen über Pandecten~privatissime~Sa 10-12~2~3
+1833w~25~v-131~weiland_c~Weiland~Carl~PD~Erklärung der Institutionen des Gajus mit Vergleichung derjenigen des Justinianus und mit Beiziehung der übrigen rechtsgeschichtlichen Quellen~~4x 14-15~4~3
+1833w~26~v-132~weiland_c~Weiland~Carl~PD~Exegeticum über Tit. Pand. ad legem Falcidiam~öffentlich~1x~~3
+1833w~27~v-133~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Deutsches Privatrecht mit Ausschluss des Handels-, Wechsel- und Seerechts nach Eichhorn's Lehrbuch~~~6~3
+1833w~28~v-134~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Handels-, Wechsel- und Seerecht nach Martens Lehrbuch~~4x 15-16~4~3
+1833w~29~v-135~keller_fl~Keller~Friedrich Ludwig~EO~Zürcherisches Partikularrecht mit Inbegriff des Wechselrechtes und mit Rücksicht auf die übrigen Kantone der deutschen Schweiz. Erste Hälfte~~Mi, Fr 7-9~4~3
+1833w~30~v-136~weiland_c~Weiland~Carl~PD~Französisches Privatrecht, in steter Vergleichung mit dem Römischen~~Mo-Sa 16-17~6~3
+1833w~31~v-137~schauberg_j~Schauberg~Joseph~PD~Kriminalrecht mit besonderer Rücksicht auf die neuern Strafgesetzgebungen der schweizerischen Kantone~~Mo-Sa 8-9~6~3
+1833w~32~v-138~weiland_c~Weiland~Carl~PD~Kirchenrecht zugleich als Geschichte der Gesellschaftsverfassung der christlichen Kirche~~5x 6-7~5~3
+1833w~33~v-139~schauberg_j~Schauberg~Joseph~PD~Allgemeines und europäisches Völkerrecht~~4x 14-15~4~3
+1833w~34~v-140~escher_h-1789~Escher~Heinrich~EO~Civilprocess nach Martins Lehrbuch~~5x 9-10~5~3
+1833w~35~v-141~snell_jw~Snell~Johann Wilhelm~O~Kriminalprocess und Kriminalpracticum~~4x 11-12~4~3
+1833w~36~v-142~sartorius_jb~Sartorius~Johann Baptist~PD~Civilprocess-Practicum und Relatorium mit Uebungen im Fache des Anwaltes und Richters~~2x 15-16~2~3
+1833w~37~v-143~escher_h-1789~Escher~Heinrich~EO~Politische Oekonomie nach Rau's Lehrbuch der politische Oekonomie~~5x 11-12~5~3
+1833w~38~v-144~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~"Deutsche und schweizerische Staats- und Rechtsgeschichte mit Beiziehung auf seine Schrift: ""Geschichte der deutschen Reichs- und Territorialverfassung (Heidelberg 1832)"""~~4x 16-17 oder 5-6~4~3
+1833w~39~v-145~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Deutsche Rechtsalterthümer~öffentlich~1x~~3
+1833w~40~v-146~gidoni_f~Gidoni~Franz~PD~Cours de droit public, appliqué aux progrès des sociétés modernes~~Mo, Mi, Fr~~3
+1833w~40a~v-147~linz_f~Linz~Ferdinand~PD~Gemeiner deutscher Civilprozess nach Martin~~~6~3
+1833w~40b~v-148~linz_f~Linz~Ferdinand~PD~Katholisches und protestantisches Kirchenrecht nach Walters Lehrbuch~~~4~3
+1833w~40c~v-149~linz_f~Linz~Ferdinand~PD~Deutsche Reichs- und Staatsgeschichte nach Lindeloff~~~4~3
+1833w~40d~v-150~linz_f~Linz~Ferdinand~PD~Examinatorien und Repetitorien in einzelnen Theilen des Rechts~~~~3
+1833w~41~v-151~demme_h~Demme~Hermann~EO~Specielle Anatomie~~~6~1
+1833w~42~v-152~demme_h~Demme~Hermann~EO~Leitung der Secirübungen~~~2~1
+1833w~43~v-153~demme_h~Demme~Hermann~EO~Pathologische Anatomie~~~4~1
+1833w~44~v-154~hodes_m~Hodes~Martin~PD~Osteologie und Syndesmologie~~~2~1
+1833w~45~v-155~hodes_m~Hodes~Martin~PD~Examinatorien über die gesammte Anatomie und privatissime über einzelne Theile derselben~~~~1
+1833w~46~v-156~pommer_cf~Pommer~Christoph Friedrich von~O~Physiologie des Menschen mit vergleichenden Andeutungen dieser Lehre bei Thieren und Pflanzen~~~~1
+1833w~47~v-157~loewig_c~Löwig~Carl~EO~Medicinische Chemie~~4x~~1
+1833w~48~v-158~finsler_hj~Finsler~Hans Jakob~PD~Pharmacognosie~~5x 14-15~5~1
+1833w~49~v-159~finsler_hj~Finsler~Hans Jakob~PD~Medicinische Receptirkunst~~~2~1
+1833w~50~v-160~finsler_hj~Finsler~Hans Jakob~PD~Pharmaceutische Chemie~~4x 8-9~4~1
+1833w~51~v-161~hess_hr~Hess~Hans Rudolf~PD~Pharmaceutische Chemie~~~4~1
+1833w~52~v-162~locher-balber_h~Locher-Balber~Hans~EO~"Praktische Arzneimittellehre, nach ""Vogt's Pharmakodynamik 1832"""~~~5~1
+1833w~53~v-163~schinz_cs~Schinz~Christoph Salomon~PD~Praktische Arzneimittellehre~~Mo, Di, Do, Fr 15-16~4~1
+1833w~54~v-164~hodes_m~Hodes~Martin~PD~Gerichtliche Medicin~~~4~1
+1833w~55~v-165~pommer_cf~Pommer~Christoph Friedrich von~O~Allgemeine Pathologie mit vergleichenden Andeutungen dieser Lehre bei Thieren und Pflanzen~~~~1
+1833w~56~v-166~schoenlein_jl~Schönlein~Johann Lukas~O~Specielle Pathologie und Therapie~~~6~1
+1833w~57~v-167~schoenlein_jl~Schönlein~Johann Lukas~O~Syphilitische Krankheiten mit praktischen Vorweisungen am Krankenbette~~~2~1
+1833w~58~v-168~locher-zwingli_h~Locher-Zwingli~Heinrich~EO~Theoretische Chirurgie~~~5~1
+1833w~59~v-169~locher-balber_h~Locher-Balber~Hans~EO~Augen-Heilkunde, nach Beck's Handbuch der Augenheilkunde, 1832~~~3~1
+1833w~60~v-170~meyer_hc~Meyer~Hans Conrad~PD~Lehre von den Krankheiten der Gehörorgane~~~2~1
+1833w~61~v-171~spoendly_hc~Spöndly~Hans Conrad~EO~Theoretische Geburtshülfe~~~4~1
+1833w~62~v-172~locher-zwingli_h~Locher-Zwingli~Heinrich~EO~Uebungen in chirurgischen Operazionen an Leichnamen~~~~1
+1833w~63~v-173~spoendly_hc~Spöndly~Hans Conrad~EO~Uebungen in geburtshülflichen Operazionen am Phantome~~~2~1
+1833w~64~v-174~schoenlein_jl~Schönlein~Johann Lukas~O~Medicinische Clinik im Kantonshospital~~Mo-Sa 9-10~6~1
+1833w~65~v-175~locher-zwingli_h~Locher-Zwingli~Heinrich~EO~Chirurgische Clinik~~Mo-Sa 8-9~6~1
+1833w~66~v-176~spoendly_hc~Spöndly~Hans Conrad~EO~Geburtshülfliche Clinik~~~~1
+1833w~67~v-177~snell_l~Snell~Ludwig~EO~Geschichte der alten Philosophie, zugleich als Einleitung in das Studium der Philosophie~~~5~2
+1833w~68~v-178~bobrik_e~Bobrik~Eduard~O~Dialektik und Rhetorik~privatim~Mo, Di, Do, Fr 15-16~4~2
+1833w~69~v-179~bobrik_e~Bobrik~Eduard~O~Psychologie~privatim~Mo, Di, Do, Fr 9-10~4~2
+1833w~70~v-180~bobrik_e~Bobrik~Eduard~O~Metaphysik~privatim~Mo, Di, Do, Fr 16-17~4~2
+1833w~71~v-181~bobrik_e~Bobrik~Eduard~O~Pädagogik~privatim~Mo, Di, Do, Fr 8-9~4~2
+1833w~72~v-182~bobrik_e~Bobrik~Eduard~O~Staatsphilosophie~publice~Mi, Sa 11-12~2~2
+1833w~73~v-183~hirzel_b~Hirzel~Bernhard~PD~Sanskrit-Grammatik~~3x~~2
+1833w~74~v-184~hirzel_b~Hirzel~Bernhard~PD~Erklärung einzelner Stücke aus indischen Epikern~~3x~~2
+1833w~75~v-185~hitzig_f~Hitzig~Ferdinand~O~Elemente der arabischen Sprache~publice~2x~~2
+1833w~76~v-186~hirzel_b~Hirzel~Bernhard~PD~Chaldäische Grammatik~~2x~~2
+1833w~77~v-187~winkelmann_aw~Winkelmann~August Wilhelm~PD~Erklärung des eilften Buches der Ilias~~Mo-Mi 7-8~3~2
+1833w~78~v-188~voegelin_as~Vögelin~Anton Salomon~PD~Aeschylus, Prometheus oder andere auserlesene Stücke griechischer Dramatiker~~~2~2
+1833w~79~v-189~baiter_jg~Baiter~Johann Georg~EO~Sophocles, Aiax~~Mi, Fr 7-8~2~2
+1833w~80~v-190~mueller_kw~Müller~Karl Wilhelm~PD~Aristophanes, Plutus, mit einem Vortrage über das Theater der Alten~~Mo, Do, Fr 9-10~3~2
+1833w~81~v-191~winkelmann_aw~Winkelmann~August Wilhelm~PD~Platon's Euthydemus, nebst einer Einleitung in das Studium Platon's~~Do-Sa 7-8~3~2
+1833w~82~v-192~sauppe_h~Sauppe~Hermann~PD~Platon's Phädrus und Symposion~~Mo, Do 14-15~2~2
+1833w~83~v-193~baiter_jg~Baiter~Johann Georg~EO~Demosthenes, Rede für die Krone~~Mo, Di, Do 7-8~3~2
+1833w~84~v-194~orelli_jk~Orelli~Johann Kaspar von~EO~Aristoteles, Poetik, nach Bekker's Ausgabe~~Di, Mi 11-12~2~2
+1833w~85~v-195~orelli_jk~Orelli~Johann Kaspar von~EO~Geschichte der lateinischen Literatur~~Di, Mi 16-17~2~2
+1833w~86~v-196~orelli_jk~Orelli~Johann Kaspar von~EO~Satyren des Horatius~~Mo, Do 11-12~2~2
+1833w~87~v-197~mueller_kw~Müller~Karl Wilhelm~PD~Ueber die satyrische Poesie der Römer, verbunden mit Erklärung der Satyren des Persius~~Mo, Mi, Fr 8-9~3~2
+1833w~88~v-198~keller_fl~Keller~Friedrich Ludwig~EO~Ueber ausgewählte Kapitel von Gellius, mit vorzüglicher Hinsicht auf die Antiquitäten des öffentlichen und Privat-Rechts~~Mo, Di, Do, Sa 7-8~4~2
+1833w~89~v-199~weiland_c~Weiland~Carl~PD~Cicero, de legibus und de republica~~4x~~2
+1833w~90~v-200~weiland_c~Weiland~Carl~PD~Erklärung der auf das Staats- und Privatrecht bezüglichen Stellen Cicero's~privatissime~~~2
+1833w~91~v-201~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Erklärung der Germania des Tacitus~~2x 15-16~2~2
+1833w~92~v-202~meyer_jh~Meyer~Johann Heinrich~PD~Erklärung des Quintilianus~~~3~2
+1833w~93~v-203~sauppe_h~Sauppe~Hermann~PD~Uebungen im Lateinisch-Schreiben und Sprechen~~Mo, Fr 15-16~2~2
+1833w~94~v-204~mueller_kw~Müller~Karl Wilhelm~PD~Geschichte der Kunst~~Mo, Di, Do, Fr 10-11~4~2
+1833w~95~v-205~ettmueller_eml~Ettmüller~Ernst Moritz Ludwig~PD~Geschichte der deutschen Literatur~~Mo, Di, Do, Sa 14-15~4~2
+1833w~96~v-206~ettmueller_eml~Ettmüller~Ernst Moritz Ludwig~PD~Ueber Lyrik des Mittelalters, mit besonderer Rücksicht auf Walther's von der Vogelweide Gedichte, nach Lachmann's Ausgabe~~~~2
+1833w~97~v-207~ettmueller_eml~Ettmüller~Ernst Moritz Ludwig~PD~Hartmann's von der Ouwe Iwein nach Lachmann's Ausgabe~~Di, Fr 14-15~2~2
+1833w~98~v-208~bobrik_e~Bobrik~Eduard~O~Erklärung von Walter Scott's the lady of the lake, nebst praktischen Uebungen im Englischen~privatim~4x~~2
+1833w~99~v-209~gidoni_f~Gidoni~Franz~PD~Corso di letteratura italiana, cominciante dal 14 secolo~~Di, Do, Sa~3~2
+1833w~100~v-210~daverio_lh~Daverio~Ludwig Herkules~PD~Vorlesungen über die neuere italienische Literatur, vom Ende des letzten Jahrhunderts bis auf die neueste Zeit~~3x~~2
+1833w~101~v-211~sangrain_ja~Sangrain~Jakob Anton~PD~Cours de littérature française~~3x 15-16~3~2
+1833w~102~v-212~sangrain_ja~Sangrain~Jakob Anton~PD~Cours pratique, théorique et grammatical de langue française~~3x 16-17~3~2
+1833w~103~v-213~escher_h-1781~Escher~Heinrich~PD~Geschichte des Mittelalters vom Ende des eilften Jahrhunderts an~~3x~~2
+1833w~104~v-214~hottinger_jj~Hottinger~Johann Jakob~EO~Geschichte der Eidgenossen vom westphälischen Frieden bis zum Jahr 1814~~4x 5-6~4~2
+1833w~105~v-215~hottinger_jj~Hottinger~Johann Jakob~EO~Literatur der Schweizergeschichte~~2x 5-6~2~2
+1833w~106~v-216~ettmueller_eml~Ettmüller~Ernst Moritz Ludwig~PD~Geschichte der Kreuzzüge~~~~2
+1833w~107~v-217~escher_h-1789~Escher~Heinrich~EO~Geschichte der französischen Revolution nach Mignet~~5x 5-6 oder 6-7~5~2
+1833w~108~v-218~gidoni_f~Gidoni~Franz~PD~Cours d'histoire moderne depuis Charles V.~~~3~2
+1833w~109~v-219~graeffe_kh~Gräffe~Karl Heinrich~PD~Reine Mathematik~~Mo-Sa 15-16~6~2
+1833w~110~v-220~raabe_jl~Raabe~Joseph Ludwig~PD~Analytische Mechanik~~Mo, Mi, Sa 11-12~3~2
+1833w~111~v-221~raabe_jl~Raabe~Joseph Ludwig~PD~Integralrechnungen und elliptische Functionen~~2x~~2
+1833w~112~v-222~ehrenberg_kf~Ehrenberg~Karl Ferdinand von~PD~Aesthetik der Architektur~~~2~2
+1833w~113~v-223~ehrenberg_kf~Ehrenberg~Karl Ferdinand von~PD~Strassenbaukunst~~~2~2
+1833w~114~v-224~froebel_j~Fröbel~Julius~PD~Encyclopädie der Naturwissenschaften~~4x~~2
+1833w~115~v-225~loewig_c~Löwig~Carl~EO~Experimental-Chemie, nach seinem Lehrbuch~~Mo-Sa 8-9~6~2
+1833w~116~v-226~oken_l~Oken~Lorenz~O~Naturgeschichte, erste Hälfte~~Mo, Di, Do, Fr 16-17~4~2
+1833w~117~v-227~oken_l~Oken~Lorenz~O~Naturphilosophie, nach seinem Lehrbuch, zweite Auflage~~[Mo, Di, Do, Fr?] 5-6~[4]~2
+1833w~118~v-228~schinz_hr~Schinz~Heinrich Rudolf~EO~Zoologie, nach Cuvier~~Do-Sa 11-12~3~2
+1833w~119~v-229~schinz_hr~Schinz~Heinrich Rudolf~EO~Vergleichende Physiologie~~Di, Mi, Sa 14-15~3~2
+1833w~120~v-230~schinz_hr~Schinz~Heinrich Rudolf~EO~Anthropologie für Nichtärzte~~4x~~2
+1833w~121~v-231~horner_l~Horner~Ludwig~PD~Mineralogie~~4x~~2
+1833w~122~v-232~horner_l~Horner~Ludwig~PD~Geologie~~3x~~2
+1833w~123~v-233~froebel_j~Fröbel~Julius~PD~Allgemeine Erdkunde~~5x~~2
+1834s~1~v-234~hitzig_f~Hitzig~Ferdinand~O~Erklärung der Psalmen~~4x 16-17~4~4
+1834s~2~v-235~hitzig_f~Hitzig~Ferdinand~O~Fortsetzung der Erklärung des Jesajas~~1x~1~4
+1834s~3~v-236~hitzig_f~Hitzig~Ferdinand~O~Erklärung des Daniel~~3x 10-11~3~4
+1834s~4~v-237~hirzel_l~Hirzel~Ludwig~EO~Einleitung in das Neue Testament~~4x 7-8~4~4
+1834s~5~v-238~rettig_h~Rettig~Heinrich~O~Synoptische Erklärung der Evangelien, erste Hälfte~~Mo-Do 5-6~4~4
+1834s~6~v-239~schulthess_j~Schulthess~Johannes~EO~Erklärung des Briefes Pauli an die Römer, nach seinem unter der Presse befindlichen Kommentar~~2x 9-10~2~4
+1834s~7~v-240~schinz_wh~Schinz~Wilhelm Heinrich~PD~Erklärung des Briefes Pauli an die Römer, in Verbindung mit dem Briefe an die Galater~~4x~~4
+1834s~8~v-241~usteri_hk~Usteri~Hans Kaspar~PD~Erklärung der Briefe an die Korinther~~2x~~4
+1834s~9~v-242~schinz_wh~Schinz~Wilhelm Heinrich~PD~Erklärung der Briefe an die Kolosser, Epheser und Philemon~~2x~~4
+1834s~10~v-243~ulrich_m~Ulrich~Melchior~PD~Erklärung der katholischen Briefe~~3x~~4
+1834s~11~v-244~schulthess_j~Schulthess~Johannes~EO~Geschichte der Religionen, Fortsetzung~~2x 9-10~2~4
+1834s~12~v-245~rettig_h~Rettig~Heinrich~O~Geschichte der christlichen Religion und Kirche, zweite Hälfte~~Mo-Sa 11-12, Fr, Sa 5-6~8~4
+1834s~13~v-246~ulrich_m~Ulrich~Melchior~PD~Geschichte des Lebens Pauli~~1x~1~4
+1834s~14~v-247~usteri_hk~Usteri~Hans Kaspar~PD~Kirchliche Archäologie~~1x~1~4
+1834s~15~v-248~hirzel_l~Hirzel~Ludwig~EO~Erklärung der Helvetischen Confession~~3x 11-12~3~4
+1834s~16~v-249~hess_s~Hess~Salomon~EO~Christliche Moral~~5x~~4
+1834s~17~v-250~schulthess_j~Schulthess~Johannes~EO~Entwurf eines pädagogischen Katechismus für die Volksschulen~~2x 9-10~2~4
+1834s~18~v-251~hess_s~Hess~Salomon~EO~Homiletik mit praktischen Uebungen~~5x~~4
+1834s~19~v-252~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Einleitung in die gesammte Rechtswissenschaft (Encyclopädie, Methodologie und Hermeneutik), mit Beziehung auf Falcks Lehrbuch der Encyclopädie~~Mo-Sa 9-10~6~3
+1834s~20~v-253~schauberg_j~Schauberg~Joseph~PD~Philosophische Rechtslehre (Naturrecht)~~4x 9-10~4~3
+1834s~21~v-254~bluntschli_jc~Bluntschli~Johann Caspar~EO~Geschichte und Institutionen des römischen Rechts~~Mo-Fr 7-9~10~3
+1834s~22~v-255~keller_fl~Keller~Friedrich Ludwig~EO~Römisches Erbrecht~~~5~3
+1834s~23~v-256~escher_h-1789~Escher~Heinrich~EO~Erklärung einzelner merkwürdiger Pandektenstellen~~~2~3
+1834s~24~v-257~sartorius_jb~Sartorius~Johann Baptist~PD~Allgemeine Staatswissenschaft mit Berücksichtigung positiver, namentlich schweizerischer Institute~~5x 11-12~5~3
+1834s~25~v-258~schauberg_j~Schauberg~Joseph~PD~Allgemeines und europäisches Völkerrecht nach Klüber~~4x 15-16~4~3
+1834s~26~v-259~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Handels-, Wechsel- und Seerecht nach Martens Lehrbuch~~~3~3
+1834s~27~v-260~linz_f~Linz~Ferdinand~PD~Katholisches und protestantisches Kirchenrecht nach Walter~~4x~~3
+1834s~28~v-261~keller_fl~Keller~Friedrich Ludwig~EO~Zürcherisches Partikularrecht mit Inbegriff des Wechselrechts und mit Rücksicht auf die übrigen Kantone der deutschen Schweiz. Erste Hälfte~~~~3
+1834s~29~v-262~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Deutsche und schweizerische Staats- und Rechtsgeschichte, mit Beziehung auf seine Schrift: Geschichte der deutschen Reichs- und Territorialverfassung. Heidelberg 1832~~5x 10-11~5~3
+1834s~30~v-263~linz_f~Linz~Ferdinand~PD~Deutsche Reichs- und Staatsgeschichte nach Lindeloff~~4x~~3
+1834s~31~v-264~weiland_c~Weiland~Carl~PD~Kirchenrecht zugleich als Geschichte der Gesellschaftsverfassung der christlichen Kirche~~5x~~3
+1834s~32~v-265~schauberg_j~Schauberg~Joseph~PD~Gemeines deutsches Strafrecht, mit besonderer Berücksichtigung der neuern Strafgesetzgebungen der schweizerischen Kantone~~Mo-Sa 10-11~6~3
+1834s~33~v-266~sartorius_jb~Sartorius~Johann Baptist~PD~Civilprocess~~5x 8-9~5~3
+1834s~34~v-267~linz_f~Linz~Ferdinand~PD~Gemeiner deutscher Civilprocess nach Martin~~6x~~3
+1834s~35~v-268~escher_h-1789~Escher~Heinrich~EO~Criminalprocess nach Henke's Darstellung~~5x~~3
+1834s~36~v-269~schauberg_j~Schauberg~Joseph~PD~Gemeiner deutscher Criminalprocess mit besonderer Berücksichtigung des öffentlichen und mündlichen Verfahrens~~~5~3
+1834s~37~v-270~escher_h-1789~Escher~Heinrich~EO~Volkswirthschaftslehre nach Rau's Grundsätzen der Volkswirthschaftslehre, 2te Aufl., Heidelberg 1833~~5x~~3
+1834s~38~v-271~weiland_c~Weiland~Carl~PD~Examinatorien und Repetitorien~~~~3
+1834s~39~v-272~linz_f~Linz~Ferdinand~PD~Examinatorien und Repetitorien~~~~3
+1834s~40~v-273~locher-balber_h~Locher-Balber~Hans~EO~Propädeutik zum Studium der Medizin, nach seinem eigenen Lehrbuche (Zürich 1832)~publice~~2~1
+1834s~41~v-274~demme_h~Demme~Hermann~EO~Osteologie und Myologie~~~~1
+1834s~42~v-275~demme_h~Demme~Hermann~EO~Neurologie~~~~1
+1834s~43~v-276~demme_h~Demme~Hermann~EO~Chirurgische Anatomie~~~~1
+1834s~44~v-277~hodes_m~Hodes~Martin~PD~Pathologische Anatomie~~~2~1
+1834s~45~v-278~hodes_m~Hodes~Martin~PD~Anatomie der Hernien~öffentlich~~~1
+1834s~46~v-279~oken_l~Oken~Lorenz~O~Physiologie des Menschen~~Mo, Di, Do, Fr ab 7~~1
+1834s~47~v-280~schinz_hr~Schinz~Heinrich Rudolf~EO~Vergleichende Physiologie~~~~1
+1834s~48~v-281~locher-balber_h~Locher-Balber~Hans~EO~Allgemeiner Theil der praktischen Arzneimittellehre mit Formulare nach Vogt's Lehrbüchern~~~4~1
+1834s~49~v-282~finsler_hj~Finsler~Hans Jakob~PD~Pharmacognosie~~~4~1
+1834s~50~v-283~loewig_c~Löwig~Carl~EO~Lehre von den Mineralgiften~~~2~1
+1834s~51~v-284~pommer_cf~Pommer~Christoph Friedrich von~O~Allgemeine Therapie~~~5~1
+1834s~52~v-285~pommer_cf~Pommer~Christoph Friedrich von~O~Gerichtliche Medizin~~~5~1
+1834s~53~v-286~schoenlein_jl~Schönlein~Johann Lukas~O~Specielle Pathologie und Therapie~~~6~1
+1834s~54~v-287~schoenlein_jl~Schönlein~Johann Lukas~O~Ueber syphilitische Krankheiten~~~2~1
+1834s~55~v-288~locher-zwingli_h~Locher-Zwingli~Heinrich~EO~Theoretische und praktische Chirurgie~~~5~1
+1834s~56~v-289~locher-zwingli_h~Locher-Zwingli~Heinrich~EO~Operationskurs~~~2~1
+1834s~57~v-290~meyer_hc~Meyer~Hans Conrad~PD~Verbandlehre~~~~1
+1834s~58~v-291~muralt_l~Muralt~Leonhard von~PD~Ophthalmologie~~~~1
+1834s~59~v-292~spoendly_hc~Spöndly~Hans Conrad~EO~Theoretische Geburtshülfe~~~4~1
+1834s~60~v-293~spoendly_hc~Spöndly~Hans Conrad~EO~Uebungen am Phantome~~~2~1
+1834s~61~v-294~schoenlein_jl~Schönlein~Johann Lukas~O~Medicinische Klinik im Kantonshospital~~Mo-Sa 9-10~6~1
+1834s~62~v-295~locher-zwingli_h~Locher-Zwingli~Heinrich~EO~Chirurgische Klinik~~Mo-Sa 8-9~6~1
+1834s~63~v-296~spoendly_hc~Spöndly~Hans Conrad~EO~Geburtshülfliche Klinik~~~~1
+1834s~64~v-297~bobrik_e~Bobrik~Eduard~O~Allgemeine Einleitung in die Philosophie~~Mo, Di, Do, Fr 8-9~4~2
+1834s~65~v-298~bobrik_e~Bobrik~Eduard~O~Psychologie~~Mo, Di, Do, Fr 6-7~4~2
+1834s~66~v-299~bobrik_e~Bobrik~Eduard~O~Logik~~Mo, Di, Do, Fr 7-8~4~2
+1834s~67~v-300~bobrik_e~Bobrik~Eduard~O~Geschichte der Philosophie des Alterthums~~Mo, Di, Do, Fr 15-16~4~2
+1834s~68~v-301~snell_l~Snell~Ludwig~EO~Entwicklung der vier Hauptsysteme der griechischen Philosophie~~~3~2
+1834s~69~v-302~snell_l~Snell~Ludwig~EO~Philosophische Begründung der Principien der neuern schweizerischen Kantonalverfassungen~~~2~2
+1834s~70~v-303~hirzel_b~Hirzel~Bernhard~PD~Sanskrit-Grammatik~~~~2
+1834s~71~v-304~hirzel_b~Hirzel~Bernhard~PD~Erklärung indischer Epiker~~~~2
+1834s~72~v-305~hitzig_f~Hitzig~Ferdinand~O~Vorlesungen über hebräische Grammatik nach Ewald~~3x 10-11~3~2
+1834s~73~v-306~hitzig_f~Hitzig~Ferdinand~O~Elemente der arabischen Grammatik~~~2~2
+1834s~74~v-307~sauppe_h~Sauppe~Hermann~PD~Geschichte der griechischen Poesie~~~3~2
+1834s~75~v-308~winkelmann_aw~Winkelmann~August Wilhelm~PD~Griechische und Lateinische Metrik~~~2~2
+1834s~76~v-309~voegelin_as~Vögelin~Anton Salomon~PD~Aeschylus, Prometheus~~~2~2
+1834s~77~v-310~baiter_jg~Baiter~Johann Georg~EO~Sophocles, Oedipus auf Kolonos~~~3~2
+1834s~78~v-311~sauppe_h~Sauppe~Hermann~PD~Aristophanes, Ritter~privatissime~~2~2
+1834s~79~v-312~winkelmann_aw~Winkelmann~August Wilhelm~PD~Platon's Gorgias und Protagoras~privatim~~2~2
+1834s~80~v-313~voegelin_as~Vögelin~Anton Salomon~PD~Platon's Phädrus~~~2~2
+1834s~81~v-314~baiter_jg~Baiter~Johann Georg~EO~Thukydides erstes und zweites Buch~privatissime~~2~2
+1834s~82~v-315~orelli_jk~Orelli~Johann Kaspar von~EO~Demosthenes, Rede gegen den Leptines~~~3~2
+1834s~83~v-316~orelli_jk~Orelli~Johann Kaspar von~EO~Geschichte der lateinischen Literatur, zweite Hälfte und Uebersicht der Geschichte der Philologie~~~2~2
+1834s~84~v-317~winkelmann_aw~Winkelmann~August Wilhelm~PD~Syntax der lateinischen Sprache~~~4~2
+1834s~85~v-318~orelli_jk~Orelli~Johann Kaspar von~EO~Ausgewählte Stellen des Lucretius, nach seinen Eclogis poëtarum Latinorum, Ed. altera 1833~~~2~2
+1834s~86~v-319~meyer_jh~Meyer~Johann Heinrich~PD~Erklärung des Quintilianus~~~~2
+1834s~87~v-320~winkelmann_aw~Winkelmann~August Wilhelm~PD~Uebungen im philologischen Seminar~privatissime~~~2
+1834s~88~v-321~sauppe_h~Sauppe~Hermann~PD~Lateinische Disputir- und Schreibübungen~~~2~2
+1834s~89~v-322~hardmeyer_cw~Hardmeyer~Carl Wilhelm~PD~Geschichte der griechischen und römischen Kunst~~~3~2
+1834s~90~v-323~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Geschichte der dramatischen Literatur~~~2~2
+1834s~91~v-324~ettmueller_eml~Ettmüller~Ernst Moritz Ludwig~PD~Geschichte der deutschen Literatur~~~4~2
+1834s~92~v-325~ettmueller_eml~Ettmüller~Ernst Moritz Ludwig~PD~Erklärung des zweiten Theils des Nibelungenliedes~~~3~2
+1834s~93~v-326~bobrik_e~Bobrik~Eduard~O~Shakspeare's King Lear~~~4~2
+1834s~94~v-327~gidoni_f~Gidoni~Franz~PD~Corso di letteratura italiana dal seicento~~~3~2
+1834s~95~v-328~sangrain_ja~Sangrain~Jakob Anton~PD~Cours de lecture française (classiques anciens et modernes)~~~3~2
+1834s~96~v-329~sangrain_ja~Sangrain~Jakob Anton~PD~Cours pratique, théorique et grammatical de langue française~~~3~2
+1834s~97~v-330~escher_h-1781~Escher~Heinrich~PD~Encyclopädie der historischen Wissenschaften~~~~2
+1834s~98~v-331~bluntschli_jc~Bluntschli~Johann Caspar~EO~Römische Geschichte bis zur Schlacht bei Actium~~Di, Do, Fr, Sa 11-12~4~2
+1834s~99~v-332~hottinger_jj~Hottinger~Johann Jakob~EO~Uebersicht und Kritik der Literatur der Schweizergeschichte mit vorzüglicher Berücksichtigung der seit Gottl. Em. von Haller~~~3~2
+1834s~100~v-333~hottinger_jj~Hottinger~Johann Jakob~EO~Geschichte der vereinigten Staaten von Nordamerika~~~3~2
+1834s~101~v-334~gidoni_f~Gidoni~Franz~PD~Cours d'histoire moderne~~~3~2
+1834s~102~v-335~graeffe_kh~Gräffe~Karl Heinrich~PD~Reine Mathematik~~Mo-Fr 15-16~5~2
+1834s~103~v-336~raabe_jl~Raabe~Joseph Ludwig~PD~Analytische Mechanik~~Mo, Mi, Sa 10-11~3~2
+1834s~104~v-337~eschmann_j~Eschmann~Johannes~PD~Theoretische Astronomie~~~3~2
+1834s~105~v-338~ehrenberg_kf~Ehrenberg~Karl Ferdinand von~PD~Allgemeine Baukunst und Aesthetik derselben~~~4~2
+1834s~106~v-339~ehrenberg_kf~Ehrenberg~Karl Ferdinand von~PD~Strassen-, Brücken- und Wasserbaukunst~~~4~2
+1834s~107~v-340~oken_l~Oken~Lorenz~O~Naturgeschichte, zweiter Theil, nach seiner Naturgeschichte für Schulen~~Mo, Di, Do, Fr 5-6~4~2
+1834s~108~v-341~schinz_hr~Schinz~Heinrich Rudolf~EO~Anthropologie für Nichtärzte~~~~2
+1834s~109~v-342~schinz_hr~Schinz~Heinrich Rudolf~EO~Zoologie~~~~2
+1834s~110~v-343~heer_o~Heer~Oswald~PD~Grundzüge der Botanik~~~5~2
+1834s~111~v-344~escher-linth_a~Escher von der Linth~Arnold~PD~Geognosie~~~4~2
+1834s~112~v-345~froebel_j~Fröbel~Julius~PD~Oryktognosie~~~4~2
+1834s~113~v-346~loewig_c~Löwig~Carl~EO~Experimental-Chemie mit besonderer Berücksichtigung des technischen Theils~~~5~2
+1834s~114~v-347~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Chemie der indifferenten Verbindungen des Pflanzen- und Thierreichs~öffentlich~~1~2
+1834s~115~v-348~loew-steinfurth_l~Löw zu Steinfurth~Ludwig von~O~Practische Uebungen im Laboratorium, verbunden mit einem Vortrage über analytische Chemie~~~~2
 1834w~1~v-349~hirzel_l~Hirzel~Ludwig~EO~Encyclopädie und Geschichte der theologischen Wissenschaften~~Di, Mi 15-16~2~4
 1834w~2~v-350~hitzig_f~Hitzig~Ferdinand~O~Hebräisch-jüdische Archaeologie, nach de Wette's Lehrbuch (2te Aufl. 1830)~~Mo, Mi, Fr 16-17~3~4
 1834w~3~v-351~hitzig_f~Hitzig~Ferdinand~O~Erklärung des Hiob und Kohelet~~Mo-Do 10-11~4~4

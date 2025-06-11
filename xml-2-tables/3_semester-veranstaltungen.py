@@ -20,16 +20,25 @@ def normalize_whitespace(text):
     return re.sub(r'\s+', ' ', text).strip()
 
 
+def remove_brackets(text):
+    if text is None:
+        return None
+    return text.replace('[', '').replace(']', '').strip()
+
+
 # Funktion für rekursive Verarbeitung
 def process_sachgruppe(sachgruppe_elem, fakultaet_id, veranstaltungen, id_semester, fakultaet_mapping):
     # Prüfen ob diese sachgruppe eine neue fakultät definiert
     if "fakultät" in sachgruppe_elem.attrib:
-        fakultät_name = sachgruppe_elem.find(f"{NS}titel").text.strip()
-        fakultaet_id = fakultaet_mapping.get(fakultät_name)
+        fakultaet_name = sachgruppe_elem.find(f"{NS}titel").text.strip()
+        fakultaet_id = fakultaet_mapping.get(fakultaet_name)
 
     
     # Alle <veranstaltung>-Elemente in dieser sachgruppe auslesen
     for veranstaltung in sachgruppe_elem.findall(f"{NS}veranstaltung"):
+        
+        id_veranstaltung = veranstaltung.findtext(f"{NS}nr")
+        id_veranstaltung = remove_brackets(id_veranstaltung)
         
         nachname_dozent = veranstaltung.findtext(f"{NS}dozent/{NS}nachname") if veranstaltung.findtext(f"{NS}dozent/{NS}nachname") is not None else None
         nachname_dozent = normalize_whitespace(nachname_dozent)
@@ -48,7 +57,7 @@ def process_sachgruppe(sachgruppe_elem, fakultaet_id, veranstaltungen, id_semest
         
         veranstaltungen.append({
             "id_semester": id_semester,
-            "id_veranstaltung": veranstaltung.findtext(f"{NS}nr"),
+            "id_veranstaltung": id_veranstaltung,
             "id_veranstaltung_legacy": veranstaltung.get(f"{XML_NS}id"),
             "id_dozent": veranstaltung.find(f"{NS}dozent").get("ref"),
             "nachname_dozent": nachname_dozent,
