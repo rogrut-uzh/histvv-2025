@@ -26,7 +26,7 @@ def parse_semester_files(pfad):
         titel = root.findtext(f"{NS}titel")
 
         semester_data.append({
-            "id": file.stem,  # Dateiname ohne .xml
+            "id_semester": file.stem,  # Dateiname ohne .xml
             "dateiname": file.name,
             "universitaet": universitaet,
             "semester": semester,
