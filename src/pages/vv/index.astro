@@ -11,7 +11,7 @@ const semester = loadCsv('/data/tbl_semester_header.csv')
 <ul>
   {semester.map((s) => (
     <li>
-      <a href={`/vv/${s.id_semester}.html`}>{s.titel}</a>
+      <a href={`/vv/${s.id_semester}/`}>{s.titel}</a>
     </li>
   ))}
 </ul>

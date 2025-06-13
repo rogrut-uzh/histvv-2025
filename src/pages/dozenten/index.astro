@@ -11,7 +11,7 @@ const dozenten = loadCsv('/data/tbl_dozenten.csv')
 <ul>
   {dozenten.map((d) => (
     <li>
-      <a href={`/dozenten/${d.id_dozent}.html`}>
+      <a href={`/dozenten/${d.id_dozent}/`}>
         {d.nachname}, {d.vorname}
       </a>
     </li>
