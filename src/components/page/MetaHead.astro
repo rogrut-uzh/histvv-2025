@@ -4,12 +4,11 @@ interface Props {
     description: string;
 }
 
-//const { title, description } = Astro.props;
-//const titleSuffix = "| HistVV – Historisches Vorlesungsverzeichnis | UZH";
-const site_title = "HistVV – Historisches Vorlesungsverzeichnis | UZH";
+const { title, description } = Astro.props;
+const titleSuffix = "| HistVV – Historische Vorlesungsverzeichnisse | UZH";
+const site_title = "HistVV – Historische Vorlesungsverzeichnisse | UZH";
 const description = "";
 ---
-
 <title>
     { site_title }
 </title>
