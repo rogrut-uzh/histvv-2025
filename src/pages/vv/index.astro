@@ -1,0 +1,17 @@
+---
+import { loadCsv } from '~/lib/loadCsv.js';
+
+const semester = loadCsv('/data/tbl_semester_header.csv')
+  .filter((s) => s.id_semester?.trim() !== '')
+  .sort((a, b) => b.id_semester.localeCompare(a.id_semester)); // optional: neueste zuerst
+---
+
+<h1>Historische Vorlesungsverzeichnisse</h1>
+
+<ul>
+  {semester.map((s) => (
+    <li>
+      <a href={`/vv/${s.id_semester}.html`}>{s.titel}</a>
+    </li>
+  ))}
+</ul>

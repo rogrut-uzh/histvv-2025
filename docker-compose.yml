@@ -1,0 +1,21 @@
+services:
+  dev:
+    build:
+      context: .
+      target: builder
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data:/data
+    command: npm run preview
+    environment:
+      - NODE_ENV=development
+
+  prod:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ./data:/data
+    environment:
+      - NODE_ENV=production

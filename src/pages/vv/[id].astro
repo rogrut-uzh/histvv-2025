@@ -1,0 +1,49 @@
+---
+import { loadCsv } from '~/lib/loadCsv.js';
+
+export async function getStaticPaths() {
+  const semester = loadCsv('/data/tbl_semester_header.csv');
+  const veranstaltungen = loadCsv('/data/tbl_veranstaltungen.csv');
+
+  return semester.map((sem) => {
+    const veranstaltungen_semester = veranstaltungen.filter(
+      (v) => v.id_semester?.trim() === sem.id_semester?.trim()
+    );
+
+    return {
+      params: { id: sem.id_semester },
+      props: {
+        sem,
+        veranstaltungen_semester
+      }
+    };
+  });
+}
+
+const { sem, veranstaltungen_semester } = Astro.props;
+---
+
+<h1>{sem.titel}</h1>
+<p>{sem.quelle}</p>
+
+<h2>Veranstaltungen</h2>
+<table>
+  <tr>
+    <th>Nr</th>
+    <th>Thema</th>
+    <th>Dozent</th>
+    <th>Zeit</th>
+  </tr>
+  {veranstaltungen_semester.map((v) => (
+    <tr>
+      <td>{v.vorlesungsnummer}</td>
+      <td>{v.thema}</td>
+      <td>
+        <a href={`/dozenten/${v.id_dozent}.html`}>
+          {v.nachname_dozent}, {v.vorname_dozent}
+        </a>
+      </td>
+      <td>{v.zeit}</td>
+    </tr>
+  ))}
+</table>
