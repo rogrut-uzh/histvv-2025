@@ -1,0 +1,62 @@
+---
+//import { getCollection } from 'astro:content';
+import DefaultLayout from '~/layouts/DefaultLayout.astro';
+//import Breadcrumb from "~/components/page/Breadcrumb.astro";
+import MetaHead from "~/components/page/MetaHead.astro";
+import PageIntro from "~/components/page/PageIntro.astro";
+import PageTextPict from "~/components/page/PageTextPict.astro";
+
+const website_title = "Historische Vorlesungsverzeichnisse der Universität Zürich"
+const page_title = "Dozierende"
+const website_byline = "1833 - 1900"
+const website_description = " "
+
+
+import { loadCsv } from '~/lib/loadCsv.js';
+
+const dozenten = loadCsv('/data/tbl_dozenten.csv')
+  .filter((d) => d.id_dozent?.trim() !== '')
+  .sort((a, b) => a.nachname.localeCompare(b.nachname));
+---
+<DefaultLayout>
+    <!-- <Breadcrumb items={breadcrumbs} /> -->
+
+    <MetaHead slot="head"
+        title={`${page_title} | ${website_title} ${website_byline}`}
+        description={`${website_description}`}
+    />
+
+    <PageIntro>{`${page_title}`}</PageIntro>
+    
+    <PageTextPict>
+        <h1>Dozierende</h1>
+        
+        <table class="sortable">
+          <thead>
+            <tr>
+              <th>Nachname, Vorname</th>
+              <th>Geboren</th>
+              <th>Gestorben</th>
+            </tr>
+          </thead>
+          <tbody>
+            {dozenten.map((d) => (
+            <tr>
+              <td>
+                <a href={`/dozierende/${d.id_dozent}/`}>
+                  {d.nachname}, {d.vorname}
+                </a>
+              </td>
+              <td>
+                  {d.geboren}
+              </td>
+              <td>
+                  {d.gestorben}
+              </td>
+            </tr>
+            ))}
+          </tbody>
+        </table>
+    </PageTextPict>
+
+</DefaultLayout>

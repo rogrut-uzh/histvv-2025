@@ -2,45 +2,35 @@
 //import { getCollection } from 'astro:content';
 import DefaultLayout from '~/layouts/DefaultLayout.astro';
 //import Breadcrumb from "~/components/copied/Breadcrumb.astro";
-//import MetaHead from "~/components/page/MetaHead.astro";
-import PageTitle from "~/components/page/PageTitle.astro";
+import MetaHead from "~/components/page/MetaHead.astro";
+import PageIntro from "~/components/page/PageIntro.astro";
 import PageTextPict from "~/components/page/PageTextPict.astro";
 
-
+const website_title = "Historische Vorlesungsverzeichnisse der Universität Zürich"
+const page_title = "Home"
+const website_byline = "1833 - 1900"
+const website_description = " "
 ---
-
 <DefaultLayout>
     <!-- <Breadcrumb items={breadcrumbs} /> -->
 
-    <!-- weglassen zum testen...............
     <MetaHead
-        title="Historische Vorlesungsverzeichnisse der Universität Zürich"
-        description="Historische Vorlesungsverzeichnisse der Universität Zürich"
+        title={`${website_title} ${website_byline} | ${page_title}`}
+        description={`${website_description}`}
         slot="head"
     />
-    -->
     <!-- Slot "head" is in \src\layouts\GeneratedWrapperLayout.astro -->
-
-    <PageTitle>
-        Historische Vorlesungsverzeichnisse der Universität Zürich
-        <p slot="lead">1833 - 1900</p>
-    </PageTitle>
-    <!-- Slot "lead" is in \src\components\page\PageTitle.astro 
-         Title comes in untitled Slot in the same file -->
+    
+    <PageIntro>{`${website_title} ${website_byline}`}
+        <!--
+        <div class="Intro--text" slot="lead"><p></p></div>
+        -->
+    </PageIntro>
 
     <PageTextPict>
         <p>Das Portal "Historische Vorlesungsverzeichnisse der Universität Zürich" erschließt als Hilfsmittel und Nachschlagewerk für biographische, forschungs-, disziplinen- oder institutionsgeschichtliche Fragestellungen alle im 19. Jahrhundert an der Universität Zürich angekündigten Lehrveranstaltungen auf der Grundlage der gedruckten Vorlesungsverzeichnisse. Es handelt sich dabei um insgesamt 24575 Veranstaltungen während 135 Semestern vom Sommersemester 1833 bis zum Sommersemester 1900.</p>
         <p>Die angekündigten Lehrveranstaltungen der einzelnen Semester lassen sich unter Vorlesungsverzeichnisse auswählen. Unter Dozierende lassen sich die Lehrveranstaltungen der einzelnen Dozierenden anzeigen. Weiter steht zur kombinierten Recherche eine Suchmaske zur Verfügung.</p>
-        
-        <ul>
-          <li><a href="/vv/">Vorlesungsverzeichnisse</a></li>
-          <li><a href="/dozenten/">Dozierende</a></li>
-          <li><a href="/benutzungshinweise/">Benutzungshinweise</a></li>
-          <li><a href="/abkuerzungen/">Abkürzungen</a></li>
-          <li><a href="/buchausgabe/">Buchausgabe</a></li>
-        </ul>
     </PageTextPict>
     <!-- Slot is in \src\components\page\PageTextPict.astro -->
-
 
 </DefaultLayout>

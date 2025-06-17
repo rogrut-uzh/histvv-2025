@@ -1,9 +1,23 @@
 ---
+//import { getCollection } from 'astro:content';
+import DefaultLayout from '~/layouts/DefaultLayout.astro';
+//import Breadcrumb from "~/components/page/Breadcrumb.astro";
+import MetaHead from "~/components/page/MetaHead.astro";
+import PageTextPict from "~/components/page/PageTextPict.astro";
+
+const website_title = "Historische Vorlesungsverzeichnisse der Universität Zürich";
+const page_title = "Vorlesungsverzeichnisse";
+const website_byline = "1833 - 1900";
+const website_description = " ";
+
+const zeit_trenner = " - ";
+
 import { loadCsv } from '~/lib/loadCsv.js';
 
 export async function getStaticPaths() {
   const semester = loadCsv('/data/tbl_semester_header.csv');
   const veranstaltungen = loadCsv('/data/tbl_veranstaltungen.csv');
+  const fakultaeten = loadCsv('/data/tbl_fakultaeten.csv');
 
   return semester.map((sem) => {
     const veranstaltungen_semester = veranstaltungen.filter(
@@ -14,36 +28,59 @@ export async function getStaticPaths() {
       params: { id: sem.id_semester },
       props: {
         sem,
-        veranstaltungen_semester
+        veranstaltungen_semester,
+        fakultaeten
       }
     };
   });
 }
 
-const { sem, veranstaltungen_semester } = Astro.props;
+const { sem, veranstaltungen_semester, fakultaeten } = Astro.props;
+
+// Gruppierung der Veranstaltungen nach Fakultät
+const veranstaltungenByFakultaet = veranstaltungen_semester.reduce((acc, v) => {
+  if (!acc[v.fakultaet_id]) acc[v.fakultaet_id] = [];
+  acc[v.fakultaet_id].push(v);
+  return acc;
+}, {});
+
+// Fakultätsnamen auflösen
+function getFakultaetName(id) {
+  const eintrag = fakultaeten.find((f) => f.id_fakultaet === id);
+  return eintrag?.fakultaet || `Fakultät ${id}`;
+}
+
+// Sortierte Fakultäten-IDs
+const fakultaetIds = Object.keys(veranstaltungenByFakultaet).sort((a, b) => {
+  const nameA = getFakultaetName(a).toLowerCase();
+  const nameB = getFakultaetName(b).toLowerCase();
+  return nameA.localeCompare(nameB);
+});
 ---
 
-<h1>{sem.titel}</h1>
-<p>{sem.quelle}</p>
+<DefaultLayout>
+  <MetaHead slot="head"
+    title={`${sem.titel} | ${website_title} ${website_byline}`}
+    description={`${website_description}`}
+  />
 
-<h2>Veranstaltungen</h2>
-<table>
-  <tr>
-    <th>Nr</th>
-    <th>Thema</th>
-    <th>Dozent</th>
-    <th>Zeit</th>
-  </tr>
-  {veranstaltungen_semester.map((v) => (
-    <tr>
-      <td>{v.vorlesungsnummer}</td>
-      <td>{v.thema}</td>
-      <td>
-        <a href={`/dozenten/${v.id_dozent}.html`}>
-          {v.nachname_dozent}, {v.vorname_dozent}
-        </a>
-      </td>
-      <td>{v.zeit}</td>
-    </tr>
-  ))}
-</table>
+  <PageTextPict>
+    <h1>{sem.titel}</h1>
+    <p>Quelle: {sem.quelle}</p>
+
+    {fakultaetIds.map((fid) => (
+      <section>
+        <h2>{getFakultaetName(fid)}</h2>
+        {veranstaltungenByFakultaet[fid].map((v) => (
+          <p>
+            {v.vorlesungsnummer} <a class="Link" href={`/dozierende/${v.id_dozent}`}>{v.nachname_dozent}, {v.vorname_dozent}</a><br />
+            <strong>{v.thema}</strong><br />
+            {v.zeit}
+            {v.zeit && v.wochenstunden && zeit_trenner}
+            {v.wochenstunden && `St ${v.wochenstunden}`}
+          </p>
+        ))}
+      </section>
+    ))}
+  </PageTextPict>
+</DefaultLayout>

@@ -3,22 +3,13 @@ interface Props {
     title: string;
     description: string;
 }
-
 const { title, description } = Astro.props;
-const titleSuffix = "| HistVV – Historische Vorlesungsverzeichnisse | UZH";
-const site_title = "HistVV – Historische Vorlesungsverzeichnisse | UZH";
-const description = "";
+const titleSuffix = " | UZH";
 ---
-<title>
-    { site_title }
-</title>
-
-<!--<meta name="description" content={description}>-->
-
-<meta property="og:title" content={`${title} ${titleSuffix}`} />
-<meta name="og:description" content={description} />
-<meta property="og:url" content={Astro.url} />
-<meta property="og:type" content="website">
-<meta name="og:locale" content="de">
-
-
+<title>{title}</title>
+<meta name="description"        content={description} />
+<meta property="og:title"       content={`${title} ${titleSuffix}`} />
+<meta property="og:description" content={description} />
+<meta property="og:url"         content={Astro.url} />
+<meta property="og:type"        content="website">
+<!-- <meta property="og:image"  content="../../../dummy/shareimage_example_1200x630.jpg"> -->

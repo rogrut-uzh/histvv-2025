@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta name="viewport" content="width=device-width" /><title>https://www.uniability.uzh.ch/docroot/favicons/browserconfig.xml</title><link rel="stylesheet" type="text/css" href="resource://content-accessible/viewsource.css" /></head><body id="viewsource" class="highlight" style="tab-size: 4"><pre id="line1"><span></span><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><span>
+<span id="line2"></span></span><span>&lt;<span class="start-tag">browserconfig</span>&gt;</span><span>
+<span id="line3"></span>    </span><span>&lt;<span class="start-tag">msapplication</span>&gt;</span><span>
+<span id="line4"></span>        </span><span>&lt;<span class="start-tag">tile</span>&gt;</span><span>
+<span id="line5"></span>            </span><span>&lt;<span class="start-tag">square150x150logo</span> <span class="attribute-name">src</span>="<a class="attribute-value" href="view-source:https://www.uniability.uzh.ch/mstile-150x150.png">/mstile-150x150.png</a>"<span>/</span>&gt;</span><span>
+<span id="line6"></span>            </span><span>&lt;<span class="start-tag">TileColor</span>&gt;</span><span>#da532c</span><span>&lt;/<span class="end-tag">TileColor</span>&gt;</span><span>
+<span id="line7"></span>        </span><span>&lt;/<span class="end-tag">tile</span>&gt;</span><span>
+<span id="line8"></span>    </span><span>&lt;/<span class="end-tag">msapplication</span>&gt;</span><span>
+<span id="line9"></span></span><span>&lt;/<span class="end-tag">browserconfig</span>&gt;</span><span>
+<span id="line10"></span></span></pre></body></html>
