@@ -1,7 +1,7 @@
 ---
 //import { getCollection } from 'astro:content';
 import DefaultLayout from '~/layouts/DefaultLayout.astro';
-//import Breadcrumb from "~/components/page/Breadcrumb.astro";
+import Breadcrumb from "~/components/page/Breadcrumb.astro";
 import MetaHead from "~/components/page/MetaHead.astro";
 import PageTextPict from "~/components/page/PageTextPict.astro";
 
@@ -56,9 +56,18 @@ const fakultaetIds = Object.keys(veranstaltungenByFakultaet).sort((a, b) => {
   const nameB = getFakultaetName(b).toLowerCase();
   return nameA.localeCompare(nameB);
 });
+
+const breadcrumb = [
+  { label: "Home", href: "/" },
+  { label: "Vorlesungsverzeichnisse", href: "/vv/" },
+  { label: sem.titel, href: `/vv/${sem.id_semester}/` }
+];
+
 ---
 
 <DefaultLayout>
+  <Breadcrumb items={breadcrumb} />
+  
   <MetaHead slot="head"
     title={`${sem.titel} | ${website_title} ${website_byline}`}
     description={`${website_description}`}
@@ -72,12 +81,18 @@ const fakultaetIds = Object.keys(veranstaltungenByFakultaet).sort((a, b) => {
       <section>
         <h2>{getFakultaetName(fid)}</h2>
         {veranstaltungenByFakultaet[fid].map((v) => (
-          <p>
-            {v.vorlesungsnummer} <a class="Link" href={`/dozierende/${v.id_dozent}`}>{v.nachname_dozent}, {v.vorname_dozent}</a><br />
+          <p id={`${v.id_veranstaltung}`}>
+            {v.vorlesungsnummer}
+            {v.nachname_dozent === "Ohne Dozentenangabe" ? (
+              <> {v.nachname_dozent}</>
+            ) : (
+              <> <a class="Link" href={`/dozierende/${v.id_dozent}`}>{v.nachname_dozent}, {v.vorname_dozent}</a></>
+            )}<br />
             <strong>{v.thema}</strong><br />
             {v.zeit}
             {v.zeit && v.wochenstunden && zeit_trenner}
             {v.wochenstunden && `St ${v.wochenstunden}`}
+            {v.ort && `(${v.ort})`}
           </p>
         ))}
       </section>

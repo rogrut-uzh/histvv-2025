@@ -1,7 +1,7 @@
 ---
 //import { getCollection } from 'astro:content';
 import DefaultLayout from '~/layouts/DefaultLayout.astro';
-//import Breadcrumb from "~/components/page/Breadcrumb.astro";
+import Breadcrumb from "~/components/page/Breadcrumb.astro";
 import MetaHead from "~/components/page/MetaHead.astro";
 import PageIntro from "~/components/page/PageIntro.astro";
 import PageTextPict from "~/components/page/PageTextPict.astro";
@@ -17,9 +17,14 @@ import { loadCsv } from '~/lib/loadCsv.js';
 const dozenten = loadCsv('/data/tbl_dozenten.csv')
   .filter((d) => d.id_dozent?.trim() !== '')
   .sort((a, b) => a.nachname.localeCompare(b.nachname));
+  
+const breadcrumb = [
+  { label: "Home", href: "/" },
+  { label: "Dozierende", href: "/dozierende/" }
+];
 ---
 <DefaultLayout>
-    <!-- <Breadcrumb items={breadcrumbs} /> -->
+    <Breadcrumb items={breadcrumb} />
 
     <MetaHead slot="head"
         title={`${page_title} | ${website_title} ${website_byline}`}

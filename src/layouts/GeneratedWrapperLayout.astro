@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/main.css?v=2025-06-17">
+    <link rel="stylesheet" href="/assets/css/histvv-custom.css?2025-06-18">
     <link rel="modulepreload" href="/assets/js/ui.mjs">
     <link rel="preload" href="/assets/fonts/WOFF2/SourceSans3-Regular.otf.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="/assets/fonts/WOFF2/SourceSans3-Semibold.otf.woff2" as="font" type="font/woff2" crossorigin="anonymous">
@@ -15,7 +16,6 @@
     <meta name="msapplication-config" content="/favicons/browserconfig.xml">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
-    
     <slot name='head' />
     
     <script>
@@ -23,7 +23,8 @@
             language: 'de'
         };
     </script>
-    <!--<script defer scr="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>-->
+    
+    
 </head>
 
 <body class="template-st01">
@@ -407,6 +408,30 @@ window.uzh_nav =  [
 ]
 </script>
 
+
+<script is:inline>
+  function highlightTarget() {
+    const hash = window.location.hash;
+    if (hash) {
+      const target = document.querySelector(hash);
+      if (target) {
+        target.classList.add('target_highlight');
+        // nach kurzer Verzögerung "fade-out" Klasse hinzufügen
+        setTimeout(() => {
+          target.classList.add('fade-out');
+        }, 3000); // Start des Fadens nach 0.5s
+
+        // nach vollständigem Übergang alle Klassen entfernen (optional)
+        setTimeout(() => {
+          target.classList.remove('target_highlight', 'fade-out');
+        }, 4000);
+      }
+    }
+  }
+
+  window.addEventListener('load', highlightTarget);
+  window.addEventListener('hashchange', highlightTarget);
+</script>
 
 </body>
 </html>

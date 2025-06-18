@@ -1,7 +1,7 @@
 ---
 //import { getCollection } from 'astro:content';
 import DefaultLayout from '~/layouts/DefaultLayout.astro';
-//import Breadcrumb from "~/components/page/Breadcrumb.astro";
+import Breadcrumb from "~/components/page/Breadcrumb.astro";
 import MetaHead from "~/components/page/MetaHead.astro";
 import PageIntro from "~/components/page/PageIntro.astro";
 import PageMasonry from "~/components/page/PageMasonry.astro";
@@ -33,10 +33,16 @@ const groupedByDecade = semester.reduce((acc, s) => {
 // Sortiere die Jahrzehnte absteigend (neuestes zuerst)
 const decades = Object.keys(groupedByDecade)
   .sort((a, b) => parseInt(b) - parseInt(a));
+
+
+const breadcrumb = [
+  { label: "Home", href: "/" },
+  { label: "Vorlesungsverzeichnisse", href: "/vv/" }
+];
 ---
 
 <DefaultLayout>
-    <!-- <Breadcrumb items={breadcrumbs} /> -->
+    <Breadcrumb items={breadcrumb} />
 
     <MetaHead slot="head"
         title={`${page_title} | ${website_title} ${website_byline}`}

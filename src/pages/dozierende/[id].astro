@@ -1,7 +1,7 @@
 ---
 //import { getCollection } from 'astro:content';
 import DefaultLayout from '~/layouts/DefaultLayout.astro';
-//import Breadcrumb from "~/components/page/Breadcrumb.astro";
+import Breadcrumb from "~/components/page/Breadcrumb.astro";
 import MetaHead from "~/components/page/MetaHead.astro";
 import PageTextPict from "~/components/page/PageTextPict.astro";
 
@@ -36,9 +36,17 @@ export async function getStaticPaths() {
 const { dozent, veranstaltungen_dozent, fakultaeten } = Astro.props;
 
 const fakultaet = fakultaeten.find((f) => f.id_fakultaet?.trim() === dozent.id_fakultaet?.trim());
+
+const breadcrumb = [
+  { label: "Home", href: "/" },
+  { label: "Dozierende", href: "/dozierende/" },
+  { label: `${dozent.nachname}, ${dozent.vorname}`, href: `/dozierende/${dozent.id_dozent}/` }
+];
 ---
 
 <DefaultLayout>
+  <Breadcrumb items={breadcrumb} />
+  
   <MetaHead slot="head"
     title={`${dozent.nachname}, ${dozent.vorname} | ${website_title} ${website_byline}`}
     description={`${website_description}`}
@@ -68,15 +76,11 @@ const fakultaet = fakultaeten.find((f) => f.id_fakultaet?.trim() === dozent.id_f
 
 
     {dozent.gagliardi && <p>{dozent.gagliardi}</p>}
-
     {fakultaet?.fakultaet && <p>{fakultaet.fakultaet}</p>}
-
     {dozent.dekanat && <p>{dozent.dekanat}</p>}
-
     {dozent.rektor && <p>{dozent.rektor}</p>}
-
-    <p>PND: <a href={`https://d-nb.info/gnd/${dozent.pnd}`}>{dozent.pnd}</a></p>
-    <p>Wikipedia: <a href={dozent.wikipedia}>{dozent.wikipedia}</a></p>
+    {dozent.pnd && <p>PND: <a href={`https://d-nb.info/gnd/${dozent.pnd}`}>{dozent.pnd}</a></p>}
+    {dozent.wikipedia && <p>Wikipedia: <a href={dozent.wikipedia}>{dozent.wikipedia}</a></p>}
 
     <h2>Veranstaltungen</h2>
     <table class="sortable">
@@ -93,7 +97,9 @@ const fakultaet = fakultaeten.find((f) => f.id_fakultaet?.trim() === dozent.id_f
       {veranstaltungen_dozent.map((v, index) => (
         <tr>
           <td>{index + 1}</td>
-          <td><a href={`/vv/${v.id_semester}`}>{v.id_semester}</a></td>
+          <td>
+            <a href={`/vv/${v.id_semester}#${v.id_veranstaltung}`}>{v.id_semester}</a>
+          </td>
           <td>{v.thema}</td>
           <td>{v.grad_dozent || ''}</td>
           <td>{v.funktion_dozent || ''}</td>

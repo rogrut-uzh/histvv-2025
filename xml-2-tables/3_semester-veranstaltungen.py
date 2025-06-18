@@ -37,6 +37,8 @@ def process_sachgruppe(sachgruppe_elem, fakultaet_id, veranstaltungen, id_semest
     # Alle <veranstaltung>-Elemente in dieser sachgruppe auslesen
     for veranstaltung in sachgruppe_elem.findall(f"{NS}veranstaltung"):
         
+        id_dozent = veranstaltung.find(f"{NS}dozent").get("ref") if veranstaltung.find(f"{NS}dozent").get("ref") is not None else None
+        
         vorlesungsnummer = veranstaltung.findtext(f"{NS}nr")
         vorlesungsnummer = remove_brackets(vorlesungsnummer)
         
@@ -55,11 +57,20 @@ def process_sachgruppe(sachgruppe_elem, fakultaet_id, veranstaltungen, id_semest
         zeit = veranstaltung.findtext(f"{NS}zeit") if veranstaltung.findtext(f"{NS}zeit") is not None else None
         zeit = normalize_whitespace(zeit)
         
+        wochenstunden = veranstaltung.findtext(f"{NS}wochenstunden") if veranstaltung.findtext(f"{NS}wochenstunden") is not None else None
+        
+        ort = veranstaltung.findtext(f"{NS}ort") if veranstaltung.findtext(f"{NS}ort") is not None else None
+        
+        
+        if id_dozent == "od":
+            nachname_dozent = "Ohne Dozentenangabe"
+        
+        
         veranstaltungen.append({
             "id_semester": id_semester,
             "vorlesungsnummer": vorlesungsnummer,
-            "id_veranstaltung_legacy": veranstaltung.get(f"{XML_NS}id"),
-            "id_dozent": veranstaltung.find(f"{NS}dozent").get("ref"),
+            "id_veranstaltung": veranstaltung.get(f"{XML_NS}id"),
+            "id_dozent": id_dozent,
             "nachname_dozent": nachname_dozent,
             "vorname_dozent": vorname_dozent,
             "grad_dozent": veranstaltung.findtext(f"{NS}dozent/{NS}grad"),
@@ -67,7 +78,8 @@ def process_sachgruppe(sachgruppe_elem, fakultaet_id, veranstaltungen, id_semest
             "thema": thema,
             "zusatz": zusatz,
             "zeit": zeit,
-            "wochenstunden": veranstaltung.findtext(f"{NS}wochenstunden"),
+            "wochenstunden": wochenstunden,
+            "ort": ort,
             "fakultaet_id": fakultaet_id
         })
 
@@ -113,7 +125,7 @@ def parse_semester_files(pfad):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Verwendung: python extrahiere-semester.py ordnerpfad/zu/semester-xmls")
+        print("Verwendung: python 3_semester-veranstaltungen.py ordnerpfad/zu/semester-xmls")
         sys.exit(1)
 
     pfad = Path(sys.argv[1])

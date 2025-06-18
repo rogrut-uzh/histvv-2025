@@ -1,0 +1,27 @@
+---
+export interface Props {
+  items: { 
+    label: string; 
+    href: string 
+  }[];
+}
+const { items } = Astro.props;
+---
+<!-- component: Breadcrumb -->
+<nav class="Breadcrumb js-Breadcrumb">
+  <ol class="Breadcrumb--list js-Breadcrumb--list" data-js-scroll-style='{"horizontal":true}' aria-label="Breadcrumb">
+    {items.map((item, index) => (
+      <li class="Breadcrumb--list--item">
+        <a class="Breadcrumb--link" href={item.href} aria-current={index === items.length - 1 ? 'page' : undefined}>
+          {item.label}
+        </a>
+        {index !== items.length - 1 && (
+          <span class="Icon" data-name="16--breadcrumb-separator">
+            <svg><use xlink:href="#16--breadcrumb-separator"></use></svg>
+          </span>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>
+<!-- /component: Breadcrumb -->

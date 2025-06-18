@@ -1,7 +1,6 @@
 ---
 //import { getCollection } from 'astro:content';
 import DefaultLayout from '~/layouts/DefaultLayout.astro';
-//import Breadcrumb from "~/components/copied/Breadcrumb.astro";
 import MetaHead from "~/components/page/MetaHead.astro";
 import PageIntro from "~/components/page/PageIntro.astro";
 import PageTextPict from "~/components/page/PageTextPict.astro";
@@ -10,10 +9,9 @@ const website_title = "Historische Vorlesungsverzeichnisse der Universität Zür
 const page_title = "Home"
 const website_byline = "1833 - 1900"
 const website_description = " "
+
 ---
 <DefaultLayout>
-    <!-- <Breadcrumb items={breadcrumbs} /> -->
-
     <MetaHead
         title={`${website_title} ${website_byline} | ${page_title}`}
         description={`${website_description}`}
