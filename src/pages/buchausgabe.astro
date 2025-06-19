@@ -1,6 +1,65 @@
 ---
+import DefaultLayout from '~/layouts/DefaultLayout.astro';
+import Breadcrumb from "~/components/page/Breadcrumb.astro";
+import MetaHead from "~/components/page/MetaHead.astro";
+import PageIntro from "~/components/page/PageIntro.astro";
+import PageTextPict2 from "~/components/page/PageTextPict2.astro";
+
+const website_title = "Historische Vorlesungsverzeichnisse der Universität Zürich"
+const page_title = "Buchausgabe"
+const website_byline = "1833 - 1900"
+const website_description = " "
+
+const breadcrumb = [
+  { label: "Home", href: "/" },
+  { label: "Buchausgabe", href: "/buchausgabe/" }
+];
 ---
+<DefaultLayout>
+    <Breadcrumb items={breadcrumb} />
 
-<h1>Buchausgabe</h1>
+    <MetaHead slot="head"
+        title={`${page_title} | ${website_title} ${website_byline}`}
+        description={`${website_description}`}
+    />
 
-<p>text to do...</p>
+    <PageIntro>{`${page_title}`}
+    </PageIntro>
+    
+    <PageTextPict2>
+        <figure class="TextImage--image layout-float-right">
+            <div class="TextImage--image--inner">
+                <!-- component: Image -->
+                <div class="Image" style="--image_width:243;--image_height:301;">
+                    <div class="Image--wrapper">
+                        <img class="Image--img" src="/img/repertorium.png" alt="Repertorium der Vorlesungen an der Universität Zürich 1833-1900 hg. von Christian Moser Zug (Achius) 2011"/>
+                    </div>
+                </div>
+                <!-- /component: Image -->
+            </div>
+            <!--<figcaption class="TextImage--image--caption">Lorem ipsum dolor</figcaption>-->
+        </figure>
+        
+        <div class="TextImage--content richtext">
+            <h3>Repertorium der Vorlesungen an der Universität Zürich 1833-1900</h3>
+            <p>hg. von Christian Moser<br/>
+            Zug (Achius) 2011
+            </p>
+            
+            <p>2 Bde., Hardcover, XXII, XX, 1310 Seiten<br/>
+            ISBN 978-3-905351-15-6<br/>
+            € 198.00 / SFr 246.00
+            </p>
+            
+            <p>
+              <a class="Link" download="download" href="/pdf/vvzh_flyer.pdf">Prospekt</a><br />
+              <a class="Link" href="http://www.achius.ch/buch/achius_repertorium.htm">Zum Verlag</a><br />
+            </p>
+            <p>
+              <a class="Link" download="download" href="/pdf/vvzh_inhalt.pdf">Inhaltsverzeichnis</a><br />
+              <a class="Link" download="download" href="/pdf/vvzh_bsp1.pdf">Musterseiten, Band 1</a><br />
+              <a class="Link" download="download" href="/pdf/vvzh_bsp2.pdf">Musterseiten, Band 2</a>
+            </p>
+        </div>
+    </PageTextPict2>
+</DefaultLayout>

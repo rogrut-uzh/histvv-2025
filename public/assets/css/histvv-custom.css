@@ -6,3 +6,8 @@
 .target_highlight.fade-out {
   background-color: transparent;
 }
+
+
+.tbl_abk th {
+    width:110px;
+}

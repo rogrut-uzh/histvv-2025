@@ -1,0 +1,35 @@
+---
+import DefaultLayout from '~/layouts/DefaultLayout.astro';
+import Breadcrumb from "~/components/page/Breadcrumb.astro";
+import MetaHead from "~/components/page/MetaHead.astro";
+import PageIntro from "~/components/page/PageIntro.astro";
+import PageTextPict from "~/components/page/PageTextPict.astro";
+
+const website_title = "Historische Vorlesungsverzeichnisse der Universität Zürich"
+const page_title = "Suche"
+const website_byline = "1833 - 1900"
+const website_description = " "
+
+
+
+const breadcrumb = [
+  { label: "Home", href: "/" },
+  { label: "Suche", href: "/suche/" }
+];
+---
+
+<DefaultLayout>
+    <Breadcrumb items={breadcrumb} />
+
+    <MetaHead slot="head"
+        title={`${page_title} | ${website_title} ${website_byline}`}
+        description={`${website_description}`}
+    />
+
+    <PageIntro>{`${page_title}`}</PageIntro>
+    
+    <PageTextPict>
+        <p>...</p>
+    </PageTextPict>
+</DefaultLayout>
+
