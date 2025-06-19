@@ -35,6 +35,16 @@ const decades = Object.keys(groupedByDecade)
   .sort((a, b) => parseInt(b) - parseInt(a));
 
 
+const veranstaltungen = loadCsv('/data/tbl_veranstaltungen.csv');
+
+// Zähle Veranstaltungen pro Semester
+const veranstaltungenCount = veranstaltungen.reduce((acc, v) => {
+  const id = v.id_semester;
+  if (!acc[id]) acc[id] = 0;
+  acc[id]++;
+  return acc;
+}, {});
+
 const breadcrumb = [
   { label: "Home", href: "/" },
   { label: "Vorlesungsverzeichnisse", href: "/vv/" }
@@ -60,9 +70,14 @@ const breadcrumb = [
                             <h3 class="Teaser--title">{decade}</h3>
                         </div>
                         <div class="Teaser--body">
-                              {groupedByDecade[decade].map((s) => (
-                                  <a href={`/vv/${s.id_semester}/`} class="Link">{s.titel}</a>
-                              ))}
+{groupedByDecade[decade].map((s) => (
+  <div>
+    <a href={`/vv/${s.id_semester}/`} class="Link">
+      {s.titel}
+    </a>
+    <span style="color: #666; font-size: 0.9em;"> ({veranstaltungenCount[s.id_semester] || 0})</span>
+  </div>
+))}
                         </div>
                     </div>
                 </div>
@@ -71,4 +86,3 @@ const breadcrumb = [
 
     </PageMasonry>
 </DefaultLayout>
-
