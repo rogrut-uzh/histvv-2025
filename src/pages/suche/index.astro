@@ -2,15 +2,14 @@
 import DefaultLayout from '~/layouts/DefaultLayout.astro';
 import Breadcrumb from "~/components/page/Breadcrumb.astro";
 import MetaHead from "~/components/page/MetaHead.astro";
-import PageIntro from "~/components/page/PageIntro.astro";
-import PageTextPict from "~/components/page/PageTextPict.astro";
+import SectionIntro from "~/components/page/SectionIntro.astro";
+import SectionTextPict from "~/components/page/SectionTextPict.astro";
+import SucheClient from '~/components/SucheClient.jsx';
 
 const website_title = "Historische Vorlesungsverzeichnisse der Universität Zürich"
 const page_title = "Suche"
 const website_byline = "1833 - 1900"
 const website_description = " "
-
-
 
 const breadcrumb = [
   { label: "Home", href: "/" },
@@ -26,10 +25,9 @@ const breadcrumb = [
         description={`${website_description}`}
     />
 
-    <PageIntro>{`${page_title}`}</PageIntro>
+    <SectionIntro>{`${page_title}`}</SectionIntro>
     
-    <PageTextPict>
-        <p>...</p>
-    </PageTextPict>
+    <SectionTextPict>
+      <SucheClient client:only="react" />
+    </SectionTextPict>
 </DefaultLayout>
-

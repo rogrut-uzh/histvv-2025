@@ -1,27 +1,23 @@
 ---
-//import { getCollection } from 'astro:content';
 import DefaultLayout from '~/layouts/DefaultLayout.astro';
 import Breadcrumb from "~/components/page/Breadcrumb.astro";
 import MetaHead from "~/components/page/MetaHead.astro";
-import PageIntro from "~/components/page/PageIntro.astro";
-import PageMasonry from "~/components/page/PageMasonry.astro";
+import SectionIntro from "~/components/page/SectionIntro.astro";
+import SectionMasonry from "~/components/page/SectionMasonry.astro";
+import loadJson from '~/lib/loadJson.js';
 
 const website_title = "Historische Vorlesungsverzeichnisse der Universität Zürich"
 const page_title = "Vorlesungsverzeichnisse"
 const website_byline = "1833 - 1900"
 const website_description = " "
 
-
-import { loadCsv } from '~/lib/loadCsv.js';
-
-// Lade alle Semester, filter und sortiere absteigend
-const semester = loadCsv('/data/tbl_semester_header.csv')
+// Lade alle Semester, filtere und sortiere absteigend
+const semester = (await loadJson('/data/tbl_semester_header.json'))
   .filter((s) => s.id_semester?.trim() !== '')
   .sort((a, b) => b.id_semester.localeCompare(a.id_semester));
 
 // Gruppiere nach Jahrzehnt
 const groupedByDecade = semester.reduce((acc, s) => {
-  // id_semester enthält z.B. "1833SS" oder "1842WS"
   const year = parseInt(s.id_semester.slice(0, 4), 10);
   const decade = Math.floor(year / 10) * 10;
   const label = `${decade}s`;
@@ -34,8 +30,8 @@ const groupedByDecade = semester.reduce((acc, s) => {
 const decades = Object.keys(groupedByDecade)
   .sort((a, b) => parseInt(b) - parseInt(a));
 
-
-const veranstaltungen = loadCsv('/data/tbl_veranstaltungen.csv');
+// Lade Veranstaltungen (aus JSON!)
+const veranstaltungen = await loadJson('/data/tbl_veranstaltungen.json');
 
 // Zähle Veranstaltungen pro Semester
 const veranstaltungenCount = veranstaltungen.reduce((acc, v) => {
@@ -59,30 +55,29 @@ const breadcrumb = [
         description={`${website_description}`}
     />
 
-    <PageIntro>{`${page_title}`}</PageIntro>
+    <SectionIntro>{`${page_title}`}</SectionIntro>
     
-    <PageMasonry>
-            {decades.map((decade) => (
-            <div class="MasonryGrid--item js-MasonryGrid--item">
-                <div class="Teaser">
-                    <div class="Teaser--inner">
-                        <div class="Teaser--header">
-                            <h3 class="Teaser--title">{decade}</h3>
-                        </div>
-                        <div class="Teaser--body">
-{groupedByDecade[decade].map((s) => (
-  <div>
-    <a href={`/vv/${s.id_semester}/`} class="Link">
-      {s.titel}
-    </a>
-    <span style="color: #666; font-size: 0.9em;"> ({veranstaltungenCount[s.id_semester] || 0})</span>
-  </div>
-))}
-                        </div>
-                    </div>
-                </div>
+    <SectionMasonry>
+      {decades.map((decade) => (
+        <div class="MasonryGrid--item js-MasonryGrid--item">
+          <div class="Teaser">
+            <div class="Teaser--inner">
+              <div class="Teaser--header">
+                <h3 class="Teaser--title">{decade}</h3>
+              </div>
+              <div class="Teaser--body">
+                {groupedByDecade[decade].map((s) => (
+                  <div>
+                    <a href={`/vv/${s.id_semester}/`} class="Link">
+                      {s.titel}
+                    </a>
+                    <span style="color: #666; font-size: 0.9em;"> ({veranstaltungenCount[s.id_semester] || 0})</span>
+                  </div>
+                ))}
+              </div>
             </div>
-            ))}
-
-    </PageMasonry>
+          </div>
+        </div>
+      ))}
+    </SectionMasonry>
 </DefaultLayout>

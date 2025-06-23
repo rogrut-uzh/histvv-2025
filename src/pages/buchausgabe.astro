@@ -2,8 +2,8 @@
 import DefaultLayout from '~/layouts/DefaultLayout.astro';
 import Breadcrumb from "~/components/page/Breadcrumb.astro";
 import MetaHead from "~/components/page/MetaHead.astro";
-import PageIntro from "~/components/page/PageIntro.astro";
-import PageTextPict2 from "~/components/page/PageTextPict2.astro";
+import SectionIntro from "~/components/page/SectionIntro.astro";
+import SectionTextPict2 from "~/components/page/SectionTextPict2.astro";
 
 const website_title = "Historische Vorlesungsverzeichnisse der Universität Zürich"
 const page_title = "Buchausgabe"
@@ -23,10 +23,9 @@ const breadcrumb = [
         description={`${website_description}`}
     />
 
-    <PageIntro>{`${page_title}`}
-    </PageIntro>
+    <SectionIntro>{`${page_title}`}</SectionIntro>
     
-    <PageTextPict2>
+    <SectionTextPict2>
         <figure class="TextImage--image layout-float-right">
             <div class="TextImage--image--inner">
                 <!-- component: Image -->
@@ -61,5 +60,5 @@ const breadcrumb = [
               <a class="Link" download="download" href="/pdf/vvzh_bsp2.pdf">Musterseiten, Band 2</a>
             </p>
         </div>
-    </PageTextPict2>
+    </SectionTextPict2>
 </DefaultLayout>

@@ -1,21 +1,18 @@
 ---
-//import { getCollection } from 'astro:content';
 import DefaultLayout from '~/layouts/DefaultLayout.astro';
 import Breadcrumb from "~/components/page/Breadcrumb.astro";
 import MetaHead from "~/components/page/MetaHead.astro";
-import PageTextPict from "~/components/page/PageTextPict.astro";
+import SectionTextPict from "~/components/page/SectionTextPict.astro";
+import loadJson from '~/lib/loadJson.js';
 
 const website_title = "Historische Vorlesungsverzeichnisse der Universität Zürich";
 const page_title = "Dozierende";
 const website_byline = "1833 - 1900";
 const website_description = " ";
 
-import { loadCsv } from '~/lib/loadCsv.js';
-
 export async function getStaticPaths() {
-  const dozenten = loadCsv('/data/tbl_dozenten.csv');
-  const veranstaltungen = loadCsv('/data/tbl_veranstaltungen.csv');
-  const fakultaeten = loadCsv('/data/tbl_fakultaeten.csv');
+  const dozenten = await loadJson('/data/tbl_dozenten.json');
+  const veranstaltungen = await loadJson('/data/tbl_veranstaltungen.json');
 
   return dozenten.map((dozent) => {
     const veranstaltungen_dozent = veranstaltungen.filter(
@@ -27,15 +24,13 @@ export async function getStaticPaths() {
       props: {
         dozent,
         veranstaltungen_dozent,
-        fakultaeten
       }
     };
   });
 }
 
-const { dozent, veranstaltungen_dozent, fakultaeten } = Astro.props;
+const { dozent, veranstaltungen_dozent } = Astro.props;
 
-const fakultaet = fakultaeten.find((f) => f.id_fakultaet?.trim() === dozent.id_fakultaet?.trim());
 
 const breadcrumb = [
   { label: "Home", href: "/" },
@@ -52,7 +47,7 @@ const breadcrumb = [
     description={`${website_description}`}
   />
 
-  <PageTextPict>
+  <SectionTextPict>
     <h1>{dozent.nachname}, {dozent.vorname}</h1>
 
     <p>
@@ -76,7 +71,7 @@ const breadcrumb = [
 
 
     {dozent.gagliardi && <p>{dozent.gagliardi}</p>}
-    {fakultaet?.fakultaet && <p>{fakultaet.fakultaet}</p>}
+    {dozent.fak && <p>{dozent.fak}</p>}
     {dozent.dekanat && <p>{dozent.dekanat}</p>}
     {dozent.rektor && <p>{dozent.rektor}</p>}
     {dozent.pnd && <p>PND: <a href={`https://d-nb.info/gnd/${dozent.pnd}`}>{dozent.pnd}</a></p>}
@@ -108,7 +103,7 @@ const breadcrumb = [
     </tbody>
     </table>
 
-  </PageTextPict>
+  </SectionTextPict>
 </DefaultLayout>
 
 

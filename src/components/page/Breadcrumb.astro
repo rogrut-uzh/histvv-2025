@@ -8,7 +8,7 @@ export interface Props {
 const { items } = Astro.props;
 ---
 <!-- component: Breadcrumb -->
-<nav class="Breadcrumb js-Breadcrumb">
+<nav class="Breadcrumb js-Breadcrumb" aria-label="Breadcrumb">
   <ol class="Breadcrumb--list js-Breadcrumb--list" data-js-scroll-style='{"horizontal":true}' aria-label="Breadcrumb">
     {items.map((item, index) => (
       <li class="Breadcrumb--list--item">

@@ -1,9 +1,8 @@
 ---
-//import { getCollection } from 'astro:content';
 import DefaultLayout from '~/layouts/DefaultLayout.astro';
 import MetaHead from "~/components/page/MetaHead.astro";
-import PageIntro from "~/components/page/PageIntro.astro";
-import PageTextPict from "~/components/page/PageTextPict.astro";
+import SectionIntro from "~/components/page/SectionIntro.astro";
+import SectionTextPict from "~/components/page/SectionTextPict.astro";
 
 const website_title = "Historische Vorlesungsverzeichnisse der Universität Zürich"
 const page_title = "Home"
@@ -17,18 +16,16 @@ const website_description = " "
         description={`${website_description}`}
         slot="head"
     />
-    <!-- Slot "head" is in \src\layouts\GeneratedWrapperLayout.astro -->
     
-    <PageIntro>{`${website_title} ${website_byline}`}
+    <SectionIntro>{`${website_title} ${website_byline}`}
         <!--
         <div class="Intro--text" slot="lead"><p></p></div>
         -->
-    </PageIntro>
+    </SectionIntro>
 
-    <PageTextPict>
+    <SectionTextPict>
         <p>Das Portal "Historische Vorlesungsverzeichnisse der Universität Zürich" erschließt als Hilfsmittel und Nachschlagewerk für biographische, forschungs-, disziplinen- oder institutionsgeschichtliche Fragestellungen alle im 19. Jahrhundert an der Universität Zürich angekündigten Lehrveranstaltungen auf der Grundlage der gedruckten Vorlesungsverzeichnisse. Es handelt sich dabei um insgesamt 24575 Veranstaltungen während 135 Semestern vom Sommersemester 1833 bis zum Sommersemester 1900.</p>
         <p>Die angekündigten Lehrveranstaltungen der einzelnen Semester lassen sich unter Vorlesungsverzeichnisse auswählen. Unter Dozierende lassen sich die Lehrveranstaltungen der einzelnen Dozierenden anzeigen. Weiter steht zur kombinierten Recherche eine Suchmaske zur Verfügung.</p>
-    </PageTextPict>
-    <!-- Slot is in \src\components\page\PageTextPict.astro -->
+    </SectionTextPict>
 
 </DefaultLayout>

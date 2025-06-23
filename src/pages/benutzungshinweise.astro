@@ -2,8 +2,8 @@
 import DefaultLayout from '~/layouts/DefaultLayout.astro';
 import Breadcrumb from "~/components/page/Breadcrumb.astro";
 import MetaHead from "~/components/page/MetaHead.astro";
-import PageIntro from "~/components/page/PageIntro.astro";
-import PageTextPict from "~/components/page/PageTextPict.astro";
+import SectionIntro from "~/components/page/SectionIntro.astro";
+import SectionTextPict from "~/components/page/SectionTextPict.astro";
 
 const website_title = "Historische Vorlesungsverzeichnisse der Universität Zürich"
 const page_title = "Benutzungshinweise"
@@ -23,12 +23,12 @@ const breadcrumb = [
         description={`${website_description}`}
     />
 
-    <PageIntro>{`${page_title}`}
+    <SectionIntro>{`${page_title}`}
         <div class="Intro--text" slot="lead"><p>Das Portal "Historische Vorlesungsverzeichnisse der Universität Zürich" erschließt als Hilfsmittel und Nachschlagewerk für biographische, forschungs-, disziplinen- oder institutionsgeschichtliche Fragestellungen alle im 19. Jahrhundert an der Universität Zürich angekündigten Lehrveranstaltungen auf der Grundlage der gedruckten Vorlesungsverzeichnisse. Es handelt sich dabei um insgesamt 24575 Veranstaltungen während 135 Semestern vom Sommersemester 1833 bis zum Sommersemester 1900.</p>
         </div>
-    </PageIntro>
+    </SectionIntro>
     
-    <PageTextPict>
+    <SectionTextPict>
         <h2>Vorlesungsverzeichnisse</h2>
         
         <p>Unter <a href="/vv/" class="Link">Vorlesungsverzeichnisse</a> lassen sich die angekündigten Lehrveranstaltungen der einzelnen Semester - analog den gedruckten Vorlesungsverzeichnissen - anzeigen. Die bibliographischen Angaben der jeweiligen Vorlage werden auf den einzelnen Semesterseiten jeweils zuoberst unter "Quelle" festgehalten.</p>
@@ -107,5 +107,5 @@ const breadcrumb = [
         <h2>Suche</h2>
 
         <p>Die Suchmöglichkeiten und die verschiedenen Suchfunktionen werden auf der <a href="/suche/" class="Link">Suchseite</a> erklärt.</p>
-    </PageTextPict>
+    </SectionTextPict>
 </DefaultLayout>

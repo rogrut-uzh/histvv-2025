@@ -1,4 +1,4 @@
-# Node stuff → wir wollen node_modules im Container bauen, aber package-lock.json WIRD gebraucht!
+# Node stuff → wir wollen node_modules im Container bauen, aber package-lock.json WIRD gebraucht
 node_modules
 npm-debug.log
 
@@ -11,6 +11,9 @@ npm-debug.log
 .idea
 .vscode
 Thumbs.db
+
+# Data Migration
+data-migration
 
 # Build output
 dist

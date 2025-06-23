@@ -2,8 +2,8 @@
 import DefaultLayout from '~/layouts/DefaultLayout.astro';
 import Breadcrumb from "~/components/page/Breadcrumb.astro";
 import MetaHead from "~/components/page/MetaHead.astro";
-import PageIntro from "~/components/page/PageIntro.astro";
-import PageTextPict from "~/components/page/PageTextPict.astro";
+import SectionIntro from "~/components/page/SectionIntro.astro";
+import SectionTextPict from "~/components/page/SectionTextPict.astro";
 
 const website_title = "Historische Vorlesungsverzeichnisse der Universität Zürich"
 const page_title = "Abkürzungen"
@@ -23,9 +23,9 @@ const breadcrumb = [
         description={`${website_description}`}
     />
 
-    <PageIntro>{`${page_title}`}</PageIntro>
+    <SectionIntro>{`${page_title}`}</SectionIntro>
     
-    <PageTextPict>
+    <SectionTextPict>
         <h2>Anstellungsverhältnis/akademischer Titel</h2>
         <table class="tbl_abk">
             <tr>
@@ -136,5 +136,5 @@ const breadcrumb = [
             <td>Personennormdatei der Deutschen Nationalbibliothek</td>
             </tr>
         </table>
-    </PageTextPict>
+    </SectionTextPict>
 </DefaultLayout>

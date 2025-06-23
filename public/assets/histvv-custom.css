@@ -1,0 +1,22 @@
+.target_highlight {
+  background-color: #fffbcc;
+  transition: background-color 1s ease-in-out;
+}
+
+.target_highlight.fade-out {
+  background-color: transparent;
+}
+
+
+.tbl_abk th {
+    width:110px;
+}
+
+.inline-toplink .Link::before {
+    display:none !important;
+}
+
+
+#such-ergebnisse {
+    margin-top: 40px;
+}

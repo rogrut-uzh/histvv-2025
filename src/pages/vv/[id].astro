@@ -1,61 +1,59 @@
 ---
-//import { getCollection } from 'astro:content';
 import DefaultLayout from '~/layouts/DefaultLayout.astro';
 import Breadcrumb from "~/components/page/Breadcrumb.astro";
 import MetaHead from "~/components/page/MetaHead.astro";
-import PageTextPict from "~/components/page/PageTextPict.astro";
+import SectionSectionNav from "~/components/page/SectionSectionNav.astro";
+import SectionTextPict from "~/components/page/SectionTextPict.astro";
+import loadJson from '~/lib/loadJson.js';
+import slugify from '~/lib/slugify.js';
 
 const website_title = "Historische Vorlesungsverzeichnisse der Universität Zürich";
 const page_title = "Vorlesungsverzeichnisse";
 const website_byline = "1833 - 1900";
 const website_description = " ";
-
 const zeit_trenner = " - ";
 
-import { loadCsv } from '~/lib/loadCsv.js';
 
 export async function getStaticPaths() {
-  const semester = loadCsv('/data/tbl_semester_header.csv');
-  const veranstaltungen = loadCsv('/data/tbl_veranstaltungen.csv');
-  const fakultaeten = loadCsv('/data/tbl_fakultaeten.csv');
+  try {
+    const [semester, veranstaltungen] = await Promise.all([
+      loadJson('/data/tbl_semester_header.json'),
+      loadJson('/data/tbl_veranstaltungen.json'),
+    ]);
 
-  return semester.map((sem) => {
-    const veranstaltungen_semester = veranstaltungen.filter(
-      (v) => v.id_semester?.trim() === sem.id_semester?.trim()
-    );
+    return semester.map((sem) => {
+      const veranstaltungen_semester = veranstaltungen.filter(
+        (v) => v.id_semester?.trim() === sem.id_semester?.trim()
+      );
 
-    return {
-      params: { id: sem.id_semester },
-      props: {
-        sem,
-        veranstaltungen_semester,
-        fakultaeten
-      }
-    };
-  });
+      // Gruppiere direkt nach Fakultätsname
+      const veranstaltungenByFakultaet = veranstaltungen_semester.reduce((acc, v) => {
+        if (!v.fak) return acc;
+        if (!acc[v.fak]) acc[v.fak] = [];
+        acc[v.fak].push(v);
+        return acc;
+      }, {});
+
+      // Alphabetisch sortierte Fakultätsnamen
+      const fakultaetNamen = Object.keys(veranstaltungenByFakultaet).sort((a, b) => a.localeCompare(b));
+
+      return {
+        params: { id: sem.id_semester },
+        props: {
+          sem,
+          veranstaltungenByFakultaet,
+          fakultaetNamen,
+        }
+      };
+    });
+  } catch (error) {
+    console.error('Error loading JSON data:', error);
+    return [];
+  }
 }
 
-const { sem, veranstaltungen_semester, fakultaeten } = Astro.props;
+const { sem, veranstaltungenByFakultaet, fakultaetNamen } = Astro.props;
 
-// Gruppierung der Veranstaltungen nach Fakultät
-const veranstaltungenByFakultaet = veranstaltungen_semester.reduce((acc, v) => {
-  if (!acc[v.fakultaet_id]) acc[v.fakultaet_id] = [];
-  acc[v.fakultaet_id].push(v);
-  return acc;
-}, {});
-
-// Fakultätsnamen auflösen
-function getFakultaetName(id) {
-  const eintrag = fakultaeten.find((f) => f.id_fakultaet === id);
-  return eintrag?.fakultaet || `Fakultät ${id}`;
-}
-
-// Sortierte Fakultäten-IDs
-const fakultaetIds = Object.keys(veranstaltungenByFakultaet).sort((a, b) => {
-  const nameA = getFakultaetName(a).toLowerCase();
-  const nameB = getFakultaetName(b).toLowerCase();
-  return nameA.localeCompare(nameB);
-});
 
 const breadcrumb = [
   { label: "Home", href: "/" },
@@ -72,15 +70,23 @@ const breadcrumb = [
     title={`${sem.titel} | ${website_title} ${website_byline}`}
     description={`${website_description}`}
   />
+  
 
-  <PageTextPict>
+
+  <SectionTextPict>
     <h1>{sem.titel}</h1>
     <p>Quelle: {sem.quelle}</p>
 
-    {fakultaetIds.map((fid) => (
-      <section>
-        <h2>{getFakultaetName(fid)}</h2>
-        {veranstaltungenByFakultaet[fid].map((v) => (
+    {fakultaetNamen.map((name) => (
+        <div>
+            <a class="Link" href={`#${slugify(name)}`}>{name}</a>
+        </div>
+    ))}
+    
+    {fakultaetNamen.map((name, i) => (
+      <section id={slugify(name)}>
+        <h2>{name}</h2>
+        {veranstaltungenByFakultaet[name].map((v) => (
           <p id={`${v.id_veranstaltung}`}>
             {v.vorlesungsnummer}
             {v.nachname_dozent === "Ohne Dozentenangabe" ? (
@@ -94,8 +100,32 @@ const breadcrumb = [
             {v.wochenstunden && `St ${v.wochenstunden}`}
             {v.ort && `(${v.ort})`}
           </p>
+
         ))}
+        
+        {i !== fakultaetNamen.length - 1 && (
+            <div class="TextImage--topLink inline-toplink">
+                <!-- component: Link -->
+                <a class="Link layout-standalone size-copy-xs icon-orientation-up" href="#top">
+                    Top
+                    <span class="Link--icon">
+                        <!-- component: Icon -->
+                        <span class="Icon" data-name="16--link-internal">
+                            <svg>
+                                <use xlink:href="#16--link-internal">
+                                </use>
+                            </svg>
+                        </span>
+                        <!-- /component: Icon -->
+                    </span>
+                </a>
+                <!-- /component: Link -->
+            </div>
+        )}
       </section>
     ))}
-  </PageTextPict>
+  </SectionTextPict>
+
 </DefaultLayout>
+
+

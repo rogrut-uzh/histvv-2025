@@ -1,20 +1,17 @@
 ---
-//import { getCollection } from 'astro:content';
 import DefaultLayout from '~/layouts/DefaultLayout.astro';
 import Breadcrumb from "~/components/page/Breadcrumb.astro";
 import MetaHead from "~/components/page/MetaHead.astro";
-import PageIntro from "~/components/page/PageIntro.astro";
-import PageTextPict from "~/components/page/PageTextPict.astro";
+import SectionIntro from "~/components/page/SectionIntro.astro";
+import SectionTextPict from "~/components/page/SectionTextPict.astro";
+import loadJson from '~/lib/loadJson.js';
 
 const website_title = "Historische Vorlesungsverzeichnisse der Universität Zürich"
 const page_title = "Dozierende"
 const website_byline = "1833 - 1900"
 const website_description = " "
 
-
-import { loadCsv } from '~/lib/loadCsv.js';
-
-const dozenten = loadCsv('/data/tbl_dozenten.csv')
+const dozierende = (await loadJson('/data/tbl_dozenten.json'))
   .filter((d) => d.id_dozent?.trim() !== '')
   .sort((a, b) => a.nachname.localeCompare(b.nachname));
   
@@ -31,19 +28,20 @@ const breadcrumb = [
         description={`${website_description}`}
     />
 
-    <PageIntro>{`${page_title}`}</PageIntro>
+    <SectionIntro>{`${page_title}`}</SectionIntro>
     
-    <PageTextPict>
-        <table class="sortable">
+    <SectionTextPict>
+        <table class="tablesorter">
           <thead>
             <tr>
               <th>Nachname, Vorname</th>
               <th>Geboren</th>
               <th>Gestorben</th>
+              <th>Fakultät</th>
             </tr>
           </thead>
           <tbody>
-            {dozenten.map((d) => (
+            {dozierende.map((d) => (
             <tr>
               <td>
                 <a href={`/dozierende/${d.id_dozent}/`}>
@@ -54,12 +52,15 @@ const breadcrumb = [
                   {d.geboren}
               </td>
               <td>
-                  {d.gestorben}
+                  {d.gestorben || d.gestorben || ""}
+              </td>
+              <td>
+                  {d.fak || ""}
               </td>
             </tr>
             ))}
           </tbody>
         </table>
-    </PageTextPict>
+    </SectionTextPict>
 
 </DefaultLayout>
