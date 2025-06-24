@@ -29,30 +29,33 @@ def process_sachgruppe(sachgruppe_elem, fakultaet_name, veranstaltungen, id_seme
 
     # Alle <veranstaltung>-Elemente in dieser sachgruppe auslesen
     for veranstaltung in sachgruppe_elem.findall(f"{NS}veranstaltung"):
-        id_dozent_el = veranstaltung.find(f"{NS}dozent")
-        id_dozent = id_dozent_el.get("ref") if id_dozent_el is not None and id_dozent_el.get("ref") is not None else None
         
         vorlesungsnummer = remove_brackets(veranstaltung.findtext(f"{NS}nr"))
-        nachname_dozent = normalize_whitespace(veranstaltung.findtext(f"{NS}dozent/{NS}nachname"))
-        vorname_dozent = normalize_whitespace(veranstaltung.findtext(f"{NS}dozent/{NS}vorname"))
         thema = normalize_whitespace(veranstaltung.findtext(f"{NS}thema"))
         zusatz = normalize_whitespace(ET.tostring(veranstaltung.find(f"{NS}zusatz"), encoding="unicode", method="text").strip()) if veranstaltung.find(f"{NS}zusatz") is not None else None
         zeit = normalize_whitespace(veranstaltung.findtext(f"{NS}zeit"))
         wochenstunden = veranstaltung.findtext(f"{NS}wochenstunden")
         ort = veranstaltung.findtext(f"{NS}ort")
+        id_veranstaltung = veranstaltung.get(f"{XML_NS}id")
         
-        if id_dozent == "od":
-            nachname_dozent = "Ohne Dozentenangabe"
+        dozenten = []
+        for dozent_el in veranstaltung.findall(f"{NS}dozent"):
+            # nachname und vorname werden nicht gebraucht. Die Angaben werden von den Dozenten Table übernommen. 
+            # Ich lasse die Angaben trotzdem noch hier drin.
+            dozent = {
+                "id_dozent": dozent_el.get("ref"),
+                "nachname": normalize_whitespace(dozent_el.findtext(f"{NS}nachname")),
+                "vorname": normalize_whitespace(dozent_el.findtext(f"{NS}vorname")),
+                "grad": dozent_el.findtext(f"{NS}grad"),
+                "funktion": dozent_el.findtext(f"{NS}funktion"),
+            }
+            dozenten.append(dozent)
 
         veranstaltungen.append({
             "id_semester": id_semester,
             "vorlesungsnummer": vorlesungsnummer,
-            "id_veranstaltung": veranstaltung.get(f"{XML_NS}id"),
-            "id_dozent": id_dozent,
-            "nachname_dozent": nachname_dozent,
-            "vorname_dozent": vorname_dozent,
-            "grad_dozent": veranstaltung.findtext(f"{NS}dozent/{NS}grad"),
-            "funktion_dozent": veranstaltung.findtext(f"{NS}dozent/{NS}funktion"),
+            "id_veranstaltung": id_veranstaltung,
+            "dozenten": dozenten,
             "thema": thema,
             "zusatz": zusatz,
             "zeit": zeit,

@@ -20,6 +20,11 @@ export async function getStaticPaths() {
     const veranstaltungen2 = await loadJson('/data/tbl_veranstaltungen-ab-1900w.json');
     const veranstaltungen = [...veranstaltungen1, ...veranstaltungen2];
     const semester = await loadJson('/data/tbl_semester_header.json');
+    const dozenten = await loadJson('/data/tbl_dozenten.json');
+    
+    // Lookup-Tabelle für schnelles Mapping
+    // z.B. mit dozentenById[v.id_dozent] auf den passenden Dozenten zugreifen
+    const dozentenById = Object.fromEntries(dozenten.map(d => [d.id_dozent, d]));
 
     return semester.map((sem) => {
       const veranstaltungen_semester = veranstaltungen.filter(
@@ -72,7 +77,6 @@ const breadcrumb = [
   />
   
 
-
   <SectionTextPict>
     <h1>{sem.titel}</h1>
     <p>Quelle: {sem.quelle}</p>
@@ -89,11 +93,22 @@ const breadcrumb = [
         {veranstaltungenByFakultaet[name].map((v) => (
           <p id={`${v.id_veranstaltung}`}>
             {v.vorlesungsnummer}
-            {v.nachname_dozent === "Ohne Dozentenangabe" ? (
-              <> {v.nachname_dozent}</>
-            ) : (
-              <> <a class="Link" href={`/dozierende/${v.id_dozent}`}>{v.nachname_dozent}, {v.vorname_dozent}</a></>
-            )}<br />
+            
+{Array.isArray(v.dozenten) && v.dozenten.length > 0 ? (
+  v.dozenten.map((d, idx) => (
+    <>
+      {idx > 0 && ', '}
+      <a class="Link" href={`/dozierende/${d.id_dozent}`}>
+        {d.nachname}, {d.vorname}
+      </a>{d.grad && <span style="color:#888;"> ({d.grad})</span>}
+    </>
+  ))
+) : (
+  <>Ohne Dozentenangabe</>
+)}
+
+            
+            <br />
             <strong>{v.thema}</strong><br />
             {v.zeit}
             {v.zeit && v.wochenstunden && zeit_trenner}

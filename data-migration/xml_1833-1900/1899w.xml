@@ -409,20 +409,20 @@
   <sachgruppe fakultät="Medizin">
     <titel>Medizinische Fakultät</titel>
 
-    <veranstaltung xml:id="v-24012"><nr>50</nr> <dozent
-    ref="ruge_g"><nachname>Ruge</nachname>, <vorname>Georg</vorname>,
-    <grad>O</grad></dozent> <dozent ref="ruge_g"><nachname>Felix</nachname>,
-    <vorname>Walther</vorname>, <grad>EO</grad></dozent>
-    <thema>Präparirübungen, 3 Kurse. 1. Kurs: Muskeln, Gelenke und Bänder; 2.
-    Kurs: Nerven, Gefässe und Eingeweide (mit Repetitorium); 3. Kurs:
-    Topographische Präparationen</thema> <zeit>Mo-Fr 8-12, 14-17, Sa
-    8-12</zeit> <wochenstunden>39</wochenstunden></veranstaltung>
+<veranstaltung xml:id="v-24012"><nr>50</nr> <dozent
+ref="ruge_g"><nachname>Ruge</nachname>, <vorname>Georg</vorname>,
+<grad>O</grad></dozent> <dozent ref="felix_w"><nachname>Felix</nachname>,
+<vorname>Walther</vorname>, <grad>EO</grad></dozent>
+<thema>Präparirübungen, 3 Kurse. 1. Kurs: Muskeln, Gelenke und Bänder; 2.
+Kurs: Nerven, Gefässe und Eingeweide (mit Repetitorium); 3. Kurs:
+Topographische Präparationen</thema> <zeit>Mo-Fr 8-12, 14-17, Sa
+8-12</zeit> <wochenstunden>39</wochenstunden></veranstaltung>
 
-    <veranstaltung xml:id="v-24013"><nr>51</nr> <dozent
-    ref="ruge_g"><nachname>Ruge</nachname>, <vorname>Georg</vorname>,
-    <grad>O</grad></dozent> <thema>Systematische Anatomie des Menschen, I.
-    Teil (Histologie, Eingeweide), Demonstrationen</thema> <zeit>Mo-Fr 10-11,
-    Sa 9-12</zeit> <wochenstunden>8</wochenstunden></veranstaltung>
+<veranstaltung xml:id="v-24013"><nr>51</nr> <dozent
+ref="ruge_g"><nachname>Ruge</nachname>, <vorname>Georg</vorname>,
+<grad>O</grad></dozent> <thema>Systematische Anatomie des Menschen, I.
+Teil (Histologie, Eingeweide), Demonstrationen</thema> <zeit>Mo-Fr 10-11,
+Sa 9-12</zeit> <wochenstunden>8</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-24014"><nr>52</nr> <dozent
     ref="ruge_g"><nachname>Ruge</nachname>, <vorname>Georg</vorname>,
@@ -517,7 +517,7 @@
     <veranstaltung xml:id="v-24029"><nr>67</nr> <dozent
     ref="silberschmidt_w"><nachname>Silberschmidt</nachname>,
     <vorname>William</vorname>, <grad>PD</grad></dozent> <dozent
-    ref="silberschmidt_w"><nachname>Wyss-Kienast</nachname>,
+    ref="wyss-kienast_o"><nachname>Wyss-Kienast</nachname>,
     <vorname>Oscar</vorname>, <grad>O</grad></dozent> <thema>Arbeiten im
     Hygien. Institut</thema> <zeit>Mo-Sa</zeit></veranstaltung>
 
@@ -1744,7 +1744,7 @@
       <veranstaltung xml:id="v-24230"><nr>255</nr> <dozent
       ref="dodel_a"><nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="dodel_a"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
+      ref="overton_e"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
       <grad>PD</grad></dozent> <thema>Botanisch-mikroskopischer Anfänger-Kurs
       in methodischem Anschluss an die allgemeine Botanik</thema> <zeit>Sa
       9-11</zeit> <wochenstunden>2</wochenstunden></veranstaltung>
@@ -1752,7 +1752,7 @@
       <veranstaltung xml:id="v-24231"><nr>256</nr> <dozent
       ref="dodel_a"><nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="dodel_a"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
+      ref="overton_e"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
       <grad>PD</grad></dozent> <thema>Botanisch-mikroskopisches Halbpraktikum
       für Lehramtskandidaten</thema> <zeit>2-3x 4h</zeit>
       <wochenstunden>8-12</wochenstunden></veranstaltung>
@@ -1760,7 +1760,7 @@
       <veranstaltung xml:id="v-24232"><nr>257</nr> <dozent
       ref="dodel_a"><nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="dodel_a"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
+      ref="overton_e"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
       <grad>PD</grad></dozent> <thema>Mikroskopisches Vollpraktikum für
       Vorgerücktere (Leitung selbständiger Arbeiten)</thema>
       <zeit>Mo-Fr</zeit> <wochenstunden>5</wochenstunden></veranstaltung>
@@ -1839,7 +1839,7 @@
       <veranstaltung xml:id="v-24245"><nr>270</nr> <dozent
       ref="lang_a"><nachname>Lang</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad>, <funktion>Rektor</funktion></dozent> <dozent
-      ref="lang_a"><nachname>Hescheler</nachname>, <vorname>Karl</vorname>,
+      ref="hescheler_k"><nachname>Hescheler</nachname>, <vorname>Karl</vorname>,
       <grad>PD</grad></dozent> <thema>Zoologisch-vergl. anatomisches
       Vollpraktikum für Vorgerücktere und Leitung selbständiger
       Arbeiten</thema> <zeit>Mo-Do 8-12, 14-19, Fr, Sa 8-12</zeit>
@@ -1934,7 +1934,7 @@
     <veranstaltung xml:id="v-24259"><nr>6</nr> <dozent
     ref="koelliker_pa"><nachname>Kölliker</nachname>, <vorname>Paul
     Alfred</vorname>, <grad>Doz</grad></dozent> <dozent
-    ref="koelliker_pa"><nachname>Froehner</nachname>,
+    ref="froehner_j"><nachname>Froehner</nachname>,
     <vorname>Julius</vorname>, <grad>Doz</grad></dozent> <thema>Technisches
     Laboratorium und technische Demonstrationen, Demonstrationen der Leiter
     des technischen Laboratoriums</thema>

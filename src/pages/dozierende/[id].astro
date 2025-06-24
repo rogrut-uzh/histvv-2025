@@ -5,18 +5,17 @@ import MetaHead from "~/components/page/MetaHead.astro";
 import SectionTextPict from "~/components/page/SectionTextPict.astro";
 import loadJson from '~/lib/loadJson.js';
 
-const website_title = "Historische Vorlesungsverzeichnisse der Universität Zürich";
-const page_title = "Dozierende";
-const website_byline = "1833 - 1900";
-const website_description = " ";
-
 export async function getStaticPaths() {
   const dozenten = await loadJson('/data/tbl_dozenten.json');
   const veranstaltungen = await loadJson('/data/tbl_veranstaltungen.json');
 
+  // Die Veranstaltungen können jetzt mehrere Dozenten enthalten!
   return dozenten.map((dozent) => {
+    // Veranstaltung, wo der aktuelle Dozent beteiligt ist:
     const veranstaltungen_dozent = veranstaltungen.filter(
-      (v) => v.id_dozent?.trim() === dozent.id_dozent?.trim()
+      (v) =>
+        Array.isArray(v.dozenten) &&
+        v.dozenten.some((d) => d.id_dozent === dozent.id_dozent)
     );
 
     return {
@@ -29,19 +28,32 @@ export async function getStaticPaths() {
   });
 }
 
-const { dozent, veranstaltungen_dozent } = Astro.props;
+// Hilfsfunktion zur Umwandlung von "1933s" zu "SS 1933" etc.
+function formatSemesterLabel(id_semester) {
+  if (!id_semester || id_semester.length < 5) return id_semester;
+  const jahr = id_semester.slice(0, 4);
+  const typ = id_semester[4].toLowerCase();
+  return typ === "w" ? `${jahr} WS` : typ === "s" ? `${jahr} SS` : id_semester;
+}
 
+const { dozent, veranstaltungen_dozent } = Astro.props;
 
 const breadcrumb = [
   { label: "Home", href: "/" },
   { label: "Dozierende", href: "/dozierende/" },
   { label: `${dozent.nachname}, ${dozent.vorname}`, href: `/dozierende/${dozent.id_dozent}/` }
 ];
+
+const website_title = "Historische Vorlesungsverzeichnisse der Universität Zürich";
+const page_title = `${dozent.nachname}, ${dozent.vorname}`;
+const website_byline = "1833 - 1900";
+const website_description = "Detailangaben zum Dozenten / zur Dozentin.";
+
 ---
 
 <DefaultLayout>
   <Breadcrumb items={breadcrumb} />
-  
+
   <MetaHead slot="head"
     title={`${dozent.nachname}, ${dozent.vorname} | ${website_title} ${website_byline}`}
     description={`${website_description}`}
@@ -69,7 +81,6 @@ const breadcrumb = [
       )}
     </p>
 
-
     {dozent.gagliardi && <p>{dozent.gagliardi}</p>}
     {dozent.fak && <p>{dozent.fak}</p>}
     {dozent.dekanat && <p>{dozent.dekanat}</p>}
@@ -78,32 +89,46 @@ const breadcrumb = [
     {dozent.wikipedia && <p>Wikipedia: <a href={dozent.wikipedia}>{dozent.wikipedia}</a></p>}
 
     <h2>Veranstaltungen</h2>
-    <table class="sortable">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Semester</th>
-        <th>Veranstaltung</th>
-        <th>Grad</th>
-        <th>Funktion</th>
-      </tr>
-    </thead>
-    <tbody>
-      {veranstaltungen_dozent.map((v, index) => (
+    <table class="tablesorter">
+      <thead>
         <tr>
-          <td>{index + 1}</td>
-          <td>
-            <a href={`/vv/${v.id_semester}#${v.id_veranstaltung}`}>{v.id_semester}</a>
-          </td>
-          <td>{v.thema}</td>
-          <td>{v.grad_dozent || ''}</td>
-          <td>{v.funktion_dozent || ''}</td>
+          <th>#</th>
+          <th>Semester</th>
+          <th>Veranstaltung</th>
+          <th>Grad</th>
+          <th>Funktion</th>
         </tr>
-      ))}
-    </tbody>
+      </thead>
+      <tbody>
+        {veranstaltungen_dozent.map((v, index) => {
+          // Alle passenden Dozenten für diese Veranstaltung und diesen Dozenten
+          const meineInfos = (Array.isArray(v.dozenten) ? v.dozenten : []).filter(d => d.id_dozent === dozent.id_dozent);
+          return (
+            <tr>
+              <td>{index + 1}</td>
+              <td>
+                <a href={`/vv/${v.id_semester}#${v.id_veranstaltung}`}>{formatSemesterLabel(v.id_semester)}</a>              </td>
+              <td>{v.thema}</td>
+              <td>
+                {meineInfos.map((d, i) => (
+                  <>
+                    {i > 0 && ', '}
+                    {d.grad || ''}
+                  </>
+                ))}
+              </td>
+              <td>
+                {meineInfos.map((d, i) => (
+                  <>
+                    {i > 0 && ', '}
+                    {d.funktion || ''}
+                  </>
+                ))}
+              </td>
+            </tr>
+          )
+        })}
+      </tbody>
     </table>
-
   </SectionTextPict>
 </DefaultLayout>
-
-
