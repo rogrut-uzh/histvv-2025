@@ -16,10 +16,10 @@ const zeit_trenner = " - ";
 
 export async function getStaticPaths() {
   try {
-    const [semester, veranstaltungen] = await Promise.all([
-      loadJson('/data/tbl_semester_header.json'),
-      loadJson('/data/tbl_veranstaltungen.json'),
-    ]);
+    const veranstaltungen1 = await loadJson('/data/tbl_veranstaltungen.json');
+    const veranstaltungen2 = await loadJson('/data/tbl_veranstaltungen-ab-1900w.json');
+    const veranstaltungen = [...veranstaltungen1, ...veranstaltungen2];
+    const semester = await loadJson('/data/tbl_semester_header.json');
 
     return semester.map((sem) => {
       const veranstaltungen_semester = veranstaltungen.filter(

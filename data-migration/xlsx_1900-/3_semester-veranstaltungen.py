@@ -4,8 +4,9 @@ import json
 import sys
 import re
 import os
+import hashlib
 
-veranstaltungen_json = os.path.expanduser("~/gitlab-repositories/histvv-2025/data/tbl_veranstaltungen-2.json")
+veranstaltungen_json = os.path.expanduser("~/gitlab-repositories/histvv-2025/data/tbl_veranstaltungen-ab-1900w.json")
 
 def get_semester_id_from_filename(filename):
     m = re.match(r"(\d{4})_(Winter|Sommer)", filename)
@@ -13,6 +14,13 @@ def get_semester_id_from_filename(filename):
         return None
     year, halbjahr = m.groups()
     return f"{year}{'w' if halbjahr == 'Winter' else 's'}"
+
+def make_unique_id(semester_id, vorlesungsnummer, thema, zusatz):
+    # String für Hash: Jahr+VNR+Fak
+    basis = f"{semester_id}{vorlesungsnummer}{thema}{zusatz}"
+    # Hash erzeugen und nur die ersten 8 Zeichen nehmen
+    hash_part = hashlib.sha1(basis.encode("utf-8")).hexdigest()[:8]
+    return f"{hash_part}"
 
 def process_xlsx_file(filepath):
     semester_id = get_semester_id_from_filename(filepath.stem)
@@ -25,12 +33,20 @@ def process_xlsx_file(filepath):
 
     veranstaltungen = []
     for idx, row in df.iterrows():
+        fak = str(row[4]).strip() if pd.notnull(row[4]) else ""
+        thema = str(row[5]).strip() if pd.notnull(row[5]) else ""
+        zusatz = str(row[6]).strip() if pd.notnull(row[6]) else ""
+        vorlesungsnummer = str(row[3]).strip() if pd.notnull(row[3]) else ""
+        vorlesungsnummer_without_dot = vorlesungsnummer.rstrip(".")
+        id_veranstaltung = make_unique_id(semester_id, vorlesungsnummer, thema, zusatz)
+        id_veranstaltung = f"v-{id_veranstaltung}"
         veranstaltungen.append({
             "id_semester": semester_id,
-            "vorlesungsnummer": str(row[3]).strip() if pd.notnull(row[3]) else "",
-            "fak": str(row[4]).strip() if pd.notnull(row[4]) else "",
-            "thema": str(row[5]).strip() if pd.notnull(row[5]) else "",
-            "zusatz": str(row[6]).strip() if pd.notnull(row[6]) else "",
+            "id_veranstaltung": id_veranstaltung,
+            "vorlesungsnummer": vorlesungsnummer_without_dot,
+            "fak": fak,
+            "thema": thema,
+            "zusatz": zusatz,
             "zeit": "",
             "ort": "",
             "wochenstunden": "",

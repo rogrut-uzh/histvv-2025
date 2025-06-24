@@ -30,8 +30,10 @@ const groupedByDecade = semester.reduce((acc, s) => {
 const decades = Object.keys(groupedByDecade)
   .sort((a, b) => parseInt(b) - parseInt(a));
 
-// Lade Veranstaltungen (aus JSON!)
-const veranstaltungen = await loadJson('/data/tbl_veranstaltungen.json');
+// Lade Veranstaltungen
+const veranstaltungen1 = await loadJson('/data/tbl_veranstaltungen.json');
+const veranstaltungen2 = await loadJson('/data/tbl_veranstaltungen-ab-1900w.json');
+const veranstaltungen = [...veranstaltungen1, ...veranstaltungen2];
 
 // Zähle Veranstaltungen pro Semester
 const veranstaltungenCount = veranstaltungen.reduce((acc, v) => {

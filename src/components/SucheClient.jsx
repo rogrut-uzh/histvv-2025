@@ -7,7 +7,10 @@ export default function SucheClient() {
 
   useEffect(() => {
     async function loadData() {
-      let veranstaltungen = await fetch('/data/tbl_veranstaltungen.json').then(r => r.json());
+        let veranstaltungen1 = await fetch('/data/tbl_veranstaltungen.json').then(r => r.json());
+        let veranstaltungen2 = await fetch('/data/tbl_veranstaltungen-ab-1900w.json').then(r => r.json());
+        let veranstaltungen = [...veranstaltungen1, ...veranstaltungen2];
+
       let dozierende = await fetch('/data/tbl_dozenten.json').then(r => r.json());
 
       // Fakultätsliste (Set, alphabetisch)
@@ -120,7 +123,7 @@ export default function SucheClient() {
                       <b>Vorlesung:</b> ${result.thema}
                       <span style="color:#888;">(${result.fak}, ${result.id_semester})</span>
                     </a>
-                    ${result.zusatz ? `<div><small>${result.zusatz}</small></div>` : ""}
+                    ${result.zusatz ? `<!--<div><small>${result.zusatz}</small></div>-->` : ""}
                   </div>
                 `;
               } else {
