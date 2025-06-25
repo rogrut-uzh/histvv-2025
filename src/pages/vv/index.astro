@@ -8,40 +8,47 @@ import loadJson from '~/lib/loadJson.js';
 
 const website_title = "Historische Vorlesungsverzeichnisse der Universität Zürich"
 const page_title = "Vorlesungsverzeichnisse"
-const website_byline = "1833 - 1900"
+const website_byline = "1833 - 2000"
 const website_description = " "
 
-// Lade alle Semester, filtere und sortiere absteigend
-const semester = (await loadJson('/data/tbl_semester_header.json'))
-  .filter((s) => s.id_semester?.trim() !== '')
-  .sort((a, b) => b.id_semester.localeCompare(a.id_semester));
-
-// Gruppiere nach Jahrzehnt
-const groupedByDecade = semester.reduce((acc, s) => {
-  const year = parseInt(s.id_semester.slice(0, 4), 10);
-  const decade = Math.floor(year / 10) * 10;
-  const label = `${decade}s`;
-  if (!acc[label]) acc[label] = [];
-  acc[label].push(s);
-  return acc;
-}, {});
-
-// Sortiere die Jahrzehnte absteigend (neuestes zuerst)
-const decades = Object.keys(groupedByDecade)
-  .sort((a, b) => parseInt(b) - parseInt(a));
-
-// Lade Veranstaltungen
 const veranstaltungen1 = await loadJson('/data/tbl_veranstaltungen.json');
 const veranstaltungen2 = await loadJson('/data/tbl_veranstaltungen-ab-1900w.json');
 const veranstaltungen = [...veranstaltungen1, ...veranstaltungen2];
 
-// Zähle Veranstaltungen pro Semester
-const veranstaltungenCount = veranstaltungen.reduce((acc, v) => {
-  const id = v.id_semester;
-  if (!acc[id]) acc[id] = 0;
-  acc[id]++;
-  return acc;
-}, {});
+// 1. Alle Semester-IDs extrahieren & sortieren
+let semesterIDs = veranstaltungen
+  .map(v => v.id_semester?.trim())
+  .filter(Boolean);
+
+// Optional: Duplikate entfernen, falls vorhanden
+semesterIDs = Array.from(new Set(semesterIDs));
+
+// 2. Semester-Titel bauen (SS/WS + Jahr)
+function semesterTitel(id) {
+  if (!id) return '';
+  const year = id.slice(0, 4);
+  const typ = id.endsWith('s') ? 'Sommersemester' : 'Wintersemester';
+  return `${typ} ${year}`;
+}
+
+// 3. Sortieren (neuste zuerst, falls gewünscht: umdrehen)
+semesterIDs.sort((a, b) => a.localeCompare(b)); // Ändere ggf. Reihenfolge
+
+// 4. Nach Jahrzehnt gruppieren
+const groupedByDecade = {};
+for (const id of semesterIDs) {
+  const decade = id.slice(0, 3) + "0–" + id.slice(0, 3) + "9";
+  if (!groupedByDecade[decade]) groupedByDecade[decade] = [];
+  groupedByDecade[decade].push({ id_semester: id, titel: semesterTitel(id) });
+}
+const decades = Object.keys(groupedByDecade).sort(); // Sortiert Jahrzehnte
+
+// 5. Veranstaltungen pro Semester zählen
+const veranstaltungenCount = {};
+for (const v of veranstaltungen) {
+  if (!veranstaltungenCount[v.id_semester]) veranstaltungenCount[v.id_semester] = 0;
+  veranstaltungenCount[v.id_semester]++;
+}
 
 const breadcrumb = [
   { label: "Home", href: "/" },
@@ -51,12 +58,10 @@ const breadcrumb = [
 
 <DefaultLayout>
     <Breadcrumb items={breadcrumb} />
-
     <MetaHead slot="head"
         title={`${page_title} | ${website_title} ${website_byline}`}
         description={`${website_description}`}
     />
-
     <SectionIntro>{`${page_title}`}</SectionIntro>
     
     <SectionMasonry>

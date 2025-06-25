@@ -19,7 +19,9 @@ export async function getStaticPaths() {
     const veranstaltungen1 = await loadJson('/data/tbl_veranstaltungen.json');
     const veranstaltungen2 = await loadJson('/data/tbl_veranstaltungen-ab-1900w.json');
     const veranstaltungen = [...veranstaltungen1, ...veranstaltungen2];
-    const semester = await loadJson('/data/tbl_semester_header.json');
+    const semester1 = await loadJson('/data/tbl_semester_header.json');
+    const semester2 = await loadJson('/data/tbl_semester_header-ab-1900w_statisch-erstellt.json');
+    const semester = [...semester1, ...semester2];
     const dozenten = await loadJson('/data/tbl_dozenten.json');
     
     // Lookup-Tabelle für schnelles Mapping
@@ -48,6 +50,7 @@ export async function getStaticPaths() {
           sem,
           veranstaltungenByFakultaet,
           fakultaetNamen,
+          dozentenById
         }
       };
     });
@@ -57,8 +60,7 @@ export async function getStaticPaths() {
   }
 }
 
-const { sem, veranstaltungenByFakultaet, fakultaetNamen } = Astro.props;
-
+const { sem, veranstaltungenByFakultaet, fakultaetNamen, dozentenById } = Astro.props;
 
 const breadcrumb = [
   { label: "Home", href: "/" },
@@ -79,35 +81,38 @@ const breadcrumb = [
 
   <SectionTextPict>
     <h1>{sem.titel}</h1>
-    <p>Quelle: {sem.quelle}</p>
+    {sem.quelle && <p>Quelle: {sem.quelle}</p>}
 
-    {fakultaetNamen.map((name) => (
+    {fakultaetNamen.map((fakname) => (
         <div>
-            <a class="Link" href={`#${slugify(name)}`}>{name}</a>
+            <a class="Link" href={`#${slugify(fakname)}`}>{fakname}</a>
         </div>
     ))}
     
-    {fakultaetNamen.map((name, i) => (
-      <section id={slugify(name)}>
-        <h2>{name}</h2>
-        {veranstaltungenByFakultaet[name].map((v) => (
+    {fakultaetNamen.map((fakname, i) => (
+      <section id={slugify(fakname)}>
+        <h2>{fakname}</h2>
+        {veranstaltungenByFakultaet[fakname].map((v) => (
           <p id={`${v.id_veranstaltung}`}>
             {v.vorlesungsnummer}
             
-{Array.isArray(v.dozenten) && v.dozenten.length > 0 ? (
-  v.dozenten.map((d, idx) => (
-    <>
-      {idx > 0 && ', '}
-      <a class="Link" href={`/dozierende/${d.id_dozent}`}>
-        {d.nachname}, {d.vorname}
-      </a>{d.grad && <span style="color:#888;"> ({d.grad})</span>}
-    </>
-  ))
-) : (
-  <>Ohne Dozentenangabe</>
-)}
+            {Array.isArray(v.dozenten) && v.dozenten.length > 0 ? (
+              v.dozenten.map((d, idx) => {
+                const dozentDetails = dozentenById[d.id_dozent] || {};
+                return (
+                  <>
+                    {idx > 0 && ', '}
+                    <a class="Link" href={`/dozierende/${d.id_dozent}`}>
+                      {dozentDetails.nachname}, {dozentDetails.vorname}
+                    </a>
+                    {d.grad && <span style="color:#888;"> ({d.grad})</span>}
+                  </>
+                );
+              })
+            ) : (
+              <>Ohne Dozentenangabe</>
+            )}
 
-            
             <br />
             <strong>{v.thema}</strong><br />
             {v.zeit}
@@ -118,6 +123,11 @@ const breadcrumb = [
 
         ))}
         
+        
+        
+        //
+        // "to top" link
+        //
         {i !== fakultaetNamen.length - 1 && (
             <div class="TextImage--topLink inline-toplink">
                 <!-- component: Link -->

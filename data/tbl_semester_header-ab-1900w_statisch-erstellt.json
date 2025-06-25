@@ -1,0 +1,63 @@
+[
+  {
+    "id_semester": "1900w",
+    "titel": "Winteremester 1900"
+  },{
+    "id_semester": "1901s",
+    "titel": "Sommersemester 1901"
+  },{
+    "id_semester": "1901w",
+    "titel": "Winteremester 1901"
+  },{
+    "id_semester": "1902s",
+    "titel": "Sommersemester 1902"
+  },{
+    "id_semester": "1902w",
+    "titel": "Winteremester 1902"
+  },{
+    "id_semester": "1903s",
+    "titel": "Sommersemester 1903"
+  },{
+    "id_semester": "1903w",
+    "titel": "Winteremester 1903"
+  },{
+    "id_semester": "1904s",
+    "titel": "Sommersemester 1904"
+  },{
+    "id_semester": "1904w",
+    "titel": "Winteremester 1904"
+  },{
+    "id_semester": "1905s",
+    "titel": "Sommersemester 1905"
+  },{
+    "id_semester": "1905w",
+    "titel": "Winteremester 1905"
+  },{
+    "id_semester": "1906w",
+    "titel": "Sommersemester 1906"
+  },{
+    "id_semester": "1906",
+    "titel": "Winteremester 1906"
+  },{
+    "id_semester": "1907s",
+    "titel": "Sommersemester 1907"
+  },{
+    "id_semester": "1907w",
+    "titel": "Winteremester 1907"
+  },{
+    "id_semester": "1908s",
+    "titel": "Sommersemester 1908"
+  },{
+    "id_semester": "1908w",
+    "titel": "Winteremester 1908"
+  },{
+    "id_semester": "1909s",
+    "titel": "Sommersemester 1909"
+  },{
+    "id_semester": "1909w",
+    "titel": "Winteremester 1909"
+  },{
+    "id_semester": "1910s",
+    "titel": "Sommersemester 1910"
+  }
+]
