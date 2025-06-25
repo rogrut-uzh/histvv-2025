@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 
 export default defineConfig({
-  site: 'http://localhost:3000',
+  site: 'http://localhost',
 
   vite: {
     resolve: {

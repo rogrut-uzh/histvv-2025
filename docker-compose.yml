@@ -1,21 +1,32 @@
 services:
   dev:
+    init: true
+    container_name: histvv2025-dev
     build:
       context: .
       target: builder
     ports:
-      - "3000:3000"
+      - "80:80"
     volumes:
-      - ./data:/data
-    command: npm run preview
+      - .:/app
+    command: npm run dev
     environment:
       - NODE_ENV=development
 
   prod:
+    init: true
+    container_name: histvv2025-prod
     build: .
     ports:
-      - "8080:80"
-    volumes:
-      - ./data:/data
+      - "80:80"
     environment:
       - NODE_ENV=production
+    networks:
+      - nw
+    restart: always
+
+networks:
+  nw:
+    driver: bridge
+    attachable: false
+

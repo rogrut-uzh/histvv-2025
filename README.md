@@ -43,7 +43,7 @@ Live Reload; ideal zum Entwickeln, Testen, CSS anpassen etc.
 docker compose up --build dev -d
 ```
 
-Astro Dev Server unter: `http://localhost:3000'
+Astro Dev Server unter: `http://localhost'
 
 
 ### Produktions-Build
@@ -52,5 +52,14 @@ Astro Dev Server unter: `http://localhost:3000'
 docker compose up --build prod -d
 ```
 
-Astro Dev Server unter: `http://localhost:8080'
+Astro Dev Server unter: `http://localhost'
+
+#### bash in container
+
+```
+docker exec -it histvv2025-prod /bin/sh
+```
+
+Die HTML-Seite ist unter `/usr/share/nginx/html`
+
 

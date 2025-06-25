@@ -11,7 +11,7 @@ RUN npm install
 
 # Copy all project files
 COPY . .
-RUN cp -r data public/data
+RUN mkdir -p public/data && cp data/*.json public/data/
 
 # Build static site
 RUN npm run build

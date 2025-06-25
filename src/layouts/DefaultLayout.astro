@@ -120,7 +120,7 @@
                         <!-- Begin: loop through top-level items--> 
                         
                         <!-- component: MainNav--item -->
-                        <li class="MainNav--list--item js-MainNav--item is-active">
+                        <li class="MainNav--list--item js-MainNav--item">
                             <!-- Button if there are subitems, link if there aren't-->
                             <!-- component: MainNav--link -->
                             <a class="MainNav--link js-MainNav--link" href="/vv/">Vorlesungsverzeichnisse</a>
@@ -141,7 +141,7 @@
                         <li class="MainNav--list--item js-MainNav--item">
                             <!-- Button if there are subitems, link if there aren't-->
                             <!-- component: MainNav--link -->
-                            <a class="MainNav--link js-MainNav--link" href="/benutzungshinweise/">Benutzungshinweise</a>
+                            <a class="MainNav--link js-MainNav--link" href="/suche/">Veranstaltungssuche</a>
                             <!-- /component: MainNav--link -->
                         </li>
                         <!-- /component: MainNav--item -->
@@ -150,7 +150,7 @@
                         <li class="MainNav--list--item js-MainNav--item">
                             <!-- Button if there are subitems, link if there aren't-->
                             <!-- component: MainNav--link -->
-                            <a class="MainNav--link js-MainNav--link" href="/suche/">Veranstaltungssuche</a>
+                            <a class="MainNav--link js-MainNav--link" href="/benutzungshinweise/">Benutzungshinweise</a>
                             <!-- /component: MainNav--link -->
                         </li>
                         <!-- /component: MainNav--item -->
@@ -262,7 +262,7 @@
         </div>
         <!-- /component: FooterMeta -->
     </div>
-</footer>    
+</footer>
 
 
 
@@ -393,30 +393,8 @@
     // Important for backend implementation: The revision (second parameter) should change whenever the svg sprite changes, e.g. you can use the modification timestamp of the svg file.
 </script>
 
-
-
-<script is:inline>
-  function highlightTarget() {
-    const hash = window.location.hash;
-    // Prüfe, ob das Hash mit "#v-" beginnt
-    if (hash && hash.startsWith('#v-')) {
-      const target = document.querySelector(hash);
-      if (target) {
-        target.classList.add('target_highlight');
-        setTimeout(() => {
-          target.classList.add('fade-out');
-        }, 3000);
-        setTimeout(() => {
-          target.classList.remove('target_highlight', 'fade-out');
-        }, 4000);
-      }
-    }
-  }
-
-  window.addEventListener('load', highlightTarget);
-  window.addEventListener('hashchange', highlightTarget);
-</script>
-
+<script type="module" src="/client-js/main-nav-active.js"></script>
+<script type="module" src="/client-js/link-target-highlight.js"></script>
 
 </body>
 </html>
