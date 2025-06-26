@@ -12,7 +12,8 @@
     width:110px;
 }
 
-.inline-toplink .Link::before {
+.inline-toplink .Link::before,
+.vv-detail-fak .Link::before {
     display:none !important;
 }
 

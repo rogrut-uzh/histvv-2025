@@ -1,10 +1,8 @@
 import { defineConfig } from 'astro/config';
-
 import react from '@astrojs/react';
 
 export default defineConfig({
   site: 'http://localhost',
-
   vite: {
     resolve: {
       alias: {
@@ -12,6 +10,6 @@ export default defineConfig({
       },
     },
   },
-
   integrations: [react()],
+  compressHTML: true,
 });

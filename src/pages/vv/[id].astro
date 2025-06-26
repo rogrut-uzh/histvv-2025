@@ -71,85 +71,93 @@ const breadcrumb = [
 ---
 
 <DefaultLayout>
-  <Breadcrumb items={breadcrumb} />
+    <Breadcrumb items={breadcrumb} />
   
-  <MetaHead slot="head"
-    title={`${sem.titel} | ${website_title} ${website_byline}`}
-    description={`${website_description}`}
-  />
+    <MetaHead slot="head"
+        title={`${sem.titel} | ${website_title} ${website_byline}`}
+        description={`${website_description}`}
+    />
   
 
-  <SectionTextPict>
-    <h1>{sem.titel}</h1>
-    {sem.quelle && <p>Quelle: {sem.quelle}</p>}
+    <SectionTextPict>
+      <h1>{sem.titel}</h1>
+      {sem.quelle && <p>Quelle: {sem.quelle}</p>}
 
-    {fakultaetNamen.map((fakname) => (
-        <div>
-            <a class="Link" href={`#${slugify(fakname)}`}>{fakname}</a>
-        </div>
-    ))}
-    
-    {fakultaetNamen.map((fakname, i) => (
-      <section id={slugify(fakname)}>
-        <h2>{fakname}</h2>
-        {veranstaltungenByFakultaet[fakname].map((v) => (
-          <p id={`${v.id_veranstaltung}`}>
-            {v.vorlesungsnummer}
-            
-            {Array.isArray(v.dozenten) && v.dozenten.length > 0 ? (
-              v.dozenten.map((d, idx) => {
-                const dozentDetails = dozentenById[d.id_dozent] || {};
-                return (
-                  <>
-                    {idx > 0 && ', '}
-                    <a class="Link" href={`/dozierende/${d.id_dozent}`}>
-                      {dozentDetails.nachname}, {dozentDetails.vorname}
-                    </a>
-                    {d.grad && <span style="color:#888;"> ({d.grad})</span>}
-                  </>
-                );
-              })
-            ) : (
-              <>Ohne Dozentenangabe</>
-            )}
-
-            <br />
-            <strong>{v.thema}</strong><br />
-            {v.zeit}
-            {v.zeit && v.wochenstunden && zeit_trenner}
-            {v.wochenstunden && `St ${v.wochenstunden}`}
-            {v.ort && `(${v.ort})`}
-          </p>
-
+      <div>
+        {fakultaetNamen.map((fakname) => (
+          <div class="vv-detail-fak">
+            <a class="Link layout-standalone icon-position-before icon-orientation-down" href={`#${slugify(fakname)}`}>{fakname}
+              <span class="Link--icon">
+                <span class="Icon" data-name="16--link-internal">
+                  <svg>
+                    <use xlink:href="#16--link-internal"></use>
+                  </svg>
+                </span>
+              </span>
+            </a>
+          </div>
         ))}
-        
-        
-        
-        //
-        // "to top" link
-        //
-        {i !== fakultaetNamen.length - 1 && (
+      </div>
+
+      {fakultaetNamen.map((fakname, i) => (
+        <section id={slugify(fakname)}>
+          <h2>{fakname}</h2>
+          {veranstaltungenByFakultaet[fakname].map((v, idx) =>
+            v.typ === "absatz" ? (
+              <p class="AbsatzHinweis" key={`absatz-${idx}`}>{v.text}</p>
+            ) : (
+              <p id={`${v.id_veranstaltung}`} key={v.id_veranstaltung}>
+                {v.vorlesungsnummer}
+
+                {Array.isArray(v.dozenten) && v.dozenten.length > 0 ? (
+                  v.dozenten.map((d, idx) => {
+                    const dozentDetails = dozentenById[d.id_dozent] || {};
+                    return (
+                      <>
+                        {idx > 0 && ', '}
+                        <a class="Link" href={`/dozierende/${d.id_dozent}`}>
+                          {dozentDetails.nachname}, {dozentDetails.vorname}
+                        </a>
+                        {d.grad && <span style="color:#888;"> ({d.grad})</span>}
+                      </>
+                    );
+                  })
+                ) : (
+                  <>Ohne Dozentenangabe</>
+                )}
+
+                <br />
+                <strong>{v.thema}</strong><br />
+                {v.thema_anmerkung && <>Anmerkung: {v.thema_anmerkung}<br /></>}
+                {v.zeit}
+                {v.zeit && v.wochenstunden && zeit_trenner}
+                {v.wochenstunden && `St ${v.wochenstunden}`}
+                {v.ort && `(${v.ort})`}
+              </p>
+            )
+          )}
+
+
+
+
+
+          {i !== fakultaetNamen.length - 1 && (
             <div class="TextImage--topLink inline-toplink">
-                <!-- component: Link -->
-                <a class="Link layout-standalone size-copy-xs icon-orientation-up" href="#top">
-                    Top
-                    <span class="Link--icon">
-                        <!-- component: Icon -->
-                        <span class="Icon" data-name="16--link-internal">
-                            <svg>
-                                <use xlink:href="#16--link-internal">
-                                </use>
-                            </svg>
-                        </span>
-                        <!-- /component: Icon -->
-                    </span>
-                </a>
-                <!-- /component: Link -->
+              <a class="Link layout-standalone size-copy-xs icon-orientation-up" href="#top">
+                Top
+                <span class="Link--icon">
+                  <span class="Icon" data-name="16--link-internal">
+                    <svg>
+                      <use xlink:href="#16--link-internal"></use>
+                    </svg>
+                  </span>
+                </span>
+              </a>
             </div>
-        )}
-      </section>
-    ))}
-  </SectionTextPict>
+          )}
+        </section>
+      ))}
+    </SectionTextPict>
 
 </DefaultLayout>
 

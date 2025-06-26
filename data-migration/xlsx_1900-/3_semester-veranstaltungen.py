@@ -62,11 +62,13 @@ def process_xlsx_file(filepath):
             })
 
         veranstaltungen.append({
+            "typ": "veranstaltung",
             "id_semester": semester_id,
             "id_veranstaltung": id_veranstaltung,
             "vorlesungsnummer": vorlesungsnummer_without_dot,
             "fak": fak,
             "thema": thema,
+            "thema_anmerkung": "",
             "zusatz": zusatz,
             "zeit": str(row[7-1]).strip() if pd.notnull(row[7-1]) else "",
             "ort": "",

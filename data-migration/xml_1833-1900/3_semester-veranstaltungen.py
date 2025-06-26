@@ -22,6 +22,23 @@ def remove_brackets(text):
         return None
     return text.replace('[', '').replace(']', '').strip()
 
+def get_thema_and_anmerkung(thema_elem):
+    if thema_elem is None:
+        return (None, None)
+    # Extrahiere reinen Text (ohne child)
+    texts = []
+    if thema_elem.text:
+        texts.append(thema_elem.text.strip())
+    for child in thema_elem:
+        if child.tail:
+            texts.append(child.tail.strip())
+    thema_text = " ".join(texts).strip()
+    anmerkung = None
+    anmerk_elem = thema_elem.find(f"{NS}anmerkung")
+    if anmerk_elem is not None and anmerk_elem.text:
+        anmerkung = anmerk_elem.text.strip()
+    return (normalize_whitespace(thema_text), normalize_whitespace(anmerkung))
+
 def process_sachgruppe(sachgruppe_elem, fakultaet_name, veranstaltungen, id_semester):
     # Prüfen ob diese sachgruppe eine neue fakultät definiert
     if "fakultät" in sachgruppe_elem.attrib:
@@ -30,12 +47,19 @@ def process_sachgruppe(sachgruppe_elem, fakultaet_name, veranstaltungen, id_seme
     # Alle <veranstaltung>-Elemente in dieser sachgruppe auslesen
     for veranstaltung in sachgruppe_elem.findall(f"{NS}veranstaltung"):
         
+        thema_elem = veranstaltung.find(f"{NS}thema")
+        thema, thema_anmerkung = get_thema_and_anmerkung(thema_elem)
+        
         vorlesungsnummer = remove_brackets(veranstaltung.findtext(f"{NS}nr"))
-        thema = normalize_whitespace(veranstaltung.findtext(f"{NS}thema"))
+        
         zusatz = normalize_whitespace(ET.tostring(veranstaltung.find(f"{NS}zusatz"), encoding="unicode", method="text").strip()) if veranstaltung.find(f"{NS}zusatz") is not None else None
+        
         zeit = normalize_whitespace(veranstaltung.findtext(f"{NS}zeit"))
+        
         wochenstunden = veranstaltung.findtext(f"{NS}wochenstunden")
+        
         ort = veranstaltung.findtext(f"{NS}ort")
+        
         id_veranstaltung = veranstaltung.get(f"{XML_NS}id")
         
         dozenten = []
@@ -52,18 +76,31 @@ def process_sachgruppe(sachgruppe_elem, fakultaet_name, veranstaltungen, id_seme
             dozenten.append(dozent)
 
         veranstaltungen.append({
+            "typ": "veranstaltung",
             "id_semester": id_semester,
             "vorlesungsnummer": vorlesungsnummer,
             "id_veranstaltung": id_veranstaltung,
             "dozenten": dozenten,
             "thema": thema,
+            "thema_anmerkung": thema_anmerkung,
             "zusatz": zusatz,
             "zeit": zeit,
             "wochenstunden": wochenstunden,
             "ort": ort,
             "fak": fakultaet_name
         })
-
+        
+    # Absätze am Ende der Sachgruppe aufnehmen
+    for absatz_elem in sachgruppe_elem.findall(f"{NS}absatz"):
+        absatz_text = normalize_whitespace(absatz_elem.text)
+        if absatz_text:
+            veranstaltungen.append({
+                "typ": "absatz",
+                "id_semester": id_semester,
+                "fak": fakultaet_name,
+                "text": absatz_text
+            })
+            
     # Rekursion in Kind-Sachgruppen
     for child_sachgruppe in sachgruppe_elem.findall(f"{NS}sachgruppe"):
         process_sachgruppe(child_sachgruppe, fakultaet_name, veranstaltungen, id_semester)
