@@ -247,7 +247,7 @@
     11-12</zeit> <wochenstunden>1</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-23986"><nr>33</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent> <thema>Das
     schweizerische Bundeszivilrecht, I. und II. Teil</thema> <zeit>Di-Fr
     15-17</zeit> <wochenstunden>8</wochenstunden></veranstaltung>
@@ -259,7 +259,7 @@
     <wochenstunden>2-3</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-23988"><nr>35</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent>
     <thema>Internationales Privatrecht, I. Teil</thema> <zeit>Mo 15-17, Sa
     10-12</zeit> <wochenstunden>4</wochenstunden></veranstaltung>

@@ -494,7 +494,7 @@
         </veranstaltung>
         <veranstaltung xml:id="v-20897">
             <nr>37</nr>
-            <dozent ref="meili_f-1848">
+            <dozent ref="meili_f1">
                 <nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad>
             </dozent>
@@ -732,7 +732,7 @@
         </veranstaltung>
         <veranstaltung xml:id="v-20919">
             <nr>56d</nr>
-            <dozent ref="meili_f-1848">
+            <dozent ref="meili_f1">
                 <nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad>
             </dozent>

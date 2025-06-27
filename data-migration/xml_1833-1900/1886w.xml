@@ -248,7 +248,7 @@
     <ort>Polytechnikum</ort></veranstaltung>
 
     <veranstaltung xml:id="v-16833"><nr>33</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>EO</grad></dozent> <thema>Das Recht
     des Markenschutzes</thema> <zeit>Mo 5-6</zeit>
     <wochenstunden>1</wochenstunden> <ort>Polytechnikum</ort></veranstaltung>
@@ -260,7 +260,7 @@
     <wochenstunden>4</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-16835"><nr>35</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>EO</grad></dozent> <thema>Das
     zürcherische und eidgenössische Civilprocessrecht</thema> <zeit>Di 5-7, Mi
     5-6</zeit> <wochenstunden>3</wochenstunden></veranstaltung>

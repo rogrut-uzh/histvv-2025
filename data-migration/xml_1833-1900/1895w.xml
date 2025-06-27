@@ -272,13 +272,13 @@
     <wochenstunden>2</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-21482"><nr>36a</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent> <thema>Das
     Autorrecht in vergleichender Darstellung</thema> <zeit>Mo 10-12</zeit>
     <wochenstunden>2</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-21483"><nr>36b</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent> <thema>Das
     Betreibungs- und Konkursrecht der Schweiz</thema> <zeit>Mi 10-12</zeit>
     <wochenstunden>2</wochenstunden></veranstaltung>
@@ -428,7 +428,7 @@
     <wochenstunden>2</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-21507"><nr>48l</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent>
     <thema>Staatswissenschaftliches Seminar: Uebungen aus dem interkantonalen
     und internationalen Privatrechte</thema> <zeit>Di 16-17</zeit>

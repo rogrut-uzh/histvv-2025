@@ -264,7 +264,7 @@
     <wochenstunden>3</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-15075"><nr>36</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>PD</grad></dozent> <thema>Die neuere
     schweizerische Specialgesetzgebung (Fabrikgesetze, Markenschutz
     etc.)</thema> <zeit>Mo 11-12</zeit>

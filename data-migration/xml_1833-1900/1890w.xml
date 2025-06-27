@@ -248,7 +248,7 @@
     <ort>Polytechnikum</ort></veranstaltung>
 
     <veranstaltung xml:id="v-18757"><nr>33</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent> <thema>Das
     Eisenbahnrecht (nach seinem Grundriss: Das Recht der modernen
     Verkehrsanstalten, Leipzig 1888)<anmerkung>Friedrich Meili, Das Recht der
@@ -257,7 +257,7 @@
     <wochenstunden>2</wochenstunden> <ort>Polytechnikum</ort></veranstaltung>
 
     <veranstaltung xml:id="v-18758"><nr>34</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent> <thema>Einleitung in
     die vergleichende Rechtswissenschaft</thema> <zeit>Mo 9-10</zeit>
     <wochenstunden>1</wochenstunden></veranstaltung>
@@ -332,7 +332,7 @@
     <wochenstunden>2</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-18771"><nr>45c</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent>
     <thema>Staatswissenschaftliches Seminar: Uebungen aus dem schweizerischen
     Civilrecht</thema> <zeit>Di 14-16</zeit>

@@ -2,12 +2,13 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 import json
 import sys
+import os
 
 # Namespace definieren
 NS = "{http://histvv.uni-leipzig.de/ns/2007}"
 
 # Output file
-semester_json = "../data/tbl_semester_header.json"
+semester_json = os.path.expanduser("~/gitlab-repositories/histvv-2025/data/tbl_semester_header.json")
 
 def parse_semester_files(pfad):
     semester_files = list(pfad.glob("[0-9][0-9][0-9][0-9][sw].xml"))

@@ -272,7 +272,7 @@
     <ort>Polytechnikum</ort></veranstaltung>
 
     <veranstaltung xml:id="v-19787"><nr>37</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent> <thema>Das
     internationale Zivilrecht (mit Benützung seiner Materialiensammlung: Die
     Kodifikation des internationalen Zivil- und Handelsrechts, Leipzig
@@ -282,7 +282,7 @@
     <wochenstunden>4</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-19788"><nr>38</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent> <thema>Das
     Eisenbahnrecht (mit Benützung seines Grundrisses: Das Recht der modernen
     Verkehrs- und Transportanstalten, Leipzig 1888)<anmerkung>Friedrich Meili,

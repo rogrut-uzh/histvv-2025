@@ -259,13 +259,13 @@
     <wochenstunden>2</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-21785"><nr>35</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent> <thema>Das
     interkantonale und internationale Privatrecht</thema> <zeit>Di, Fr
     5-7</zeit> <wochenstunden>4</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-21786"><nr>36</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent> <thema>Das
     Bundeszivilrecht, I. Teil (Übersicht, Zivilstandsgesetz, Gesetz über
     Handlungsfähigkeit, Obligationenrecht Art. 1-228)</thema> <zeit>Mi, Do
@@ -334,7 +334,7 @@
     8-10</zeit> <wochenstunden>4</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-21798"><nr>48</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent> <thema>Das
     Eisenbahnrecht in vergleichender Darstellung</thema> <zeit>Mo 5-7</zeit>
     <wochenstunden>2</wochenstunden></veranstaltung>

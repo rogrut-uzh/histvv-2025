@@ -267,7 +267,7 @@
     <wochenstunden>2</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-16603"><nr>37</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>EO</grad></dozent> <thema>Das
     schweizerische Eisenbahnrecht</thema> <zeit>Mo, Di 6-7</zeit>
     <wochenstunden>2</wochenstunden> <ort>Polytechnikum</ort></veranstaltung>

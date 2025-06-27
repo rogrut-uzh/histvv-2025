@@ -31,6 +31,14 @@ const breadcrumb = [
     <SectionIntro>{`${page_title}`}</SectionIntro>
     
     <SectionTextPict>
+    
+        <div id="abc-filter" style="margin-bottom: 1.5em; font-size: 1.1em;">
+          {Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i)).map(buchstabe => (
+            <button style="margin-right:6px;" type="button" class="abc-btn" data-buchstabe={buchstabe}>{buchstabe}</button>
+          ))}
+          <button type="button" id="abc-reset" style="margin-left:5px;">Filter aufheben</button>
+        </div>
+        
         <table class="tablesorter">
           <thead>
             <tr>
@@ -62,5 +70,40 @@ const breadcrumb = [
           </tbody>
         </table>
     </SectionTextPict>
+    
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', function () {
+        const buttons = document.querySelectorAll('.abc-btn');
+        const reset = document.getElementById('abc-reset');
 
+        function getRows() {
+          return document.querySelectorAll('table tbody tr');
+        }
+
+        function filterRows(letter) {
+          getRows().forEach(row => {
+            // Nur filtern, wenn es eine Zelle mit Link gibt
+            const link = row.querySelector('td a');
+            if (link) {
+              const text = link.textContent.trim().toUpperCase();
+              row.style.display = text.startsWith(letter) ? '' : 'none';
+            }
+          });
+        }
+
+        function resetRows() {
+          getRows().forEach(row => row.style.display = '');
+        }
+
+        buttons.forEach(btn => {
+          btn.addEventListener('click', function () {
+            filterRows(this.dataset.buchstabe);
+          });
+        });
+
+        reset.addEventListener('click', resetRows);
+      });
+    </script>
+
+    
 </DefaultLayout>

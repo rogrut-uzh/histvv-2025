@@ -229,7 +229,7 @@
     <wochenstunden>1</wochenstunden> <ort>Polytechnikum</ort></veranstaltung>
 
     <veranstaltung xml:id="v-14000"><nr>30</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>PD</grad></dozent>
     <thema>Eisenbahnrecht</thema>
     <wochenstunden>1</wochenstunden></veranstaltung>

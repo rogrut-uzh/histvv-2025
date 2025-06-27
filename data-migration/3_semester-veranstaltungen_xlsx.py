@@ -70,7 +70,7 @@ def process_xlsx_file(filepath):
             "thema": thema,
             "thema_anmerkung": "",
             "zusatz": zusatz,
-            "zeit": str(row[7-1]).strip() if pd.notnull(row[7-1]) else "",
+            "zeit": "",
             "ort": "",
             "wochenstunden": "",
             "dozenten": dozenten

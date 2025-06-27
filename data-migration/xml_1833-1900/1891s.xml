@@ -235,7 +235,7 @@
     <wochenstunden>2</wochenstunden> <ort>Polytechnikum</ort></veranstaltung>
 
     <veranstaltung xml:id="v-19004"><nr>31</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent>
     <thema>Internationales Handelsrecht (auf Grundlage seiner Broschüre: Die
     Codification des internationalen Civil- und Handelsrechtes, Leipzig
@@ -245,7 +245,7 @@
     <wochenstunden>2</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-19005"><nr>32</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent> <thema>Das neue
     schweizerische Rechtstrieb- und Konkursgesetz</thema> <zeit>Do
     16-18</zeit> <wochenstunden>2</wochenstunden></veranstaltung>

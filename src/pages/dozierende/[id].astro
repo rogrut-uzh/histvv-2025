@@ -65,28 +65,53 @@ const website_description = "Detailangaben zum Dozenten / zur Dozentin.";
     <p>
       {dozent.geboren && (
         <>
-          <span style="width:18px;display:inline-block;">&#10025;</span> {dozent.geboren}
+          <span><span style="width:18px;display:inline-block;">&#10025;</span>{dozent.geboren}</span>
           {dozent.gestorben && (
             <>
-              <br />
-              <span style="width:18px;display:inline-block;">&dagger;</span> {dozent.gestorben}
+              <span style="margin-left:30px;display:inline-block;"><span style="width:18px;display:inline-block;">&dagger;</span>{dozent.gestorben}</span>
             </>
           )}
         </>
       )}
       {!dozent.geboren && dozent.gestorben && (
         <>
-          <span style="width:18px;display:inline-block;">&dagger;</span> {dozent.gestorben}
+          <span><span style="width:18px;display:inline-block;">&dagger;</span>{dozent.gestorben}</span>
         </>
       )}
     </p>
 
     {dozent.gagliardi && <p>{dozent.gagliardi}</p>}
     {dozent.fak && <p>{dozent.fak}</p>}
+    {dozent.fachgebiet && <p>Fachgebiet: {dozent.fachgebiet}</p>}
+    {(dozent.habilitation || dozent.berufung) && (
+      <p>
+        {[dozent.habilitation, dozent.berufung].filter(Boolean).join(', ')}
+      </p>
+    )}
     {dozent.dekanat && <p>{dozent.dekanat}</p>}
     {dozent.rektor && <p>{dozent.rektor}</p>}
-    {dozent.pnd && <p>PND: <a href={`https://d-nb.info/gnd/${dozent.pnd}`}>{dozent.pnd}</a></p>}
-    {dozent.wikipedia && <p>Wikipedia: <a href={dozent.wikipedia}>{dozent.wikipedia}</a></p>}
+    {(dozent.pnd || dozent.wikidata || dozent.wikipedia || (dozent.url && dozent.url.length > 0)) && (
+      <p>
+        {dozent.pnd && (
+          <>
+            <a class="Link" href={`https://d-nb.info/gnd/${dozent.pnd}`}>GND</a><br/>
+          </>
+        )}
+        {dozent.wikidata && (
+          <>
+            <a class="Link" href={`https://www.wikidata.org/wiki/${dozent.wikidata}`} target="_blank" rel="noopener">Wikidata</a><br/>
+          </>
+        )}
+        {dozent.wikipedia && (
+          <>
+            <a class="Link" href={dozent.wikipedia} target="_blank" rel="noopener">Wikipedia</a><br/>
+          </>
+        )}
+        {Array.isArray(dozent.url) && dozent.url.map((u, i) => (
+            <a class="Link" href={u} target="_blank" rel="noopener">{u}</a><br/>
+        ))}
+      </p>
+    )}
 
     <h2>Veranstaltungen</h2>
     <table class="tablesorter">

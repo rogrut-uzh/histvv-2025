@@ -254,7 +254,7 @@
     <wochenstunden>1</wochenstunden> <ort>Polytechnikum</ort></veranstaltung>
 
     <veranstaltung xml:id="v-17069"><nr>35</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>EO</grad></dozent> <thema>Das Post-,
     Telegraphen- und Telephonrecht</thema> <zusatz> <modus>publice</modus>
     </zusatz> <zeit>Mo 6-7</zeit>
@@ -347,7 +347,7 @@
     <wochenstunden>1</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-17084"><nr>48c</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>EO</grad></dozent>
     <thema>Staatswissenschaftliches Seminar: Civilprocessualische
     Uebungen</thema> <zeit>Mi 6-7</zeit>

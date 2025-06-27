@@ -291,7 +291,7 @@
     <wochenstunden>1</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-17790"><nr>41</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>EO</grad>,
     <funktion>Dekan/S</funktion></dozent> <thema>Das internationale
     Privatrecht</thema> <zeit>Mo 5-7</zeit>
@@ -328,7 +328,7 @@
     <wochenstunden>2</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-17796"><nr>45c</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>EO</grad>,
     <funktion>Dekan/S</funktion></dozent> <thema>Staatswissenschaftliches
     Seminar: Uebungen aus dem schweizerischen Obligationenrechte</thema>

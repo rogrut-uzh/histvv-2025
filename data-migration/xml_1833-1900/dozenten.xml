@@ -5699,7 +5699,7 @@
     <absatz>Medizinische Fakultät</absatz>
   </dozent>
 
-  <dozent xml:id="meili_f-1848">
+  <dozent xml:id="meili_f1">
     <name>
       <nachname>Meili</nachname>
 
@@ -7384,26 +7384,18 @@
   <dozent xml:id="schall_c">
     <name>
       <nachname>Schall</nachname>
-
       <vorname>Carl</vorname>
     </name>
-
     <geboren>
       <jahr>1856</jahr>
     </geboren>
-
     <gestorben>
       <jahr>1939</jahr>
     </gestorben>
-
     <pnd>117102008</pnd>
-
     <absatz>UZV: 998, Nr. 112</absatz>
-
     <absatz>Philosophische Fakultät</absatz>
-
     <url>https://de.wikipedia.org/wiki/Carl_Schall</url>
-
     <url>http://histvv.uni-leipzig.de/dozenten/schall_c.html</url>
   </dozent>
 

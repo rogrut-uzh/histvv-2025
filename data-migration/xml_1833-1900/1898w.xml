@@ -268,19 +268,19 @@
     <wochenstunden>2-3</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-23366"><nr>36</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent> <thema>Das
     schweizerische Bundeszivilrecht, I. und II. Teil</thema> <zeit>Mo-Do
     15-17</zeit> <wochenstunden>8</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-23367"><nr>37</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent> <thema>Geistiges
     Autorrecht</thema> <zeit>Fr 15-17</zeit>
     <wochenstunden>2</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-23368"><nr>38</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent> <thema>Institutionen
     der vergleichenden Rechtswissenschaft, für Vorgerücktere</thema> <zusatz>
     <modus>publice</modus> </zusatz> <zeit>Sa 10-12</zeit>

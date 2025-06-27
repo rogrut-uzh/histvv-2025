@@ -20,7 +20,9 @@ export default function SucheClient() {
       alleFakultaeten = Array.from(alleFakultaeten).sort((a, b) => a.localeCompare(b));
 
       let searchIndex = [
-        ...veranstaltungen.map(v => ({
+        ...veranstaltungen
+        .filter(v => !v.typ || v.typ === "veranstaltung")
+        .map(v => ({
           ...v,
           typ: 'veranstaltung',
           id: v.id_veranstaltung,
@@ -44,9 +46,10 @@ export default function SucheClient() {
         ],
         searchOptions: { prefix: true, fuzzy: 0.2 }
       });
+      console.log(searchIndex)
       miniSearch.addAll(searchIndex);
 
-      // Baue die UI in das nodeRef.current rein!
+      // Baue die UI in das nodeRef.current rein
       const root = nodeRef.current;
       root.innerHTML = `
 <fieldset class="Fieldset">
@@ -143,9 +146,12 @@ export default function SucheClient() {
       fakFilterInputs.forEach(cb => cb.addEventListener('change', doSearch));
       typFilterInputs.forEach(cb => cb.addEventListener('change', doSearch));
 
-      // Optional: Autostart Suche falls Wert im Inputfeld
-      if (suchfeld.value.length >= 3) doSearch();
-      else ergebnisContainer.innerHTML = "<p>Bitte mindestens 3 Zeichen eingeben.</p>";
+      // Autostart Suche falls Wert im Inputfeld
+      if (suchfeld.value.length >= 3) {
+          doSearch();
+      } else {
+          ergebnisContainer.innerHTML = "<p>Bitte mindestens 3 Zeichen eingeben.</p>";
+      }
     }
     loadData();
   }, []);

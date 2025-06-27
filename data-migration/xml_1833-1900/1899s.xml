@@ -224,7 +224,7 @@
     <wochenstunden>6</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-23675"><nr>30</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent> <thema>Die
     sämtlichen Entwürfe für ein einheitliches schweizerisches Privatrecht mit
     spezieller Berücksichtigung des Gesetzbuches des Kantons Zürich und der
@@ -249,7 +249,7 @@
     10-11</zeit> <wochenstunden>6</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-23679"><nr>34</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent> <thema>Das moderne
     Verkehrs- und Transportrecht</thema> <zeit>Do 15-17, Fr 5-6</zeit>
     <wochenstunden>3</wochenstunden></veranstaltung>
@@ -267,7 +267,7 @@
     <wochenstunden>4</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-23682"><nr>37</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent> <thema>Das
     Bundesgesetz über Schuldbetreibung und Konkurs</thema> <zeit>Di 16-18, Fr
     16-17</zeit> <wochenstunden>3</wochenstunden></veranstaltung>
@@ -343,7 +343,7 @@
     9-10</zeit> <wochenstunden>1</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-23695"><nr>46e</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent>
     <thema>Staatswissenschaftliches Seminar: Praktische Übungen aus dem
     Privatrecht des Bundes und der Kantone</thema> <zeit>Sa 10-12</zeit>

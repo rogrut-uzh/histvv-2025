@@ -283,19 +283,19 @@
     Obligationenrecht</thema> <wochenstunden>2</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-22109"><nr>36</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent> <thema>Das
     Bundeszivilrecht, II. Teil</thema> <zeit>Mo, Fr 5-7</zeit>
     <wochenstunden>4</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-22110"><nr>37</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent> <thema>Das moderne
     Industrierecht (Patent- und Markenrecht)</thema> <zeit>Mi 5-7</zeit>
     <wochenstunden>2</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-22111"><nr>38</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent> <thema>Das Post-,
     Telegraphen- und Telephonrecht</thema> <zeit>Do 5-7</zeit>
     <wochenstunden>2</wochenstunden></veranstaltung>
@@ -307,7 +307,7 @@
     <wochenstunden>3</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-22113"><nr>40</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent>
     <thema>Internationales Handels- und Prozessrecht</thema> <zeit>Di
     5-7</zeit> <wochenstunden>2</wochenstunden></veranstaltung>

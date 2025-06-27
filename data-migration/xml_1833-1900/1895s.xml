@@ -270,7 +270,7 @@
     <wochenstunden>2</wochenstunden> <ort>Polytechnikum</ort></veranstaltung>
 
     <veranstaltung xml:id="v-21176"><nr>37</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent> <thema>Das moderne
     Industrierecht (Patent- und Markenrecht) in vergleichender
     Darstellung</thema> <zeit>Mo 5-7</zeit>
@@ -354,7 +354,7 @@
     <wochenstunden>3</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-21191"><nr>52</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent> <thema>Institutionen
     der vergleichenden Rechtswissenschaft</thema> <zusatz>
     <gebühr>gratis</gebühr> </zusatz> <zeit>Di 5-7</zeit>
@@ -438,7 +438,7 @@
     <wochenstunden>1</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-21205"><nr>63d</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent>
     <thema>Staatswissenschaftliches Seminar: Uebungen aus dem
     Handelsrecht</thema> <zeit>Mi 5-7</zeit>

@@ -129,6 +129,7 @@ const breadcrumb = [
                 <br />
                 <strong>{v.thema}</strong><br />
                 {v.thema_anmerkung && <>Anmerkung: {v.thema_anmerkung}<br /></>}
+                {v.zusatz && <>{v.zusatz}<br /></>}
                 {v.zeit}
                 {v.zeit && v.wochenstunden && zeit_trenner}
                 {v.wochenstunden && `St ${v.wochenstunden}`}

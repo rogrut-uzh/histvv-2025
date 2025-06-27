@@ -239,7 +239,7 @@
     <ort>Polytechnikum</ort></veranstaltung>
 
     <veranstaltung xml:id="v-17305"><nr>33</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>EO</grad></dozent> <thema>Das
     Eisenbahnrecht</thema> <zeit>Mo, Di 5-6</zeit>
     <wochenstunden>2</wochenstunden></veranstaltung>
@@ -329,7 +329,7 @@
     <wochenstunden>2</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-17320"><nr>44e</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>EO</grad></dozent>
     <thema>Staatswissenschaftliches Seminar: Uebungen aus dem schweizerischen
     Obligationrecht</thema> <zeit>Fr 5-7</zeit>

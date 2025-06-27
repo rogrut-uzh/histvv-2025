@@ -39,6 +39,27 @@ def get_thema_and_anmerkung(thema_elem):
         anmerkung = anmerk_elem.text.strip()
     return (normalize_whitespace(thema_text), normalize_whitespace(anmerkung))
 
+def extract_zusatz_text(zusatz_elem):
+    if zusatz_elem is None:
+        return None
+
+    parts = []
+
+    # Haupttext vor dem ersten Kind
+    if zusatz_elem.text and zusatz_elem.text.strip():
+        parts.append(zusatz_elem.text.strip())
+
+    # Alle direkten Kinder ablaufen (und deren Text mitnehmen)
+    for child in zusatz_elem:
+        if child.text and child.text.strip():
+            parts.append(child.text.strip())
+        # Optional: auch Tail-Text nach dem Child?
+        if child.tail and child.tail.strip():
+            parts.append(child.tail.strip())
+
+    # Kommagetrennt zurückgeben
+    return ", ".join(parts) if parts else None
+
 def process_sachgruppe(sachgruppe_elem, fakultaet_name, veranstaltungen, id_semester):
     # Prüfen ob diese sachgruppe eine neue fakultät definiert
     if "fakultät" in sachgruppe_elem.attrib:
@@ -52,7 +73,7 @@ def process_sachgruppe(sachgruppe_elem, fakultaet_name, veranstaltungen, id_seme
         
         vorlesungsnummer = remove_brackets(veranstaltung.findtext(f"{NS}nr"))
         
-        zusatz = normalize_whitespace(ET.tostring(veranstaltung.find(f"{NS}zusatz"), encoding="unicode", method="text").strip()) if veranstaltung.find(f"{NS}zusatz") is not None else None
+        zusatz = extract_zusatz_text(veranstaltung.find(f"{NS}zusatz"))
         
         zeit = normalize_whitespace(veranstaltung.findtext(f"{NS}zeit"))
         

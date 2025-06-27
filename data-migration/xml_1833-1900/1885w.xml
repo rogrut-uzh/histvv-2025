@@ -232,13 +232,13 @@
     <wochenstunden>2</wochenstunden> <ort>Polytechnikum</ort></veranstaltung>
 
     <veranstaltung xml:id="v-16372"><nr>32</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>EO</grad></dozent> <thema>Das
     schweizerische Markenschutzrecht</thema> <zeit>Di 5-7</zeit>
     <wochenstunden>2</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-16373"><nr>33</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>EO</grad></dozent> <thema>Die
     schweizerische Fabrikgesetzgebung</thema> <zeit>Do 5-7</zeit>
     <wochenstunden>2</wochenstunden></veranstaltung>

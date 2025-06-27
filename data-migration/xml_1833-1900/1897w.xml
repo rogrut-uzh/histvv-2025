@@ -284,13 +284,13 @@
     Obligationenrecht</thema> <wochenstunden>2</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-22740"><nr>37</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent> <thema>Das
     schweizerische Bundeszivilrecht, II. Teil</thema> <zeit>Mo, Fr 5-7</zeit>
     <wochenstunden>4</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-22741"><nr>38</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent> <thema>Die
     wichtigsten Gebiete des modernen Privat- und Prozessrechts (speziell für
     Cameralisten in vorgerückteren Semestern)</thema> <zeit>Do 5-7</zeit>
@@ -303,7 +303,7 @@
     <wochenstunden>5</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-22743"><nr>40</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent> <thema>Das
     Bundesrecht über Rechtstrieb und Konkurs</thema> <zeit>Di 5-7</zeit>
     <wochenstunden>2</wochenstunden></veranstaltung>
@@ -345,7 +345,7 @@
     <wochenstunden>2</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-22750"><nr>47</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent> <thema>Einführung in
     die vergleichende Rechtswissenschaft (für Juristen in vorgerückteren
     Semestern)</thema> <zusatz> <modus>publice</modus> </zusatz> <zeit>Mi
@@ -412,7 +412,7 @@
     <wochenstunden>1</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-22760"><nr>52f</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent>
     <thema>Staatswissenschaftliches Seminar: Praktische Übungen im
     schweizerischen Privatrecht</thema>

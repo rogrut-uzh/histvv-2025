@@ -426,7 +426,7 @@
         </veranstaltung>
         <veranstaltung xml:id="v-24302">
             <nr>34</nr>
-            <dozent ref="meili_f-1848">
+            <dozent ref="meili_f1">
                 <nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad>
             </dozent>
@@ -437,7 +437,7 @@
         </veranstaltung>
         <veranstaltung xml:id="v-24303">
             <nr>35</nr>
-            <dozent ref="meili_f-1848">
+            <dozent ref="meili_f1">
                 <nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad>
             </dozent>
@@ -448,7 +448,7 @@
         </veranstaltung>
         <veranstaltung xml:id="v-24304">
             <nr>36</nr>
-            <dozent ref="meili_f-1848">
+            <dozent ref="meili_f1">
                 <nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad>
             </dozent>
@@ -459,7 +459,7 @@
         </veranstaltung>
         <veranstaltung xml:id="v-24305">
             <nr>37</nr>
-            <dozent ref="meili_f-1848">
+            <dozent ref="meili_f1">
                 <nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad>
             </dozent>
@@ -491,7 +491,7 @@
         </veranstaltung>
         <veranstaltung xml:id="v-24308">
             <nr>40</nr>
-            <dozent ref="meili_f-1848">
+            <dozent ref="meili_f1">
                 <nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad>
             </dozent>

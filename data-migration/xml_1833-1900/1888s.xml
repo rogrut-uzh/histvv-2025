@@ -246,14 +246,14 @@
     <ort>Polytechnikum</ort></veranstaltung>
 
     <veranstaltung xml:id="v-17540"><nr>34</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>EO</grad>,
     <funktion>Dekan/S</funktion></dozent> <thema>Das Patentrecht</thema>
     <zusatz> <modus>publice</modus> </zusatz> <zeit>Mo 6-7</zeit>
     <wochenstunden>1</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-17541"><nr>35</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>EO</grad>,
     <funktion>Dekan/S</funktion></dozent> <thema>Das zürcherische und
     eidgenössische Civilprocessrecht</thema> <zeit>Di-Do 6-7</zeit>

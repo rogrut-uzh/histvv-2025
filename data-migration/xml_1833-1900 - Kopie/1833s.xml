@@ -1,0 +1,676 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vv xml:lang="de" xmlns="http://histvv.uni-leipzig.de/ns/2007"
+    xmlns:ns="http://histvv.uni-leipzig.de/ns/2007">
+  <kopf>
+    <universität>Zürich</universität>
+
+    <semester>Sommer</semester>
+
+    <beginn>
+      <jahr>1833</jahr>
+    </beginn>
+
+    <ende>
+      <jahr>1833</jahr>
+    </ende>
+
+    <quelle>Verzeichniss der Vorlesungen an der Zürcherischen Hochschule von
+    Ostern bis Michaelis 1833.</quelle>
+
+    <status komplett="ja"/>
+  </kopf>
+
+  <titel>Sommersemester 1833</titel>
+
+  <sachgruppe fakultät="Theologie">
+    <titel>Theologische Fakultät</titel>
+
+    <veranstaltung xml:id="v-1"><nr>[1]</nr> <dozent
+    ref="rettig_h"><nachname>Rettig</nachname>, <vorname>Heinrich</vorname>,
+    <grad>O</grad>, <funktion>Dekan/T</funktion></dozent>
+    <thema>Dogmatik</thema> <wochenstunden>8</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-2"><nr>[2]</nr> <dozent
+    ref="rettig_h"><nachname>Rettig</nachname>, <vorname>Heinrich</vorname>,
+    <grad>O</grad>, <funktion>Dekan/T</funktion></dozent>
+    <thema>Kirchengeschichte</thema>
+    <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-3"><nr>[3]</nr> <dozent
+    ref="hitzig_f"><nachname>Hitzig</nachname>, <vorname>Ferdinand</vorname>,
+    <grad>O</grad></dozent> <thema>Erklärung des Pentateuch's</thema>
+    <wochenstunden>6</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-4"><nr>[4]</nr> <dozent
+    ref="hitzig_f"><nachname>Hitzig</nachname>, <vorname>Ferdinand</vorname>,
+    <grad>O</grad></dozent> <thema>Erklärung der Propheten Joël und
+    Amos</thema> <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-5"><nr>[5]</nr> <dozent
+    ref="hitzig_f"><nachname>Hitzig</nachname>, <vorname>Ferdinand</vorname>,
+    <grad>O</grad></dozent> <thema>Hebräisch-jüdische Archäologie, oder
+    Geschichte, Geographie und Antiquitäten der Hebräer, nach de Wette's
+    Lehrbuche<anmerkung>Wilhelm Martin Leberecht de Wette, Lehrbuch der
+    hebräisch-jüdischen Archäologie, nebst einem Grundrisse der
+    hebräisch-jüdischen Geschichte, Leipzig: Vogel, ²1830.</anmerkung></thema>
+    <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-6"><nr>[6]</nr> <dozent
+    ref="hirzel_l"><nachname>Hirzel</nachname>, <vorname>Ludwig</vorname>,
+    <grad>EO</grad></dozent> <thema>Theologische Enzyklopädie und
+    Methodologie</thema> <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-7"><nr>[7]</nr> <dozent
+    ref="hirzel_l"><nachname>Hirzel</nachname>, <vorname>Ludwig</vorname>,
+    <grad>EO</grad></dozent> <thema>Biblische Theologie des Neuen Testamentes,
+    oder kritische Darstellung der Religionslehre des Urchristenthums</thema>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-8"><nr>[8]</nr> <dozent
+    ref="usteri_hk"><nachname>Usteri</nachname>, <vorname>Hans
+    Kaspar</vorname>, <grad>PD</grad></dozent> <thema>Erklärung von Paulus
+    Brief an die Römer</thema>
+    <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-9"><nr>[9]</nr> <dozent
+    ref="schinz_wh"><nachname>Schinz</nachname>, <vorname>Wilhelm
+    Heinrich</vorname>, <grad>PD</grad></dozent> <thema>Erklärung der Briefe
+    an die Kolosser, Epheser und an Philemon</thema>
+    <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-10"><nr>[10]</nr> <dozent
+    ref="ulrich_m"><nachname>Ulrich</nachname>, <vorname>Melchior</vorname>,
+    <grad>PD</grad></dozent> <thema>Erklärung des ersten Briefes an die
+    Korinther</thema> <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-11"><nr>[11]</nr> <dozent
+    ref="usteri_hk"><nachname>Usteri</nachname>, <vorname>Hans
+    Kaspar</vorname>, <grad>PD</grad></dozent> <thema>Christliche Archäologie
+    oder kirchengeschichtliche Alterthumskunde</thema>
+    <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <absatz>Eine ausserordentliche Professur der Theologie ist noch unbesetzt.
+    Für die Pastoralwissenschaften und Predigtübungen wird gesorgt
+    werden.</absatz>
+  </sachgruppe>
+
+  <sachgruppe fakultät="Staatswissenschaften">
+    <titel>Staatswissenschaftliche Fakultät</titel>
+
+    <veranstaltung xml:id="v-12"><nr>[12]</nr> <dozent
+    ref="loew-steinfurth_l"><nachname>Löw zu Steinfurth</nachname>,
+    <vorname>Ludwig von</vorname>, <grad>O</grad></dozent> <thema>Einleitung
+    in die gesammte Rechtswissenschaft nach Falk's juristischer Encyklopädie,
+    3te Aufl., Kiel 1830<anmerkung>Niels Nikolaus Falck, Juristische
+    Encyklopaedie: Auch zum Gebrauche bei akademischen Vorlesungen, Kiel
+    ³1830.</anmerkung></thema>
+    <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-13"><nr>[13]</nr> <dozent
+    ref="loew-steinfurth_l"><nachname>Löw zu Steinfurth</nachname>,
+    <vorname>Ludwig von</vorname>, <grad>O</grad></dozent> <thema>Deutsches
+    Privatrecht mit Einschluss des Handelsrechts nach Eichhorns Lehrbuch, 3te
+    Aufl., Göttingen 1829<anmerkung>Carl Friedrich Eichhorn, Einleitung in das
+    deutsche Privatrecht mit Einschluß des Lehenrechts, Göttingen: Vandenhoeck
+    &amp; Ruprecht, ³1829.</anmerkung></thema>
+    <wochenstunden>8<anmerkung>Vorlage: wovon Eine für Ausarbeitung leichter
+    germanistischer Rechtsfälle
+    bestimmt.</anmerkung></wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-14"><nr>[14]</nr> <dozent
+    ref="loew-steinfurth_l"><nachname>Löw zu Steinfurth</nachname>,
+    <vorname>Ludwig von</vorname>, <grad>O</grad></dozent> <thema>Geschichte
+    der städtischen Verfassung</thema>
+    <wochenstunden>2-3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-15"><nr>[15]</nr> <dozent
+    ref="loew-steinfurth_l"><nachname>Löw zu Steinfurth</nachname>,
+    <vorname>Ludwig von</vorname>, <grad>O</grad></dozent> <thema>Deutsche
+    Rechtsalterthümer</thema> <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-16"><nr>[16]</nr> <dozent
+    ref="loew-steinfurth_l"><nachname>Löw zu Steinfurth</nachname>,
+    <vorname>Ludwig von</vorname>, <grad>O</grad></dozent> <thema>Exegese
+    wichtiger Stellen des Sachsenspiegels (Ausgabe von Homeyer, Berlin
+    1827)<anmerkung>Der Sachsenspiegel oder das Sächsische Landrecht: Nach der
+    Berliner Handschrift v. J. 1369, mit Varianten aus siebzehn andern Texten,
+    hg. von Carl Gustav Homeyer, Berlin: Ferdinand Dümmler,
+    1827.</anmerkung></thema> <wochenstunden>1</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-17"><nr>[17]</nr> <dozent
+    ref="snell_jw"><nachname>Snell</nachname>, <vorname>Johann
+    Wilhelm</vorname>, <grad>O</grad></dozent> <thema>Pandekten</thema>
+    <wochenstunden>12</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-18"><nr>[18]</nr> <dozent
+    ref="snell_jw"><nachname>Snell</nachname>, <vorname>Johann
+    Wilhelm</vorname>, <grad>O</grad></dozent> <thema>Gemeines deutsches
+    Kriminalrecht mit Rücksicht auf neuere, besonders schweizerische
+    Gesetzgebungen</thema> <wochenstunden>6</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-19"><nr>[19]</nr> <dozent
+    ref="bluntschli_jc"><nachname>Bluntschli</nachname>, <vorname>Johann
+    Caspar</vorname>, <grad>EO</grad></dozent> <thema>Rechtsgeschichte und
+    Institutionen des römischen Rechts</thema>
+    <wochenstunden>10</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-20"><nr>[20]</nr> <dozent
+    ref="weiland_c"><nachname>Weiland</nachname>, <vorname>Carl</vorname>,
+    <grad>PD</grad></dozent> <thema>Römisches Erbrecht</thema>
+    <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-21"><nr>[21]</nr> <dozent
+    ref="weiland_c"><nachname>Weiland</nachname>, <vorname>Carl</vorname>,
+    <grad>PD</grad></dozent> <thema>Erklärung der Institutionen des Gaius, mit
+    Vergleichung derjenigen des Justinianus und mit Beiziehung der übrigen
+    rechtsgeschichtlichen Quellen</thema>
+    <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-22"><nr>[22]</nr> <dozent
+    ref="keller_fl"><nachname>Keller</nachname>, <vorname>Friedrich
+    Ludwig</vorname>, <grad>EO</grad>, <funktion>Dekan/S</funktion></dozent>
+    <thema>Abriss des Zürcherischen Civilprocesses mit praktischen Uebungen,
+    vorzüglich für das mündliche Verfahren</thema>
+    <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-23"><nr>[23]</nr> <dozent
+    ref="escher_h-1789"><nachname>Escher</nachname>,
+    <vorname>Heinrich</vorname>, <grad>EO</grad></dozent> <thema>Theorie der
+    Staatswissenschaft nach Rau's Lehrbuch der politischen Oekonomie,
+    Heidelberg 1829<anmerkung>Karl Heinrich Rau, Lehrbuch der politischen
+    Oekonomie, Bd. 2: Grundsätze der Volkswirthschaftspflege, Heidelberg:
+    Winter, 1828.</anmerkung></thema>
+    <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-24"><nr>[24]</nr> <dozent
+    ref="escher_h-1789"><nachname>Escher</nachname>,
+    <vorname>Heinrich</vorname>, <grad>EO</grad></dozent> <thema>Erklärung und
+    Prüfung von Montesquieu's Geist der Gesetze, nebst der einschlägigen
+    Literatur</thema> <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-25"><nr>[25]</nr> <dozent
+    ref="escher_h-1789"><nachname>Escher</nachname>,
+    <vorname>Heinrich</vorname>, <grad>EO</grad></dozent>
+    <thema>Kriminalprocess, nach Mittermaiers deutschem
+    Strafverfahren<anmerkung>Carl Joseph Anton Mittermaier, Das deutsche
+    Strafverfahren in der Fortbildung durch Gerichts-Gebrauch und
+    Partikular-Gesetzbücher und in genauer Vergleichung mit dem englischen und
+    französischen Straf-Processe, in zwei Abtheilungen, Heidelberg: Mohr,
+    1827.</anmerkung></thema> <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-26"><nr>[26]</nr> <dozent
+    ref="sartorius_jb"><nachname>Sartorius</nachname>, <vorname>Johann
+    Baptist</vorname>, <grad>PD</grad></dozent> <thema>Allgemeines
+    Staatsrecht, mit besonderer Rücksicht auf die Institutionen der
+    Schweiz</thema> <wochenstunden>6</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-27"><nr>[27]</nr> <dozent
+    ref="gidoni_f"><nachname>Gidoni</nachname>, <vorname>Franz</vorname>,
+    <grad>PD</grad></dozent> <thema>Cours du droit public, appliqué aux
+    progrès des sociétés modernes</thema>
+    <wochenstunden>2-3</wochenstunden></veranstaltung>
+  </sachgruppe>
+
+  <sachgruppe fakultät="Medizin">
+    <titel>Medizinische Fakultät</titel>
+
+    <veranstaltung xml:id="v-28"><nr>[28]</nr> <dozent
+    ref="schoenlein_jl"><nachname>Schönlein</nachname>, <vorname>Johann
+    Lukas</vorname>, <grad>O</grad>, <funktion>Dekan/M</funktion></dozent>
+    <thema>Specielle Pathologie und Therapie</thema>
+    <wochenstunden>6</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-29"><nr>[29]</nr> <dozent
+    ref="schoenlein_jl"><nachname>Schönlein</nachname>, <vorname>Johann
+    Lukas</vorname>, <grad>O</grad>, <funktion>Dekan/M</funktion></dozent>
+    <thema>Medicinische Diagnostik</thema>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-30"><nr>[30]</nr> <dozent
+    ref="schoenlein_jl"><nachname>Schönlein</nachname>, <vorname>Johann
+    Lukas</vorname>, <grad>O</grad>, <funktion>Dekan/M</funktion></dozent>
+    <thema>Leitung der medicinischen Klinik</thema>
+    <zeit>Mo-Sa</zeit></veranstaltung>
+
+    <veranstaltung xml:id="v-31"><nr>[31]</nr> <dozent
+    ref="locher-zwingli_h"><nachname>Locher-Zwingli</nachname>,
+    <vorname>Heinrich</vorname>, <grad>EO</grad></dozent>
+    <thema>Chirurgie</thema> <wochenstunden>5</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-32"><nr>[32]</nr> <dozent
+    ref="locher-zwingli_h"><nachname>Locher-Zwingli</nachname>,
+    <vorname>Heinrich</vorname>, <grad>EO</grad></dozent> <thema>Chirurgische
+    Klinik</thema></veranstaltung>
+
+    <veranstaltung xml:id="v-33"><nr>[33]</nr> <dozent
+    ref="spoendly_hc"><nachname>Spöndly</nachname>, <vorname>Hans
+    Conrad</vorname>, <grad>EO</grad></dozent> <thema>Geburtshülfe</thema>
+    <wochenstunden>5</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-34"><nr>[34]</nr> <dozent
+    ref="spoendly_hc"><nachname>Spöndly</nachname>, <vorname>Hans
+    Conrad</vorname>, <grad>EO</grad></dozent> <thema>Geburtshülfliche
+    Klinik</thema></veranstaltung>
+
+    <veranstaltung xml:id="v-35"><nr>[35]</nr> <dozent
+    ref="demme_h"><nachname>Demme</nachname>, <vorname>Hermann</vorname>,
+    <grad>EO</grad></dozent> <thema>Theoretische Anatomie des gesunden
+    menschlichen Körpers, erste Hälfte: Osteologie, Syndesmologie, Myologie,
+    Splanchnologie</thema> <wochenstunden>5</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-36"><nr>[36]</nr> <dozent
+    ref="demme_h"><nachname>Demme</nachname>, <vorname>Hermann</vorname>,
+    <grad>EO</grad></dozent> <thema>Histologie</thema>
+    <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-37"><nr>[37]</nr> <dozent
+    ref="demme_h"><nachname>Demme</nachname>, <vorname>Hermann</vorname>,
+    <grad>EO</grad></dozent> <thema>Chirurgische Anatomie</thema>
+    <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-38"><nr>[38]</nr> <dozent
+    ref="demme_h"><nachname>Demme</nachname>, <vorname>Hermann</vorname>,
+    <grad>EO</grad></dozent> <thema>Ueber Blutungen aus äusserer Verletzung
+    und Blutstillung, mit vergleichenden Versuchen über Ligatur und Torsion
+    der Arterien an lebenden Thieren</thema>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-39"><nr>[39]</nr> <dozent
+    ref="demme_h"><nachname>Demme</nachname>, <vorname>Hermann</vorname>,
+    <grad>EO</grad></dozent> <thema>Ueber das Heinische Osteotom, seine
+    Anwendung auf Trepanation und Resektion und die dabei zu befolgenden
+    Operations-Typen</thema> <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-40"><nr>[40]</nr> <dozent
+    ref="meyer_hc"><nachname>Meyer</nachname>, <vorname>Hans Conrad</vorname>,
+    <grad>PD</grad></dozent> <thema>Ueber Krankheiten der Knochen und der
+    Gelenke</thema> <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-41"><nr>[41]</nr> <dozent
+    ref="meyer_hc"><nachname>Meyer</nachname>, <vorname>Hans Conrad</vorname>,
+    <grad>PD</grad></dozent> <thema>Verband- und Instrumentenlehre</thema>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-42"><nr>[42]</nr> <dozent
+    ref="meyer_hc"><nachname>Meyer</nachname>, <vorname>Hans Conrad</vorname>,
+    <grad>PD</grad></dozent> <thema>Operativchirurgie</thema>
+    <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-43"><nr>[43]</nr> <dozent
+    ref="muralt_l"><nachname>Muralt</nachname>, <vorname>Leonhard
+    von</vorname>, <grad>PD</grad></dozent> <thema>Praktischer Kurs über
+    Augenoperationen</thema> <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-44"><nr>[44]</nr> <dozent
+    ref="locher-balber_h"><nachname>Locher-Balber</nachname>,
+    <vorname>Hans</vorname>, <grad>EO</grad></dozent> <thema>Propädeutik zum
+    Studium der Medicin nach seinen "Grundzügen der Propädeutik", Zürich
+    1832<anmerkung>Hans Locher-Balber, Grundzüge der Propädeutik zum Studium
+    der Medicin, Zürich: Orell, Füßli &amp; Co., 1832.</anmerkung></thema>
+    <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-45"><nr>[45]</nr> <dozent
+    ref="locher-balber_h"><nachname>Locher-Balber</nachname>,
+    <vorname>Hans</vorname>, <grad>EO</grad></dozent> <thema>Semiotik nach F.
+    G. Danz allg. medic. Zeichenlehre, neu bearb. v.
+    Heinroth<anmerkung>Ferdinand Georg Danz, Allgemeine medizinische
+    Zeichenlehre. Neu bearb. und mit einer Anleitung zur psychischen Semiotik
+    vermehrt von Johann Christian August Heinroth, Leipzig: Vogel,
+    1812.</anmerkung></thema> <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-46"><nr>[46]</nr> <dozent
+    ref="finsler_hj"><nachname>Finsler</nachname>, <vorname>Hans
+    Jakob</vorname>, <grad>PD</grad></dozent> <thema>Medicinische
+    Receptirkunst</thema> <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-47"><nr>[47]</nr> <dozent
+    ref="finsler_hj"><nachname>Finsler</nachname>, <vorname>Hans
+    Jakob</vorname>, <grad>PD</grad></dozent> <thema>Pharmaceutische
+    Chemie</thema> <wochenstunden>5</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-48"><nr>[48]</nr> <dozent
+    ref="finsler_hj"><nachname>Finsler</nachname>, <vorname>Hans
+    Jakob</vorname>, <grad>PD</grad></dozent> <thema>Pharmakognosie, oder
+    zweiter Theil der Pharmacie</thema>
+    <wochenstunden>5</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-49"><nr>[49]</nr> <dozent
+    ref="finsler_hj"><nachname>Finsler</nachname>, <vorname>Hans
+    Jakob</vorname>, <grad>PD</grad></dozent> <thema>Die Lehre von den
+    Giften</thema> <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-50"><nr>[50]</nr> <dozent
+    ref="hess_hr"><nachname>Hess</nachname>, <vorname>Hans Rudolf</vorname>,
+    <grad>PD</grad></dozent> <thema>Pharmaceutische Chemie</thema>
+    <wochenstunden>5</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-51"><nr>[51]</nr> <dozent
+    ref="schinz_cs"><nachname>Schinz</nachname>, <vorname>Christoph
+    Salomon</vorname>, <grad>PD</grad></dozent> <thema>Pharmakologie</thema>
+    <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <absatz>Eine ordentliche Professur an der medicinischen Fakultät ist noch
+    unbesetzt.</absatz>
+  </sachgruppe>
+
+  <sachgruppe fakultät="Philosophie">
+    <titel>Philosophische Fakultät</titel>
+
+    <veranstaltung xml:id="v-52"><nr>[52]</nr> <dozent
+    ref="bobrik_e"><nachname>Bobrik</nachname>, <vorname>Eduard</vorname>,
+    <grad>O</grad></dozent> <thema>Allgemeine Einleitung in die
+    Philosophie</thema> <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-53"><nr>[53]</nr> <dozent
+    ref="bobrik_e"><nachname>Bobrik</nachname>, <vorname>Eduard</vorname>,
+    <grad>O</grad></dozent> <thema>Logik</thema>
+    <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-54"><nr>[54]</nr> <dozent
+    ref="bobrik_e"><nachname>Bobrik</nachname>, <vorname>Eduard</vorname>,
+    <grad>O</grad></dozent> <thema>Empirische und rationelle
+    Psychologie</thema> <wochenstunden>5</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-55"><nr>[55]</nr> <dozent
+    ref="bobrik_e"><nachname>Bobrik</nachname>, <vorname>Eduard</vorname>,
+    <grad>O</grad></dozent> <thema>Pädagogik</thema>
+    <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-56"><nr>[56]</nr> <dozent
+    ref="snell_l"><nachname>Snell</nachname>, <vorname>Ludwig</vorname>,
+    <grad>EO</grad></dozent> <thema>Geschichte der alten Philosophie,
+    insbesondere der Griechen und Römer, mit besonderer Rücksicht auf das
+    klassische Zeitalter dieser Völker, als Einleitung in das Studium der
+    Philosophie</thema> <wochenstunden>5</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-57"><nr>[57]</nr> <dozent
+    ref="oken_l"><nachname>Oken</nachname>, <vorname>Lorenz</vorname>,
+    <grad>O</grad>, <funktion>Rektor</funktion></dozent> <thema>Allgemeine
+    Naturgeschichte</thema> <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-58"><nr>[58]</nr> <dozent
+    ref="oken_l"><nachname>Oken</nachname>, <vorname>Lorenz</vorname>,
+    <grad>O</grad>, <funktion>Rektor</funktion></dozent> <thema>Physiologie
+    des Menschen</thema> <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-59"><nr>[59]</nr> <dozent
+    ref="oken_l"><nachname>Oken</nachname>, <vorname>Lorenz</vorname>,
+    <grad>O</grad>, <funktion>Rektor</funktion></dozent> <thema>Vergleichende
+    Osteologie</thema> <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-60"><nr>[60]</nr> <dozent
+    ref="schinz_hr"><nachname>Schinz</nachname>, <vorname>Heinrich
+    Rudolf</vorname>, <grad>EO</grad></dozent> <thema>Vergleichende
+    Physiologie</thema> <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-61"><nr>[61]</nr> <dozent
+    ref="schulthess_hr"><nachname>Schulthess</nachname>, <vorname>Hans
+    Rudolf</vorname>, <grad>PD</grad></dozent> <thema>Botanik</thema>
+    <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-62"><nr>[62]</nr> <dozent
+    ref="horner_l"><nachname>Horner</nachname>, <vorname>Ludwig</vorname>,
+    <grad>PD</grad></dozent> <thema>Mineralogie und Geologie</thema>
+    <wochenstunden>5</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-63"><nr>[63]</nr> <dozent
+    ref="escher_g"><nachname>Escher</nachname>, <vorname>Gottfried
+    von</vorname>, <grad>PD</grad></dozent> <thema>Physik, erster Theil, oder
+    Einleitung in die Physik, Lehre von der Schwere, von den Molekularkräften,
+    von der Elektricität, vom Magnetismus und Elektromagnetismus</thema>
+    <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-64"><nr>[64]</nr> <dozent
+    ref="loewig_c"><nachname>Löwig</nachname>, <vorname>Carl</vorname>,
+    <grad>EO</grad></dozent> <thema>Experimental-Chemie, nach seinem Lehrbuche
+    der Chemie, Heidelberg 1832<anmerkung>Carl Löwig, Lehrbuch der Chemie mit
+    besonderer Berücksichtigung des technischen und medicinischen Theils,
+    Heidelberg: Engelmann, 1832.</anmerkung></thema>
+    <wochenstunden>5</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-65"><nr>[65]</nr> <dozent
+    ref="finsler_hj"><nachname>Finsler</nachname>, <vorname>Hans
+    Jakob</vorname>, <grad>PD</grad></dozent> <thema>Lehre von den chemischen
+    Reagentien</thema> <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-66"><nr>[66]</nr> <dozent
+    ref="eschmann_j"><nachname>Eschmann</nachname>,
+    <vorname>Johannes</vorname>, <grad>PD</grad></dozent> <thema>Reine
+    Mathematik</thema> <wochenstunden>6</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-67"><nr>[67]</nr> <dozent
+    ref="graeffe_kh"><nachname>Gräffe</nachname>, <vorname>Karl
+    Heinrich</vorname>, <grad>PD</grad></dozent> <thema>Differenzial- und
+    Integral-Rechnung, nebst einer kombinatorischen Entwickelung der
+    vorzüglichsten Reihen, als Einleitung</thema>
+    <wochenstunden>6</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-68"><nr>[68]</nr> <dozent
+    ref="raabe_jl"><nachname>Raabe</nachname>, <vorname>Joseph
+    Ludwig</vorname>, <grad>PD</grad></dozent> <thema>Analytische Mechanik
+    sammt deren Anwendung auf das Weltgebäude</thema>
+    <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-69"><nr>[69]</nr> <dozent
+    ref="raabe_jl"><nachname>Raabe</nachname>, <vorname>Joseph
+    Ludwig</vorname>, <grad>PD</grad></dozent> <thema>Theorie der partiellen
+    Differenzialgleichungen, deren Integrazion und Anwendung derselben auf
+    einige Theile der Physik</thema>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-70"><nr>[70]</nr> <dozent
+    ref="eschmann_j"><nachname>Eschmann</nachname>,
+    <vorname>Johannes</vorname>, <grad>PD</grad></dozent> <thema>Populäre
+    Astronomie</thema> <wochenstunden>1</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-71"><nr>[71]</nr> <dozent
+    ref="eschmann_j"><nachname>Eschmann</nachname>,
+    <vorname>Johannes</vorname>, <grad>PD</grad></dozent> <thema>Beobachtende
+    und rechnende Astronomie</thema>
+    <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-72"><nr>[72]</nr> <dozent
+    ref="ehrenberg_kf"><nachname>Ehrenberg</nachname>, <vorname>Karl Ferdinand
+    von</vorname>, <grad>PD</grad></dozent> <thema>Allgemeine bürgerliche und
+    höhere Baukunst, Strassen-, Brücken- und Wasserbau</thema>
+    <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-73"><nr>[73]</nr> <dozent
+    ref="weiland_c"><nachname>Weiland</nachname>, <vorname>Carl</vorname>,
+    <grad>PD</grad></dozent> <thema>Geschichte der Staaten des
+    Alterthums</thema> <wochenstunden>5</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-74"><nr>[74]</nr> <dozent
+    ref="escher_h-1781"><nachname>Escher</nachname>,
+    <vorname>Heinrich</vorname>, <grad>PD</grad></dozent> <thema>Geschichte
+    des Mittelalters bis zum Untergange der Hohenstaufen und Encyklopädie der
+    historischen Wissenschaften als Einleitung</thema>
+    <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-75"><nr>[75]</nr> <dozent
+    ref="hottinger_jj"><nachname>Hottinger</nachname>, <vorname>Johann
+    Jakob</vorname>, <grad>EO</grad></dozent> <thema>Einleitung in die
+    Geschichte der Eidsgenossenschaft</thema>
+    <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-76"><nr>[76]</nr> <dozent
+    ref="hottinger_jj"><nachname>Hottinger</nachname>, <vorname>Johann
+    Jakob</vorname>, <grad>EO</grad></dozent> <thema>Geschichte der
+    Eidsgenossenschaft vom Stanzerverkommniss bis zur Unabhängigkeitserklärung
+    durch den westphälischen Frieden</thema>
+    <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-77"><nr>[77]</nr> <dozent
+    ref="gidoni_f"><nachname>Gidoni</nachname>, <vorname>Franz</vorname>,
+    <grad>PD</grad></dozent> <thema>Cours d'histoire moderne</thema>
+    <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-78"><nr>[78]</nr> <dozent
+    ref="hardmeyer_cw"><nachname>Hardmeyer</nachname>, <vorname>Carl
+    Wilhelm</vorname>, <grad>PD</grad></dozent> <thema>Uebersicht der modernen
+    Kunst und Literatur, ihrer Entstehung und ihres Entwicklungsganges bei den
+    Hauptnationen Europa's mit Hinsicht auf die Kultur- und Staatsgeschichte
+    derselben</thema> <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-79"><nr>[79]</nr> <dozent
+    ref="ettmueller_eml"><nachname>Ettmüller</nachname>, <vorname>Ernst Moritz
+    Ludwig</vorname>, <grad>PD</grad></dozent> <thema>Deutsche
+    Alterthümer</thema> <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-80"><nr>[80]</nr> <dozent
+    ref="winkelmann_aw"><nachname>Winkelmann</nachname>, <vorname>August
+    Wilhelm</vorname>, <grad>PD</grad></dozent> <thema>Encyklopädie und
+    Methodologie der philologischen Wissenschaften</thema>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-81"><nr>[81]</nr> <dozent
+    ref="baiter_jg"><nachname>Baiter</nachname>, <vorname>Johann
+    Georg</vorname>, <grad>PD</grad></dozent> <thema>Griechische
+    Alterthümer</thema> <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-82"><nr>[82]</nr> <dozent
+    ref="baiter_jg"><nachname>Baiter</nachname>, <vorname>Johann
+    Georg</vorname>, <grad>PD</grad></dozent> <thema>Geschichte der
+    Griechischen Sprache und Grammatik</thema>
+    <wochenstunden>1</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-83"><nr>[83]</nr> <dozent
+    ref="winkelmann_aw"><nachname>Winkelmann</nachname>, <vorname>August
+    Wilhelm</vorname>, <grad>PD</grad></dozent> <thema>Syntax der griechischen
+    Sprache</thema> <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-84"><nr>[84]</nr> <dozent
+    ref="sauppe_h"><nachname>Sauppe</nachname>, <vorname>Hermann</vorname>,
+    <grad>PD</grad></dozent> <thema>Syntax der griechischen Sprache</thema>
+    <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-85"><nr>[85]</nr> <dozent
+    ref="mueller_kw"><nachname>Müller</nachname>, <vorname>Karl
+    Wilhelm</vorname>, <grad>PD</grad></dozent> <thema>Ueber das Studium
+    Homers</thema> <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-86"><nr>[86]</nr> <dozent
+    ref="voegelin_as"><nachname>Vögelin</nachname>, <vorname>Anton
+    Salomon</vorname>, <grad>PD</grad></dozent> <thema>Sophokles, Oedipus auf
+    Kolonos</thema> <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-87"><nr>[87]</nr> <dozent
+    ref="baiter_jg"><nachname>Baiter</nachname>, <vorname>Johann
+    Georg</vorname>, <grad>PD</grad></dozent> <thema>Sophokles,
+    Antigone</thema> <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-88"><nr>[88]</nr> <dozent
+    ref="baiter_jg"><nachname>Baiter</nachname>, <vorname>Johann
+    Georg</vorname>, <grad>PD</grad></dozent> <thema>Lykurgos, Rede gegen den
+    Leokrates</thema> <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-89"><nr>[89]</nr> <dozent
+    ref="weiland_c"><nachname>Weiland</nachname>, <vorname>Carl</vorname>,
+    <grad>PD</grad></dozent> <thema>Erklärung der Bücher Platons vom Staate,
+    mit staatswissenschaftlichen Erläuterungen verbunden</thema>
+    <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-90"><nr>[90]</nr> <dozent
+    ref="winkelmann_aw"><nachname>Winkelmann</nachname>, <vorname>August
+    Wilhelm</vorname>, <grad>PD</grad></dozent> <thema>Erklärung von Plato's
+    Büchern über den Staat</thema>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-91"><nr>[91]</nr> <dozent
+    ref="keller_fl"><nachname>Keller</nachname>, <vorname>Friedrich
+    Ludwig</vorname>, <grad>EO</grad>, <funktion>Dekan/S</funktion></dozent>
+    <thema>Erklärung einzelner Reden und rhetorischer Schriften Cicero's aus
+    den Antiquitäten des öffentlichen und Privatrechts</thema>
+    <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-92"><nr>[92]</nr> <dozent
+    ref="mueller_kw"><nachname>Müller</nachname>, <vorname>Karl
+    Wilhelm</vorname>, <grad>PD</grad></dozent> <thema>Tacitus,
+    Annalen</thema> <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-93"><nr>[93]</nr> <dozent
+    ref="winkelmann_aw"><nachname>Winkelmann</nachname>, <vorname>August
+    Wilhelm</vorname>, <grad>PD</grad></dozent> <thema>Iuvenals
+    Satiren</thema> <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-94"><nr>[94]</nr> <dozent
+    ref="orelli_jk"><nachname>Orelli</nachname>, <vorname>Johann Kaspar
+    von</vorname>, <grad>EO</grad>, <funktion>Dekan/P</funktion></dozent>
+    <thema>Erklärung des Heautontimorumenos des Terentius, nach Faernus
+    Recension<anmerkung>Gabriello Faerno, Emendationes in P. Terentii fabulas.
+    Jo[annis] Calphurnii in eiusdem Heautontimorumenon interpretatio, Paris
+    1602.</anmerkung></thema> <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-95"><nr>[95]</nr> <dozent
+    ref="orelli_jk"><nachname>Orelli</nachname>, <vorname>Johann Kaspar
+    von</vorname>, <grad>EO</grad>, <funktion>Dekan/P</funktion></dozent>
+    <thema>Appuleius, Psyche und Amor, mit Rücksicht auf die Mischung der
+    ältern und spätern Latinität</thema>
+    <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-96"><nr>[96]</nr> <dozent
+    ref="orelli_jk"><nachname>Orelli</nachname>, <vorname>Johann Kaspar
+    von</vorname>, <grad>EO</grad>, <funktion>Dekan/P</funktion></dozent>
+    <thema>Plinius, Briefe, zehntes Buch, kritisch behandelt</thema>
+    <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-97"><nr>[97]</nr> <dozent
+    ref="orelli_jk"><nachname>Orelli</nachname>, <vorname>Johann Kaspar
+    von</vorname>, <grad>EO</grad>, <funktion>Dekan/P</funktion></dozent>
+    <thema>v. Raumer's Handbuch merkwürdiger Stellen aus den Lat.
+    Geschichtschreibern des Mittelalters, Breslau 1813,<anmerkung>Friedrich
+    von Raumer, Handbuch merkwürdiger Stellen aus den Lateinischen
+    Geschichtschreibern des Mittelalters, Breslau: Korn, 1813.</anmerkung> mit
+    Rücksicht auf die Latinität des Mittelalters</thema>
+    <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-98"><nr>[98]</nr> <dozent
+    ref="orelli_jk"><nachname>Orelli</nachname>, <vorname>Johann Kaspar
+    von</vorname>, <grad>EO</grad>, <funktion>Dekan/P</funktion></dozent>
+    <thema>Geschichte der römischen Litteratur, mit Rücksicht auf die
+    Leistungen der Kritiker seit Petrarca</thema>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-99"><nr>[99]</nr> <dozent
+    ref="sauppe_h"><nachname>Sauppe</nachname>, <vorname>Hermann</vorname>,
+    <grad>PD</grad></dozent> <thema>Uebungen im Lateinisch Sprechen und
+    Schreiben</thema> <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-100"><nr>[100]</nr> <dozent
+    ref="hitzig_f"><nachname>Hitzig</nachname>, <vorname>Ferdinand</vorname>,
+    <grad>O</grad></dozent> <thema>Elemente der arabischen Sprache</thema>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-101"><nr>[101]</nr> <dozent
+    ref="ettmueller_eml"><nachname>Ettmüller</nachname>, <vorname>Ernst Moritz
+    Ludwig</vorname>, <grad>PD</grad></dozent> <thema>Erklärung des
+    Nibelungenliedes nach Lachmann's Ausgabe<anmerkung>Der Nibelungen Noth und
+    die Klage nach der ältesten Ueberlieferung mit Bezeichnung des Unechten
+    und mit den Abweichungen der gemeinen Lesart, hg. von Karl Lachmann,
+    Berlin: Reimer, 1826.</anmerkung></thema>
+    <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-102"><nr>[102]</nr> <dozent
+    ref="orelli_jk"><nachname>Orelli</nachname>, <vorname>Johann Kaspar
+    von</vorname>, <grad>EO</grad>, <funktion>Dekan/P</funktion></dozent>
+    <thema>Spiegazione dell' Orlando furioso di M. Lodovico Ariosto</thema>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-103"><nr>[103]</nr> <dozent
+    ref="daverio_lh"><nachname>Daverio</nachname>, <vorname>Ludwig
+    Herkules</vorname>, <grad>PD</grad></dozent> <thema>Vorträge über
+    Italiänische Sprache und Literatur</thema>
+    <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-104"><nr>[104]</nr> <dozent
+    ref="sangrain_ja"><nachname>Sangrain</nachname>, <vorname>Jakob
+    Anton</vorname>, <grad>PD</grad></dozent> <thema>Cours de littérature
+    française</thema> <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-105"><nr>[105]</nr> <dozent
+    ref="sangrain_ja"><nachname>Sangrain</nachname>, <vorname>Jakob
+    Anton</vorname>, <grad>PD</grad></dozent> <thema>Cours pratique, théorique
+    et grammatical de la langue française</thema>
+    <wochenstunden>4</wochenstunden></veranstaltung>
+  </sachgruppe>
+</vv>

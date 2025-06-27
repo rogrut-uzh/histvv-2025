@@ -211,7 +211,7 @@
     <ort>Polytechnikum</ort></veranstaltung>
 
     <veranstaltung xml:id="v-15487"><nr>27</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>PD</grad></dozent> <thema>Das
     schweizerische Eisenbahn- und Tramwayrecht</thema> <zeit>Mo, Di 5-7</zeit>
     <wochenstunden>4</wochenstunden></veranstaltung>

@@ -236,7 +236,7 @@
     15-16</zeit> <wochenstunden>2</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-14433"><nr>31</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>PD</grad></dozent>
     <thema>Schweizerisches Eisenbahnrecht</thema> <zeit>Mo 11-12, Di
     5-6</zeit> <wochenstunden>2</wochenstunden></veranstaltung>

@@ -1,0 +1,1325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vv xml:lang="de" xmlns="http://histvv.uni-leipzig.de/ns/2007"
+    xmlns:ns="http://histvv.uni-leipzig.de/ns/2007">
+  <kopf>
+    <universität>Zürich</universität>
+
+    <semester>Winter</semester>
+
+    <beginn>
+      <jahr>1877</jahr>
+    </beginn>
+
+    <ende>
+      <jahr>1878</jahr>
+    </ende>
+
+    <quelle>Verzeichniss der Vorlesungen an der Hochschule Zürich im
+    Wintersemester 1877/78. Anfang am 17. Oktober 1877, Schluss am 16. März
+    1878, Zürich: Zürcher und Furrer, 1877.</quelle>
+
+    <status komplett="ja"/>
+  </kopf>
+
+  <titel>Wintersemester 1877/78</titel>
+
+  <sachgruppe fakultät="Theologie">
+    <titel>Theologische Fakultät</titel>
+
+    <veranstaltung xml:id="v-12906"><nr>1</nr> <dozent
+    ref="steiner_h"><nachname>Steiner</nachname>, <vorname>Heinrich</vorname>,
+    <grad>O</grad></dozent> <thema>Alttestamentliche Einleitung</thema>
+    <zeit>Di, Mi, Fr, Sa 8-9</zeit>
+    <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12907"><nr>2</nr> <dozent
+    ref="steiner_h"><nachname>Steiner</nachname>, <vorname>Heinrich</vorname>,
+    <grad>O</grad></dozent> <thema>Erklärung der Genesis</thema> <zeit>Mo, Do
+    8-9, Sa 9-10</zeit> <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12908"><nr>3</nr> <dozent
+    ref="bergen_j"><nachname>Bergen</nachname>, <vorname>Jakob von</vorname>,
+    <grad>PD</grad></dozent> <thema>Erklärung von Jesaja c. 40-60</thema>
+    <zeit>Di, Fr 15-16</zeit> <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12909"><nr>4</nr> <dozent
+    ref="heidenheim_m"><nachname>Heidenheim</nachname>,
+    <vorname>Moritz</vorname>, <grad>PD</grad></dozent> <thema>Erklärung des
+    Buches Daniel</thema> <zeit>Di, Do 15-16</zeit>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12910"><nr>5</nr> <dozent
+    ref="egli_k"><nachname>Egli</nachname>, <vorname>Karl</vorname>,
+    <grad>PD</grad></dozent> <thema>Erklärung der Propheten Joel und
+    Amos</thema> <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12911"><nr>6</nr> <dozent
+    ref="bergen_j"><nachname>Bergen</nachname>, <vorname>Jakob von</vorname>,
+    <grad>PD</grad></dozent> <thema>Einleitung in's Neue Testament</thema>
+    <zeit>Di 16-17, Fr 16-18</zeit>
+    <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12912"><nr>7</nr> <dozent
+    ref="volkmar_g"><nachname>Volkmar</nachname>, <vorname>Gustav</vorname>,
+    <grad>O</grad></dozent> <thema>Erklärung der synoptischen Evangelien und
+    das Leben Jesu</thema> <zeit>Mo-Sa 8-9</zeit>
+    <wochenstunden>6</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12913"><nr>8</nr> <dozent
+    ref="kesselring_h"><nachname>Kesselring</nachname>,
+    <vorname>Heinrich</vorname>, <grad>O</grad></dozent> <thema>Erklärung der
+    Apostelgeschichte mit besonderer Berücksichtigung der geschichtlichen
+    Fragen</thema> <zeit>Mo, Di, Do, Fr 10-11</zeit>
+    <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12914"><nr>9</nr> <dozent
+    ref="volkmar_g"><nachname>Volkmar</nachname>, <vorname>Gustav</vorname>,
+    <grad>O</grad></dozent> <thema>Erklärung der Offenbarung Johannes</thema>
+    <zeit>Mo, Mi, Fr 14-15</zeit>
+    <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12915"><nr>10</nr> <dozent
+    ref="fritzsche_of"><nachname>Fritzsche</nachname>, <vorname>Otto
+    Fridolin</vorname>, <grad>O</grad></dozent> <thema>Kirchengeschichte I.
+    Theil</thema> <zeit>Mo-Fr 11-12</zeit>
+    <wochenstunden>5</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12916"><nr>11</nr> <dozent
+    ref="fritzsche_of"><nachname>Fritzsche</nachname>, <vorname>Otto
+    Fridolin</vorname>, <grad>O</grad></dozent> <thema>Kirchengeschichte des
+    18. und 19. Jahrhunderts</thema>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12917"><nr>12</nr> <dozent
+    ref="fritzsche_of"><nachname>Fritzsche</nachname>, <vorname>Otto
+    Fridolin</vorname>, <grad>O</grad></dozent> <thema>Kirchengeschichtliches
+    Repetitorium</thema> <zeit>Di, Fr 16-17.30</zeit>
+    <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12918"><nr>13</nr> <dozent
+    ref="volkmar_g"><nachname>Volkmar</nachname>, <vorname>Gustav</vorname>,
+    <grad>O</grad></dozent> <thema>Geschichte der neueren Theologie</thema>
+    <zeit>Sa 10-12</zeit> <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12919"><nr>14</nr> <dozent
+    ref="biedermann_ae"><nachname>Biedermann</nachname>, <vorname>Alois
+    Emanuel</vorname>, <grad>O</grad></dozent> <thema>Geschichte der
+    Dogmatik</thema> <zeit>Di, Do, Fr 10-11</zeit>
+    <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12920"><nr>15</nr> <dozent
+    ref="schweizer_a"><nachname>Schweizer</nachname>,
+    <vorname>Alexander</vorname>, <grad>O</grad>,
+    <funktion>Dekan/T</funktion></dozent> <thema>Dogmengeschichte der
+    reformirten Kirche</thema> <zeit>Mo, Mi 15-16</zeit>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12921"><nr>16</nr> <dozent
+    ref="biedermann_ae"><nachname>Biedermann</nachname>, <vorname>Alois
+    Emanuel</vorname>, <grad>O</grad></dozent> <thema>Dogmatik
+    (Schluss)</thema> <zeit>Mi, Sa 9-10</zeit>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12922"><nr>17</nr> <dozent
+    ref="biedermann_ae"><nachname>Biedermann</nachname>, <vorname>Alois
+    Emanuel</vorname>, <grad>O</grad></dozent> <thema>Die Grundsätze des
+    liberalen Protestantismus für die praktische Theologie</thema> <zeit>Di,
+    Do, Fr 9-10</zeit> <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12923"><nr>18</nr> <dozent
+    ref="kesselring_h"><nachname>Kesselring</nachname>,
+    <vorname>Heinrich</vorname>, <grad>O</grad></dozent> <thema>Geschichte der
+    Predigt</thema> <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12924"><nr>19</nr> <dozent
+    ref="schweizer_a"><nachname>Schweizer</nachname>,
+    <vorname>Alexander</vorname>, <grad>O</grad>,
+    <funktion>Dekan/T</funktion></dozent> <thema>Homiletisches
+    Repetitorium</thema> <zeit>Di, Do 15-16</zeit>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12925"><nr>20a</nr> <dozent
+    ref="steiner_h"><nachname>Steiner</nachname>, <vorname>Heinrich</vorname>,
+    <grad>O</grad></dozent> <thema>Uebungen des theologischen Seminars:
+    Alttestamentliche Abtheilung: Exegetische Uebungen an den Büchern Esra und
+    Nehemia</thema> <zusatz> <gebühr>unentgeltlich</gebühr> </zusatz>
+    <zeit>Di, Fr 15-16</zeit> <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12926"><nr>20b</nr> <dozent
+    ref="kesselring_h"><nachname>Kesselring</nachname>,
+    <vorname>Heinrich</vorname>, <grad>O</grad></dozent> <thema>Uebungen des
+    theologischen Seminars: Neutestamentliche Abtheilung: Erklärung der
+    Galaterbriefe</thema> <zusatz> <gebühr>unentgeltlich</gebühr> </zusatz>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12927"><nr>20c</nr> <dozent
+    ref="fritzsche_of"><nachname>Fritzsche</nachname>, <vorname>Otto
+    Fridolin</vorname>, <grad>O</grad></dozent> <thema>Uebungen des
+    theologischen Seminars: Kirchengeschichtliche Abtheilung:
+    Kirchengeschichtliche Uebungen</thema> <zusatz>
+    <gebühr>unentgeltlich</gebühr> </zusatz>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12928"><nr>20d</nr> <dozent
+    ref="biedermann_ae"><nachname>Biedermann</nachname>, <vorname>Alois
+    Emanuel</vorname>, <grad>O</grad></dozent> <thema>Uebungen des
+    theologischen Seminars: Systematisch-theologische Abtheilung: Dogmatische
+    Uebungen</thema> <zusatz> <gebühr>unentgeltlich</gebühr> </zusatz>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12929"><nr>20e</nr> <dozent
+    ref="kesselring_h"><nachname>Kesselring</nachname>,
+    <vorname>Heinrich</vorname>, <grad>O</grad></dozent> <thema>Uebungen des
+    theologischen Seminars: Praktisch-theologische Abtheilung: Katechetische
+    Uebungen</thema> <zusatz> <gebühr>unentgeltlich</gebühr> </zusatz>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+  </sachgruppe>
+
+  <sachgruppe fakultät="Staatswissenschaften">
+    <titel>Staatswissenschaftliche Fakultät</titel>
+
+    <veranstaltung xml:id="v-12930"><nr>21</nr> <dozent
+    ref="vogt_g"><nachname>Vogt</nachname>, <vorname>Gustav</vorname>,
+    <grad>O</grad>, <funktion>Rektor</funktion></dozent> <thema>Geschichte und
+    Grundzüge der Rechtsphilosophie</thema> <zeit>Di, Do 9-10, Sa 8-9</zeit>
+    <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12931"><nr>22</nr> <dozent
+    ref="pfenninger_h"><nachname>Pfenninger</nachname>,
+    <vorname>Heinrich</vorname>, <grad>PD</grad></dozent> <thema>Geschichte
+    der neueren Rechtsphilosophie</thema>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12932"><nr>23</nr> <dozent
+    ref="conrat_m"><nachname>Conrat (Cohn)</nachname>, <vorname>Max</vorname>,
+    <grad>O</grad></dozent> <thema>Institutionen des römischen Rechts</thema>
+    <zeit>Mo-Fr 8-9, Mi 9-10</zeit>
+    <wochenstunden>6</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12933"><nr>24</nr> <dozent
+    ref="conrat_m"><nachname>Conrat (Cohn)</nachname>, <vorname>Max</vorname>,
+    <grad>O</grad></dozent> <thema>Römisches Staatsrecht</thema> <zeit>Mo, Fr
+    9-10</zeit> <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12934"><nr>25</nr> <dozent
+    ref="schneider_a"><nachname>Schneider</nachname>,
+    <vorname>Albert</vorname>, <grad>PD</grad></dozent> <thema>Geschichte des
+    römischen Civilprocesses</thema> <zeit>Di, Fr 5-6</zeit>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12935"><nr>26</nr> <dozent
+    ref="conrat_m"><nachname>Conrat (Cohn)</nachname>, <vorname>Max</vorname>,
+    <grad>O</grad></dozent> <thema>Pandekten, II. Theil</thema> <zeit>Mo, Mi,
+    Fr 6-7</zeit> <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12936"><nr>27</nr> <dozent
+    ref="schroeder_f"><nachname>Schröder</nachname>, <vorname>Franz</vorname>,
+    <grad>PD</grad></dozent> <thema>Allgemeiner Theil der Pandekten, das
+    Sachenrecht und das Familienrecht</thema> <zeit>Mo-Sa 8-9</zeit>
+    <wochenstunden>6</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12937"><nr>28</nr> <dozent
+    ref="schroeder_f"><nachname>Schröder</nachname>, <vorname>Franz</vorname>,
+    <grad>PD</grad></dozent> <thema>Das gemeine Obligationenrecht</thema>
+    <zeit>Mo-Do 10-11</zeit> <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12938"><nr>29</nr> <dozent
+    ref="schroeder_f"><nachname>Schröder</nachname>, <vorname>Franz</vorname>,
+    <grad>PD</grad></dozent> <thema>Das gemeine Erbrecht</thema> <zeit>Mi, Sa
+    9-10, Fr, Sa 10-11</zeit> <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12939"><nr>30</nr> <dozent
+    ref="schneider_a"><nachname>Schneider</nachname>,
+    <vorname>Albert</vorname>, <grad>PD</grad></dozent> <thema>Römisches
+    Erbrecht</thema> <zeit>Mo, Di, Fr 16-17</zeit>
+    <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12940"><nr>31</nr> <dozent
+    ref="conrat_m"><nachname>Conrat (Cohn)</nachname>, <vorname>Max</vorname>,
+    <grad>O</grad></dozent> <thema>Pandektendisputatorium</thema> <zeit>Di, Do
+    6-7</zeit> <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12941"><nr>32</nr> <dozent
+    ref="orelli_a"><nachname>Orelli</nachname>, <vorname>Aloys von</vorname>,
+    <grad>O</grad>, <funktion>Dekan/S</funktion></dozent> <thema>Deutsche
+    Rechtsgeschichte</thema> <zeit>Di-Fr 11-12</zeit>
+    <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12942"><nr>33</nr> <dozent
+    ref="orelli_a"><nachname>Orelli</nachname>, <vorname>Aloys von</vorname>,
+    <grad>O</grad>, <funktion>Dekan/S</funktion></dozent>
+    <thema>Interpretationsübungen aus deutschen Rechtsquellen</thema> <zeit>Sa
+    9-11</zeit> <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12943"><nr>34</nr> <dozent
+    ref="fick_h"><nachname>Fick</nachname>, <vorname>Heinrich</vorname>,
+    <grad>O</grad></dozent> <thema>Handelsrecht</thema> <zeit>Mo-Do
+    16-17</zeit> <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12944"><nr>35</nr> <dozent
+    ref="fick_h"><nachname>Fick</nachname>, <vorname>Heinrich</vorname>,
+    <grad>O</grad></dozent> <thema>Wechselrecht</thema> <zeit>Mi, Do
+    15-16</zeit> <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12945"><nr>36</nr> <dozent
+    ref="temme_j"><nachname>Temme</nachname>, <vorname>Jodokus</vorname>,
+    <grad>O</grad></dozent> <thema>Gemeines deutsches Strafrecht (nach seinem
+    Lehrbuche)<anmerkung>Jodokus Temme, Lehrbuch des gemeinen deutschen
+    Strafrechts, Stuttgart: Enke, 1876.</anmerkung></thema> <zeit>Mo-Sa
+    11-12</zeit> <wochenstunden>6</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12946"><nr>37</nr> <dozent
+    ref="pfenninger_h"><nachname>Pfenninger</nachname>,
+    <vorname>Heinrich</vorname>, <grad>PD</grad></dozent> <thema>Die Lehre vom
+    Verbrechen</thema> <wochenstunden>1</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12947"><nr>38</nr> <dozent
+    ref="osenbrueggen_e"><nachname>Osenbrüggen</nachname>,
+    <vorname>Eduard</vorname>, <grad>O</grad></dozent> <thema>Deutscher
+    Strafprocess in Vergleichung mit dem englischen und französischen
+    Strafverfahren</thema> <zeit>Mo-Fr 15-16</zeit>
+    <wochenstunden>5</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12948"><nr>39</nr> <dozent
+    ref="osenbrueggen_e"><nachname>Osenbrüggen</nachname>,
+    <vorname>Eduard</vorname>, <grad>O</grad></dozent>
+    <thema>Criminalpraktikum</thema> <zeit>Fr 16-18</zeit>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12949"><nr>40</nr> <dozent
+    ref="osenbrueggen_e"><nachname>Osenbrüggen</nachname>,
+    <vorname>Eduard</vorname>, <grad>O</grad></dozent> <thema>Die Hauptlehren
+    des gemeinen deutschen Civilprocesses</thema> <zeit>Mo-Mi 16-17</zeit>
+    <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12950"><nr>41</nr> <dozent
+    ref="orelli_a"><nachname>Orelli</nachname>, <vorname>Aloys von</vorname>,
+    <grad>O</grad>, <funktion>Dekan/S</funktion></dozent> <thema>Kirchenrecht
+    der Katholiken und Protestanten, mit besonderer Rücksicht auf die
+    Schweiz</thema> <zeit>Mo, Mi, Do 5-6</zeit>
+    <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12951"><nr>42</nr> <dozent
+    ref="vogt_g"><nachname>Vogt</nachname>, <vorname>Gustav</vorname>,
+    <grad>O</grad>, <funktion>Rektor</funktion></dozent>
+    <thema>Schweizerisches Staatsrecht</thema> <zeit>Mo, Mi, Fr, Sa
+    9-10</zeit> <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12952"><nr>43</nr> <dozent
+    ref="vogt_g"><nachname>Vogt</nachname>, <vorname>Gustav</vorname>,
+    <grad>O</grad>, <funktion>Rektor</funktion></dozent> <thema>Besprechung
+    bundesrechtlicher, insbesondere bundesgerichtlicher Fälle</thema> <zusatz>
+    <gebühr>für die Hörer des schweizerischen Staatsrechts
+    unentgeltlich</gebühr> </zusatz> <zeit>Fr 10-11</zeit>
+    <wochenstunden>1</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12953"><nr>44</nr> <dozent
+    ref="treichler_jj"><nachname>Treichler</nachname>, <vorname>Johann
+    Jakob</vorname>, <grad>O</grad></dozent> <thema>Zürcherisches
+    Obligationenrecht mit Berücksichtigung des schweizerischen
+    Entwurfes</thema> <zeit>Mo-Sa 8-9</zeit>
+    <wochenstunden>6</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12954"><nr>45</nr> <dozent
+    ref="treichler_jj"><nachname>Treichler</nachname>, <vorname>Johann
+    Jakob</vorname>, <grad>O</grad></dozent> <thema>Zürcherisches
+    Erbrecht</thema> <zeit>Mi, Sa 10-11</zeit>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12955"><nr>46</nr> <dozent
+    ref="schneider_a"><nachname>Schneider</nachname>,
+    <vorname>Albert</vorname>, <grad>PD</grad></dozent> <thema>Zürcherisches
+    Civilprozesspraktikum</thema> <zeit>Di 6-8</zeit>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12956"><nr>47</nr> <dozent
+    ref="fick_h"><nachname>Fick</nachname>, <vorname>Heinrich</vorname>,
+    <grad>O</grad></dozent> <thema>Ueber den Entwurf für schweizerisches
+    Obligationenrecht</thema> <zeit>Mo, Di 15-16</zeit>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12957"><nr>48</nr> <dozent
+    ref="vogt_g"><nachname>Vogt</nachname>, <vorname>Gustav</vorname>,
+    <grad>O</grad>, <funktion>Rektor</funktion></dozent> <thema>Geschichte der
+    Nationalökonomie und des Socialismus</thema>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+  </sachgruppe>
+
+  <sachgruppe fakultät="Medizin">
+    <titel>Medizinische Fakultät</titel>
+
+    <veranstaltung xml:id="v-12958"><nr>49</nr> <dozent
+    ref="hermann_l"><nachname>Hermann</nachname>, <vorname>Ludimar</vorname>,
+    <grad>O</grad></dozent> <thema>Medicinische Physik</thema> <zeit>Fr
+    5-7</zeit> <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12959"><nr>50</nr> <dozent
+    ref="frey_h"><nachname>Frey</nachname>, <vorname>Heinrich</vorname>,
+    <grad>O</grad></dozent> <thema>Zoologie</thema> <zeit>Mo-Fr 5-6</zeit>
+    <wochenstunden>5</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12960"><nr>51</nr> <dozent
+    ref="meyer_gh"><nachname>Meyer</nachname>, <vorname>Georg Hermann
+    von</vorname>, <grad>O</grad></dozent> <thema>Anatomie des
+    Menschen</thema> <zeit>Mo-Fr 10-11, 14-15</zeit>
+    <wochenstunden>10</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12961"><nr>52</nr> <dozent
+    ref="meyer_gh"><nachname>Meyer</nachname>, <vorname>Georg Hermann
+    von</vorname>, <grad>O</grad></dozent> <thema>Osteologie und
+    Syndesmologie</thema> <zeit>Mo, Mi, Fr 16-17</zeit>
+    <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12962"><nr>53</nr> <dozent
+    ref="meyer_gh"><nachname>Meyer</nachname>, <vorname>Georg Hermann
+    von</vorname>, <grad>O</grad></dozent>
+    <thema>Präparir-Uebungen</thema></veranstaltung>
+
+    <veranstaltung xml:id="v-12963"><nr>54</nr> <dozent
+    ref="meyer_gh"><nachname>Meyer</nachname>, <vorname>Georg Hermann
+    von</vorname>, <grad>O</grad></dozent> <thema>Repetitorium der
+    Anatomie</thema> <zeit>Mo 8-9, Fr 11-12</zeit>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12964"><nr>55</nr> <dozent
+    ref="frey_h"><nachname>Frey</nachname>, <vorname>Heinrich</vorname>,
+    <grad>O</grad></dozent> <thema>Histologie</thema> <zeit>Mo-Fr 15-16</zeit>
+    <wochenstunden>5</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12965"><nr>56</nr> <dozent
+    ref="frey_h"><nachname>Frey</nachname>, <vorname>Heinrich</vorname>,
+    <grad>O</grad></dozent> <thema>Mikroskopisches Praktikum</thema> <zeit>Mo,
+    Do 14-15</zeit> <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12966"><nr>57</nr> <dozent
+    ref="frey_h"><nachname>Frey</nachname>, <vorname>Heinrich</vorname>,
+    <grad>O</grad></dozent> <thema>Arbeiten für
+    Geübtere</thema></veranstaltung>
+
+    <veranstaltung xml:id="v-12967"><nr>58</nr> <dozent
+    ref="frey_h"><nachname>Frey</nachname>, <vorname>Heinrich</vorname>,
+    <grad>O</grad></dozent> <thema>Embryologie</thema> <zeit>Sa 10-11,
+    14-16</zeit> <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12968"><nr>59</nr> <dozent
+    ref="hermann_l"><nachname>Hermann</nachname>, <vorname>Ludimar</vorname>,
+    <grad>O</grad></dozent> <thema>Zweite Hälfte der
+    Experimental-Physiologie</thema> <zeit>Mo-Sa 9-10</zeit>
+    <wochenstunden>6</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12969"><nr>60a</nr> <dozent
+    ref="hermann_l"><nachname>Hermann</nachname>, <vorname>Ludimar</vorname>,
+    <grad>O</grad></dozent> <thema>Arbeiten im physiologischen Laboratorium:
+    Untersuchungen für Geübtere</thema> <zeit>Mo-Sa</zeit></veranstaltung>
+
+    <veranstaltung xml:id="v-12970"><nr>60b</nr> <dozent
+    ref="hermann_l"><nachname>Hermann</nachname>, <vorname>Ludimar</vorname>,
+    <grad>O</grad></dozent> <dozent
+    ref="luchsinger_b"><nachname>Luchsinger</nachname>,
+    <vorname>Balthasar</vorname>, <grad>PD</grad></dozent> <thema>Arbeiten im
+    physiologischen Laboratorium: Uebungen für Anfänger</thema>
+    <zeit>Mo-Sa</zeit></veranstaltung>
+
+    <veranstaltung xml:id="v-12971"><nr>61</nr> <dozent
+    ref="hermann_l"><nachname>Hermann</nachname>, <vorname>Ludimar</vorname>,
+    <grad>O</grad></dozent> <thema>Experimentelle Toxicologie</thema>
+    <zeit>Di, Do 6-7</zeit> <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12972"><nr>62</nr> <dozent
+    ref="luchsinger_b"><nachname>Luchsinger</nachname>,
+    <vorname>Balthasar</vorname>, <grad>PD</grad></dozent> <thema>Repetitorium
+    der gesammten Physiologie</thema> <zeit>Mo, Mi 6-7</zeit>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12973"><nr>63</nr> <dozent
+    ref="eberth_kj"><nachname>Eberth</nachname>, <vorname>Karl
+    Joseph</vorname>, <grad>O</grad>, <funktion>Dekan/M</funktion></dozent>
+    <thema>Allgemeine pathologische Anatomie und Physiologie</thema>
+    <zeit>Mo-Fr 16-17</zeit> <wochenstunden>5</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12974"><nr>64</nr> <dozent
+    ref="luchsinger_b"><nachname>Luchsinger</nachname>,
+    <vorname>Balthasar</vorname>, <grad>PD</grad></dozent> <thema>Ausgewählte
+    Kapitel der experimentellen Pathologie; I. Die Lehre vom Fieber</thema>
+    <zeit>Do 5-6</zeit> <wochenstunden>1</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12975"><nr>65</nr> <dozent
+    ref="eberth_kj"><nachname>Eberth</nachname>, <vorname>Karl
+    Joseph</vorname>, <grad>O</grad>, <funktion>Dekan/M</funktion></dozent>
+    <thema>Praktikum der pathologischen Histologie</thema> <zeit>Fr
+    9-12</zeit> <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12976"><nr>66</nr> <dozent
+    ref="eberth_kj"><nachname>Eberth</nachname>, <vorname>Karl
+    Joseph</vorname>, <grad>O</grad>, <funktion>Dekan/M</funktion></dozent>
+    <thema>Sectionscurs</thema> <zeit>Mo, Fr 14-16</zeit>
+    <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12977"><nr>67</nr> <dozent
+    ref="eberth_kj"><nachname>Eberth</nachname>, <vorname>Karl
+    Joseph</vorname>, <grad>O</grad>, <funktion>Dekan/M</funktion></dozent>
+    <thema>Arbeiten im pathologischen Institut für
+    Geübtere</thema></veranstaltung>
+
+    <veranstaltung xml:id="v-12978"><nr>68</nr> <dozent
+    ref="cloetta_a"><nachname>Cloetta</nachname>, <vorname>Arnold</vorname>,
+    <grad>O</grad></dozent> <thema>Arzneimittellehre</thema> <zeit>Mo-Do
+    5-6</zeit> <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12979"><nr>69</nr> <dozent
+    ref="goll_f"><nachname>Goll</nachname>, <vorname>Friedrich</vorname>,
+    <grad>PD</grad></dozent> <thema>Arzneiverordnungslehre mit Uebungen im
+    Receptschreiben</thema> <zeit>Di, Do 6-7</zeit>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12980"><nr>70</nr> <dozent
+    ref="seitz_j"><nachname>Seitz</nachname>, <vorname>Johannes</vorname>,
+    <grad>PD</grad></dozent> <thema>Electrotherapie</thema>
+    <wochenstunden>1</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12981"><nr>71</nr> <dozent
+    ref="rose_e"><nachname>Rose</nachname>, <vorname>Edmund</vorname>,
+    <grad>O</grad></dozent> <thema>Allgemeine Chirurgie und
+    Operationslehre</thema> <zeit>Di-Sa 8-9</zeit>
+    <wochenstunden>5</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12982"><nr>72</nr> <dozent
+    ref="rose_e"><nachname>Rose</nachname>, <vorname>Edmund</vorname>,
+    <grad>O</grad></dozent> <thema>Ueber die Operationen an den Harn- und
+    Geschlechts-Organen</thema> <zeit>Mo 8-9</zeit>
+    <wochenstunden>1</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12983"><nr>73</nr> <dozent
+    ref="rose_e"><nachname>Rose</nachname>, <vorname>Edmund</vorname>,
+    <grad>O</grad></dozent> <thema>Chirurgische Klinik und Poliklinik</thema>
+    <zeit>Mo, Di, Do-Sa 10.30-12</zeit>
+    <wochenstunden>7.5</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12984"><nr>74</nr> <dozent
+    ref="huguenin_g"><nachname>Huguenin</nachname>, <vorname>Gustav</vorname>,
+    <grad>O</grad></dozent> <thema>Specielle Pathologie und Therapie:
+    Krankheiten des Herzens und der grossen Gefässe</thema> <zeit>4x
+    11-12</zeit> <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12985"><nr>75</nr> <dozent
+    ref="huguenin_g"><nachname>Huguenin</nachname>, <vorname>Gustav</vorname>,
+    <grad>O</grad></dozent> <thema>Krankheiten des Hirnes</thema> <zeit>2x
+    11-12</zeit> <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12986"><nr>76</nr> <dozent
+    ref="huguenin_g"><nachname>Huguenin</nachname>, <vorname>Gustav</vorname>,
+    <grad>O</grad></dozent> <thema>Medicinische Klinik</thema> <zeit>Mo-Do, Sa
+    9-10.30</zeit> <wochenstunden>7.5</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12987"><nr>77</nr> <dozent
+    ref="frankenhaeuser_f"><nachname>Frankenhäuser</nachname>,
+    <vorname>Ferdinand</vorname>, <grad>O</grad></dozent> <thema>Theoretische
+    Geburtshülfe</thema> <zeit>Mo, Di, Do, Fr 16-17</zeit>
+    <wochenstunden>4</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12988"><nr>78</nr> <dozent
+    ref="frankenhaeuser_f"><nachname>Frankenhäuser</nachname>,
+    <vorname>Ferdinand</vorname>, <grad>O</grad></dozent>
+    <thema>Geburtshülfliche und gynäkologische Klinik</thema> <zeit>Mo-Sa
+    14-15</zeit> <wochenstunden>6</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12989"><nr>79</nr> <dozent
+    ref="spoendly_h"><nachname>Spöndly</nachname>,
+    <vorname>Heinrich</vorname>, <grad>EO</grad></dozent>
+    <thema>Geburtshülflicher Operationskurs</thema> <zeit>Di, Fr 16-17</zeit>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12990"><nr>80</nr> <dozent
+    ref="hitzig_e"><nachname>Hitzig</nachname>, <vorname>Eduard</vorname>,
+    <grad>O</grad></dozent> <thema>Nervenkrankheiten</thema>
+    <wochenstunden>1</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12991"><nr>81</nr> <dozent
+    ref="hitzig_e"><nachname>Hitzig</nachname>, <vorname>Eduard</vorname>,
+    <grad>O</grad></dozent> <thema>Psychiatrie und psychiatrische
+    Klinik</thema> <zeit>Mi, Sa 14.30-16</zeit>
+    <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12992"><nr>82</nr> <dozent
+    ref="horner_jf"><nachname>Horner</nachname>, <vorname>Johann
+    Friedrich</vorname>, <grad>O</grad></dozent> <thema>Ophthalmologische
+    Klinik und Poliklinik</thema> <zeit>Di, Do, Sa 8-9</zeit>
+    <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12993"><nr>83</nr> <dozent
+    ref="horner_jf"><nachname>Horner</nachname>, <vorname>Johann
+    Friedrich</vorname>, <grad>O</grad></dozent>
+    <thema>Augenoperationskurs</thema> <zeit>Mi 8-9, Fr 8-10</zeit>
+    <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12994"><nr>84</nr> <dozent
+    ref="wyss-kienast_o"><nachname>Wyss-Kienast</nachname>,
+    <vorname>Oscar</vorname>, <grad>EO</grad></dozent> <thema>Ueber
+    Kinderkrankheiten</thema> <zeit>Di, Do, Fr 16-17</zeit>
+    <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12995"><nr>85</nr> <dozent
+    ref="wyss-kienast_o"><nachname>Wyss-Kienast</nachname>,
+    <vorname>Oscar</vorname>, <grad>EO</grad></dozent> <thema>Paediatrische
+    Klinik, im Kinderspital</thema> <zeit>Mi 10.45-12, Fr 9.30-11</zeit>
+    <wochenstunden>2.75</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12996"><nr>86</nr> <dozent
+    ref="wyss-kienast_o"><nachname>Wyss-Kienast</nachname>,
+    <vorname>Oscar</vorname>, <grad>EO</grad></dozent> <thema>Poliklinik, im
+    Kantonsspital</thema> <zeit>Mo-Sa 15-16</zeit>
+    <wochenstunden>6</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12997"><nr>87</nr> <dozent
+    ref="seitz_j"><nachname>Seitz</nachname>, <vorname>Johannes</vorname>,
+    <grad>PD</grad></dozent> <thema>Hautkrankheiten und Syphilis</thema>
+    <zeit>Mi 10.30-12</zeit>
+    <wochenstunden>1.5</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12998"><nr>88</nr> <dozent
+    ref="meyer-hueni_r"><nachname>Meyer-Hueni</nachname>,
+    <vorname>Rudolf</vorname>, <grad>PD</grad></dozent>
+    <thema>Laryngoscopischer Kursus</thema>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-12999"><nr>89</nr> <dozent
+    ref="cloetta_a"><nachname>Cloetta</nachname>, <vorname>Arnold</vorname>,
+    <grad>O</grad></dozent> <thema>Gerichtliche Medicin</thema> <zeit>Mo, Mi,
+    Fr 6-7</zeit> <wochenstunden>3</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-13000"><nr>90</nr> <dozent
+    ref="seitz_j"><nachname>Seitz</nachname>, <vorname>Johannes</vorname>,
+    <grad>PD</grad></dozent> <thema>Diagnostische Uebungen für
+    Vorgerücktere</thema> <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-13001"><nr>91</nr> <dozent
+    ref="billeter_j"><nachname>Billeter</nachname>, <vorname>Jakob</vorname>,
+    <grad>PD</grad></dozent> <thema>Zahnärztlicher Operationskurs</thema>
+    <wochenstunden>2</wochenstunden></veranstaltung>
+
+    <veranstaltung xml:id="v-13002"><nr>92</nr> <dozent
+    ref="brunner_g"><nachname>Brunner</nachname>, <vorname>Gustav</vorname>,
+    <grad>PD</grad></dozent> <thema>Cursus der Ohrenheilkunde mit
+    Poliklinik</thema> <zeit>So 8-9</zeit>
+    <wochenstunden>1</wochenstunden></veranstaltung>
+  </sachgruppe>
+
+  <sachgruppe fakultät="Philosophie">
+    <titel>Philosophische Fakultät</titel>
+
+    <sachgruppe>
+      <titel>Philosophisch-philologisch-historische Section</titel>
+
+      <sachgruppe>
+        <titel>Philosophie</titel>
+
+        <veranstaltung xml:id="v-13003"><nr>93</nr> <dozent
+        ref="kym_al"><nachname>Kym</nachname>, <vorname>Andreas
+        Ludwig</vorname>, <grad>O</grad></dozent> <thema>Logik in Verbindung
+        mit Metaphysik</thema> <zeit>Mo-Mi 11-12</zeit>
+        <wochenstunden>3</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13004"><nr>94</nr> <dozent
+        ref="avenarius_r"><nachname>Avenarius</nachname>,
+        <vorname>Richard</vorname>, <grad>O</grad></dozent>
+        <thema>Psychologie</thema> <zeit>Mo-Do 6-7</zeit>
+        <wochenstunden>4</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13005"><nr>95</nr> <dozent
+        ref="schweizer_a"><nachname>Schweizer</nachname>,
+        <vorname>Alexander</vorname>, <grad>O</grad></dozent>
+        <thema>Philosophische Ethik</thema> <zeit>Mo, Di, Do, Fr 14-15</zeit>
+        <wochenstunden>4</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13006"><nr>96</nr> <dozent
+        ref="fehr_d"><nachname>Fehr</nachname>, <vorname>Daniel</vorname>,
+        <grad>PD</grad></dozent> <thema>Aesthetik</thema>
+        <wochenstunden>3</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13007"><nr>97</nr> <dozent
+        ref="kym_al"><nachname>Kym</nachname>, <vorname>Andreas
+        Ludwig</vorname>, <grad>O</grad></dozent>
+        <thema>Religionsphilosophie</thema> <zeit>Mo, Di 5-6</zeit>
+        <wochenstunden>2</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13008"><nr>98</nr> <dozent
+        ref="avenarius_r"><nachname>Avenarius</nachname>,
+        <vorname>Richard</vorname>, <grad>O</grad></dozent>
+        <thema>Pädagogik</thema> <zeit>Mo, Do 5-6</zeit>
+        <wochenstunden>2</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13009"><nr>99</nr> <dozent
+        ref="kym_al"><nachname>Kym</nachname>, <vorname>Andreas
+        Ludwig</vorname>, <grad>O</grad></dozent> <thema>Geschichte der
+        antiken Philosophie</thema> <zeit>Do-Sa 11-12</zeit>
+        <wochenstunden>3</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13010"><nr>100</nr> <dozent
+        ref="fehr_d"><nachname>Fehr</nachname>, <vorname>Daniel</vorname>,
+        <grad>PD</grad></dozent> <thema>Geschichte der Pädagogik</thema>
+        <wochenstunden>2</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13011"><nr>101</nr> <dozent
+        ref="avenarius_r"><nachname>Avenarius</nachname>,
+        <vorname>Richard</vorname>, <grad>O</grad></dozent> <thema>Spinoza's
+        Ethik, Lectüre und Interpretation</thema> <zusatz>
+        <modus>privatissime</modus> </zusatz>
+        <wochenstunden>2</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13012"><nr>102</nr> <dozent
+        ref="kym_al"><nachname>Kym</nachname>, <vorname>Andreas
+        Ludwig</vorname>, <grad>O</grad></dozent> <thema>Philosophische
+        Uebungen</thema> <zeit>Fr 6-7</zeit>
+        <wochenstunden>1</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13013"><nr>103</nr> <dozent
+        ref="avenarius_r"><nachname>Avenarius</nachname>,
+        <vorname>Richard</vorname>, <grad>O</grad></dozent> <thema>Freie
+        Uebungen der Studirenden im Halten von Vorträgen über selbstgewählte
+        Themata aus allen Gebieten der Philosophie, mit nachfolgender
+        Discussion</thema> <wochenstunden>2</wochenstunden></veranstaltung>
+      </sachgruppe>
+
+      <sachgruppe>
+        <titel>Sprach- und Alterthumswissenschaft, Literaturgeschichte</titel>
+
+        <veranstaltung xml:id="v-13014"><nr>104</nr> <dozent
+        ref="schweizer-sidler_h"><nachname>Schweizer-Sidler</nachname>,
+        <vorname>Heinrich</vorname>, <grad>O</grad></dozent>
+        <thema>Vergleichende Grammatik der indogermanischen Sprachen, I.
+        Theil</thema> <zeit>Mo, Mi, Fr 14-15</zeit>
+        <wochenstunden>3</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13015"><nr>105</nr> <dozent
+        ref="schweizer-sidler_h"><nachname>Schweizer-Sidler</nachname>,
+        <vorname>Heinrich</vorname>, <grad>O</grad></dozent> <thema>Elemente
+        der Sanskritsprache (nach Stenzler's Elementarbuch)<anmerkung>Adolf
+        Friedrich Stenzler, Elementarbuch der Sanskrit-Sprache, Breslau:
+        Mälzer, ³1875.</anmerkung></thema> <zeit>Mo, Mi, Fr 11-12</zeit>
+        <wochenstunden>3</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13016"><nr>106</nr> <dozent
+        ref="kaegi_a"><nachname>Kaegi</nachname>, <vorname>Adolf</vorname>,
+        <grad>PD</grad></dozent> <thema>Interpretation ausgewählter Hymnen des
+        Rigveda (nach Delbrück's vedischer Chrestomathie)<anmerkung>Vedische
+        Chrestomathie mit Anmerkungen und Glossar, hg. von Berthold Delbrück,
+        Halle 1874.</anmerkung></thema>
+        <wochenstunden>2</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13017"><nr>107</nr> <dozent
+        ref="heidenheim_m"><nachname>Heidenheim</nachname>,
+        <vorname>Moritz</vorname>, <grad>PD</grad></dozent>
+        <thema>Samaritanische Sprache</thema> <zeit>Di, Do 14-15</zeit>
+        <wochenstunden>2</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13018"><nr>108</nr> <dozent
+        ref="steiner_h"><nachname>Steiner</nachname>,
+        <vorname>Heinrich</vorname>, <grad>O</grad></dozent> <thema>Arabische
+        Sprache, I. Kurs</thema>
+        <wochenstunden>2</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13019"><nr>109</nr> <dozent
+        ref="steiner_h"><nachname>Steiner</nachname>,
+        <vorname>Heinrich</vorname>, <grad>O</grad></dozent>
+        <thema>Neupersische Sprache</thema>
+        <wochenstunden>1</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13020"><nr>110</nr> <dozent
+        ref="hug_a"><nachname>Hug</nachname>, <vorname>Arnold</vorname>,
+        <grad>O</grad></dozent> <thema>Geschichte der griechischen Literatur,
+        I. Theil</thema> <zeit>Mo, Mi, Do, Fr 8-9</zeit>
+        <wochenstunden>4</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13021"><nr>111</nr> <dozent
+        ref="kinkel_g"><nachname>Kinkel</nachname>,
+        <vorname>Gottfried</vorname>, <grad>PD</grad></dozent>
+        <thema>Erklärung von Hesiodos Werken und Tagen, mit Einleitung in die
+        hesiodische Poesie</thema> <zeit>Mo, Do 9-10</zeit>
+        <wochenstunden>2</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13022"><nr>112</nr> <dozent
+        ref="hug_a"><nachname>Hug</nachname>, <vorname>Arnold</vorname>,
+        <grad>O</grad></dozent> <thema>Erklärung der Frösche des
+        Aristophanes</thema> <zeit>Mo, Do, Fr 9-10</zeit>
+        <wochenstunden>3</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13023"><nr>113</nr> <dozent
+        ref="schweizer-sidler_h"><nachname>Schweizer-Sidler</nachname>,
+        <vorname>Heinrich</vorname>, <grad>O</grad></dozent>
+        <thema>Ausgewählte Partien aus Lucrez</thema> <zeit>Di, Do
+        11-12</zeit> <wochenstunden>2</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13024"><nr>114</nr> <dozent
+        ref="kinkel_g"><nachname>Kinkel</nachname>,
+        <vorname>Gottfried</vorname>, <grad>PD</grad></dozent> <thema>Das
+        Privatleben der Griechen in seinen hervorragendsten Momenten</thema>
+        <zeit>Di, Fr 15-16</zeit>
+        <wochenstunden>2</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13025"><nr>115</nr> <dozent
+        ref="hug_a"><nachname>Hug</nachname>, <vorname>Arnold</vorname>,
+        <grad>O</grad></dozent> <thema>Einleitung in die griechische
+        Epigraphik</thema> <zusatz> <modus>publice</modus> </zusatz> <zeit>Mi
+        9-10</zeit> <wochenstunden>1</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13026"><nr>116a</nr> <dozent
+        ref="hug_a"><nachname>Hug</nachname>, <vorname>Arnold</vorname>,
+        <grad>O</grad></dozent> <thema>Philologisch-pädagogisches Seminar:
+        Interpretation attischer Inschriften, philologische Arbeiten,
+        Stilübungen</thema> <zeit>Mi 6-8</zeit>
+        <wochenstunden>2</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13027"><nr>116b</nr> <dozent
+        ref="schweizer-sidler_h"><nachname>Schweizer-Sidler</nachname>,
+        <vorname>Heinrich</vorname>, <grad>O</grad></dozent>
+        <thema>Philologisch-pädagogisches Seminar: Lateinische
+        Interpretirübungen (Plautus Trinummus)</thema> <zeit>Sa ab
+        10</zeit></veranstaltung>
+
+        <veranstaltung xml:id="v-13028"><nr>117</nr> <dozent
+        ref="tobler_jl"><nachname>Tobler</nachname>, <vorname>Johann
+        Ludwig</vorname>, <grad>EO</grad></dozent> <thema>Einleitung in das
+        historische Studium der neueren Sprachen</thema> <zeit>Mo, Mi, Fr
+        15-16</zeit> <wochenstunden>3</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13029"><nr>118</nr> <dozent
+        ref="tobler_jl"><nachname>Tobler</nachname>, <vorname>Johann
+        Ludwig</vorname>, <grad>EO</grad></dozent> <thema>Erklärung
+        altsächsischer und angelsächsischer Denkmäler</thema>
+        <wochenstunden>2</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13030"><nr>119</nr> <dozent
+        ref="tobler_jl"><nachname>Tobler</nachname>, <vorname>Johann
+        Ludwig</vorname>, <grad>EO</grad></dozent> <thema>Erklärung der
+        Eddalieder von den Nibelungen</thema>
+        <wochenstunden>2</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13031"><nr>120</nr> <dozent
+        ref="stiefel_j"><nachname>Stiefel</nachname>,
+        <vorname>Julius</vorname>, <grad>PD</grad></dozent> <thema>Geschichte
+        der deutschen Literatur von 1730-1780</thema>
+        <wochenstunden>3</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13032"><nr>121</nr> <dozent
+        ref="jacoby_d"><nachname>Jacoby</nachname>, <vorname>Daniel</vorname>,
+        <grad>PD</grad></dozent> <thema>Göthe's Leben und Werke bis zur
+        Rückkehr aus Italien</thema>
+        <wochenstunden>2</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13033"><nr>122</nr> <dozent
+        ref="honegger_jj"><nachname>Honegger</nachname>, <vorname>Johann
+        Jacob</vorname>, <grad>EO</grad></dozent> <thema>Geschichte der
+        deutschen Literatur im neunzehnten Jahrhundert</thema> <zeit>Di 10-11,
+        Do 9-11</zeit> <wochenstunden>3</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13034"><nr>123</nr> <dozent
+        ref="honegger_jj"><nachname>Honegger</nachname>, <vorname>Johann
+        Jacob</vorname>, <grad>EO</grad></dozent>
+        <thema>Stylistisch-rhetorische Uebungen</thema> <zeit>Di 8-9</zeit>
+        <wochenstunden>1</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13035"><nr>124</nr> <dozent
+        ref="breitinger_h"><nachname>Breitinger</nachname>,
+        <vorname>Heinrich</vorname>, <grad>O</grad></dozent>
+        <thema>Französische Literaturgeschichte von 1840-1870</thema>
+        <zeit>Di, Fr 6-7</zeit>
+        <wochenstunden>2</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13036"><nr>125</nr> <dozent
+        ref="breitinger_h"><nachname>Breitinger</nachname>,
+        <vorname>Heinrich</vorname>, <grad>O</grad></dozent>
+        <thema>Französischer Kurs (Uebersetzung, Interpretation,
+        Stylübungen)</thema> <zeit>Mo, Mi, Fr 5-6</zeit>
+        <wochenstunden>3</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13037"><nr>126</nr> <dozent
+        ref="breitinger_h"><nachname>Breitinger</nachname>,
+        <vorname>Heinrich</vorname>, <grad>O</grad></dozent>
+        <thema>Shakespeare's Richard III.</thema> <zeit>Mi 16-17</zeit>
+        <wochenstunden>1</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13038"><nr>127</nr> <dozent
+        ref="stiefel_j"><nachname>Stiefel</nachname>,
+        <vorname>Julius</vorname>, <grad>PD</grad></dozent> <thema>Ausgewählte
+        Dramen Shakespeare's, ästhetisch-kritisch erläutert</thema>
+        <wochenstunden>2</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13039"><nr>128</nr> <dozent
+        ref="breitinger_h"><nachname>Breitinger</nachname>,
+        <vorname>Heinrich</vorname>, <grad>O</grad></dozent> <thema>Englische
+        Lectüre im Anschluss an den Kurs des Sommersemesters</thema> <zeit>Di
+        5-6, Mi 6-7</zeit> <wochenstunden>2</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13040"><nr>129</nr> <dozent
+        ref="breitinger_h"><nachname>Breitinger</nachname>,
+        <vorname>Heinrich</vorname>, <grad>O</grad></dozent>
+        <thema>Italienischer Elementarkurs</thema> <zeit>Do 5-7</zeit>
+        <wochenstunden>2</wochenstunden></veranstaltung>
+      </sachgruppe>
+
+      <sachgruppe>
+        <titel>Geschichte, Kunstgeschichte</titel>
+
+        <veranstaltung xml:id="v-13041"><nr>130</nr> <dozent
+        ref="mueller_j"><nachname>Müller</nachname>, <vorname>Jakob</vorname>,
+        <grad>O</grad></dozent> <thema>Geschichte der römischen
+        Kaiserzeit</thema> <zeit>Mi 15-16, Do, Fr 16-17</zeit>
+        <wochenstunden>3</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13042"><nr>131</nr> <dozent
+        ref="mueller_j"><nachname>Müller</nachname>, <vorname>Jakob</vorname>,
+        <grad>O</grad></dozent> <thema>Lectüre von Livius Buch XXII, mit
+        historischen Erläuterungen</thema> <zeit>Do 10-12</zeit>
+        <wochenstunden>2</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13043"><nr>132</nr> <dozent
+        ref="meyer-knonau_g"><nachname>Meyer von Knonau</nachname>,
+        <vorname>Gerold</vorname>, <grad>O</grad></dozent> <thema>Geschichte
+        des Mittelalters</thema> <zeit>Di-Fr 8-9</zeit>
+        <wochenstunden>4</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13044"><nr>133</nr> <dozent
+        ref="meyer-knonau_g"><nachname>Meyer von Knonau</nachname>,
+        <vorname>Gerold</vorname>, <grad>O</grad></dozent> <thema>Das
+        Zeitalter der Renaissance</thema> <zeit>Mi, Fr 9-10</zeit>
+        <wochenstunden>2</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13045"><nr>134</nr> <dozent
+        ref="honegger_jj"><nachname>Honegger</nachname>, <vorname>Johann
+        Jacob</vorname>, <grad>EO</grad></dozent> <thema>Geschichte des
+        Reformationszeitalters bis an's Ende des XVII. Jahrhunderts</thema>
+        <zeit>Mo 8-10, Di 9-10</zeit>
+        <wochenstunden>3</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13046"><nr>135</nr> <dozent
+        ref="mueller_j"><nachname>Müller</nachname>, <vorname>Jakob</vorname>,
+        <grad>O</grad></dozent> <thema>Historische Einleitung in die Politik
+        der Gegenwart</thema> <zeit>Mo-Mi 16-17</zeit>
+        <wochenstunden>3</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13047"><nr>136</nr> <dozent
+        ref="wyss_g"><nachname>Wyss</nachname>, <vorname>Georg von</vorname>,
+        <grad>O</grad></dozent> <thema>Geschichte der Schweiz, I. Theil (bis
+        zum Schluss des XVI. Jahrhunderts)</thema> <zeit>Di-Fr 10-11</zeit>
+        <wochenstunden>4</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13048"><nr>137</nr> <dozent
+        ref="wyss_g"><nachname>Wyss</nachname>, <vorname>Georg von</vorname>,
+        <grad>O</grad></dozent> <thema>Literatur zur
+        Schweizergeschichte</thema>
+        <wochenstunden>2</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13049"><nr>138</nr> <dozent
+        ref="daendliker_k"><nachname>Dändliker</nachname>,
+        <vorname>Karl</vorname>, <grad>PD</grad></dozent>
+        <thema>Schweizergeschichte von 1830-1875</thema>
+        <wochenstunden>1</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13050"><nr>139</nr> <dozent
+        ref="wyss_g"><nachname>Wyss</nachname>, <vorname>Georg von</vorname>,
+        <grad>O</grad></dozent> <thema>Geschichte von Genf</thema> <zeit>Di,
+        Mi 11-12</zeit> <wochenstunden>2</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13051"><nr>140</nr> <dozent
+        ref="voegelin_fs"><nachname>Vögelin</nachname>, <vorname>Friedrich
+        Salomon</vorname>, <grad>O</grad></dozent> <thema>Kulturgeschichte der
+        Schweiz vom XV. Jahrhunderts bis zum Schluss des XVIII.
+        Jahrhunderts</thema> <zeit>Mo, Di, Do 14-15</zeit>
+        <wochenstunden>3</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13052"><nr>141</nr> <dozent
+        ref="voegelin_fs"><nachname>Vögelin</nachname>, <vorname>Friedrich
+        Salomon</vorname>, <grad>O</grad></dozent> <thema>Ueber Theatergebäude
+        und Theatereinrichtungen im Alterthum, im Mittelalter und in der
+        Neuzeit</thema> <zeit>Mo, Di 15-16</zeit>
+        <wochenstunden>2</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13053"><nr>142</nr> <dozent
+        ref="voegelin_fs"><nachname>Vögelin</nachname>, <vorname>Friedrich
+        Salomon</vorname>, <grad>O</grad></dozent> <thema>David Friedrich
+        Strauss</thema> <wochenstunden>1</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13054"><nr>142a</nr> <dozent
+        ref="kinkel_g"><nachname>Kinkel</nachname>,
+        <vorname>Gottfried</vorname>, <grad>PD</grad></dozent>
+        <thema>Geschichte der griechischen Plastik</thema>
+        <wochenstunden>2</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13055"><nr>143</nr> <dozent
+        ref="rahn_jr"><nachname>Rahn</nachname>, <vorname>Johann
+        Rudolf</vorname>, <grad>EO</grad></dozent> <thema>Allgemeine
+        Kunstgeschichte des Mittelalters</thema> <zeit>Mo-Mi 15-16</zeit>
+        <wochenstunden>3</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13056"><nr>144</nr> <dozent
+        ref="rahn_jr"><nachname>Rahn</nachname>, <vorname>Johann
+        Rudolf</vorname>, <grad>EO</grad></dozent> <thema>Geschichte der
+        Malerei im XVI. und XVII. Jahrhundert</thema>
+        <wochenstunden>2</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13057"><nr>145</nr> <dozent
+        ref="voegelin_fs"><nachname>Vögelin</nachname>, <vorname>Friedrich
+        Salomon</vorname>, <grad>O</grad></dozent> <thema>Holbein's Thätigkeit
+        in der Schweiz</thema> <zeit>Fr 14-16</zeit>
+        <wochenstunden>2</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13058"><nr>146a</nr> <dozent
+        ref="mueller_j"><nachname>Müller</nachname>, <vorname>Jakob</vorname>,
+        <grad>O</grad></dozent> <thema>Historisches Seminar: Historische
+        Uebungen, angeknüpft an Thukydides' Geschichte des peloponnesischen
+        Krieges</thema> <wochenstunden>2</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13059"><nr>146b</nr> <dozent
+        ref="meyer-knonau_g"><nachname>Meyer von Knonau</nachname>,
+        <vorname>Gerold</vorname>, <grad>O</grad></dozent> <thema>Historisches
+        Seminar: Conversatorium über mittlere und neuere Geschichte</thema>
+        <zeit>Do 14-16</zeit> <wochenstunden>2</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13060"><nr>146c</nr> <dozent
+        ref="wyss_g"><nachname>Wyss</nachname>, <vorname>Georg von</vorname>,
+        <grad>O</grad></dozent> <thema>Historisches Seminar: Quellenlectüre
+        und Uebungen</thema> <wochenstunden>2</wochenstunden></veranstaltung>
+
+        <veranstaltung xml:id="v-13061"><nr>146d</nr> <dozent
+        ref="voegelin_fs"><nachname>Vögelin</nachname>, <vorname>Friedrich
+        Salomon</vorname>, <grad>O</grad></dozent> <thema>Historisches
+        Seminar: Kunstgeschichtliche Uebungen</thema>
+        <wochenstunden>2</wochenstunden></veranstaltung>
+      </sachgruppe>
+    </sachgruppe>
+
+    <sachgruppe>
+      <titel>Mathematisch-naturwissenschaftliche Section</titel>
+
+      <veranstaltung xml:id="v-13062"><nr>147</nr> <dozent
+      ref="denzler_w"><nachname>Denzler</nachname>,
+      <vorname>Wilhelm</vorname>, <grad>EO</grad></dozent> <thema>Ebene und
+      sphärische Trigonometrie</thema>
+      <wochenstunden>3</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13063"><nr>148</nr> <dozent
+      ref="denzler_w"><nachname>Denzler</nachname>,
+      <vorname>Wilhelm</vorname>, <grad>EO</grad></dozent>
+      <thema>Differential- und Integralrechnung (inbegriffen algebraische
+      Analysis)</thema> <wochenstunden>3</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13064"><nr>149</nr> <dozent
+      ref="meyer-keyser_a"><nachname>Meyer-Keyser</nachname>,
+      <vorname>Arnold</vorname>, <grad>O</grad></dozent> <thema>Differential-
+      und Integralrechnung I. Theil</thema> <zeit>Mo, Di, Do, Fr 8-9</zeit>
+      <wochenstunden>4</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13065"><nr>150</nr> <dozent
+      ref="hug_jc"><nachname>Hug</nachname>, <vorname>Johann Caspar</vorname>,
+      <grad>PD</grad></dozent> <thema>Differential- und Integralrechnung I.
+      Kurs</thema> <wochenstunden>3</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13066"><nr>151</nr> <dozent
+      ref="meyer-keyser_a"><nachname>Meyer-Keyser</nachname>,
+      <vorname>Arnold</vorname>, <grad>O</grad></dozent> <thema>Analytische
+      Geometrie der Ebene</thema>
+      <wochenstunden>3</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13067"><nr>152</nr> <dozent
+      ref="meyer-keyser_a"><nachname>Meyer-Keyser</nachname>,
+      <vorname>Arnold</vorname>, <grad>O</grad></dozent> <thema>Analytische
+      Geometrie der Raumes</thema>
+      <wochenstunden>2</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13068"><nr>153</nr> <dozent
+      ref="denzler_w"><nachname>Denzler</nachname>,
+      <vorname>Wilhelm</vorname>, <grad>EO</grad></dozent> <thema>Descriptive
+      Geometrie, I. Theil</thema>
+      <wochenstunden>3</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13069"><nr>154</nr> <dozent
+      ref="denzler_w"><nachname>Denzler</nachname>,
+      <vorname>Wilhelm</vorname>, <grad>EO</grad></dozent> <thema>Descriptive
+      Geometrie, II. Theil</thema>
+      <wochenstunden>3</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13070"><nr>155</nr> <dozent
+      ref="weilenmann_a"><nachname>Weilenmann</nachname>,
+      <vorname>August</vorname>, <grad>PD</grad></dozent> <thema>Analytische
+      Geometrie, II. Theil</thema>
+      <wochenstunden>2</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13071"><nr>156</nr> <dozent
+      ref="meyer-keyser_a"><nachname>Meyer-Keyser</nachname>,
+      <vorname>Arnold</vorname>, <grad>O</grad></dozent>
+      <thema>Determinanten</thema>
+      <wochenstunden>1</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13072"><nr>157</nr> <dozent
+      ref="hug_jc"><nachname>Hug</nachname>, <vorname>Johann Caspar</vorname>,
+      <grad>PD</grad></dozent> <thema>Methodik mathematischer und
+      mathematisch-naturkundlicher Fächer</thema>
+      <wochenstunden>2</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13073"><nr>158</nr> <dozent
+      ref="wolf_jr"><nachname>Wolf</nachname>, <vorname>Johann
+      Rudolf</vorname>, <grad>EO</grad></dozent> <thema>Chronologie und
+      Kalendariographie</thema> <zeit>Mi 10-12</zeit>
+      <wochenstunden>2</wochenstunden>
+      <ort>Polytechnikum</ort></veranstaltung>
+
+      <veranstaltung xml:id="v-13074"><nr>159</nr> <dozent
+      ref="mousson_a"><nachname>Mousson</nachname>, <vorname>Albert</vorname>,
+      <grad>O</grad></dozent> <thema>Experimentalphysik, I. Theil</thema>
+      <zeit>Mo, Di, Do, Fr 10-11</zeit> <wochenstunden>4</wochenstunden>
+      <ort>Polytechnikum</ort></veranstaltung>
+
+      <veranstaltung xml:id="v-13075"><nr>160</nr> <dozent
+      ref="mousson_a"><nachname>Mousson</nachname>, <vorname>Albert</vorname>,
+      <grad>O</grad></dozent> <thema>Repetitorium der Physik</thema>
+      <wochenstunden>1</wochenstunden>
+      <ort>Polytechnikum</ort></veranstaltung>
+
+      <veranstaltung xml:id="v-13076"><nr>161</nr> <dozent
+      ref="kleiner_a"><nachname>Kleiner</nachname>, <vorname>Alfred</vorname>,
+      <grad>PD</grad></dozent> <thema>Experimentalphysik, II. Theil</thema>
+      <wochenstunden>4</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13077"><nr>162</nr> <dozent
+      ref="hofmeister_rh"><nachname>Hofmeister</nachname>, <vorname>Rudolf
+      Heinrich</vorname>, <grad>PD</grad></dozent> <thema>Physik, I. Theil,
+      mechanischer nebst Akustik und Wärmelehre</thema> <zeit>Mo, Do
+      8-10</zeit> <wochenstunden>4</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13078"><nr>163</nr> <dozent
+      ref="weilenmann_a"><nachname>Weilenmann</nachname>,
+      <vorname>August</vorname>, <grad>PD</grad></dozent> <thema>Cosmische
+      Physik (mathematischer Theil)</thema>
+      <wochenstunden>2</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13079"><nr>164</nr> <dozent
+      ref="hofmeister_rh"><nachname>Hofmeister</nachname>, <vorname>Rudolf
+      Heinrich</vorname>, <grad>PD</grad></dozent> <thema>Praktische
+      Uebungen</thema> <wochenstunden>2-3</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13080"><nr>165</nr> <dozent
+      ref="kleiner_a"><nachname>Kleiner</nachname>, <vorname>Alfred</vorname>,
+      <grad>PD</grad></dozent> <thema>Physikalisches
+      Colloquium</thema></veranstaltung>
+
+      <veranstaltung xml:id="v-13081"><nr>166</nr> <dozent
+      ref="tobler_a"><nachname>Tobler</nachname>, <vorname>Adolf</vorname>,
+      <grad>PD</grad></dozent> <thema>Angewandte Elektricitätslehre</thema>
+      <wochenstunden>2</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13082"><nr>167</nr> <dozent
+      ref="merz_v"><nachname>Merz</nachname>, <vorname>Viktor</vorname>,
+      <grad>O</grad></dozent> <thema>Unorganische Chemie</thema> <zeit>Mo-Fr
+      11-12</zeit> <wochenstunden>5</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13083"><nr>168</nr> <dozent
+      ref="abeljanz_h"><nachname>Abeljanz</nachname>,
+      <vorname>Haruthiun</vorname>, <grad>PD</grad></dozent>
+      <thema>Analytische Chemie</thema>
+      <wochenstunden>1</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13084"><nr>169</nr> <dozent
+      ref="weith_w"><nachname>Weith</nachname>, <vorname>Wilhelm</vorname>,
+      <grad>O</grad></dozent> <thema>Ausgewählte Kapitel der unorganischen
+      Chemie</thema> <wochenstunden>2</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13085"><nr>170</nr> <dozent
+      ref="weith_w"><nachname>Weith</nachname>, <vorname>Wilhelm</vorname>,
+      <grad>O</grad></dozent> <thema>Bau der Kohlenstoffverbindungen</thema>
+      <wochenstunden>2</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13086"><nr>171</nr> <dozent
+      ref="weith_w"><nachname>Weith</nachname>, <vorname>Wilhelm</vorname>,
+      <grad>O</grad></dozent> <thema>Aromatische Verbindungen</thema>
+      <wochenstunden>2</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13087"><nr>172</nr> <dozent
+      ref="annaheim_j"><nachname>Annaheim</nachname>,
+      <vorname>Joseph</vorname>, <grad>PD</grad></dozent> <thema>Ueber
+      Alkaloide, Proteinstoffe und Glukoside</thema>
+      <wochenstunden>1</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13088"><nr>173</nr> <dozent
+      ref="abeljanz_h"><nachname>Abeljanz</nachname>,
+      <vorname>Haruthiun</vorname>, <grad>PD</grad></dozent>
+      <thema>Repetitorium der organischen Chemie, ohne Examinatorium</thema>
+      <wochenstunden>2</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13089"><nr>174</nr> <dozent
+      ref="abeljanz_h"><nachname>Abeljanz</nachname>,
+      <vorname>Haruthiun</vorname>, <grad>PD</grad></dozent> <thema>Anleitung
+      zur Beurtheilung der wichtigsten Lebensmittel</thema> <zusatz>
+      <gebühr>gratis</gebühr> </zusatz>
+      <wochenstunden>1</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13090"><nr>175</nr> <dozent
+      ref="schmid_w"><nachname>Schmid</nachname>, <vorname>Werner</vorname>,
+      <grad>PD</grad></dozent> <thema>Chemie der Nahrungsmittel</thema>
+      <wochenstunden>1</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13091"><nr>176</nr> <dozent
+      ref="schmid_w"><nachname>Schmid</nachname>, <vorname>Werner</vorname>,
+      <grad>PD</grad></dozent> <thema>Ausgewählte Capitel der chemischen
+      Technologie, I. Theil</thema>
+      <wochenstunden>1</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13092"><nr>177</nr> <dozent
+      ref="merz_v"><nachname>Merz</nachname>, <vorname>Viktor</vorname>,
+      <grad>O</grad></dozent> <thema>Chemische Arbeiten im
+      Laboratorium</thema> <zeit>Mo-Sa</zeit></veranstaltung>
+
+      <veranstaltung xml:id="v-13093"><nr>178</nr> <dozent
+      ref="merz_v"><nachname>Merz</nachname>, <vorname>Viktor</vorname>,
+      <grad>O</grad></dozent> <thema>Uebungen im Laboratorium, speciell für
+      Mediciner</thema> <wochenstunden>10</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13094"><nr>179</nr> <dozent
+      ref="weith_w"><nachname>Weith</nachname>, <vorname>Wilhelm</vorname>,
+      <grad>O</grad></dozent> <thema>Chemische Uebungen</thema>
+      <wochenstunden>4<anmerkung>Vorlage: 1/2
+      Tag.</anmerkung></wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13095"><nr>180</nr> <dozent
+      ref="merz_v"><nachname>Merz</nachname>, <vorname>Viktor</vorname>,
+      <grad>O</grad></dozent> <dozent
+      ref="weith_w"><nachname>Weith</nachname>, <vorname>Wilhelm</vorname>,
+      <grad>O</grad></dozent> <thema>Vollpraktikum für Vorgerücktere:
+      Einführung in die selbstständige chemische Forschung</thema>
+      <zeit>Mo-Sa</zeit></veranstaltung>
+
+      <veranstaltung xml:id="v-13096"><nr>181</nr> <dozent
+      ref="kenngott_jga"><nachname>Kenngott</nachname>, <vorname>Johann Gustav
+      Adolf</vorname>, <grad>O</grad>, <funktion>Dekan/P2</funktion></dozent>
+      <thema>Mineralogie</thema> <wochenstunden>4</wochenstunden>
+      <ort>Polytechnikum</ort></veranstaltung>
+
+      <veranstaltung xml:id="v-13097"><nr>182</nr> <dozent
+      ref="heim_a"><nachname>Heim</nachname>, <vorname>Albert</vorname>,
+      <grad>EO</grad></dozent> <thema>Allgemeine Geologie</thema> <zeit>Di
+      16-17, Do 15-17, Fr 15-16</zeit> <wochenstunden>4</wochenstunden>
+      <ort>Polytechnikum</ort></veranstaltung>
+
+      <veranstaltung xml:id="v-13098"><nr>183</nr> <dozent
+      ref="heim_a"><nachname>Heim</nachname>, <vorname>Albert</vorname>,
+      <grad>EO</grad></dozent> <thema>Bau und Entstehung der Gebirge</thema>
+      <wochenstunden>2</wochenstunden>
+      <ort>Polytechnikum</ort></veranstaltung>
+
+      <veranstaltung xml:id="v-13099"><nr>184</nr> <dozent
+      ref="baltzer_a"><nachname>Baltzer</nachname>, <vorname>Armin</vorname>,
+      <grad>PD</grad></dozent> <thema>Uebersicht der geologischen Formationen
+      mit Berücksichtigung der wichtigsten Leitfossilien</thema>
+      <wochenstunden>1-2</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13100"><nr>185</nr> <dozent
+      ref="choffat_p"><nachname>Choffat</nachname>, <vorname>Paul</vorname>,
+      <grad>PD</grad></dozent> <thema>Die Secundärgebilde, erläutert an der
+      Jurakette</thema> <wochenstunden>2</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13101"><nr>186</nr> <dozent
+      ref="mayer-eymar_k"><nachname>Mayer-Eymar</nachname>,
+      <vorname>Karl</vorname>, <grad>EO</grad></dozent> <thema>Stratigraphie
+      der Tertiär-Formation</thema> <zeit>Mo, Sa 11-12</zeit>
+      <wochenstunden>2</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13102"><nr>187</nr> <dozent
+      ref="baltzer_a"><nachname>Baltzer</nachname>, <vorname>Armin</vorname>,
+      <grad>PD</grad></dozent> <thema>Geologie der Alpen</thema>
+      <wochenstunden>1</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13103"><nr>188</nr> <dozent
+      ref="heim_a"><nachname>Heim</nachname>, <vorname>Albert</vorname>,
+      <grad>EO</grad></dozent> <thema>Urgeschichte des Menschen</thema>
+      <wochenstunden>1</wochenstunden>
+      <ort>Polytechnikum</ort></veranstaltung>
+
+      <veranstaltung xml:id="v-13104"><nr>189</nr> <dozent
+      ref="mayer-eymar_k"><nachname>Mayer-Eymar</nachname>,
+      <vorname>Karl</vorname>, <grad>EO</grad></dozent>
+      <thema>Paläontologie</thema> <zeit>Di-Fr 11-12</zeit>
+      <wochenstunden>4</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13105"><nr>190</nr> <dozent
+      ref="cramer_c"><nachname>Cramer</nachname>, <vorname>Carl</vorname>,
+      <grad>PD</grad></dozent> <thema>Allgemeine Botanik mit besonderer
+      Berücksichtigung der Kryptogamen</thema>
+      <wochenstunden>5</wochenstunden>
+      <ort>Polytechnikum</ort></veranstaltung>
+
+      <veranstaltung xml:id="v-13106"><nr>191</nr> <dozent
+      ref="dodel_a"><nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
+      <grad>PD</grad></dozent> <thema>Allgemeine Botanik (Grundzüge der
+      Anatomie und Entwicklungsgeschichte)</thema>
+      <wochenstunden>3</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13107"><nr>192</nr> <dozent
+      ref="cramer_c"><nachname>Cramer</nachname>, <vorname>Carl</vorname>,
+      <grad>PD</grad></dozent> <thema>Mikroskopische Uebungen</thema>
+      <wochenstunden>2-4</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13108"><nr>193</nr> <dozent
+      ref="dodel_a"><nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
+      <grad>PD</grad></dozent> <thema>Mikroskopische Demonstrationen und
+      praktische Uebungen im Anschluss an die allgemeine Botanik</thema>
+      <wochenstunden>in Gruppen zu 2h</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13109"><nr>194</nr> <dozent
+      ref="dodel_a"><nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
+      <grad>PD</grad></dozent> <thema>Pflanzenphysiologisches Privatissimum
+      (mikroskopischer Kurs für Vorgerücktere)</thema></veranstaltung>
+
+      <veranstaltung xml:id="v-13110"><nr>195</nr> <dozent
+      ref="heer_o"><nachname>Heer</nachname>, <vorname>Oswald</vorname>,
+      <grad>O</grad></dozent> <thema>Pharmaceutische Botanik</thema>
+      <zeit>Do-Sa 14-15</zeit> <wochenstunden>3</wochenstunden>
+      <ort>Polytechnikum</ort></veranstaltung>
+
+      <veranstaltung xml:id="v-13111"><nr>196</nr> <dozent
+      ref="keller_c"><nachname>Keller</nachname>, <vorname>Conrad</vorname>,
+      <grad>PD</grad></dozent> <thema>Allgemeine Zoologie</thema> <zeit>Mo,
+      Di, Do, Fr 16-17</zeit> <wochenstunden>4</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13112"><nr>197</nr> <dozent
+      ref="menzel_a"><nachname>Menzel</nachname>, <vorname>August</vorname>,
+      <grad>PD</grad></dozent> <thema>Naturgeschichte der Wirbelthiere</thema>
+      <wochenstunden>3</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13113"><nr>198</nr> <dozent
+      ref="asper_g"><nachname>Asper</nachname>, <vorname>Gottlieb</vorname>,
+      <grad>PD</grad></dozent> <thema>Säugethiere</thema>
+      <wochenstunden>1</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13114"><nr>199</nr> <dozent
+      ref="keller_c"><nachname>Keller</nachname>, <vorname>Conrad</vorname>,
+      <grad>PD</grad></dozent> <thema>Ueber Entozoen</thema> <zusatz>
+      <gebühr>gratis</gebühr> </zusatz>
+      <wochenstunden>1</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13115"><nr>200</nr> <dozent
+      ref="asper_g"><nachname>Asper</nachname>, <vorname>Gottlieb</vorname>,
+      <grad>PD</grad></dozent> <thema>Ueber thierische Parasiten</thema>
+      <wochenstunden>1</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13116"><nr>201</nr> <dozent
+      ref="asper_g"><nachname>Asper</nachname>, <vorname>Gottlieb</vorname>,
+      <grad>PD</grad></dozent> <thema>Repetitorium der Zoologie</thema>
+      <wochenstunden>2</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13117"><nr>202</nr> <dozent
+      ref="keller_c"><nachname>Keller</nachname>, <vorname>Conrad</vorname>,
+      <grad>PD</grad></dozent> <thema>Zootomische Uebungen</thema>
+      <wochenstunden>2</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13118"><nr>203</nr> <dozent
+      ref="menzel_a"><nachname>Menzel</nachname>, <vorname>August</vorname>,
+      <grad>PD</grad></dozent> <thema>Ueber Thierstaaten</thema>
+      <wochenstunden>2</wochenstunden></veranstaltung>
+
+      <veranstaltung xml:id="v-13119"><nr>204</nr> <dozent
+      ref="egli_jj"><nachname>Egli</nachname>, <vorname>Johann
+      Jakob</vorname>, <grad>PD</grad></dozent> <thema>Physische Geographie
+      der Organismen (Pflanzen-, Thier- und Anthropographie)</thema>
+      <wochenstunden>2</wochenstunden></veranstaltung>
+    </sachgruppe>
+  </sachgruppe>
+</vv>

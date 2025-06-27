@@ -235,13 +235,13 @@
     <wochenstunden>1</wochenstunden> <ort>Polytechnikum</ort></veranstaltung>
 
     <veranstaltung xml:id="v-16144"><nr>31</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>PD</grad></dozent>
     <thema>Internationales Markenschutzrecht</thema> <zeit>Do 5-6</zeit>
     <wochenstunden>1</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-16145"><nr>32</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>PD</grad></dozent>
     <thema>Zürcherischer Civilprocess</thema> <zeit>Mo, Mi 5-6</zeit>
     <wochenstunden>2</wochenstunden></veranstaltung>

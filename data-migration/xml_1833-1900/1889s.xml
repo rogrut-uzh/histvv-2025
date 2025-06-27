@@ -271,7 +271,7 @@
     <wochenstunden>3</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-18037"><nr>38</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>EO</grad>,
     <funktion>Dekan/S</funktion></dozent> <thema>Die internationalen
     Rechtsunionen über die Weltverkehrsanstalten und das geistige
@@ -334,7 +334,7 @@
     9-11</zeit> <wochenstunden>3</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-18047"><nr>43f</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>EO</grad>,
     <funktion>Dekan/S</funktion></dozent> <thema>Staatswissenschaftliches
     Seminar: Uebungen aus dem Schweizerischen Obligationenrechte</thema>

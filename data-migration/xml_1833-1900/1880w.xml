@@ -194,7 +194,7 @@
     <ort>Polytechnikum</ort></veranstaltung>
 
     <veranstaltung xml:id="v-14212"><nr>24</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>PD</grad></dozent>
     <thema>Eisenbahnrecht</thema> <zeit>Mo 9-10</zeit>
     <wochenstunden>1</wochenstunden></veranstaltung>
@@ -246,7 +246,7 @@
     <wochenstunden>2</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-14221"><nr>33</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>PD</grad></dozent>
     <thema>Zürcherischer Civilprocess</thema> <zeit>Mo 10-11, Mi 16-17</zeit>
     <wochenstunden>2</wochenstunden></veranstaltung>

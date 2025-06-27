@@ -254,13 +254,13 @@
     <wochenstunden>2</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-18520"><nr>35</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent> <thema>Das
     internationale Privatrecht</thema> <zeit>Mo, Do 8-10</zeit>
     <wochenstunden>4</wochenstunden></veranstaltung>
 
     <veranstaltung xml:id="v-18521"><nr>36</nr> <dozent
-    ref="meili_f-1848"><nachname>Meili</nachname>,
+    ref="meili_f1"><nachname>Meili</nachname>,
     <vorname>Friedrich</vorname>, <grad>O</grad></dozent> <thema>Das
     Patentrecht</thema> <zusatz> <modus>publice</modus> </zusatz> <zeit>Di, Fr
     18-19</zeit> <wochenstunden>2</wochenstunden>
