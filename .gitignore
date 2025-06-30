@@ -3,12 +3,37 @@ node_modules/
 
 # Build Output
 dist/
+build/
+astro-out/
 
 # Local config
 .env
 .env.local
+.env.development
+.env.production
 
 # System files
 .~*
 .DS_Store
 Thumbs.db
+*.tmp
+
+# Docker
+*.log
+docker-compose.debug.yml
+
+# Kubernetes
+k8s/*.secret.yaml
+
+# GitLab
+.gitlab-ci-token
+.gitlab-ci.env
+
+# VSCode & IDEs
+.vscode/
+.idea/
+*.swp
+
+# MacOS Finder
+.AppleDouble
+.LSOverride

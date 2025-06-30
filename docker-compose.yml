@@ -1,26 +1,13 @@
 services:
-  dev:
-    init: true
-    container_name: histvv2025-dev
-    build:
-      context: .
-      target: builder
-    ports:
-      - "80:80"
-    volumes:
-      - .:/app
-    command: npm run dev
-    environment:
-      - NODE_ENV=development
-
   prod:
     init: true
     container_name: histvv2025-prod
-    build: .
+    build: 
+      context: .
+      args:
+        SITE_URL: http://localhost
     ports:
-      - "80:80"
-    environment:
-      - NODE_ENV=production
+      - "80:80"  
     networks:
       - nw
     restart: always

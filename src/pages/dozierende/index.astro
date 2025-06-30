@@ -31,13 +31,13 @@ const breadcrumb = [
     <SectionIntro>{`${page_title}`}</SectionIntro>
     
     <SectionTextPict>
-    
-        <div id="abc-filter" style="margin-bottom: 1.5em; font-size: 1.1em;">
+        <h3>Filter nach Nachname</h3>
+        <div id="abc-filter">
           {Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i)).map(buchstabe => (
-            <button style="margin-right:6px;" type="button" class="abc-btn" data-buchstabe={buchstabe}>{buchstabe}</button>
+            <button type="button" class="abc-btn" data-buchstabe={buchstabe}>{buchstabe}</button>
           ))}
-          <button type="button" id="abc-reset" style="margin-left:5px;">Filter aufheben</button>
         </div>
+        <button type="button" id="abc-reset">Filter aufheben</button>
         
         <table class="tablesorter">
           <thead>
@@ -89,10 +89,19 @@ const breadcrumb = [
               row.style.display = text.startsWith(letter) ? '' : 'none';
             }
           });
+          // Aktiv-Status aktualisieren
+          buttons.forEach(btn => {
+            btn.classList.toggle('is-active', btn.dataset.buchstabe === letter);
+          });
+          // Reset-Button de-aktivieren (optional)
+          reset.classList.remove('is-active');
         }
 
         function resetRows() {
           getRows().forEach(row => row.style.display = '');
+          // Alle Buttons deaktivieren
+          buttons.forEach(btn => btn.classList.remove('is-active'));
+          reset.classList.add('is-active');
         }
 
         buttons.forEach(btn => {

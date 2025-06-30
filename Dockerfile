@@ -14,6 +14,8 @@ COPY . .
 RUN mkdir -p public/data && cp data/*.json public/data/
 
 # Build static site
+ARG SITE_URL
+ENV SITE_URL=$SITE_URL
 RUN npm run build
 
 # STAGE 2 — Production image
