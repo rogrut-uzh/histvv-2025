@@ -18,13 +18,12 @@ kaniko-build:
   script:
     - mkdir -p /kaniko/.docker
     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_JOB_TOKEN\"}}}" > /kaniko/.docker/config.json
-    - /kaniko/executor \
-        --context $CI_PROJECT_DIR \
-        --dockerfile $CI_PROJECT_DIR/Dockerfile \
-        --build-arg SITE_URL=$SITE_URL \
-        --destination $TAG_COMMIT \
-        --destination $TAG_LATEST \
-        --docker-config=/kaniko/.docker/
+    - /executor
+        --context $CI_PROJECT_DIR
+        --dockerfile $CI_PROJECT_DIR/Dockerfile
+        --build-arg SITE_URL=$SITE_URL
+        --destination $TAG_COMMIT
+        --destination $TAG_LATEST
   only:
     - main
 
