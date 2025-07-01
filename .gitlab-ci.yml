@@ -18,10 +18,10 @@ kaniko-build:
     name: gcr.io/kaniko-project/executor:latest
     entrypoint: [""]
   script:
-    # Kaniko benötigt Auth-File für GitLab Registry
-    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_JOB_TOKEN\"}}}" > /kaniko/.docker/config.json
-    # Baue das Image (nutze --build-arg für SITE_URL)
-    - /kaniko/executor
+    # Schreibe das Auth-File in EINEM Befehl zusammen, damit keine Shell gebraucht wird
+    - >
+      echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_JOB_TOKEN\"}}}" > /kaniko/.docker/config.json &&
+      /kaniko/executor
         --context $CI_PROJECT_DIR
         --dockerfile $CI_PROJECT_DIR/Dockerfile
         --build-arg SITE_URL=$SITE_URL
