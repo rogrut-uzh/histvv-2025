@@ -35,3 +35,52 @@ Website: http://histvv-2025.t01.cs.zi.uzh.ch
 folgt... noch nicht umgesetzt.
 
 
+
+## Projektbeginn
+
+Für den Anfang der lokalen Entwicklung, und für das Erstellen der package.json, muss npm installiert werden. Installation mit nvm, damit je nach Projekt individuelle Node Versionen installiert werden können.
+
+### node installieren
+
+nvm installieren:
+
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+```
+
+nvm aktivieren (oder neu einloggen):
+
+```
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+```
+
+Node 20 installieren:
+
+```
+nvm install 20
+nvm use 20
+```
+
+Prüfen:
+
+```
+node -v
+npm -v
+```
+
+### Astro Projekt installieren
+
+```
+mkdir /xyz/histvv-2025
+cd /xyz/histvv-2025
+
+# erstellt package.json
+npm create astro@latest .
+
+# Wenn das Create-Tool nach dem Setu nicht automatisch npm install ausführt, mach das einfach selbst:
+npm install
+
+# starten
+npm run dev
+```
