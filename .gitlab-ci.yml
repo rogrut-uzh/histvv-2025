@@ -16,16 +16,14 @@ kaniko-build:
   stage: build
   image: gcr.io/kaniko-project/executor:latest
   script:
-    # Authfile anlegen
     - mkdir -p /kaniko/.docker
     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_JOB_TOKEN\"}}}" > /kaniko/.docker/config.json
-    # Kaniko ausführen
-    - /kaniko/executor
-        --context $CI_PROJECT_DIR
-        --dockerfile $CI_PROJECT_DIR/Dockerfile
-        --build-arg SITE_URL=$SITE_URL
-        --destination $TAG_COMMIT
-        --destination $TAG_LATEST
+    - /kaniko/executor \
+        --context $CI_PROJECT_DIR \
+        --dockerfile $CI_PROJECT_DIR/Dockerfile \
+        --build-arg SITE_URL=$SITE_URL \
+        --destination $TAG_COMMIT \
+        --destination $TAG_LATEST \
         --docker-config=/kaniko/.docker/
   only:
     - main
