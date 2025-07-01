@@ -6,22 +6,53 @@ variables:
   TAG_LATEST: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME:latest
   TAG_COMMIT: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME:$CI_COMMIT_SHORT_SHA
 
-# add "-nodeployment" at the end of commit messge to omit the build process.
 workflow:
   rules:
     - if: $CI_COMMIT_TITLE =~ /-nodeployment$/
       when: never
     - when: always
 
-docker-build:
+kaniko-build:
   stage: build
-  image: docker:stable
-  services:
-    - docker:dind
+  image:
+    name: gcr.io/kaniko-project/executor:latest
+    entrypoint: [""]
   script:
-    - docker login -u "$CI_REGISTRY_USER" -p "$CI_JOB_TOKEN" "$CI_REGISTRY"
-    - docker build --build-arg SITE_URL=$SITE_URL -t $TAG_COMMIT -t $TAG_LATEST .
-    - docker push $TAG_COMMIT
-    - docker push $TAG_LATEST
+    # Kaniko benötigt Auth-File für GitLab Registry
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_JOB_TOKEN\"}}}" > /kaniko/.docker/config.json
+    # Baue das Image (nutze --build-arg für SITE_URL)
+    - /kaniko/executor
+        --context $CI_PROJECT_DIR
+        --dockerfile $CI_PROJECT_DIR/Dockerfile
+        --build-arg SITE_URL=$SITE_URL
+        --destination $TAG_COMMIT
+        --destination $TAG_LATEST
   only:
     - main
+
+#stages:
+#  - build
+#
+#variables:
+#  SITE_URL: "https://histvv-2025.t01.cs.zi.uzh.ch"
+#  TAG_LATEST: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME:latest
+#  TAG_COMMIT: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME:$CI_COMMIT_SHORT_SHA
+#
+#workflow:
+#  rules:
+#    - if: $CI_COMMIT_TITLE =~ /-nodeployment$/
+#      when: never
+#    - when: always
+#
+#docker-build:
+#  stage: build
+#  image: docker:stable
+#  services:
+#    - docker:dind
+#  script:
+#    - docker login -u "$CI_REGISTRY_USER" -p "$CI_JOB_TOKEN" "$CI_REGISTRY"
+#    - docker build --build-arg SITE_URL=$SITE_URL -t $TAG_COMMIT -t $TAG_LATEST .
+#    - docker push $TAG_COMMIT
+#    - docker push $TAG_LATEST
+#  only:
+#    - main
