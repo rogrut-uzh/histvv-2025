@@ -12,12 +12,21 @@ workflow:
       when: never
     - when: always
 
+shell-test:
+  stage: build
+  image: busybox
+  script:
+    - echo "Shell ist da!"
+
 kaniko-build:
   stage: build
-  image: gcr.io/kaniko-project/executor:latest
+  image:
+    name: gcr.io/kaniko-project/executor:latest
+    entrypoint: [""]
   script:
-    - mkdir -p /kaniko/.docker
+    # Kaniko benötigt Auth-File für GitLab Registry
     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_JOB_TOKEN\"}}}" > /kaniko/.docker/config.json
+    # Baue das Image (nutze --build-arg für SITE_URL)
     - /executor
         --context $CI_PROJECT_DIR
         --dockerfile $CI_PROJECT_DIR/Dockerfile
@@ -26,6 +35,7 @@ kaniko-build:
         --destination $TAG_LATEST
   only:
     - main
+
 
 #stages:
 #  - build
