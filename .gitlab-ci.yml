@@ -1,5 +1,5 @@
 stages:
-  - build
+  - build-and-push
 
 variables:
   SITE_URL: "https://histvv-2025.t01.cs.zi.uzh.ch"
@@ -12,30 +12,18 @@ workflow:
       when: never
     - when: always
 
-shell-test:
-  stage: build
-  image: busybox
-  script:
-    - echo "Shell ist da!"
-
-kaniko-build:
-  stage: build
+build_and_push:
+  stage: build-and-push
   image:
-    name: gcr.io/kaniko-project/executor:latest
+    name: gcr.io/kaniko-project/executor:v1.23.2-debug
     entrypoint: [""]
   script:
-    # Kaniko benötigt Auth-File für GitLab Registry
-    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_JOB_TOKEN\"}}}" > /kaniko/.docker/config.json
-    # Baue das Image (nutze --build-arg für SITE_URL)
-    - /executor
-        --context $CI_PROJECT_DIR
-        --dockerfile $CI_PROJECT_DIR/Dockerfile
-        --build-arg SITE_URL=$SITE_URL
-        --destination $TAG_COMMIT
-        --destination $TAG_LATEST
-  only:
-    - main
-
+    - /kaniko/executor
+      --context "${CI_PROJECT_DIR}"
+      --build-arg SITE_URL=$SITE_URL
+      --dockerfile "${CI_PROJECT_DIR}/Dockerfile"
+      --destination "${CI_REGISTRY_IMAGE}:$IMAGE_LATEST"
+      --destination "${CI_REGISTRY_IMAGE}:$IMAGE_TAG"
 
 #stages:
 #  - build
