@@ -16,17 +16,18 @@ kaniko-build:
   stage: build
   image:
     name: gcr.io/kaniko-project/executor:latest
-    entrypoint: [""]
+    entrypoint: ["/busybox/sh", "-c"]   # Nutze Busybox-Shell!
   script:
-    # Schreibe das Auth-File in EINEM Befehl zusammen, damit keine Shell gebraucht wird
-    - >
-      echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_JOB_TOKEN\"}}}" > /kaniko/.docker/config.json &&
-      /kaniko/executor
-        --context $CI_PROJECT_DIR
-        --dockerfile $CI_PROJECT_DIR/Dockerfile
-        --build-arg SITE_URL=$SITE_URL
-        --destination $TAG_COMMIT
-        --destination $TAG_LATEST
+    - |
+      mkdir -p /kaniko/.docker
+      echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_JOB_TOKEN\"}}}" > /kaniko/.docker/config.json
+      /kaniko/executor \
+        --context $CI_PROJECT_DIR \
+        --dockerfile $CI_PROJECT_DIR/Dockerfile \
+        --build-arg SITE_URL=$SITE_URL \
+        --destination $TAG_COMMIT \
+        --destination $TAG_LATEST \
+        --docker-config=/kaniko/.docker/
   only:
     - main
 
