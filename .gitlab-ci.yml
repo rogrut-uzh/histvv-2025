@@ -22,8 +22,8 @@ build_and_push:
       --context "${CI_PROJECT_DIR}"
       --build-arg SITE_URL=$SITE_URL
       --dockerfile "${CI_PROJECT_DIR}/Dockerfile"
-      --destination "${CI_REGISTRY_IMAGE}:$IMAGE_LATEST"
-      --destination "${CI_REGISTRY_IMAGE}:$IMAGE_TAG"
+      --destination $TAG_COMMIT
+      --destination $TAG_LATEST
 
 #stages:
 #  - build
