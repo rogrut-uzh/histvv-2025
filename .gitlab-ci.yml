@@ -3,8 +3,9 @@ stages:
 
 variables:
   SITE_URL: "https://histvv-2025.t01.cs.zi.uzh.ch"
-  TAG_LATEST: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME:latest
-  TAG_COMMIT: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_NAME:$CI_COMMIT_SHORT_SHA
+  TAG_LATEST: $CI_REGISTRY_IMAGE:latest
+  TAG_BRANCH: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+  TAG_COMMIT: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
 
 workflow:
   rules:
@@ -23,6 +24,7 @@ build_and_push:
       --build-arg SITE_URL=$SITE_URL
       --dockerfile "${CI_PROJECT_DIR}/Dockerfile"
       --destination $TAG_COMMIT
+      --destination $TAG_BRANCH
       --destination $TAG_LATEST
 
 #stages:
