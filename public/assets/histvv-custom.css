@@ -44,3 +44,13 @@
   background-color: #dddddd;
   border-color: #555555;
 }
+
+.wiki-image {
+  max-width: 300px;
+  max-height: 300px;
+  height: auto;
+  width: auto;
+  display: block;
+  float: right;
+  margin: 0;
+}
