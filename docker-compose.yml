@@ -6,6 +6,10 @@ services:
       context: .
       args:
         SITE_URL: http://localhost
+#    environment:
+#      - HTTPS_PROXY=http://zoneproxy.zi.uzh.ch:8080
+#      - HTTP_PROXY=http://zoneproxy.zi.uzh.ch:8080
+#      - NO_PROXY=localhost,127.0.0.1
     ports:
       - "80:80"  
     networks:

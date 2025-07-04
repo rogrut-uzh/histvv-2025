@@ -4,6 +4,8 @@ import Breadcrumb from "~/components/page/Breadcrumb.astro";
 import MetaHead from "~/components/page/MetaHead.astro";
 import SectionTextPict from "~/components/page/SectionTextPict.astro";
 import loadJson from '~/lib/loadJson.js';
+import fetchWikipediaLinks from '~/lib/wikidataWikipediaLinks.js';
+import fetchWikipediaImage from '~/lib/wikipediaArticleImage.js';
 
 export async function getStaticPaths() {
   const dozenten = await loadJson('/data/tbl_dozenten.json');
@@ -28,6 +30,7 @@ export async function getStaticPaths() {
   });
 }
 
+
 // Hilfsfunktion zur Umwandlung von "1933s" zu "SS 1933" etc.
 function formatSemesterLabel(id_semester) {
   if (!id_semester || id_semester.length < 5) return id_semester;
@@ -36,8 +39,42 @@ function formatSemesterLabel(id_semester) {
   return typ === "w" ? `${jahr} WS` : typ === "s" ? `${jahr} SS` : id_semester;
 }
 
+//const { dozent, veranstaltungen_dozent, bildUrl } = Astro.props;
 const { dozent, veranstaltungen_dozent } = Astro.props;
 
+let wikipediaDe = null;
+let wikipediaEn = null;
+if (dozent.wikidata) {
+  const links = await fetchWikipediaLinks(dozent.wikidata);
+  wikipediaDe = links.de;
+  wikipediaEn = links.en;
+}
+
+// Bestimme den Link, der benutzt werden soll, falls dozent.wikipedia leer ist:
+let wikipediaLink = dozent.wikipedia;
+if (!wikipediaLink) {
+  wikipediaLink = wikipediaDe || wikipediaEn || null;
+}
+
+// Sprachkürzel und Titel aus dem Wikipedia-Link holen:
+let wikipediaLang = null;
+let wikipediaTitle = null;
+if (wikipediaLink) {
+  const m = wikipediaLink.match(/^https:\/\/([a-z]+)\.wikipedia\.org\/wiki\/(.+)$/);
+  if (m) {
+    wikipediaLang = m[1];
+    wikipediaTitle = decodeURIComponent(m[2]);
+  }
+}
+
+// Das Bild laden:
+let wikipediaImage = null;
+if (wikipediaLang && wikipediaTitle) {
+  wikipediaImage = await fetchWikipediaImage(wikipediaLang, wikipediaTitle, 300);
+}
+
+
+// breadcrumb
 const breadcrumb = [
   { label: "Home", href: "/" },
   { label: "Dozierende", href: "/dozierende/" },
@@ -60,8 +97,17 @@ const website_description = "Detailangaben zum Dozenten / zur Dozentin.";
   />
 
   <SectionTextPict>
+  
+    {wikipediaImage && (
+      <img
+        src={wikipediaImage}
+        alt={`Bild aus Wikipedia`}
+        style="max-width:300px; max-height:300px; margin:0;"
+      />
+    )}
+    
     <h1>{dozent.nachname}, {dozent.vorname}</h1>
-
+    
     <p>
       {dozent.geboren && (
         <>
@@ -102,10 +148,15 @@ const website_description = "Detailangaben zum Dozenten / zur Dozentin.";
             <a class="Link" href={`https://www.wikidata.org/wiki/${dozent.wikidata}`} target="_blank" rel="noopener">Wikidata</a><br/>
           </>
         )}
-        {dozent.wikipedia && (
-          <>
-            <a class="Link" href={dozent.wikipedia} target="_blank" rel="noopener">Wikipedia</a><br/>
-          </>
+        {wikipediaDe && (
+          <a class="Link" href={wikipediaDe} target="_blank" rel="noopener">
+            Wikipedia (DE)
+          </a>
+        )}
+        {wikipediaEn && (
+          <a class="Link" href={wikipediaEn} target="_blank" rel="noopener">
+            Wikipedia (EN)
+          </a>
         )}
         {Array.isArray(dozent.url) && dozent.url.map((u, i) => (
             <a class="Link" href={u} target="_blank" rel="noopener">{u}</a><br/>

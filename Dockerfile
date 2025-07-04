@@ -2,11 +2,18 @@
 FROM node:20-alpine AS builder
 
 ENV LANG=en_US.UTF-8
+#ENV HTTPS_PROXY=http://zoneproxy.zi.uzh.ch:8080
+#ENV HTTP_PROXY=http://zoneproxy.zi.uzh.ch:8080
+#ENV NO_PROXY=localhost,127.0.0.1
 
 WORKDIR /app
 
 # Install dependencies
 COPY package.json package-lock.json ./
+
+#RUN npm config set https-proxy http://zoneproxy.zi.uzh.ch:8080
+#RUN npm config set proxy http://zoneproxy.zi.uzh.ch:8080
+#RUN npm config set strict-ssl false
 RUN npm install
 
 # Copy all project files
