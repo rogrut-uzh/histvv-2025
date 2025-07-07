@@ -7,13 +7,17 @@ import loadJson from '~/lib/loadJson.js';
 import fetchWikipediaLinks from '~/lib/wikidataWikipediaLinks.js';
 import fetchWikipediaImage from '~/lib/wikipediaArticleImage.js';
 
+// Helper
+function getWikipediaTitle(url) {
+  const m = url.match(/\/wiki\/(.+)$/);
+  return m ? decodeURIComponent(m[1]) : null;
+}
+
 export async function getStaticPaths() {
   const dozenten = await loadJson('/data/tbl_dozenten.json');
   const veranstaltungen = await loadJson('/data/tbl_veranstaltungen.json');
 
-  // Die Veranstaltungen können jetzt mehrere Dozenten enthalten!
   return dozenten.map((dozent) => {
-    // Veranstaltung, wo der aktuelle Dozent beteiligt ist:
     const veranstaltungen_dozent = veranstaltungen.filter(
       (v) =>
         Array.isArray(v.dozenten) &&
@@ -30,8 +34,7 @@ export async function getStaticPaths() {
   });
 }
 
-
-// Hilfsfunktion zur Umwandlung von "1933s" zu "SS 1933" etc.
+// Semester-Format-Helfer
 function formatSemesterLabel(id_semester) {
   if (!id_semester || id_semester.length < 5) return id_semester;
   const jahr = id_semester.slice(0, 4);
@@ -39,40 +42,41 @@ function formatSemesterLabel(id_semester) {
   return typ === "w" ? `${jahr} WS` : typ === "s" ? `${jahr} SS` : id_semester;
 }
 
-//const { dozent, veranstaltungen_dozent, bildUrl } = Astro.props;
 const { dozent, veranstaltungen_dozent } = Astro.props;
 
+// Initialisiere alle Ausgabewerte
 let wikipediaDe = null;
 let wikipediaEn = null;
-if (dozent.wikidata) {
+let wikidataLink = null;
+let wikipediaImage = null;
+
+// Fall 1: Kein wikidata, kein wikipedia → nichts anzeigen
+if (!dozent.wikidata && !dozent.wikipedia) {
+  // Alles bleibt null
+}
+
+// Fall 2: Nur wikipedia vorhanden (DE-Link)
+else if (!dozent.wikidata && dozent.wikipedia) {
+  wikipediaDe = dozent.wikipedia;
+  // Bild laden (nur wenn Wikipedia-Link DE da)
+  wikipediaImage = await fetchWikipediaImage("de", getWikipediaTitle(wikipediaDe), 300);
+}
+
+// Fall 3 + 4: wikidata vorhanden, egal ob wikipedia vorhanden
+else if (dozent.wikidata) {
   const links = await fetchWikipediaLinks(dozent.wikidata);
-  wikipediaDe = links.de;
-  wikipediaEn = links.en;
-}
-
-// Bestimme den Link, der benutzt werden soll, falls dozent.wikipedia leer ist:
-let wikipediaLink = dozent.wikipedia;
-if (!wikipediaLink) {
-  wikipediaLink = wikipediaDe || wikipediaEn || null;
-}
-
-// Sprachkürzel und Titel aus dem Wikipedia-Link holen:
-let wikipediaLang = null;
-let wikipediaTitle = null;
-if (wikipediaLink) {
-  const m = wikipediaLink.match(/^https:\/\/([a-z]+)\.wikipedia\.org\/wiki\/(.+)$/);
-  if (m) {
-    wikipediaLang = m[1];
-    wikipediaTitle = decodeURIComponent(m[2]);
+  wikipediaDe = links.de || null;
+  wikipediaEn = links.en || null;
+  wikidataLink = `https://www.wikidata.org/wiki/${dozent.wikidata}`;
+  // Überschreibe bestehenden Wikipedia-Link (de), falls vorhanden (deine Vorgabe)
+  // Also: immer Wikidata-Links nutzen, auch wenn in JSON schon DE-Link da ist!
+  // Bild laden – DE bevorzugt, sonst EN
+  if (wikipediaDe) {
+    wikipediaImage = await fetchWikipediaImage("de", getWikipediaTitle(wikipediaDe), 300);
+  } else if (wikipediaEn) {
+    wikipediaImage = await fetchWikipediaImage("en", getWikipediaTitle(wikipediaEn), 300);
   }
 }
-
-// Das Bild laden:
-let wikipediaImage = null;
-if (wikipediaLang && wikipediaTitle) {
-  wikipediaImage = await fetchWikipediaImage(wikipediaLang, wikipediaTitle, 300);
-}
-
 
 // breadcrumb
 const breadcrumb = [
@@ -85,8 +89,8 @@ const website_title = "Historische Vorlesungsverzeichnisse der Universität Zür
 const page_title = `${dozent.nachname}, ${dozent.vorname}`;
 const website_byline = "1833 - 1900";
 const website_description = "Detailangaben zum Dozenten / zur Dozentin.";
-
 ---
+
 
 <DefaultLayout>
   <Breadcrumb items={breadcrumb} />
@@ -99,9 +103,9 @@ const website_description = "Detailangaben zum Dozenten / zur Dozentin.";
   <SectionTextPict>
   
     {wikipediaImage && (
-      <img class="wiki-image" 
+      <img class="wiki-image"
         src={wikipediaImage}
-        alt={`Bild aus Wikipedia`}"
+        alt={`Bild aus Wikipedia`}
       />
     )}
     
@@ -135,31 +139,27 @@ const website_description = "Detailangaben zum Dozenten / zur Dozentin.";
     )}
     {dozent.dekanat && <p>{dozent.dekanat}</p>}
     {dozent.rektor && <p>{dozent.rektor}</p>}
-    {(dozent.pnd || dozent.wikidata || dozent.wikipedia || (dozent.url && dozent.url.length > 0)) && (
+
+    {(dozent.pnd || wikipediaDe || wikipediaEn || wikidataLink || (dozent.url && dozent.url.length > 0)) && (
       <p>
-        {dozent.pnd && (
-          <>
-            <a class="Link" href={`https://d-nb.info/gnd/${dozent.pnd}`}>GND</a><br/>
-          </>
-        )}
-        {dozent.wikidata && (
-          <>
-            <a class="Link" href={`https://www.wikidata.org/wiki/${dozent.wikidata}`} target="_blank" rel="noopener">Wikidata</a><br/>
-          </>
-        )}
-        {wikipediaDe && (
-          <a class="Link" href={wikipediaDe} target="_blank" rel="noopener">
-            Wikipedia (DE)
-          </a>
-        )}
-        {wikipediaEn && (
-          <a class="Link" href={wikipediaEn} target="_blank" rel="noopener">
-            Wikipedia (EN)
-          </a>
-        )}
-        {Array.isArray(dozent.url) && dozent.url.map((u, i) => (
-            <a class="Link" href={u} target="_blank" rel="noopener">{u}</a><br/>
-        ))}
+        {[
+          dozent.pnd && <a class="Link" href={`https://d-nb.info/gnd/${dozent.pnd}`}>GND</a>,
+          wikipediaDe && <a class="Link" href={wikipediaDe} target="_blank" rel="noopener">Wikipedia (DE)</a>,
+          wikipediaEn && <a class="Link" href={wikipediaEn} target="_blank" rel="noopener">Wikipedia (EN)</a>,
+          wikidataLink && <a class="Link" href={wikidataLink} target="_blank" rel="noopener">Wikidata</a>,
+          ...(Array.isArray(dozent.url) ? dozent.url.map((u, i) =>
+            <a class="Link" href={u} target="_blank" rel="noopener">{u}</a>
+          ) : [])
+        ]
+          // Filtere alle leeren/null Einträge raus
+          .filter(Boolean)
+          // Mit <br/> dazwischen ausgeben
+          .map((elem, i, arr) => (
+            <>
+              {elem}
+              {i < arr.length - 1 && <br />}
+            </>
+          ))}
       </p>
     )}
 
