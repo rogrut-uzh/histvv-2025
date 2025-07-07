@@ -1,4 +1,5 @@
 stages:
+  - test
   - build-and-push
 
 variables:
@@ -12,6 +13,14 @@ workflow:
     - if: $CI_COMMIT_TITLE =~ /-nodeployment$/
       when: never
     - when: always
+
+include:
+  - template: Jobs/Container-Scanning.gitlab-ci.yml
+
+container_scanning:
+  stage: test
+  variables:
+    CS_IMAGE: $TAG_LATEST
 
 build_and_push:
   stage: build-and-push
