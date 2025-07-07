@@ -19,10 +19,14 @@ RUN npm install
 # Copy all project files
 COPY . .
 RUN mkdir -p public/data && cp data/*.json public/data/
+# Bedingt löschen, je nach ARG
+ARG EXCLUDE_DOZIERENDE=false
+RUN if [ "$EXCLUDE_DOZIERENDE" = "true" ]; then rm -rf src/pages/dozierende; fi
 
 # Build static site
 ARG SITE_URL
 ENV SITE_URL=$SITE_URL
+
 RUN npm run build
 
 # STAGE 2 — Production image

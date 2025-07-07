@@ -3,7 +3,7 @@ import DefaultLayout from '~/layouts/DefaultLayout.astro';
 import Breadcrumb from "~/components/page/Breadcrumb.astro";
 import MetaHead from "~/components/page/MetaHead.astro";
 import SectionIntro from "~/components/page/SectionIntro.astro";
-import SectionMasonry from "~/components/page/SectionMasonry.astro";
+import SectionTextPict from "~/components/page/SectionTextPict.astro";
 import loadJson from '~/lib/loadJson.js';
 
 const website_title = "Historische Vorlesungsverzeichnisse der Universität Zürich"
@@ -64,27 +64,49 @@ const breadcrumb = [
     />
     <SectionIntro>{`${page_title}`}</SectionIntro>
     
-    <SectionMasonry>
-      {decades.map((decade) => (
-        <div class="MasonryGrid--item js-MasonryGrid--item">
-          <div class="Teaser">
-            <div class="Teaser--inner">
-              <div class="Teaser--header">
-                <h3 class="Teaser--title">{decade}</h3>
-              </div>
-              <div class="Teaser--body">
-                {groupedByDecade[decade].map((s) => (
-                  <div>
-                    <a href={`/vv/${s.id_semester}/`} class="Link">
-                      {s.titel}
-                    </a>
-                    <span style="color: #666; font-size: 0.9em;"> ({veranstaltungenCount[s.id_semester] || 0})</span>
+    <SectionTextPict>
+      <div>
+        {decades.map((decade, i) => {
+          // Map: { [Jahr]: { s: {...}, w: {...} } }
+          const byYear = {};
+          groupedByDecade[decade].forEach((s) => {
+            const year = s.id_semester.slice(0, 4);
+            const semType = s.id_semester[4].toLowerCase(); // 's' oder 'w'
+            if (!byYear[year]) byYear[year] = {};
+            byYear[year][semType] = s;
+          });
+
+          // Jetzt gibt's für jedes Jahr die vorhandenen Semester
+          return (
+            <>
+              <h3 class={`toggle${i === 0 ? " is-open" : ""}`}>{decade}</h3>
+              <div>
+                  <div class="l-Flex gap-none gutter-small">
+                    {Object.keys(byYear).sort().map((year) => (
+                      // Gib ein Fragment für jede Jahres-Zeile zurück:
+                      <>
+                        {/* Sommersemester zuerst, falls vorhanden */}
+                        {byYear[year].s && (
+                          <div class="l-1of2">
+                            <a href={`/vv/${byYear[year].s.id_semester}/`} class="Link">{byYear[year].s.titel}</a>
+                            <span style="color: #666; font-size: 0.8em;"> ({veranstaltungenCount[byYear[year].s.id_semester] || 0})</span>
+                          </div>
+                        )}
+                        {/* Dann Wintersemester, falls vorhanden */}
+                        {byYear[year].w && (
+                          <div class="l-1of2">
+                            <a href={`/vv/${byYear[year].w.id_semester}/`} class="Link">{byYear[year].w.titel}</a>
+                            <span style="color: #666; font-size: 0.8em;"> ({veranstaltungenCount[byYear[year].w.id_semester] || 0})</span>
+                          </div>
+                        )}
+                      </>
+                    ))}
                   </div>
-                ))}
               </div>
-            </div>
-          </div>
-        </div>
-      ))}
-    </SectionMasonry>
+            </>
+          );
+        })}
+      </div>
+    </SectionTextPict>
+
 </DefaultLayout>

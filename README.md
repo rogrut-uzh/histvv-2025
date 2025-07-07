@@ -4,7 +4,13 @@
 ### Lokal, docker compose
 
 ```
-docker compose up --build prod -d
+docker compose build prod && docker compose up -d prod
+```
+
+Wenn das builden der `dozierenden` Dateien ausgelassen werden soll (build dauert lange für die Dozierenden), kann dies über einen Build Parameter gesteuert werden:
+
+```
+docker compose build --build-arg EXCLUDE_DOZIERENDE=false prod && docker compose up -d prod
 ```
 
 Website: `http://localhost'
