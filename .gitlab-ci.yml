@@ -1,6 +1,6 @@
 stages:
-  - test
   - build-and-push
+  - test
 
 variables:
   SITE_URL: "https://histvv-2025.t01.cs.zi.uzh.ch"
