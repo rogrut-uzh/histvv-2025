@@ -152,7 +152,7 @@ def parse_semester_files(pfad):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Verwendung: python 3_semester-veranstaltungen.py ordnerpfad/zu/semester-xmls")
+        print("Verwendung: python 3_semester-veranstaltungen.py ordnerpfad/zu/semester-xml-files")
         sys.exit(1)
 
     pfad = Path(sys.argv[1])

@@ -1,7 +1,85 @@
 # HistVV-2025
 
+## Data Migration
 
-### Lokal, docker compose
+Damit die Webapp die Daten korrekt einlesen kann, müssen die Quelldaten aufbereitet werden. Dies ist zur Zeit noch ein manueller Task. Die bis 2025 bestehenden Daten wurden der BaseX Datenbank entnommen und liegen entsprechend als XML vor. 
+
+Die Semester ab Winter 1900 werden neu in Excel gepflegt. Ebenso die aktualisierte Dozierendenliste.
+
+Diese Formate müssen in JSON umgewandelt werden. 
+
+Die Daten werden vom Team Archiv UZH bearbeitet.
+
+### XML
+
+  - Semester: `/data-migration/xml_1833-1900/1833s.xml [...] 1900s.xml`
+  - Dozierende: `/data-migration/xml_1833-1900/dozenten.xml`
+
+### XLSX
+
+  - Semester: `/data-migration/xlsx_1900-/1900_Winter.xlsx [...]`
+  - Dozierende: `/data-migration/xlsx_1900-/Dozierendenverzeichnis.xlsx`
+
+### Umwandlung in JSON
+
+Die JSON-Dateien werden mit Python Scripts erstellt und gleich am korrekten Ort unter `/data/` abgelegt.
+
+#### Dozierende
+
+Das Script `1_dozenten_xml-and-xlsx.py` verlangt 2 Parameter:
+
+  - Vollständiger Pfad zur XML-Dozenten-Datei
+  - Vollständiger Pfad zur XLSX-Dozenten-Datei
+  
+Das JSON Resultat wird unter `/data/tbl_dozenten.json` abgelegt.
+
+Aufruf:
+
+```
+$ python3 1_dozenten_xml-and-xlsx.py ~/gitlab-repositories/histvv-2025/data-migration/xml_1833-1900/dozenten.xml ~/gitlab-repositories/histvv-2025/data-migration/xlsx_1900-/Dozierendenverzeichnis.xlsx
+
+JSON geschrieben: /home/rogrut/gitlab-repositories/histvv-2025/data/tbl_dozenten.json
+```
+
+#### Semster Header
+
+Für jedes Semester gibt es allgemeine Informationen, die oben auf der Webpage angezeigt werden. Bis 1900 waren die Infos gehaltvoller und werden aus den XML-Dateien der Semester extrahiert. 
+
+Das Script `2_semester-header_xml.py` verlangt 1 Parameter:
+
+  - Vollständiger Pfad zum Ordner, der die Semester-XML-Dateien enthält
+  
+Das JSON Resultat wird unter `/data/tbl_semester_header.json` abgelegt.
+
+Aufruf:
+
+```
+$ python3 2_semester-header_xml.py ~/gitlab-repositories/histvv-2025/data-migration/xml_1833-1900
+
+JSON geschrieben: /home/rogrut/gitlab-repositories/histvv-2025/data/tbl_semester_header.json
+```
+
+Ab 1900 liegen keine Semester Header Informationen mehr vor. Daher wurde das JSON einmalig manuell erstellt und bleibt statisch: `/data/tbl_veranstaltungen-ab-1900w.json`
+
+#### Semester-Veranstaltungen (XML)
+
+Das Script `3_semester-veranstaltungen_xml.py` verlangt 1 Parameter:
+
+  - Vollständiger Pfad zum Ordner, der die Semester-XML-Dateien enthält
+  
+Das JSON Resultat wird unter `/data/tbl_veranstaltungen.json` abgelegt.
+
+#### Semester-Veranstaltungen (XLSX)
+
+Das Script `3_semester-veranstaltungen_xlsx.py` verlangt 1 Parameter:
+
+  - Vollständiger Pfad zum Ordner, der die Semester-XML-Dateien enthält
+  
+Das JSON Resultat wird unter `/data/tbl_veranstaltungen-ab-1900w.json` abgelegt.
+
+---
+
+## Lokal; docker compose
 
 ```
 docker compose build prod && docker compose up -d prod
@@ -15,7 +93,7 @@ docker compose build --build-arg EXCLUDE_DOZIERENDE=false prod && docker compose
 
 Website: `http://localhost'
 
-#### SSH in Container:
+### SSH in Container:
 
 ```
 docker exec -it histvv2025-prod /bin/sh
@@ -23,12 +101,17 @@ docker exec -it histvv2025-prod /bin/sh
 
 Die HTML-Seite ist unter `/usr/share/nginx/html`
 
+---
 
-## K8s
+## GitLab CI/CD-Pipeline
 
-Durch Hochladen des argoCD Manifests wird ständig der Ist-Zustand mit dem Soll-Zustand auf GitLab verglichen. Bei einem Push, der ein neues Image kreiert, wird dieses automatisch übernommen und auf K8s deployed. 
+Wie in `.gitlab-ci.yml` definiert, wird das Container Image erstellt und in der GitLab Registry abgespeichert. Danach wird das Image noch auf Schwachstellen gescannt.
 
 Falls auf GitLab nur Dateien aktualisiert werden sollen, ohne Auslösen der CI/CD Pipeline, kann in der Commit Message am Ende `-nodeployement` angegeben werden. Bsp.: `git commit -m "Update Readme -nodeployment"`
+
+---
+
+## Deployment in UZH Cloud (K8s)
 
 ### Test-Cluster
 
@@ -40,7 +123,7 @@ Website: http://histvv-2025.t01.cs.zi.uzh.ch
 
 folgt... noch nicht umgesetzt.
 
-
+---
 
 ## Projektbeginn
 
