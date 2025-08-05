@@ -82,7 +82,7 @@ def main(xlsx_folder):
     folder = Path(xlsx_folder)
     alle_veranstaltungen = []
 
-    for file in sorted(folder.glob("*.xlsx")):
+    for file in sorted(folder.glob("*Sommer.xlsx")) + sorted(folder.glob("*Winter.xlsx")):
         print(f"Verarbeite: {file.name}")
         veranstaltungen = process_xlsx_file(file)
         alle_veranstaltungen.extend(veranstaltungen)

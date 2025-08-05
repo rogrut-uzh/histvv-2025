@@ -15,7 +15,9 @@ function getWikipediaTitle(url) {
 
 export async function getStaticPaths() {
   const dozenten = await loadJson('/data/tbl_dozenten.json');
-  const veranstaltungen = await loadJson('/data/tbl_veranstaltungen.json');
+  const veranstaltungen1 = await loadJson('/data/tbl_veranstaltungen.json');
+  const veranstaltungen2 = await loadJson('/data/tbl_veranstaltungen-ab-1900w.json');
+  const veranstaltungen = [...veranstaltungen1, ...veranstaltungen2];
 
   return dozenten.map((dozent) => {
     const veranstaltungen_dozent = veranstaltungen.filter(

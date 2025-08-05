@@ -2880,9 +2880,9 @@
   },
   {
     "id_dozent": "heuscher_j",
-    "fak": "Philosophische Fakultät II",
+    "fak": "Veterinärmedizinische Fakultät",
     "nachname": "Heuscher",
-    "vorname": "Johann",
+    "vorname": "Johannes",
     "geboren": "1858",
     "gestorben": "1912",
     "pnd": "116783044",
@@ -2892,9 +2892,9 @@
     "wikipedia": null,
     "url": null,
     "wikidata": null,
-    "fachgebiet": "Zoologie und Botanik",
-    "habilitation": "PD 1895",
-    "berufung": "später Vet. Med."
+    "fachgebiet": "Parasitologie, Fischkunde und Fischzucht",
+    "habilitation": "PD 1895 (PhF II)",
+    "berufung": "EO 1902"
   },
   {
     "id_dozent": "heusser_jc",
@@ -10679,8 +10679,8 @@
   {
     "id_dozent": "fehr_b",
     "fak": "Philosophische Fakultät I",
-    "nachname": "Bernhard",
-    "vorname": null,
+    "nachname": "Fehr",
+    "vorname": "Bernhard",
     "geboren": "1876",
     "gestorben": "1938",
     "pnd": "118683209",
@@ -10763,7 +10763,7 @@
     "url": null,
     "wikidata": "Q60421775",
     "fachgebiet": "Philosophie und Psychologie",
-    "habilitation": null,
+    "habilitation": "PD 1902",
     "berufung": "EO 1910"
   },
   {
@@ -11608,12 +11608,12 @@
     "wikipedia": null,
     "url": null,
     "wikidata": null,
-    "fachgebiet": null,
+    "fachgebiet": "Methodiklehrer Sekundarlehramtsausbildung",
     "habilitation": null,
     "berufung": null
   },
   {
-    "id_dozent": "andrae",
+    "id_dozent": "andreae",
     "fak": "Philosophische Fakultät I",
     "nachname": "Andreae",
     "vorname": null,
