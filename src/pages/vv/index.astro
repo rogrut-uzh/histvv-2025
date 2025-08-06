@@ -6,10 +6,8 @@ import SectionIntro from "~/components/page/SectionIntro.astro";
 import SectionTextPict from "~/components/page/SectionTextPict.astro";
 import loadJson from '~/lib/loadJson.js';
 
-const website_title = "Historische Vorlesungsverzeichnisse der Universität Zürich"
-const page_title = "Vorlesungsverzeichnisse"
-const website_byline = "1833 - 2000"
-const website_description = " "
+import { pageinfo } from '~/constants.ts';
+const page_title = "Vorlesungsverzeichnisse";
 
 const veranstaltungen1 = await loadJson('/data/tbl_veranstaltungen.json');
 const veranstaltungen2 = await loadJson('/data/tbl_veranstaltungen-ab-1900w.json');
@@ -58,13 +56,15 @@ const breadcrumb = [
 
 <DefaultLayout>
     <Breadcrumb items={breadcrumb} />
+    
     <MetaHead slot="head"
-        title={`${page_title} | ${website_title} ${website_byline}`}
-        description={`${website_description}`}
+        title={`${page_title} | ${pageinfo.title} ${pageinfo.byline}`}
+        description={`${pageinfo.description}`}
     />
-    <SectionIntro>{`${page_title}`}</SectionIntro>
     
     <SectionTextPict>
+      <h1>{page_title}</h1>
+      
       <div>
         {decades.map((decade, i) => {
           // Map: { [Jahr]: { s: {...}, w: {...} } }

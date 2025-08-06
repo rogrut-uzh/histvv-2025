@@ -5,10 +5,8 @@ import MetaHead from "~/components/page/MetaHead.astro";
 import SectionIntro from "~/components/page/SectionIntro.astro";
 import SectionTextPict2 from "~/components/page/SectionTextPict2.astro";
 
-const website_title = "Historische Vorlesungsverzeichnisse der Universität Zürich"
-const page_title = "Buchausgabe"
-const website_byline = "1833 - 1900"
-const website_description = " "
+import { pageinfo } from '~/constants.ts';
+const page_title = "Buchausgabe";
 
 const breadcrumb = [
   { label: "Home", href: "/" },
@@ -19,13 +17,15 @@ const breadcrumb = [
     <Breadcrumb items={breadcrumb} />
 
     <MetaHead slot="head"
-        title={`${page_title} | ${website_title} ${website_byline}`}
-        description={`${website_description}`}
+        title={`${page_title} | ${pageinfo.title} ${pageinfo.byline}`}
+        description={`${pageinfo.description}`}
     />
-
-    <SectionIntro>{`${page_title}`}</SectionIntro>
     
     <SectionTextPict2>
+        <div class="TextImage--content richtext">
+            <h1>{page_title}</h1>
+        </div>
+        
         <figure class="TextImage--image layout-float-right">
             <div class="TextImage--image--inner">
                 <!-- component: Image -->

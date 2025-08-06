@@ -4,20 +4,17 @@ import MetaHead from "~/components/page/MetaHead.astro";
 import SectionIntro from "~/components/page/SectionIntro.astro";
 import SectionTextPict from "~/components/page/SectionTextPict.astro";
 
-const website_title = "Historische Vorlesungsverzeichnisse der Universität Zürich"
-const page_title = "Home"
-const website_byline = "1833 - 1900"
-const website_description = " "
+import { pageinfo } from '~/constants.ts';
+const page_title = "Home";
 
 ---
 <DefaultLayout>
-    <MetaHead
-        title={`${website_title} ${website_byline} | ${page_title}`}
-        description={`${website_description}`}
-        slot="head"
+    <MetaHead slot="head"
+        title={`${page_title} | ${pageinfo.title} ${pageinfo.byline}`}
+        description={`${pageinfo.description}`}
     />
     
-    <SectionIntro>{`${website_title} ${website_byline}`}
+    <SectionIntro>{`${pageinfo.title} ${pageinfo.byline}`}
         <!--
         <div class="Intro--text" slot="lead"><p></p></div>
         -->

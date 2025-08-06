@@ -7,10 +7,8 @@ import SectionTextPict from "~/components/page/SectionTextPict.astro";
 import loadJson from '~/lib/loadJson.js';
 import slugify from '~/lib/slugify.js';
 
-const website_title = "Historische Vorlesungsverzeichnisse der Universität Zürich";
+import { pageinfo } from '~/constants.ts';
 const page_title = "Vorlesungsverzeichnisse";
-const website_byline = "1833 - 1900";
-const website_description = " ";
 const zeit_trenner = " - ";
 
 
@@ -72,12 +70,11 @@ const breadcrumb = [
 
 <DefaultLayout>
     <Breadcrumb items={breadcrumb} />
-  
+
     <MetaHead slot="head"
-        title={`${sem.titel} | ${website_title} ${website_byline}`}
-        description={`${website_description}`}
+        title={`${page_title} | ${pageinfo.title} ${pageinfo.byline}`}
+        description={`${pageinfo.description}`}
     />
-  
 
     <SectionTextPict>
       <h1>{sem.titel}</h1>
@@ -108,7 +105,6 @@ const breadcrumb = [
             ) : (
               <p id={`${v.id_veranstaltung}`} key={v.id_veranstaltung}>
                 {v.vorlesungsnummer}
-
                 {Array.isArray(v.dozenten) && v.dozenten.length > 0 ? (
                   v.dozenten.map((d, idx) => {
                     const dozentDetails = dozentenById[d.id_dozent] || {};
@@ -125,7 +121,6 @@ const breadcrumb = [
                 ) : (
                   <>Ohne Dozentenangabe</>
                 )}
-
                 <br />
                 <strong>{v.thema}</strong><br />
                 {v.thema_anmerkung && <>Anmerkung: {v.thema_anmerkung}<br /></>}

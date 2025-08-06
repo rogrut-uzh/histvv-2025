@@ -5,10 +5,8 @@ import MetaHead from "~/components/page/MetaHead.astro";
 import SectionIntro from "~/components/page/SectionIntro.astro";
 import SectionTextPict from "~/components/page/SectionTextPict.astro";
 
-const website_title = "Historische Vorlesungsverzeichnisse der Universität Zürich"
-const page_title = "Benutzungshinweise"
-const website_byline = "1833 - 1900"
-const website_description = " "
+import { pageinfo } from '~/constants.ts';
+const page_title = "Benutzungshinweise";
 
 const breadcrumb = [
   { label: "Home", href: "/" },
@@ -19,16 +17,20 @@ const breadcrumb = [
     <Breadcrumb items={breadcrumb} />
 
     <MetaHead slot="head"
-        title={`${page_title} | ${website_title} ${website_byline}`}
-        description={`${website_description}`}
+        title={`${page_title} | ${pageinfo.title} ${pageinfo.byline}`}
+        description={`${pageinfo.description}`}
     />
 
-    <SectionIntro>{`${page_title}`}
+    <!--<SectionIntro>{`${page_title}`}
         <div class="Intro--text" slot="lead"><p>Das Portal "Historische Vorlesungsverzeichnisse der Universität Zürich" erschließt als Hilfsmittel und Nachschlagewerk für biographische, forschungs-, disziplinen- oder institutionsgeschichtliche Fragestellungen alle im 19. Jahrhundert an der Universität Zürich angekündigten Lehrveranstaltungen auf der Grundlage der gedruckten Vorlesungsverzeichnisse. Es handelt sich dabei um insgesamt 24575 Veranstaltungen während 135 Semestern vom Sommersemester 1833 bis zum Sommersemester 1900.</p>
         </div>
-    </SectionIntro>
+    </SectionIntro>-->
     
     <SectionTextPict>
+        <h1>{page_title}</h1>
+        
+        <p><big>Das Portal "Historische Vorlesungsverzeichnisse der Universität Zürich" erschließt als Hilfsmittel und Nachschlagewerk für biographische, forschungs-, disziplinen- oder institutionsgeschichtliche Fragestellungen alle im 19. Jahrhundert an der Universität Zürich angekündigten Lehrveranstaltungen auf der Grundlage der gedruckten Vorlesungsverzeichnisse. Es handelt sich dabei um insgesamt 24575 Veranstaltungen während 135 Semestern vom Sommersemester 1833 bis zum Sommersemester 1900.</big></p>
+        
         <h2>Vorlesungsverzeichnisse</h2>
         
         <p>Unter <a href="/vv/" class="Link">Vorlesungsverzeichnisse</a> lassen sich die angekündigten Lehrveranstaltungen der einzelnen Semester - analog den gedruckten Vorlesungsverzeichnissen - anzeigen. Die bibliographischen Angaben der jeweiligen Vorlage werden auf den einzelnen Semesterseiten jeweils zuoberst unter "Quelle" festgehalten.</p>

@@ -87,10 +87,8 @@ const breadcrumb = [
   { label: `${dozent.nachname}, ${dozent.vorname}`, href: `/dozierende/${dozent.id_dozent}/` }
 ];
 
-const website_title = "Historische Vorlesungsverzeichnisse der Universität Zürich";
+import { pageinfo } from '~/constants.ts';
 const page_title = `${dozent.nachname}, ${dozent.vorname}`;
-const website_byline = "1833 - 1900";
-const website_description = "Detailangaben zum Dozenten / zur Dozentin.";
 ---
 
 
@@ -98,8 +96,8 @@ const website_description = "Detailangaben zum Dozenten / zur Dozentin.";
   <Breadcrumb items={breadcrumb} />
 
   <MetaHead slot="head"
-    title={`${dozent.nachname}, ${dozent.vorname} | ${website_title} ${website_byline}`}
-    description={`${website_description}`}
+      title={`${page_title} | ${pageinfo.title} ${pageinfo.byline}`}
+      description={`${pageinfo.description}`}
   />
 
   <SectionTextPict>
