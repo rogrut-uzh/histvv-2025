@@ -139,7 +139,7 @@ docker compose build prod && docker compose up -d prod
 Wenn das builden der `dozierenden` Dateien ausgelassen werden soll (build dauert lange für die Dozierenden), kann dies über einen Build Parameter gesteuert werden:
 
 ```
-docker compose build --build-arg EXCLUDE_DOZIERENDE=false prod && docker compose up -d prod
+docker compose build --build-arg EXCLUDE_DOZIERENDE=true prod && docker compose up -d prod
 ```
 
 Website: `http://localhost'
@@ -173,3 +173,7 @@ Website: http://histvv-2025.t01.cs.zi.uzh.ch
 ### Prod-Cluster
 
 folgt... noch nicht umgesetzt.
+
+## Geschäft zur neuen HistVV Website im GEVER
+
+2019-67: Historisches Vorlesungsverzeichnis HistVV: Erweiterung Datenbank ab 1900/1901

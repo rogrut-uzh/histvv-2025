@@ -9,9 +9,10 @@ import loadJson from '~/lib/loadJson.js';
 import { pageinfo } from '~/constants.ts';
 const page_title = "Vorlesungsverzeichnisse";
 
-const veranstaltungen1 = await loadJson('/data/tbl_veranstaltungen.json');
-const veranstaltungen2 = await loadJson('/data/tbl_veranstaltungen-ab-1900w.json');
-const veranstaltungen = [...veranstaltungen1, ...veranstaltungen2];
+const veranstaltungen = await loadJson('/data/tbl_veranstaltungen-merged.json');
+//const veranstaltungen1 = await loadJson('/data/tbl_veranstaltungen.json');
+//const veranstaltungen2 = await loadJson('/data/tbl_veranstaltungen-ab-1900w.json');
+//const veranstaltungen = [...veranstaltungen1, ...veranstaltungen2];
 
 // 1. Alle Semester-IDs extrahieren & sortieren
 let semesterIDs = veranstaltungen

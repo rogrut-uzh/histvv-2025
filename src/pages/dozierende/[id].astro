@@ -15,9 +15,10 @@ function getWikipediaTitle(url) {
 
 export async function getStaticPaths() {
   const dozenten = await loadJson('/data/tbl_dozenten.json');
-  const veranstaltungen1 = await loadJson('/data/tbl_veranstaltungen.json');
-  const veranstaltungen2 = await loadJson('/data/tbl_veranstaltungen-ab-1900w.json');
-  const veranstaltungen = [...veranstaltungen1, ...veranstaltungen2];
+  const veranstaltungen = await loadJson('/data/tbl_veranstaltungen-merged.json');
+  //const veranstaltungen1 = await loadJson('/data/tbl_veranstaltungen.json');
+  //const veranstaltungen2 = await loadJson('/data/tbl_veranstaltungen-ab-1900w.json');
+  //const veranstaltungen = [...veranstaltungen1, ...veranstaltungen2];
 
   return dozenten.map((dozent) => {
     const veranstaltungen_dozent = veranstaltungen.filter(
@@ -41,7 +42,7 @@ function formatSemesterLabel(id_semester) {
   if (!id_semester || id_semester.length < 5) return id_semester;
   const jahr = id_semester.slice(0, 4);
   const typ = id_semester[4].toLowerCase();
-  return typ === "w" ? `${jahr} WS` : typ === "s" ? `${jahr} SS` : id_semester;
+  return typ === "w" ? `WS ${jahr}` : typ === "s" ? `SS ${jahr}` : id_semester;
 }
 
 const { dozent, veranstaltungen_dozent } = Astro.props;
@@ -182,7 +183,8 @@ const page_title = `${dozent.nachname}, ${dozent.vorname}`;
             <tr>
               <td>{index + 1}</td>
               <td>
-                <a href={`/vv/${v.id_semester}#${v.id_veranstaltung}`}>{formatSemesterLabel(v.id_semester)}</a>              </td>
+                <a href={`/vv/${v.id_semester}#${v.id_veranstaltung}`}>{formatSemesterLabel(v.id_semester)}</a>
+              </td>
               <td>{v.thema}</td>
               <td>
                 {meineInfos.map((d, i) => (
