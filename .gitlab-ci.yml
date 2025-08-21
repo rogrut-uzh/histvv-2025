@@ -55,4 +55,4 @@ container_scanning:
     CS_IMAGE: $IMG_COMMIT   # scanne exakt das Commit-Image
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
-    - if: '$CI_COMMIT_BRANCH == "test"'
+    - if: '$CI_COMMIT_BRANCH == "test"' 
