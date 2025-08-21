@@ -25,11 +25,14 @@ build_test:
   rules:
     - if: '$CI_COMMIT_BRANCH == "test"'
   script: |
+    set -euo pipefail
     SITE_URL="https://histvv-2025.t01.cs.zi.uzh.ch"
+    [ -n "$SITE_URL" ] || { echo "SITE_URL is empty"; exit 1; }
+
     /kaniko/executor \
       --context "${CI_PROJECT_DIR}" \
       --dockerfile "${CI_PROJECT_DIR}/Dockerfile" \
-      --build-arg SITE_URL="$SITE_URL_TEST" \
+      --build-arg SITE_URL="$SITE_URL" \
       --destination "$IMG_COMMIT"
 
 # ===== Prod-Image =====
@@ -41,22 +44,22 @@ build_prod:
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
   script: |
+    set -euo pipefail
     SITE_URL="https://histvv-2025.p01.cs.zi.uzh.ch"
+    [ -n "$SITE_URL" ] || { echo "SITE_URL is empty"; exit 1; }
+
     /kaniko/executor \
       --context "${CI_PROJECT_DIR}" \
       --dockerfile "${CI_PROJECT_DIR}/Dockerfile" \
-      --build-arg SITE_URL="$SITE_URL_PROD" \
+      --build-arg SITE_URL="$SITE_URL" \
       --destination "$IMG_COMMIT"
+
 
 container_scanning:
   stage: test
-  needs:
-    - job: build_prod
-      optional: true
-    - job: build_test
-      optional: true
+  needs: ["build_prod", "build_test"]
   variables:
-    CS_IMAGE: $IMG_COMMIT
+    CS_IMAGE: $IMG_COMMIT   # scanne exakt das Commit-Image
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
-    - if: '$CI_COMMIT_BRANCH == "test"'
+    - if: '$CI_COMMIT_BRANCH == "test"' 

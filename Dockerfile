@@ -14,7 +14,7 @@ COPY package.json package-lock.json ./
 #RUN npm config set https-proxy http://zoneproxy.zi.uzh.ch:8080
 #RUN npm config set proxy http://zoneproxy.zi.uzh.ch:8080
 #RUN npm config set strict-ssl false
-RUN npm install
+RUN npm ci
 
 # Copy all project files
 COPY . .
