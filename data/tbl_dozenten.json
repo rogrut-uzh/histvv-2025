@@ -1332,7 +1332,7 @@
     "wikipedia": null,
     "url": null,
     "wikidata": null,
-    "fachgebiet": null,
+    "fachgebiet": "Chemie (Didaktik)",
     "habilitation": null,
     "berufung": null
   },
@@ -8535,24 +8535,6 @@
     "berufung": null
   },
   {
-    "id_dozent": "wehrli_h",
-    "fak": "Staatswissenschaftliche Fakultät",
-    "nachname": "Wehrli",
-    "vorname": "H",
-    "geboren": null,
-    "gestorben": null,
-    "pnd": null,
-    "gagliardi": null,
-    "dekanat": null,
-    "rektor": null,
-    "wikipedia": null,
-    "url": null,
-    "wikidata": null,
-    "fachgebiet": null,
-    "habilitation": null,
-    "berufung": null
-  },
-  {
     "id_dozent": "denzler_o",
     "fak": "Staatswissenschaftliche Fakultät",
     "nachname": "Denzler",
@@ -8751,20 +8733,20 @@
     "berufung": null
   },
   {
-    "id_dozent": "pfaendler_w",
+    "id_dozent": "zuercher_e2",
     "fak": "Staatswissenschaftliche Fakultät",
-    "nachname": "Pfändler",
-    "vorname": "W",
-    "geboren": null,
-    "gestorben": null,
-    "pnd": null,
+    "nachname": "Zürcher",
+    "vorname": "Emil",
+    "geboren": "1877",
+    "gestorben": "1937",
+    "pnd": "1089503083",
     "gagliardi": null,
     "dekanat": null,
     "rektor": null,
     "wikipedia": null,
     "url": null,
     "wikidata": null,
-    "fachgebiet": null,
+    "fachgebiet": "Jurist, Staatsanwalt",
     "habilitation": null,
     "berufung": null
   },
@@ -9111,7 +9093,7 @@
     "berufung": "O 1920"
   },
   {
-    "id_dozent": "sidlerhuegenin_e",
+    "id_dozent": "sidlerhuguenin_e",
     "fak": "Medizinische Fakultät",
     "nachname": "Sidler-Huguenin",
     "vorname": "Ernst",
@@ -9126,7 +9108,7 @@
     "wikidata": "Q55675481",
     "fachgebiet": "Augenheilkunde",
     "habilitation": "PD 1902",
-    "berufung": "EO 1920, O 1921"
+    "berufung": "HP 1914, EO 1920, O 1921"
   },
   {
     "id_dozent": "hedinger_e",
@@ -9611,7 +9593,7 @@
     "url": null,
     "wikidata": "Q15441144",
     "fachgebiet": "Chirurgie",
-    "habilitation": "PD 1910",
+    "habilitation": "PD 1910, TP 1915",
     "berufung": null
   },
   {
@@ -10155,6 +10137,24 @@
     "berufung": null
   },
   {
+    "id_dozent": "hubacher_k",
+    "fak": "Medizinische Fakultät",
+    "nachname": "Hubacher",
+    "vorname": "Karl",
+    "geboren": null,
+    "gestorben": null,
+    "pnd": null,
+    "gagliardi": null,
+    "dekanat": null,
+    "rektor": null,
+    "wikipedia": null,
+    "url": null,
+    "wikidata": null,
+    "fachgebiet": "Kantonsapotheker",
+    "habilitation": null,
+    "berufung": null
+  },
+  {
     "id_dozent": "hess_w",
     "fak": "Medizinische Fakultät",
     "nachname": "Hess",
@@ -10438,7 +10438,7 @@
     "wikipedia": null,
     "url": null,
     "wikidata": null,
-    "fachgebiet": null,
+    "fachgebiet": "Städtischer Tierarzt",
     "habilitation": null,
     "berufung": null
   },
@@ -11616,22 +11616,22 @@
     "id_dozent": "andreae",
     "fak": "Philosophische Fakultät I",
     "nachname": "Andreae",
-    "vorname": null,
-    "geboren": null,
-    "gestorben": null,
-    "pnd": null,
+    "vorname": "Volkmar",
+    "geboren": "1879",
+    "gestorben": "1962",
+    "pnd": "118847503",
     "gagliardi": null,
     "dekanat": null,
     "rektor": null,
     "wikipedia": null,
     "url": null,
-    "wikidata": null,
-    "fachgebiet": null,
+    "wikidata": "Q673245",
+    "fachgebiet": "Musikdirektor",
     "habilitation": null,
     "berufung": null
   },
   {
-    "id_dozent": "pfaendler",
+    "id_dozent": "pfaendler_w",
     "fak": "Philosophische Fakultät I",
     "nachname": "Pfändler",
     "vorname": "Wilhelm",
@@ -11642,9 +11642,11 @@
     "dekanat": null,
     "rektor": null,
     "wikipedia": null,
-    "url": null,
+    "url": [
+      "https://zop.zb.uzh.ch/items/5da5d36d-3fe6-4b5e-9584-cf6fbb6219dd"
+    ],
     "wikidata": "Q94920955",
-    "fachgebiet": null,
+    "fachgebiet": "Lehrer, Prof. ETH",
     "habilitation": null,
     "berufung": null
   },
@@ -11955,7 +11957,7 @@
     "berufung": "EO 1911, O 1913"
   },
   {
-    "id_dozent": "meyer_e1",
+    "id_dozent": "meyer_e",
     "fak": "Philosophische Fakultät II",
     "nachname": "Meyer",
     "vorname": "Edgar",
@@ -12189,7 +12191,7 @@
     "berufung": "EO 1911"
   },
   {
-    "id_dozent": "von laue_m",
+    "id_dozent": "vonlaue_m",
     "fak": "Philosophische Fakultät II",
     "nachname": "von Laue",
     "vorname": "Max",
@@ -12419,7 +12421,7 @@
     "url": null,
     "wikidata": "Q105128",
     "fachgebiet": "Physik",
-    "habilitation": "PD 1907, TP 1912",
+    "habilitation": "PD 1907, TP 1916",
     "berufung": null
   },
   {
@@ -13048,7 +13050,7 @@
     "wikipedia": null,
     "url": null,
     "wikidata": "Q72049002",
-    "fachgebiet": "Mathematik",
+    "fachgebiet": "Mathematik (Didaktik)",
     "habilitation": null,
     "berufung": null
   },
@@ -13066,7 +13068,7 @@
     "wikipedia": null,
     "url": null,
     "wikidata": null,
-    "fachgebiet": null,
+    "fachgebiet": "Biologie (Didaktik)",
     "habilitation": null,
     "berufung": null
   },

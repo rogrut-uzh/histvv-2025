@@ -1,5 +1,5 @@
 export const pageinfo = {
   title: "Historische Vorlesungsverzeichnisse der Universität Zürich",
-  byline: "1833 - 1900",
+  byline: "1833 - 1915",
   description: " "
 };

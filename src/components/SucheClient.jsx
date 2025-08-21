@@ -4,25 +4,21 @@ import MiniSearch from 'minisearch'
 
 
 
-export default function SucheClient() {
+export default function SucheClient({ veranstaltungen = [], dozierende = [] }) {
   const nodeRef = useRef(null)
 
   useEffect(() => {
-    const ac = new AbortController()
     let cancelled = false;
-    
-    async function loadData() {
+
+
         try {
-            let veranstaltungen = await fetch('/data/tbl_veranstaltungen-merged.json', { signal: ac.signal }).then(r => r.json());
-            let dozierende     = await fetch('/data/tbl_dozenten.json', { signal: ac.signal }).then(r => r.json());
+            // Fakultätsliste
+            let alleFakultaeten = Array.from(new Set([
+              ...veranstaltungen.map(v => v.fak).filter(Boolean),
+              ...dozierende.map(d => d.fak).filter(Boolean),
+            ])).sort((a, b) => a.localeCompare(b))
 
-            // Fakultätsliste (Set, alphabetisch)
-            let alleFakultaeten = new Set();
-            veranstaltungen.forEach(v => v.fak && alleFakultaeten.add(v.fak));
-            dozierende.forEach(d => d.fak && alleFakultaeten.add(d.fak));
-            alleFakultaeten = Array.from(alleFakultaeten).sort((a, b) => a.localeCompare(b));
-
-            let searchIndex = [
+            const searchIndex = [
               ...veranstaltungen
               .filter(v => !v.typ || v.typ === "veranstaltung")
               .map(v => ({
@@ -41,7 +37,7 @@ export default function SucheClient() {
               })),
             ];
 
-            let miniSearch = new MiniSearch({
+            const miniSearch = new MiniSearch({
               fields: ['hauptfeld'],
               storeFields: [
                 'typ', 'url', 'thema', 'nachname', 'vorname', 'fak', 'zusatz',
@@ -49,7 +45,7 @@ export default function SucheClient() {
               ],
               searchOptions: { prefix: true, fuzzy: 0.2 }
             });
-            console.log(searchIndex)
+            //console.log(searchIndex)
             miniSearch.addAll(searchIndex);
 
             // Baue die UI in das nodeRef.current rein
@@ -172,24 +168,14 @@ export default function SucheClient() {
             }
             
         } catch (err) {
-            if (err.name === 'AbortError') return
-            console.error('SucheClient load error:', err)
+            console.error('SucheClient init error:', err)
             const root = nodeRef.current
             if (root && !cancelled) {
-              root.innerHTML = `<p class="Text--error">Fehler beim Laden der Suche. Bitte neu laden.</p>`
+                root.innerHTML = `<p class="Text--error">Fehler beim Laden der Suche. Bitte neu laden.</p>`
             }
-        } finally {
-            if (!cancelled) {
-              document.dispatchEvent(new CustomEvent('sucheclient:ready'))
-            }
-        }
-    }
-    loadData();
-    return () => {
-      cancelled = true
-      ac.abort()
-    }
-  }, []);
+        }  
+        return () => { cancelled = true }
+    }, [veranstaltungen, dozierende])
 
   return <div ref={nodeRef} />
 }

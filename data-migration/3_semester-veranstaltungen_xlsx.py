@@ -5,8 +5,24 @@ import sys
 import re
 import os
 import hashlib
+import math
 
 veranstaltungen_json = os.path.expanduser("~/gitlab-repositories/histvv-2025/data/tbl_veranstaltungen-ab-1900w.json")
+
+def get_cell(row, i):
+    # Liefert None zurück, wenn Spalte i nicht existiert
+    return row.iloc[i] if i < len(row) else None
+
+def clean(cell):
+    if cell is None:
+        return ""
+    # echte NaN (float) erkennen
+    if isinstance(cell, float) and math.isnan(cell):
+        return ""
+    s = str(cell).strip()
+    if s == "" or s.lower() in {"nan", "na", "n/a", "null", "none", "-"}:
+        return ""
+    return s
 
 def get_semester_id_from_filename(filename):
     m = re.match(r"(\d{4})_(Winter|Sommer)", filename)
@@ -15,10 +31,9 @@ def get_semester_id_from_filename(filename):
     year, halbjahr = m.groups()
     return f"{year}{'w' if halbjahr == 'Winter' else 's'}"
 
-def make_unique_id(semester_id, vorlesungsnummer, thema, zusatz):
-    basis = f"{semester_id}{vorlesungsnummer}{thema}{zusatz}"
-    hash_part = hashlib.sha1(basis.encode("utf-8")).hexdigest()[:8]
-    return f"{hash_part}"
+def make_unique_id(semester_id, vorlesungsnummer, thema, zusatz, dozid):
+    basis = f"{semester_id}{vorlesungsnummer}{thema}{zusatz}{dozid}"
+    return hashlib.sha1(basis.encode("utf-8")).hexdigest()[:8]
 
 def process_xlsx_file(filepath):
     semester_id = get_semester_id_from_filename(filepath.stem)
@@ -30,36 +45,42 @@ def process_xlsx_file(filepath):
 
     veranstaltungen = []
     for idx, row in df.iterrows():
-        fak = str(row[4]).strip() if pd.notnull(row[4]) else ""
-        thema = str(row[5]).strip() if pd.notnull(row[5]) else ""
-        zusatz = str(row[6]).strip() if pd.notnull(row[6]) else ""
-        vorlesungsnummer = str(row[3]).strip() if pd.notnull(row[3]) else ""
+        fak    = clean(get_cell(row, 4))
+        thema  = clean(get_cell(row, 5))
+        zusatz = clean(get_cell(row, 6))
+        vorlesungsnummer = clean(get_cell(row, 3))
         vorlesungsnummer_without_dot = vorlesungsnummer.rstrip(".")
-        id_veranstaltung = f"v-{make_unique_id(semester_id, vorlesungsnummer, thema, zusatz)}"
 
         # Dozenten-Array aufbauen (max. 3)
         dozenten = []
         # 1. Dozent (id, grad, funktion)
-        if pd.notnull(row[7]) and row[7].strip():
+        id1 = clean(get_cell(row, 7))
+        if id1:
             dozenten.append({
-                "id_dozent": str(row[7]).strip(),
-                "grad": str(row[8]).strip() if pd.notnull(row[8]) else "",
-                "funktion": str(row[9]).strip() if pd.notnull(row[9]) else ""
+                "id_dozent": id1,
+                "grad":      clean(get_cell(row, 8)),
+                "funktion":  clean(get_cell(row, 9)),
             })
+
         # 2. Dozent (id, grad, KEINE funktion)
-        if len(row) > 10 and pd.notnull(row[10]) and row[10].strip():
+        id2 = clean(get_cell(row, 10))
+        if id2:
             dozenten.append({
-                "id_dozent": str(row[10]).strip(),
-                "grad": str(row[11]).strip() if pd.notnull(row[11]) else "",
-                "funktion": ""
+                "id_dozent": id2,
+                "grad":      clean(get_cell(row, 11)),
+                "funktion":  "",
             })
+
         # 3. Dozent (id, grad, KEINE funktion)
-        if len(row) > 12 and pd.notnull(row[12]) and row[12].strip():
+        id3 = clean(get_cell(row, 12))
+        if id3:
             dozenten.append({
-                "id_dozent": str(row[12]).strip(),
-                "grad": str(row[13]).strip() if pd.notnull(row[13]) else "",
-                "funktion": ""
+                "id_dozent": id3,
+                "grad":      clean(get_cell(row, 13)),
+                "funktion":  "",
             })
+
+        id_veranstaltung = f"v-{make_unique_id(semester_id, vorlesungsnummer, thema, zusatz, id1)}"
 
         veranstaltungen.append({
             "typ": "veranstaltung",

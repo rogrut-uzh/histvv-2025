@@ -3,10 +3,19 @@ import DefaultLayout from '~/layouts/DefaultLayout.astro';
 import Breadcrumb from "~/components/page/Breadcrumb.astro";
 import MetaHead from "~/components/page/MetaHead.astro";
 import SectionTextPict from "~/components/page/SectionTextPict.astro";
+import loadJson from '~/lib/loadJson.js'
 import SucheClient from '~/components/SucheClient.jsx';
 
 import { pageinfo } from '~/constants.ts';
 const page_title = "Suche in HistVV";
+
+let veranstaltungen = [], dozierende = []
+try {
+  veranstaltungen = await loadJson('data/tbl_veranstaltungen-merged.json')
+  dozierende      = await loadJson('data/tbl_dozenten.json')
+} catch (e) {
+  console.error('JSON load error:', e)
+}
 
 const breadcrumb = [
   { label: "Home", href: "/" },
@@ -22,37 +31,16 @@ const breadcrumb = [
         description={`${pageinfo.description}`}
     />
 
-    <Fragment slot="head">
-      <link rel="preload" as="fetch" href="/data/tbl_veranstaltungen-merged.json" crossorigin>
-      <link rel="preload" as="fetch" href="/data/tbl_dozenten.json" crossorigin>
-
-      <style>
-        .spinner-wrap { display:flex; align-items:center; gap:.5rem; padding:.5rem 0; }
-        .spinner {
-          width: 1.25rem; height: 1.25rem;
-          border: .2rem solid #ddd; border-top-color: #555;
-          border-radius: 50%; animation: spin 1s linear infinite;
-        }
-        .spinner-text { color:#666; font-size:.95rem; }
-        @keyframes spin { to { transform: rotate(360deg); } }
-      </style>
-
-      <script is:inline>
-        const removeSpinner = () => document.getElementById('sucheclient-spinner')?.remove();
-        document.addEventListener('sucheclient:ready', removeSpinner, { once: true });
-      </script>
-    </Fragment>
 
     <SectionTextPict>
         <h1>{page_title}</h1>
 
-        <!-- SSR-Spinner -->
-        <div id="sucheclient-spinner" class="spinner-wrap" aria-live="polite" aria-busy="true">
-          <div class="spinner" role="status" aria-label="Suche wird geladen"></div>
-          <span class="spinner-text">Lade Suche…</span>
-        </div>
-      
-        <SucheClient client:only="react" />
+        <!-- React-Client bekommt die Daten als Props -->
+        <SucheClient
+          client:visible
+          veranstaltungen={veranstaltungen}
+          dozierende={dozierende} />
+          
     </SectionTextPict>
 
 </DefaultLayout>
