@@ -28,7 +28,6 @@ build_test:
     set -euo pipefail
     SITE_URL="https://histvv-2025.t01.cs.zi.uzh.ch"
     [ -n "$SITE_URL" ] || { echo "SITE_URL is empty"; exit 1; }
-
     /kaniko/executor \
       --context "${CI_PROJECT_DIR}" \
       --dockerfile "${CI_PROJECT_DIR}/Dockerfile" \
@@ -47,13 +46,11 @@ build_prod:
     set -euo pipefail
     SITE_URL="https://histvv-2025.p01.cs.zi.uzh.ch"
     [ -n "$SITE_URL" ] || { echo "SITE_URL is empty"; exit 1; }
-
     /kaniko/executor \
       --context "${CI_PROJECT_DIR}" \
       --dockerfile "${CI_PROJECT_DIR}/Dockerfile" \
       --build-arg SITE_URL="$SITE_URL" \
       --destination "$IMG_COMMIT"
-
 
 container_scanning:
   stage: test
