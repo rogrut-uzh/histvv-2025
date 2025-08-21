@@ -1,12 +1,12 @@
 stages:
-  - build-and-push
+  - build
   - test
 
 variables:
   SITE_URL: "https://histvv-2025.t01.cs.zi.uzh.ch"
-  TAG_LATEST: $CI_REGISTRY_IMAGE:latest
-  TAG_BRANCH: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
-  TAG_COMMIT: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
+  IMAGE: $CI_REGISTRY_IMAGE
+  TAG_COMMIT: $CI_COMMIT_SHORT_SHA
+  IMG_COMMIT: $IMAGE:$TAG_COMMIT
 
 workflow:
   rules:
@@ -21,19 +21,24 @@ container_scanning:
   stage: test
   needs: ["build_and_push"]
   variables:
-    CS_IMAGE: $TAG_LATEST
+    CS_IMAGE: $IMG_COMMIT    # scanne exakt das gebaute Commit-Image
+  rules:
+    - if: $CI_COMMIT_TAG
+    - if: $CI_COMMIT_BRANCH
 
 build_and_push:
-  stage: build-and-push
+  stage: build
   image:
     name: gcr.io/kaniko-project/executor:v1.23.2-debug
     entrypoint: [""]
   script:
     - /kaniko/executor
       --context "${CI_PROJECT_DIR}"
-      --build-arg SITE_URL=$SITE_URL
       --dockerfile "${CI_PROJECT_DIR}/Dockerfile"
-      --destination $TAG_COMMIT
-      --destination $TAG_BRANCH
-      --destination $TAG_LATEST
-
+      --build-arg SITE_URL=$SITE_URL
+      --destination "$IMG_COMMIT"                        # immer: <repo>:<shortsha>
+      --destination "$IMAGE:$CI_COMMIT_REF_NAME"         # optional: <repo>:<branch> (nicht zum Deploy nutzen)
+      ${CI_COMMIT_TAG:+--destination "$IMAGE:$CI_COMMIT_TAG"}  # nur bei Git-Tag zusätzlich :<tag>
+  rules:
+    - if: $CI_COMMIT_TAG      # läuft bei Tag-Pipelines (z.B. 0.9)
+    - if: $CI_COMMIT_BRANCH   # läuft bei normalen Branch-Pipelines (main/test)
