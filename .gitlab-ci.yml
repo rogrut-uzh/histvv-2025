@@ -3,7 +3,6 @@ stages:
   - test
 
 variables:
-  SITE_URL: "https://histvv-2025.t01.cs.zi.uzh.ch"
   IMAGE: $CI_REGISTRY_IMAGE
   TAG_COMMIT: $CI_COMMIT_SHORT_SHA
   IMG_COMMIT: $IMAGE:$TAG_COMMIT
@@ -17,35 +16,43 @@ workflow:
 include:
   - template: Jobs/Container-Scanning.gitlab-ci.yml
 
-build_and_push:
+# ===== Test-Image =====
+build_test:
   stage: build
   image:
     name: gcr.io/kaniko-project/executor:v1.23.2-debug
     entrypoint: [""]
-  script:
-    - |
-      EXTRA_DEST=""
-      if [ -n "$CI_COMMIT_TAG" ]; then
-        EXTRA_DEST="--destination $IMAGE:$CI_COMMIT_TAG"
-      fi
-
-      /kaniko/executor \
-        --context "${CI_PROJECT_DIR}" \
-        --dockerfile "${CI_PROJECT_DIR}/Dockerfile" \
-        --build-arg SITE_URL="$SITE_URL" \
-        --destination "$IMG_COMMIT" \
-        --destination "$IMAGE:$CI_COMMIT_REF_NAME" \
-        $EXTRA_DEST
   rules:
-    - if: $CI_COMMIT_TAG
-    - if: $CI_COMMIT_BRANCH
+    - if: '$CI_COMMIT_BRANCH == "test"'
+  script: |
+    SITE_URL="https://histvv-2025.t01.cs.zi.uzh.ch"
+    /kaniko/executor \
+      --context "${CI_PROJECT_DIR}" \
+      --dockerfile "${CI_PROJECT_DIR}/Dockerfile" \
+      --build-arg SITE_URL="$SITE_URL_TEST" \
+      --destination "$IMG_COMMIT"
+
+# ===== Prod-Image =====
+build_prod:
+  stage: build
+  image:
+    name: gcr.io/kaniko-project/executor:v1.23.2-debug
+    entrypoint: [""]
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+  script: |
+    SITE_URL="https://histvv-2025.p01.cs.zi.uzh.ch"
+    /kaniko/executor \
+      --context "${CI_PROJECT_DIR}" \
+      --dockerfile "${CI_PROJECT_DIR}/Dockerfile" \
+      --build-arg SITE_URL="$SITE_URL_PROD" \
+      --destination "$IMG_COMMIT"
 
 container_scanning:
   stage: test
-  needs: ["build_and_push"]
+  needs: ["build_prod", "build_test"]
   variables:
-    CS_IMAGE: $IMG_COMMIT
+    CS_IMAGE: $IMG_COMMIT   # scanne exakt das Commit-Image
   rules:
-    - if: $CI_COMMIT_TAG
-    - if: $CI_COMMIT_BRANCH
-
+    - if: '$CI_COMMIT_BRANCH == "main"'
+    - if: '$CI_COMMIT_BRANCH == "test"'
