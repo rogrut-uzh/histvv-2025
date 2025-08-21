@@ -54,9 +54,13 @@ build_prod:
 
 container_scanning:
   stage: test
-  needs: ["build_prod", "build_test"]
+  needs:
+    - job: build_prod
+      optional: true
+    - job: build_test
+      optional: true
   variables:
-    CS_IMAGE: $IMG_COMMIT   # scanne exakt das Commit-Image
+    CS_IMAGE: $IMG_COMMIT
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
-    - if: '$CI_COMMIT_BRANCH == "test"' 
+    - if: '$CI_COMMIT_BRANCH == "test"'
