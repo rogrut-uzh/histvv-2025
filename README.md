@@ -16,10 +16,9 @@ Die [vorherige Version der Website](https://gitlab.uzh.ch/histvv) wurde unter Ve
 
 ### Themenübersicht
 
-1) Aufbereitung der Rohdaten nach JSON
-2) Installation Lokal
-3) GitLab CI/CD-Pipeline
-4) K8s Deployment
+  - Aufbereitung der Rohdaten nach JSON
+  - Installation Lokal
+  - UZH Cloud
 
 ---
 
@@ -63,7 +62,7 @@ Das JSON Resultat wird unter `/data/tbl_dozenten.json` abgelegt.
 Aufruf:
 
 ```
-$ python3 1_dozenten_xml-and-xlsx.py ~/gitlab-repositories/histvv-2025/data-migration/xml_1833-1900/dozenten.xml ~/gitlab-repositories/histvv-2025/data-migration/xlsx_1900-/Dozierendenverzeichnis.xlsx
+python3 1_dozenten_xml-and-xlsx.py ~/gitlab-repositories/histvv-2025/data-migration/xml_1833-1900/dozenten.xml ~/gitlab-repositories/histvv-2025/data-migration/xlsx_1900-/Dozierendenverzeichnis.xlsx
 
 JSON geschrieben: /home/rogrut/gitlab-repositories/histvv-2025/data/tbl_dozenten.json
 ```
@@ -76,7 +75,7 @@ Das Script `2_semester-header_xml.py` verlangt 1 Parameter:
 
   - Vollständiger Pfad zum Ordner, der die Semester-XML-Dateien enthält
   
-Das JSON Resultat wird unter `/data/tbl_semester_header.json` abgelegt.
+Das JSON Resultat wird unter `data/tbl_semester_header.json` abgelegt.
 
 Aufruf:
 
@@ -94,7 +93,7 @@ Das Script `3_semester-veranstaltungen_xml.py` verlangt 1 Parameter:
 
   - Vollständiger Pfad zum Ordner, der die Semester-XML-Dateien enthält
   
-Das JSON Resultat wird unter `/data/tbl_veranstaltungen.json` abgelegt.
+Das JSON Resultat wird unter `data/tbl_veranstaltungen.json` abgelegt.
 
 #### Semester-Veranstaltungen (XLSX)
 
@@ -102,11 +101,24 @@ Das Script `3_semester-veranstaltungen_xlsx.py` verlangt 1 Parameter:
 
   - Vollständiger Pfad zum Ordner, der die Semester-XML-Dateien enthält
   
-Das JSON Resultat wird unter `/data/tbl_veranstaltungen-ab-1900w.json` abgelegt.
+Das JSON Resultat wird unter `data/tbl_veranstaltungen-ab-1900w.json` abgelegt.
+
+
+#### Merge Semester-Veranstaltungen
+
+Zuletzt werden die beiden Semester-JSON `tbl_veranstaltungen.json` und `tbl_veranstaltungen-ab-1900w.json` in eine einzige Datei zusammengeführt.
+
+Aufruf:
+
+```
+python3 4_semester-veranstaltungen_merge.py --sort
+```
+
+Das JSON Resultat wird unter `data/tbl_veranstaltungen-merged.json` abgelegt. Die Quelldateien werden anschliessend gelöscht. Mit dem `--keep` Parameter werden sie behalten.
 
 ---
 
-## Lokal; docker compose
+## Lokal - docker compose
 
 ### Projektbeginn
 
@@ -181,15 +193,17 @@ Die HTML-Seite ist unter `/usr/share/nginx/html`
 
 ---
 
-## GitLab CI/CD-Pipeline
+## UZH Cloud
 
-Wie in `.gitlab-ci.yml` definiert, wird das Container Image erstellt und in der GitLab Registry abgespeichert. Danach wird das Image noch auf Schwachstellen gescannt.
+Es gibt eine Cloud __Test-Umgebung__ und ein Cloud __Prod-Umgebung__. Für jede Umgebung ist ein __eigenes Container Image__ vorgesehen. In diesem Projekt ist dies mit __unterschiedlichen Branches__ gelöst. Auf dem `main` Git Branch ist die Version ist die Prod-Website. Im `test` Branch kann parallel dazu weiter entwickelt werden, respektive lokal gemachte Anpassungen können in der Cloud Test-Umgebung anderen Personen zur Vorschau gezeigt werden.
 
-Falls auf GitLab nur Dateien aktualisiert werden sollen, ohne Auslösen der CI/CD Pipeline, kann in der Commit Message am Ende `-nodeployement` angegeben werden. Bsp.: `git commit -m "Update Readme -nodeployment"`
+### GitLab CI/CD-Pipeline
 
----
+Gemäss Definition in `.gitlab-ci.yml`, wird das Container Image erstellt und in der GitLab Registry abgespeichert. Danach wird das Image noch auf Schwachstellen gescannt.
 
-## Deployment in UZH Cloud (K8s)
+Hinweis: Falls auf GitLab nur Dateien aktualisiert werden sollen, ohne Auslösen der CI/CD Pipeline, kann in der Commit Message am Ende `-nodeployement` angegeben werden. Bsp.: `git commit -m "Update Readme -nodeployment"`
+
+### Deployment in UZH Cloud (K8s)
 
 ### Test-Cluster
 
@@ -201,6 +215,21 @@ Website: http://histvv-2025.t01.cs.zi.uzh.ch
 
 folgt... noch nicht umgesetzt.
 
-## Geschäft zur neuen HistVV Website im GEVER
+### Deployment
+
+  1. Aktueller Stand vom `helm-charts` Repository holen: `cd ~/gitlab-repositories/helm-charts && git pull`
+  2. Anpassung an `~/gitlab-repositories/helm-charts/argocd/zicstest01api.uzh.ch/zi-iti-dba/histvv.yaml` vornehmen. Und zwar muss in der Zeile `image` der SHORT_SHA Tag des soeben erstellten Containers in GitLab geändert werden (die letzten 8 Stellen nach dem Doppelpunkt).
+    ```
+    helm:
+      values: |-
+        image: cr.gitlab.uzh.ch/dba/histvv-2025:3a8f1a30 
+    ```
+  3. Datei speichern
+  4. Commit und Push: `git add . && git commit -m "new version" && git push`
+  5. Nach ein paar Minuten ist die Website deployed. [Man kann ArgoCD auch dabei zuschauen](https://argocd.t01.cs.zi.uzh.ch/applications/custom-infra-argocd/histvv-2025-test?view=tree&resource=)
+
+---
+
+## CMI Geschäft zur neuen HistVV Website
 
 2019-67: Historisches Vorlesungsverzeichnis HistVV: Erweiterung Datenbank ab 1900/1901
