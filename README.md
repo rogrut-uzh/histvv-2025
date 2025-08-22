@@ -219,11 +219,11 @@ folgt... noch nicht umgesetzt.
 
   1. Aktueller Stand vom `helm-charts` Repository holen: `cd ~/gitlab-repositories/helm-charts && git pull`
   2. Anpassung an `~/gitlab-repositories/helm-charts/argocd/zicstest01api.uzh.ch/zi-iti-dba/histvv.yaml` vornehmen. Und zwar muss in der Zeile `image` der SHORT_SHA Tag des soeben erstellten Containers in GitLab geändert werden (die letzten 8 Stellen nach dem Doppelpunkt).
-    ```
-    helm:
-      values: |-
-        image: cr.gitlab.uzh.ch/dba/histvv-2025:3a8f1a30 
-    ```
+```
+helm:
+  values: |-
+    image: cr.gitlab.uzh.ch/dba/histvv-2025:3a8f1a30 
+```
   3. Datei speichern
   4. Commit und Push: `git add . && git commit -m "new version" && git push`
   5. Nach ein paar Minuten ist die Website deployed. [Man kann ArgoCD auch dabei zuschauen](https://argocd.t01.cs.zi.uzh.ch/applications/custom-infra-argocd/histvv-2025-test?view=tree&resource=)
