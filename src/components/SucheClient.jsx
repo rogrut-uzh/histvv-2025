@@ -143,7 +143,7 @@ export default function SucheClient({ veranstaltungen = [], dozierende = [] }) {
                       '<div class="such-treffer dozierender">' +
                         '<span class="pill">Dozierende(r):</span>' +
                         '<a href="' + result.url + '">' +
-                          result.nachname + ', ' + result.vorname +
+                          result.nachname + (result.vorname ? ', ' + result.vorname : '') +
                           (result.fak ? ' <span class="grautext">(' + result.fak + ')</span>' : '') +
                         '</a>' +
                       '</div>'

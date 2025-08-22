@@ -48,27 +48,21 @@ const breadcrumb = [
             </tr>
           </thead>
           <tbody>
-            {dozierende.map((d) => (
-            <tr>
-              <td>
-                <a href={`/dozierende/${d.id_dozent}/`}>
-                  {d.nachname}, {d.vorname}
-                </a>
-              </td>
-              <td>
-                  {d.geboren}
-              </td>
-              <td>
-                  {d.gestorben || d.gestorben || ""}
-              </td>
-              <td>
-                  {d.fak || ""}
-              </td>
-              <td>
-                  {d.berufung || ""}
-              </td>
-            </tr>
-            ))}
+            {dozierende.map((d) =>
+              d.id_dozent !== "vakant" && (
+                <tr key={d.id_dozent}>
+                  <td>
+                    <a href={`/dozierende/${d.id_dozent}/`}>
+                      {d.nachname}, {d.vorname}
+                    </a>
+                  </td>
+                  <td>{d.geboren || ""}</td>
+                  <td>{d.gestorben || ""}</td>
+                  <td>{d.fak || ""}</td>
+                  <td>{d.berufung || ""}</td>
+                </tr>
+              )
+            )}
           </tbody>
         </table>
     </SectionTextPict>

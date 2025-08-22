@@ -116,26 +116,36 @@ const breadcrumb = [
           ) : (
             <p id={`${v.id_veranstaltung}`} key={v.id_veranstaltung}>
               {v.vorlesungsnummer}
-              {Array.isArray(v.dozenten) && v.dozenten.length > 0 ? (
-                v.dozenten.map((d, idx) => {
-                  const dozentDetails = dozentenById[d.id_dozent] || {};
-                  return (
-                    <>
-                      {idx > 0 && ', '}
-                      <a class="Link" href={`/dozierende/${d.id_dozent}`}>
-                        {dozentDetails.nachname}, {dozentDetails.vorname}
-                      </a>
-                      {(d.grad || d.funktion) && (
-                        <span style="color:#888;">
-                          ({[d.grad, d.funktion].filter(Boolean).join(", ")})
-                        </span>
-                      )}
-                    </>
-                  );
-                })
-              ) : (
-                <>Ohne Dozentenangabe</>
-              )}
+{Array.isArray(v.dozenten) && v.dozenten.length > 0 ? (
+  v.dozenten.map((d, idx) => {
+    const dozentDetails = dozentenById[d.id_dozent] || {};
+
+    if (d.id_dozent === "vakant") {
+      return (
+        <a class="Link" href={`/dozierende/${d.id_dozent}`}>
+          {dozentDetails.nachname}
+        </a>
+      );
+    }
+
+    return (
+      <span key={d.id_dozent}>
+        {idx > 0 && ', '}
+        <a class="Link" href={`/dozierende/${d.id_dozent}`}>
+          {dozentDetails.nachname}, {dozentDetails.vorname}
+        </a>
+        {(d.grad || d.funktion) && (
+          <span style="color:#888;">
+            ({[d.grad, d.funktion].filter(Boolean).join(", ")})
+          </span>
+        )}
+      </span>
+    );
+  })
+) : (
+  <>Ohne Dozentenangabe</>
+)}
+
               <br />
               <strong>{v.thema}</strong><br />
               {v.thema_anmerkung && <>Anmerkung: {v.thema_anmerkung}<br /></>}
