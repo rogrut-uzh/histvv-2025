@@ -1,28 +1,55 @@
 # HistVV-2025
 
-## Data Migration
+Diese README beschreibt den Unterhalt der Website "Historische Vorlesungsverzeichnisse der Universiät Zürich" (aka HistVV). 
 
-Damit die Webapp die Daten korrekt einlesen kann, müssen die Quelldaten aufbereitet werden. Dies ist zur Zeit noch ein manueller Task. Die bis 2025 bestehenden Daten wurden der BaseX Datenbank entnommen und liegen entsprechend als XML vor. 
+## Übersicht
 
-Die Semester ab Winter 1900 werden neu in Excel gepflegt. Ebenso die aktualisierte Dozierendenliste.
+Die [vorherige Version der Website](https://gitlab.uzh.ch/histvv) wurde unter Verwendung der im Projekt [Historische Vorlesungsverzeichnisse der Universität Leipzig](http://histvv.uni-leipzig.de/) entwickelten Software erstellt. Die Daten lagen im XML Format. Die Website griff darauf über eine BaseX Datenbank zu. Die Vorlesungsverzeichnisse lagen in den Jahren 1833 bis 1900 vor. 2025 entschied sich das Archi-Team, weitere Jahre zu veröffentlichen. Der Unterhalt der alten Website gestaltete sich als schwierig, vorallem weil es kein Support seitens externem Programmierer mehr gab. Es wurde entschieden, die Website komplett neu zu erstellen, unter Berücksichtigung des aktuellen UZH Styleguides, und mit Deployment nach der UZH Cloud. Die Rohdaten der alten Website (XML) können dabei, mit einem Migrationsschritt, gleich weiterverwendet werden. Die Website-URL ist https://histvv.uzh.ch.
 
-Diese Formate müssen in JSON umgewandelt werden. 
+### Verwendete Technik
 
-Die Daten werden vom Team Archiv UZH bearbeitet.
+  - Datenaufbereitung: Python 3
+  - Website: [Astro Framework](https://astro.build/)
+  - Docker mit Docker Compose
+  - Git, GitLab Ci/CD
+  - ArgoCD Manifest für K8s
 
-### XML
+### Themenübersicht
 
-  - Semester: `/data-migration/xml_1833-1900/1833s.xml [...] 1900s.xml`
+1) Aufbereitung der Rohdaten nach JSON
+2) Installation Lokal
+3) GitLab CI/CD-Pipeline
+4) K8s Deployment
+
+---
+
+## Aufbereitung der Rohdaten
+
+Die Rohdaten (Vorlesungsverzeichnis, Dozierende u.a.) liegen in zwei verschiedenen Formaten vor. 
+
+### Die "alten" Rohdaten 
+
+  - als XML
+  - Wurden von der alten Website übernommen und bleiben unverändert
+  - Ablageort: [data-migration/xml_1833-1900/](data-migration/xml_1833-1900/)
+  - Semester: `/data-migration/xml_1833-1900/1833s.xml [...] /data-migration/xml_1833-1900/1900s.xml`
   - Dozierende: `/data-migration/xml_1833-1900/dozenten.xml`
 
-### XLSX
 
+### Die "neuen" Rohdaten (ab 1900) 
+
+  - als XLSX. 
+  - Bearbeitung durch Team Archiv UZH bearbeitet
+  - Ablageort (immer aktuell): `\\Idnas32\g_archiv_temprepository$\TEMP REPOSITORY\VVZ 1833-2014\_WEB` \
+    Müssen bei Bedarf nach [data-migration/xlsx_1900-/](data-migration/xlsx_1900-/) kopiert werden
   - Semester: `/data-migration/xlsx_1900-/1900_Winter.xlsx [...]`
   - Dozierende: `/data-migration/xlsx_1900-/Dozierendenverzeichnis.xlsx`
 
 ### Umwandlung in JSON
 
-Die JSON-Dateien werden mit Python Scripts erstellt und gleich am korrekten Ort unter `/data/` abgelegt.
+Die Website zieht die Daten nicht aus einer Datenbank. Die Webseiten werden beim Build-Prozess "gebacken", wobei die Rohdaten zuerst in JSON umgewandelt werden müssen.
+Die JSON-Dateien werden mit Python Scripts erstellt und gleich am korrekten Ort unter [data/](data/) abgelegt.
+
 
 #### Dozierende
 
