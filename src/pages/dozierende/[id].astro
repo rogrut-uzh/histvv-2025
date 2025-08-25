@@ -85,11 +85,18 @@ else if (dozent.wikidata) {
 const breadcrumb = [
   { label: "Home", href: "/" },
   { label: "Dozierende", href: "/dozierende/" },
-  { label: `${dozent.nachname}, ${dozent.vorname}`, href: `/dozierende/${dozent.id_dozent}/` }
+  { 
+    label: dozent.vorname 
+      ? `${dozent.nachname}, ${dozent.vorname}` 
+      : dozent.nachname, 
+    href: `/dozierende/${dozent.id_dozent}/` 
+  }
 ];
 
 import { pageinfo } from '~/constants.ts';
-const page_title = `${dozent.nachname}, ${dozent.vorname}`;
+const page_title = dozent.vorname 
+  ? `${dozent.nachname}, ${dozent.vorname}` 
+  : dozent.nachname;
 ---
 
 
@@ -172,13 +179,8 @@ const page_title = `${dozent.nachname}, ${dozent.vorname}`;
             ))}
         </p>
       )}
-    </>
-  ) : (
-    <>
-      <h1>Vakant</h1>
-      <p>Zum Zeitpunkt des Drucks waren die Dozierenden noch nicht bekannt.</p>
-    </>
-  )}
+      
+      
 
   <h2>Veranstaltungen</h2>
   <table class="tablesorter">
@@ -226,5 +228,13 @@ const page_title = `${dozent.nachname}, ${dozent.vorname}`;
       })}
     </tbody>
   </table>
+    </>
+  ) : (
+    <>
+      <h1>Vakant</h1>
+      <p>Zum Zeitpunkt des Drucks waren die Dozierenden noch nicht bekannt.</p>
+    </>
+  )}
+
 </SectionTextPict>
 </DefaultLayout>
