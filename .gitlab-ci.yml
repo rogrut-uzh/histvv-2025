@@ -65,27 +65,30 @@ build_prod:
     DEST1: "latest"
     DEST2: "$TAG_SHA"
 
-container_scanning:
+# --- Container Scanning aus Template für TEST ---
+scan_test:
+  extends: container_scanning          # kommt aus include: Jobs/Container-Scanning.gitlab-ci.yml
   stage: test
-  needs:
-    - job: build_test
-      optional: true
-    - job: build_prod
-      optional: true
+  needs: ["build_test"]                # wartet auf das Test-Image
   rules:
-    # Auf "test": das versionsierte Test-Tag scannen
     - if: '$CI_COMMIT_BRANCH == "test"'
-      variables:
-        CS_IMAGE: "$IMAGE:$TEST_TAG"
-    # Auf "main": das "latest"-Tag scannen (oder wechsle auf $PROD_TAG, wenn du das bevorzugst)
-    - if: '$CI_COMMIT_BRANCH == "main"'
-      variables:
-        CS_IMAGE: "$IMAGE:$PROD_LATEST"
-    - when: never
   variables:
-    # Kein Checkout nötig (verhindert die Remediation-Warnung kannst du auf fetch setzen, wenn Remediation gewünscht)
+    GIT_STRATEGY: none                 # wir brauchen keinen Checkout
+    CS_IMAGE: "$IMAGE:$TEST_TAG"       # alternativ: "$IMAGE:$TEST_LATEST"
+    CS_REGISTRY: "$CI_REGISTRY"
+    CS_REGISTRY_USER: "$CI_REGISTRY_USER"
+    CS_REGISTRY_PASSWORD: "$CI_JOB_TOKEN"
+
+# --- Container Scanning aus Template für PROD ---
+scan_prod:
+  extends: container_scanning
+  stage: test
+  needs: ["build_prod"]
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+  variables:
     GIT_STRATEGY: none
-    # explizit Auth für private Registry
+    CS_IMAGE: "$IMAGE:$PROD_LATEST"    # alternativ: "$IMAGE:$PROD_TAG"
     CS_REGISTRY: "$CI_REGISTRY"
     CS_REGISTRY_USER: "$CI_REGISTRY_USER"
     CS_REGISTRY_PASSWORD: "$CI_JOB_TOKEN"
