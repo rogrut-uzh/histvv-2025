@@ -3,10 +3,12 @@ stages:
   - test
 
 variables:
-  # GitLab setzt diese automatisch:
-  # CI_REGISTRY, CI_REGISTRY_IMAGE, CI_COMMIT_SHORT_SHA, CI_COMMIT_BRANCH, ...
   IMAGE: $CI_REGISTRY_IMAGE
-  TAG_SHA: $CI_COMMIT_SHORT_SHA
+  # Tags, die wir im Build setzen
+  TEST_TAG: "test-$CI_COMMIT_SHORT_SHA"
+  TEST_LATEST: "test"
+  PROD_TAG: "main-$CI_COMMIT_SHORT_SHA"
+  PROD_LATEST: "latest"
 
 workflow:
   rules:
