@@ -15,6 +15,9 @@ workflow:
       when: never
     - when: always
 
+include:
+  - template: Jobs/Container-Scanning.gitlab-ci.yml
+
 # Hilfsjob: baut ein Image mit Kaniko und pusht zu den angegebenen Destination-Tags
 .build_with_kaniko:
   stage: build
@@ -63,25 +66,18 @@ build_prod:
     DEST1: "latest"
     DEST2: "$TAG_SHA"
 
-# ===== Optional: Container Scanning (kannst du entfernen) =====
 container_scanning:
   stage: test
-  image: registry.gitlab.com/security-products/container-scanning:5
   needs:
     - job: build_prod
       optional: true
     - job: build_test
       optional: true
+  variables:
+    # Das von deinen Build-Jobs erzeugte Image tag
+    CS_IMAGE: $IMAGE:$CI_COMMIT_SHORT_SHA
+    # Optional hilfreiches Debug-Logging
+    SECURE_LOG_LEVEL: "debug"
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
     - if: '$CI_COMMIT_BRANCH == "test"'
-  variables:
-    CS_REGISTRY_USER: "$CI_REGISTRY_USER"
-    CS_REGISTRY_PASSWORD: "$CI_REGISTRY_PASSWORD"
-    CS_IMAGE: "$IMAGE:$TAG_SHA"
-  script:
-    - /analyzer run
-  artifacts:
-    when: always
-    reports:
-      container_scanning: gl-container-scanning-report.json
