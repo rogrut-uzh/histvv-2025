@@ -1,10 +1,19 @@
+---
+import histvvCssUrl from '~/styles/histvv.css?url';                // falls die CSS in src/styles/histvv.css liegt
+import mainNavUrl   from '~/scripts/main-nav-active.js?url';
+import linkTargetUrl from '~/scripts/link-target-highlight.js?url';
+---
 <!DOCTYPE html>
 <html lang="de" data-template="st01">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- UZH CSS (extern, unverändert) -->
     <link rel="stylesheet" href="https://www.uzh.ch/static/magnolia/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/histvv-custom.css?2025-06-18">
+    <!-- deine CSS aus src/… via ?url -->
+    <link rel="stylesheet" href={histvvCssUrl} />
+
     <link rel="modulepreload" href="https://www.uzh.ch/static/magnolia/assets/js/ui.mjs">
     <link rel="preload" href="https://www.uzh.ch/static/magnolia/assets/fonts/WOFF2/SourceSans3-Regular.otf.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="https://www.uzh.ch/static/magnolia/assets/fonts/WOFF2/SourceSans3-Semibold.otf.woff2" as="font" type="font/woff2" crossorigin="anonymous">
@@ -16,15 +25,12 @@
     <meta name="msapplication-config" content="/favicons/browserconfig.xml">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
+
     <slot name='head' />
-    
+
     <script>
-        window.app_config = {
-            language: 'de'
-        };
+        window.app_config = { language: 'de' };
     </script>
-    
-    
 </head>
 
 <body class="template-st01">
@@ -265,10 +271,11 @@
 </footer>
 
 
-
-
+<!-- UZH Scripts (extern) -->
 <script src="https://www.uzh.ch/static/magnolia/assets/js/ui.mjs" type="module"></script>
 <script src="https://www.uzh.ch/static/magnolia/assets/js/ui.js" nomodule defer></script>
+
+
 <template id="template-lightbox">
     <!-- component: Lightbox -->
     <div class="Lightbox">
@@ -393,8 +400,7 @@
     // Important for backend implementation: The revision (second parameter) should change whenever the svg sprite changes, e.g. you can use the modification timestamp of the svg file.
 </script>
 
-<script type="module" src="/client-js/main-nav-active.js"></script>
-<script type="module" src="/client-js/link-target-highlight.js"></script>
-
+<script type="module" src={mainNavUrl}></script>
+<script type="module" src={linkTargetUrl}></script>
 </body>
 </html>

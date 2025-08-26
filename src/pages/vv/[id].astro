@@ -1,77 +1,65 @@
 ---
+export const prerender = false;
+
 import DefaultLayout from '~/layouts/DefaultLayout.astro';
 import Breadcrumb from "~/components/page/Breadcrumb.astro";
 import MetaHead from "~/components/page/MetaHead.astro";
 import SectionTextPict from "~/components/page/SectionTextPict.astro";
-import loadJson from '~/lib/loadJson.js';
 import slugify from '~/lib/slugify.js';
 import { pageinfo } from '~/constants.ts';
+import { isValidSemesterId, normalizeSemesterId, semesterLabel } from '~/lib/semester';
+import { sortFakultaeten } from '~/lib/fakultaet';
+import { esSearch } from '~/server/es';
 
 const page_title = "Vorlesungsverzeichnisse";
 const zeit_trenner = " - ";
 
-export async function getStaticPaths() {
-  try {
-    const veranstaltungen = await loadJson('/data/tbl_veranstaltungen-merged.json');
-    //const veranstaltungen1 = await loadJson('/data/tbl_veranstaltungen.json');
-    //const veranstaltungen2 = await loadJson('/data/tbl_veranstaltungen-ab-1900w.json');
-    //const veranstaltungen = [...veranstaltungen1, ...veranstaltungen2];
-    const semester1 = await loadJson('/data/tbl_semester_header.json');
-    const semester2 = await loadJson('/data/tbl_semester_header-ab-1900w_statisch-erstellt.json');
-    const semester = [...semester1, ...semester2];
-    const dozenten = await loadJson('/data/tbl_dozenten.json');
-
-    const dozentenById = Object.fromEntries(dozenten.map(d => [d.id_dozent, d]));
-
-    return semester.map((sem) => {
-      const veranstaltungen_semester = veranstaltungen.filter(
-        (v) => v.id_semester?.trim() === sem.id_semester?.trim()
-      );
-
-      const veranstaltungenByFakultaet = veranstaltungen_semester.reduce((acc, v) => {
-        if (!v.fak) return acc;
-        (acc[v.fak] ??= []).push(v);
-        return acc;
-      }, {});
-
-      const fakultaetNamen = Object.keys(veranstaltungenByFakultaet).sort((a, b) => a.localeCompare(b));
-
-      return {
-        params: { id: sem.id_semester },
-        props: { sem, veranstaltungenByFakultaet, fakultaetNamen, dozentenById }
-      };
-    });
-  } catch (error) {
-    console.error('Error loading JSON data:', error);
-    return [];
-  }
+// Semester-ID prüfen
+const raw = String(Astro.params.id ?? '').trim();
+if (!isValidSemesterId(raw)) {
+  return new Response('Semester-ID ungültig (z.B. 1910s/1910w)', { status: 404 });
 }
+const semesterId = normalizeSemesterId(raw);
+const sem = { id_semester: semesterId, titel: semesterLabel(semesterId) };
 
-// Props holen
-const { sem, veranstaltungenByFakultaet, fakultaetNamen, dozentenById } = Astro.props;
-
-// Wunsch-Reihenfolge definieren
-const fak_order = [
-  "Theo",
-  "Staat",
-  "Recht",
-  "Medi",
-  "Vete",
-  "Wirts",
-  "Philosophische Fakultät",
-  "Philosophische Fakultät II",
-];
-
-// Index nach Präfix finden
-function getOrderIndex(name) {
-  const i = fak_order.findIndex(prefix => name.startsWith(prefix));
-  return i === -1 ? fak_order.length : i; // Unbekannte ans Ende
+// Daten laden (über esSearch)
+let items: any[] = [];
+try {
+  const { hits } = await esSearch({
+    query: { bool: { filter: [ { term: { typ: 'veranstaltung' } }, { term: { id_semester: semesterId } } ] } },
+    size: 5000,
+    _source: [
+      'id_veranstaltung','typ','fak','thema','id_semester',
+      'vorlesungsnummer','thema_anmerkung','zusatz','zeit','wochenstunden','ort','dozenten',
+      'site_url','url'
+    ]
+  });
+  items = (hits?.hits ?? []).map((h: any) => h._source)
+    .sort((a: any, b: any) =>
+      String(a.fak || '').localeCompare(String(b.fak || '')) ||
+      String(a.thema || '').localeCompare(String(b.thema || ''))
+    );
+} catch (e) {
+  return new Response('Suche nicht erreichbar', { status: 502 });
 }
+if (!items.length) return new Response(`Kein Eintrag für ${sem.titel}`, { status: 404 });
 
-// Sortierte Liste bauen
-const sortedFakultaetNamen = fakultaetNamen.slice().sort(
-  (a, b) => getOrderIndex(a) - getOrderIndex(b)
-);
+// Gruppieren
+const byFak = items.reduce((acc: any, v: any) => {
+  const fak = v?.fak || 'Unbekannte Fakultät';
+  (acc[fak] ??= []).push(v);
+  return acc;
+}, {});
+const sortedFakultaetNamen = sortFakultaeten(Object.keys(byFak));
+
+// Anchor-ID
+function anchorFrom(v: any) {
+  const direct = (v?.id_veranstaltung ?? '').toString().trim();
+  if (direct) return direct;
+  const u = (v?.site_url || v?.url || '').toString();
+  if (u.includes('#')) return u.split('#').pop();
+  return '';
+}
 
 const breadcrumb = [
   { label: "Home", href: "/" },
@@ -89,9 +77,7 @@ const breadcrumb = [
 
   <SectionTextPict>
     <h1>{sem.titel}</h1>
-    {sem.quelle && <p>Quelle: {sem.quelle}</p>}
 
-    {/* Header-Navigation nach Wunsch-Reihenfolge */}
     <div>
       {sortedFakultaetNamen.map((fakname) => (
         <div class="vv-detail-fak">
@@ -110,53 +96,37 @@ const breadcrumb = [
     {sortedFakultaetNamen.map((fakname, i) => (
       <section id={slugify(fakname)}>
         <h2>{fakname}</h2>
-        {veranstaltungenByFakultaet[fakname].map((v, idx) =>
-          v.typ === "absatz" ? (
-            <p class="AbsatzHinweis" key={`absatz-${idx}`}>{v.text}</p>
-          ) : (
-            <p id={`${v.id_veranstaltung}`} key={v.id_veranstaltung}>
-              {v.vorlesungsnummer}
-{Array.isArray(v.dozenten) && v.dozenten.length > 0 ? (
-  v.dozenten.map((d, idx) => {
-    const dozentDetails = dozentenById[d.id_dozent] || {};
 
-    if (d.id_dozent === "vakant") {
-      return (
-        <a class="Link" href={`/dozierende/${d.id_dozent}`}>
-          {dozentDetails.nachname}
-        </a>
-      );
-    }
+        {(byFak[fakname] || []).map((v: any, idx: number) => (
+          <p id={anchorFrom(v)} key={`${fakname}-${idx}`}>
+            {v.vorlesungsnummer ?? ''}
 
-    return (
-      <span key={d.id_dozent}>
-        {idx > 0 && ', '}
-        <a class="Link" href={`/dozierende/${d.id_dozent}`}>
-          {dozentDetails.nachname}, {dozentDetails.vorname}
-        </a>
-        {(d.grad || d.funktion) && (
-          <span style="color:#888;">
-            ({[d.grad, d.funktion].filter(Boolean).join(", ")})
-          </span>
-        )}
-      </span>
-    );
-  })
-) : (
-  <>Ohne Dozentenangabe</>
-)}
+            {Array.isArray(v.dozenten) && v.dozenten.length > 0 ? (
+              v.dozenten.map((d: any, i2: number) => (
+                <span key={`${d.id_dozent ?? i2}`}>
+                  {i2 > 0 && ', '}
+                  <a class="Link" href={`/dozierende/${d.id_dozent ?? 'unbekannt'}`}>
+                    {d.nachname ?? 'N.N.'}{d.vorname ? `, ${d.vorname}` : ''}
+                  </a>
+                  {(d.grad || d.funktion) && (
+                    <span style="color:#888;">
+                      ({[d.grad, d.funktion].filter(Boolean).join(", ")})
+                    </span>
+                  )}
+                </span>
+              ))
+            ) : (<></>)}
 
-              <br />
-              <strong>{v.thema}</strong><br />
-              {v.thema_anmerkung && <>Anmerkung: {v.thema_anmerkung}<br /></>}
-              {v.zusatz && <>{v.zusatz}<br /></>}
-              {v.zeit}
-              {v.zeit && v.wochenstunden && zeit_trenner}
-              {v.wochenstunden && `St ${v.wochenstunden}`}
-              {v.ort && `(${v.ort})`}
-            </p>
-          )
-        )}
+            <br />
+            <strong>{v.thema}</strong><br />
+            {v.thema_anmerkung && <>Anmerkung: {v.thema_anmerkung}<br /></>}
+            {v.zusatz && <>{v.zusatz}<br /></>}
+            {v.zeit}
+            {v.zeit && v.wochenstunden && zeit_trenner}
+            {v.wochenstunden && `St ${v.wochenstunden}`}
+            {v.ort && ` (${v.ort})`}
+          </p>
+        ))}
 
         {i !== sortedFakultaetNamen.length - 1 && (
           <div class="TextImage--topLink inline-toplink">

@@ -3,19 +3,10 @@ import DefaultLayout from '~/layouts/DefaultLayout.astro';
 import Breadcrumb from "~/components/page/Breadcrumb.astro";
 import MetaHead from "~/components/page/MetaHead.astro";
 import SectionTextPict from "~/components/page/SectionTextPict.astro";
-import loadJson from '~/lib/loadJson.js'
-import SucheClient from '~/components/SucheClient.jsx';
-
+import SucheClient from '~/components/search/SucheClient.jsx';
 import { pageinfo } from '~/constants.ts';
-const page_title = "Suche in HistVV";
 
-let veranstaltungen = [], dozierende = []
-try {
-  veranstaltungen = await loadJson('data/tbl_veranstaltungen-merged.json')
-  dozierende      = await loadJson('data/tbl_dozenten.json')
-} catch (e) {
-  console.error('JSON load error:', e)
-}
+const page_title = "Suche in HistVV";
 
 const breadcrumb = [
   { label: "Home", href: "/" },
@@ -34,37 +25,18 @@ const breadcrumb = [
   <SectionTextPict>
     <h1>{page_title}</h1>
 
-    <!-- Loader shown immediately -->
     <div id="search-loader" class="loader-wrap" aria-busy="true" aria-live="polite">
       <div class="spinner" role="status" aria-label="Lade Suche…"></div>
       <span class="loader-text">Lade Suche…</span>
     </div>
 
-    <!-- React island; will hide/remove loader on mount -->
-    <SucheClient
-      client:visible
-      veranstaltungen={veranstaltungen}
-      dozierende={dozierende}
-    />
+    <SucheClient client:visible />
   </SectionTextPict>
 </DefaultLayout>
 
 <style>
-  .loader-wrap {
-    display: grid;
-    /*justify-items: center;*/
-    /*align-items: center;*/
-    gap: 0.5rem;
-    min-height: 4.5rem; /* prevents layout shift */
-  }
-  .spinner {
-    width: 36px;
-    height: 36px;
-    border: 4px solid rgba(0,0,0,0.15);
-    border-top-color: currentColor;
-    border-radius: 50%;
-    animation: spin 0.9s linear infinite;
-  }
+  .loader-wrap { display: grid; gap: 0.5rem; min-height: 4.5rem; }
+  .spinner { width: 36px; height: 36px; border: 4px solid rgba(0,0,0,0.15); border-top-color: currentColor; border-radius: 50%; animation: spin 0.9s linear infinite; }
   .loader-text { font-size: .95rem; opacity: .8; }
   @keyframes spin { to { transform: rotate(360deg); } }
 </style>

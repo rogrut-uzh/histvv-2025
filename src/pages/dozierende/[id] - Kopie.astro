@@ -1,0 +1,240 @@
+---
+export const prerender = false;
+
+import DefaultLayout from '~/layouts/DefaultLayout.astro';
+import Breadcrumb from "~/components/page/Breadcrumb.astro";
+import MetaHead from "~/components/page/MetaHead.astro";
+import SectionTextPict from "~/components/page/SectionTextPict.astro";
+import { pageinfo } from '~/constants.ts';
+import { fetchWikipediaLinks, fetchWikipediaImage } from '~/lib/wiki';
+
+// Helper
+function getWikipediaTitle(wiki_url) {
+  const m = wiki_url?.match?.(/\/wiki\/(.+)$/);
+  return m ? decodeURIComponent(m[1]) : null;
+}
+function formatSemesterLabel(id_semester) {
+  if (!id_semester || id_semester.length < 5) return id_semester;
+  const jahr = id_semester.slice(0, 4);
+  const typ  = id_semester[4]?.toLowerCase();
+  return typ === "w" ? `WS ${jahr}` : typ === "s" ? `SS ${jahr}` : id_semester;
+}
+
+const ES = process.env.ELASTICSEARCH_URL || 'http://elasticsearch:9200';
+const idParam = String(Astro.params.id ?? '').trim();
+
+// Sonderfall: „vakant“ ohne Dozenten-Datensatz
+let dozent = null;
+if (idParam.toLowerCase() === 'vakant') {
+  dozent = { id: 'vakant', nachname: 'Vakant', vorname: '' };
+} else {
+  // Dozent aus ES holen
+  const bodyDoz = {
+    query: { bool: { filter: [ { term: { typ: 'dozent' } }, { term: { id: idParam } } ] } },
+    size: 1,
+    _source: [
+      'id','site_url','external_urls','fak','nachname','vorname',
+      'geboren','gestorben','pnd','wikidata','wikipedia',
+      'fachgebiet','habilitation','berufung',
+      // ggf. dynamisch vorhandene Felder:
+      'gagliardi','dekanat','rektor'
+    ]
+  };
+  const r1 = await fetch(`${ES}/histvv/_search`, {
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(bodyDoz)
+  });
+  if (!r1.ok) {
+    const txt = await r1.text().catch(() => '');
+    return new Response(`Suche nicht erreichbar: ${r1.status} ${txt}`, { status: 502 });
+  }
+  const j1 = await r1.json();
+  dozent = j1.hits?.hits?.[0]?._source ?? null;
+  if (!dozent) {
+    return new Response('Dozierende(r) nicht gefunden', { status: 404 });
+  }
+}
+
+// Veranstaltungen dieses Dozenten / dieser Dozentin aus ES
+const bodyV = {
+  query: { bool: { filter: [
+    { term: { typ: 'veranstaltung' } },
+    { term: { 'dozenten.id_dozent': idParam } }   // funktioniert mit object mapping
+  ]}},
+  size: 2000,
+  _source: [
+    'id_veranstaltung','id_semester','thema','thema_anmerkung','zusatz',
+    'vorlesungsnummer','zeit','wochenstunden','ort','fak','dozenten'
+  ],
+  sort: [ { 'id_semester': 'asc' } ]
+};
+const r2 = await fetch(`${ES}/histvv/_search`, {
+  method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(bodyV)
+});
+if (!r2.ok) {
+  const txt = await r2.text().catch(() => '');
+  return new Response(`Suche nicht erreichbar: ${r2.status} ${txt}`, { status: 502 });
+}
+const j2 = await r2.json();
+const veranstaltungen_dozent = (j2.hits?.hits ?? []).map(h => h._source);
+
+// Wikipedia/Wikidata-Links & Bild auflösen (wie bisher)
+let wikipediaDe = null, wikipediaEn = null, wikidataLink = null, wikipediaImage = null;
+
+if (dozent.id !== 'vakant') {
+  if (!dozent.wikidata && dozent.wikipedia) {
+    wikipediaDe = dozent.wikipedia;
+    const title = getWikipediaTitle(wikipediaDe);
+    if (title) wikipediaImage = await fetchWikipediaImage("de", title, 300);
+  } else if (dozent.wikidata) {
+    const links = await fetchWikipediaLinks(dozent.wikidata);
+    wikipediaDe = links.de || null;
+    wikipediaEn = links.en || null;
+    wikidataLink = `https://www.wikidata.org/wiki/${dozent.wikidata}`;
+    if (wikipediaDe) {
+      const title = getWikipediaTitle(wikipediaDe);
+      if (title) wikipediaImage = await fetchWikipediaImage("de", title, 300);
+    } else if (wikipediaEn) {
+      const title = getWikipediaTitle(wikipediaEn);
+      if (title) wikipediaImage = await fetchWikipediaImage("en", title, 300);
+    }
+  }
+}
+
+// Breadcrumb & Title
+const breadcrumb = [
+  { label: "Home", href: "/" },
+  { label: "Dozierende", href: "/dozierende/" },
+  { 
+    label: dozent.vorname ? `${dozent.nachname}, ${dozent.vorname}` : dozent.nachname, 
+    href: `/dozierende/${idParam}/`
+  }
+];
+const page_title = dozent.vorname ? `${dozent.nachname}, ${dozent.vorname}` : dozent.nachname;
+---
+
+<DefaultLayout>
+  <Breadcrumb items={breadcrumb} />
+
+  <MetaHead slot="head"
+    title={`${page_title} | ${pageinfo.title} ${pageinfo.byline}`}
+    description={`${pageinfo.description}`}
+  />
+
+  <SectionTextPict>
+    {dozent.id !== "vakant" ? (
+      <>
+        {wikipediaImage && (
+          <img class="wiki-image" src={wikipediaImage} alt="Bild aus Wikipedia" />
+        )}
+
+        <h1>{dozent.nachname}{dozent.vorname ? `, ${dozent.vorname}` : ''}</h1>
+
+        <p>
+          {dozent.geboren && (
+            <>
+              <span><span style="padding-right:6px;display:inline-block;">&#10025;</span>{dozent.geboren}</span>
+              {dozent.gestorben && (
+                <span style="margin-left:30px;"><span style="padding-right:6px;display:inline-block;">&dagger;</span>{dozent.gestorben}</span>
+              )}
+            </>
+          )}
+          {!dozent.geboren && dozent.gestorben && (
+            <span><span style="width:18px;display:inline-block;">&dagger;</span>{dozent.gestorben}</span>
+          )}
+        </p>
+
+        {dozent.gagliardi && <p>{dozent.gagliardi}</p>}
+        {dozent.fak && <p>{dozent.fak}</p>}
+        {dozent.fachgebiet && <p>Fachgebiet: {dozent.fachgebiet}</p>}
+        {(dozent.habilitation || dozent.berufung) && (
+          <p>{[dozent.habilitation, dozent.berufung].filter(Boolean).join(', ')}</p>
+        )}
+        {dozent.dekanat && <p>{dozent.dekanat}</p>}
+        {dozent.rektor && <p>{dozent.rektor}</p>}
+
+        {(dozent.pnd || wikipediaDe || wikipediaEn || wikidataLink || (dozent.external_urls && dozent.external_urls.length > 0)) && (
+          <p>
+            {[
+              dozent.pnd && <a class="Link" href={`https://d-nb.info/gnd/${dozent.pnd}`} target="_blank" rel="noopener noreferrer">GND</a>,
+              wikipediaDe && <a class="Link" href={wikipediaDe} target="_blank" rel="noopener noreferrer">Wikipedia (DE)</a>,
+              wikipediaEn && <a class="Link" href={wikipediaEn} target="_blank" rel="noopener noreferrer">Wikipedia (EN)</a>,
+              wikidataLink && <a class="Link" href={wikidataLink} target="_blank" rel="noopener noreferrer">Wikidata</a>,
+              ...(Array.isArray(dozent.external_urls) ? dozent.external_urls.map((u, i) =>
+                <a class="Link" href={u} target="_blank" rel="noopener noreferrer">{u}</a>
+              ) : [])
+            ].filter(Boolean).map((elem, i, arr) => (
+              <span key={i}>
+                {elem}
+                {i < arr.length - 1 && <br />}
+              </span>
+            ))}
+          </p>
+        )}
+
+        <h2>Veranstaltungen</h2>
+        {veranstaltungen_dozent.length === 0 ? (
+          <p>Keine Veranstaltungen gefunden.</p>
+        ) : (
+          <table class="tablesorter">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Semester</th>
+                <th>Veranstaltung</th>
+                <th>Grad</th>
+                <th>Funktion</th>
+              </tr>
+            </thead>
+            <tbody>
+              {veranstaltungen_dozent.map((v, index) => {
+                const meineInfos = (Array.isArray(v.dozenten) ? v.dozenten : [])
+                  .filter(d => String(d.id_dozent) === idParam);
+                return (
+                  <tr key={v.id_veranstaltung ?? index}>
+                    <td>{index + 1}</td>
+                    <td>
+                      <a href={`/vv/${v.id_semester}#${v.id_veranstaltung}`}>
+                        {formatSemesterLabel(v.id_semester)}
+                      </a>
+                    </td>
+                    <td>{v.thema}</td>
+                    <td>
+                      {meineInfos.map((d, i) => (
+                        <span key={`grad-${i}`}>{i > 0 && ', '}{d.grad || ''}</span>
+                      ))}
+                    </td>
+                    <td>
+                      {meineInfos.map((d, i) => (
+                        <span key={`funktion-${i}`}>{i > 0 && ', '}{d.funktion || ''}</span>
+                      ))}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        )}
+      </>
+    ) : (
+      <>
+        <h1>Vakant</h1>
+        <p>Zum Zeitpunkt des Drucks waren die Dozierenden noch nicht bekannt.</p>
+
+        <h2>Veranstaltungen</h2>
+        {veranstaltungen_dozent.length === 0 ? (
+          <p>Keine Veranstaltungen gefunden.</p>
+        ) : (
+          <ul>
+            {veranstaltungen_dozent.map(v => (
+              <li>
+                <a href={`/vv/${v.id_semester}#${v.id_veranstaltung}`}>
+                  {formatSemesterLabel(v.id_semester)} – {v.thema}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </>
+    )}
+  </SectionTextPict>
+</DefaultLayout>

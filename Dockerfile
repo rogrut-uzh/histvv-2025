@@ -1,41 +1,29 @@
-# STAGE 1 — Build stage
-FROM node:20-alpine AS builder
-
-ENV LANG=en_US.UTF-8
-#ENV HTTPS_PROXY=http://zoneproxy.zi.uzh.ch:8080
-#ENV HTTP_PROXY=http://zoneproxy.zi.uzh.ch:8080
-#ENV NO_PROXY=localhost,127.0.0.1
-
+# STAGE 1 — Build
+FROM node:20-alpine AS build
 WORKDIR /app
-
-# Install dependencies
-COPY package.json package-lock.json ./
-
-#RUN npm config set https-proxy http://zoneproxy.zi.uzh.ch:8080
-#RUN npm config set proxy http://zoneproxy.zi.uzh.ch:8080
-#RUN npm config set strict-ssl false
+ENV LANG=en_US.UTF-8
+COPY package*.json ./
 RUN npm ci
-
-# Copy all project files
 COPY . .
-RUN mkdir -p public/data && cp data/*.json public/data/
-# Bedingt löschen, je nach ARG
-ARG EXCLUDE_DOZIERENDE=false
-RUN if [ "$EXCLUDE_DOZIERENDE" = "true" ]; then rm -rf src/pages/dozierende; fi
+# ❌ Nicht mehr in public kopieren – Daten sollen nicht öffentlich sein
+# RUN mkdir -p public/data && cp data/*.json public/data/
 
-# Build static site
 ARG SITE_URL
 ENV SITE_URL=$SITE_URL
+RUN npm run build   # erzeugt dist/server/entry.mjs dank Node-Adapter
 
-RUN npm run build
+# STAGE 2 — Runtime (Node server)
+FROM node:20-alpine
+WORKDIR /app
+ENV NODE_ENV=production
+ENV HOST=0.0.0.0
+ENV PORT=80
+# Optional: ELASTICSEARCH_URL hier setzen oder via Compose
+# ENV ELASTICSEARCH_URL=http://elasticsearch:9200
 
-# STAGE 2 — Production image
-FROM nginx:alpine
+COPY --from=build /app/dist ./dist
+COPY --from=build /app/package*.json ./
+RUN npm ci --omit=dev
 
-# Copy built site from builder
-COPY --from=builder /app/dist /usr/share/nginx/html
-
-# Expose port
 EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["node", "./dist/server/entry.mjs"]

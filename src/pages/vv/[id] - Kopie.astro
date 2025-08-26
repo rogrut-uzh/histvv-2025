@@ -1,0 +1,166 @@
+---
+export const prerender = false;
+
+import DefaultLayout from '~/layouts/DefaultLayout.astro';
+import Breadcrumb from "~/components/page/Breadcrumb.astro";
+import MetaHead from "~/components/page/MetaHead.astro";
+import SectionTextPict from "~/components/page/SectionTextPict.astro";
+import slugify from '~/lib/slugify.js';
+import { pageinfo } from '~/constants.ts';
+
+const page_title = "Vorlesungsverzeichnisse";
+const zeit_trenner = " - ";
+
+// Semester-ID prüfen: /vv/YYYYs|w/
+const raw = String(Astro.params.id ?? '').trim().toLowerCase();
+const m = raw.match(/^(\d{4})([ws])$/);
+if (!m) return new Response('Semester-ID ungültig (z.B. 1910s/1910w)', { status: 404 });
+const [, jahr, typLetter] = m;
+const semesterId = `${jahr}${typLetter}`;
+const semesterLabel = typLetter === 'w' ? `WS ${jahr}` : `SS ${jahr}`;
+
+const ES = process.env.ELASTICSEARCH_URL || 'http://elasticsearch:9200';
+
+const body = {
+  query: { bool: { filter: [ { term: { typ: 'veranstaltung' } }, { term: { id_semester: semesterId } } ] } },
+  size: 5000,
+  _source: [
+    // wichtig: id_veranstaltung für den Anker!
+    'id_veranstaltung',
+    'typ','fak','thema','id_semester',
+    'vorlesungsnummer','thema_anmerkung','zusatz','zeit','wochenstunden','ort','dozenten',
+    // Fallback-Möglichkeit, falls id_veranstaltung mal fehlen sollte:
+    'site_url','url'
+  ],
+  sort: [
+    { "fak": "asc" },
+    { "thema.keyword": { "order": "asc" } }
+  ]
+};
+
+const res = await fetch(`${ES}/histvv/_search`, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(body)
+});
+if (!res.ok) return new Response('Suche nicht erreichbar', { status: 502 });
+
+const json = await res.json();
+const items = (json.hits?.hits ?? []).map(h => h._source);
+if (!items.length) return new Response(`Kein Eintrag für ${semesterLabel}`, { status: 404 });
+
+// Fakultäten gruppieren
+const byFak = items.reduce((acc, v) => {
+  const fak = v?.fak || 'Unbekannte Fakultät';
+  (acc[fak] ??= []).push(v);
+  return acc;
+}, {});
+
+const fakultaetNamen = Object.keys(byFak).sort((a, b) => a.localeCompare(b));
+
+// Wunschreihenfolge
+const fak_order = ["Theo","Staat","Recht","Medi","Vete","Wirts","Philosophische Fakultät","Philosophische Fakultät II"];
+const getOrderIndex = (name) => {
+  const i = fak_order.findIndex(prefix => name.startsWith(prefix));
+  return i === -1 ? fak_order.length : i;
+};
+const sortedFakultaetNamen = fakultaetNamen.slice().sort((a, b) => getOrderIndex(a) - getOrderIndex(b));
+
+// Breadcrumb
+const sem = { id_semester: semesterId, titel: semesterLabel };
+const breadcrumb = [
+  { label: "Home", href: "/" },
+  { label: "Vorlesungsverzeichnisse", href: "/vv/" },
+  { label: sem.titel, href: `/vv/${sem.id_semester}/` }
+];
+
+// Helper: robustes Anchor-Id aus id_veranstaltung oder (site_)url-Fragment
+function anchorFrom(v) {
+  const direct = (v?.id_veranstaltung ?? '').toString().trim();
+  if (direct) return direct;
+  const u = (v?.site_url || v?.url || '').toString();
+  if (u.includes('#')) return u.split('#').pop();
+  return '';
+}
+---
+
+<DefaultLayout>
+  <Breadcrumb items={breadcrumb} />
+  <MetaHead slot="head"
+    title={`${page_title} | ${pageinfo.title} ${pageinfo.byline}`}
+    description={`${pageinfo.description}`}
+  />
+
+  <SectionTextPict>
+    <h1>{sem.titel}</h1>
+
+    <div>
+      {sortedFakultaetNamen.map((fakname) => (
+        <div class="vv-detail-fak">
+          <a class="Link layout-standalone icon-position-before icon-orientation-down" href={`#${slugify(fakname)}`}>
+            {fakname}
+            <span class="Link--icon">
+              <span class="Icon" data-name="16--link-internal">
+                <svg><use xlink:href="#16--link-internal"></use></svg>
+              </span>
+            </span>
+          </a>
+        </div>
+      ))}
+    </div>
+
+    {sortedFakultaetNamen.map((fakname, i) => (
+      <section id={slugify(fakname)}>
+        <h2>{fakname}</h2>
+
+        {(byFak[fakname] || []).map((v, idx) => {
+          const anchorId = anchorFrom(v);
+          const rowKey = v.id_veranstaltung ?? `${fakname}-${idx}`;
+          return (
+            <p id={anchorId} key={rowKey}>
+              {v.vorlesungsnummer ?? ''}
+
+              {Array.isArray(v.dozenten) && v.dozenten.length > 0 ? (
+                v.dozenten.map((d, i2) => (
+                  <span key={`${d.id_dozent ?? i2}`}>
+                    {i2 > 0 && ', '}
+                    <a class="Link" href={`/dozierende/${d.id_dozent ?? 'unbekannt'}`}>
+                      {d.nachname ?? 'N.N.'}{d.vorname ? `, ${d.vorname}` : ''}
+                    </a>
+                    {(d.grad || d.funktion) && (
+                      <span style="color:#888;">
+                        ({[d.grad, d.funktion].filter(Boolean).join(", ")})
+                      </span>
+                    )}
+                  </span>
+                ))
+              ) : (<></>)}
+
+              <br />
+              <strong>{v.thema}</strong><br />
+              {v.thema_anmerkung && <>Anmerkung: {v.thema_anmerkung}<br /></>}
+              {v.zusatz && <>{v.zusatz}<br /></>}
+              {v.zeit}
+              {v.zeit && v.wochenstunden && zeit_trenner}
+              {v.wochenstunden && `St ${v.wochenstunden}`}
+              {v.ort && ` (${v.ort})`}
+            </p>
+          );
+        })}
+
+        {i !== sortedFakultaetNamen.length - 1 && (
+          <div class="TextImage--topLink inline-toplink">
+            <a class="Link layout-standalone size-copy-xs icon-orientation-up" href="#top">
+              Top
+              <span class="Link--icon">
+                <span class="Icon" data-name="16--link-internal">
+                  <svg><use xlink:href="#16--link-internal"></use></svg>
+                </span>
+              </span>
+            </a>
+          </div>
+        )}
+      </section>
+    ))}
+  </SectionTextPict>
+</DefaultLayout>

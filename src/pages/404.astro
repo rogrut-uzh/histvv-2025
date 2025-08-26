@@ -1,0 +1,23 @@
+---
+import DefaultLayout from '~/layouts/DefaultLayout.astro';
+import MetaHead from "~/components/page/MetaHead.astro";
+import SectionIntro from "~/components/page/SectionIntro.astro";
+import SectionTextPict from "~/components/page/SectionTextPict.astro";
+
+import { pageinfo } from '~/constants.ts';
+const page_title = "404";
+
+---
+<DefaultLayout>
+    <MetaHead slot="head"
+        title={`${page_title} | ${pageinfo.title} ${pageinfo.byline}`}
+        description={`${pageinfo.description}`}
+    />
+    
+    <SectionIntro>404</SectionIntro>
+
+    <SectionTextPict>
+        <p>Page not found</p>
+    </SectionTextPict>
+
+</DefaultLayout>

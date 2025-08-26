@@ -1,0 +1,87 @@
+.grautext { color: #888; }
+.target_highlight {
+  background-color: #fffbcc;
+  transition: background-color 1s ease-in-out;
+}
+
+.target_highlight.fade-out {
+  background-color: transparent;
+}
+
+
+.tbl_abk th {
+  width:110px;
+}
+
+.inline-toplink .Link::before,
+.vv-detail-fak .Link::before {
+  display:none !important;
+}
+
+
+#such-ergebnisse { 
+    margin-top: 40px;
+}
+.such-treffer { 
+    margin-bottom: 0.55em; 
+}
+.such-treffer .pill{
+    margin-right: 4px;
+    padding: 2px 4px;
+    font-size: 0.75em;
+}
+/*
+.label-dozierender-pill,
+.label-veranstaltung-pill {
+    zur zeit nichts...
+}
+*/
+.such-treffer.dozierender .pill,
+.label-dozierender-pill {
+    background-color: #FFF2D9;
+}
+.such-treffer.veranstaltung .pill,
+.label-veranstaltung-pill {
+    background-color: #FBE8FF;
+}
+.such-treffer a {
+  display: inline !important;          /* evtl. von Framework zurücksetzen */
+  white-space: normal !important;      /* kein nowrap */
+  word-break: break-word !important;   /* Fallback für ältere Browser */
+  margin-left:0.2em !important; 
+  padding-left: 0 !important;
+}
+.such-treffer a::before { display:none !important; }
+
+#abc-filter {
+  justify-content: space-between;
+  display:flex;
+}
+#abc-reset {
+  margin-bottom: 20px;
+  text-align:right;
+  width:100%;
+  color: rgba(var(--c-blue),1);
+}
+.abc-btn {
+  margin: 0 !important;
+  padding: 0 6px;
+  border-width:1px;
+  border-color: rgba(0,0,0,.08);
+  border-style: solid;
+  background-color: #f2f2f2;
+}
+.abc-btn.is-active {
+  background-color: #dddddd;
+  border-color: #555555;
+}
+
+.wiki-image {
+  max-width: 300px;
+  max-height: 300px;
+  height: auto;
+  width: auto;
+  display: block;
+  float: right;
+  margin: 0;
+}

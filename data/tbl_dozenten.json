@@ -7761,24 +7761,6 @@
     "berufung": null
   },
   {
-    "id_dozent": "vakant",
-    "fak": null,
-    "nachname": "Vakant",
-    "vorname": null,
-    "geboren": null,
-    "gestorben": null,
-    "pnd": null,
-    "gagliardi": null,
-    "dekanat": null,
-    "rektor": null,
-    "wikipedia": null,
-    "url": null,
-    "wikidata": null,
-    "fachgebiet": null,
-    "habilitation": null,
-    "berufung": null
-  },
-  {
     "id_dozent": "vonschulthessrechberg_g",
     "fak": "Theologische Fakultät",
     "nachname": "von Schulthess-Rechberg",
@@ -13269,6 +13251,24 @@
     ],
     "wikidata": "Q551909",
     "fachgebiet": "Mathematik",
+    "habilitation": null,
+    "berufung": null
+  },
+  {
+    "id_dozent": "vakant",
+    "fak": null,
+    "nachname": "Vakant",
+    "vorname": null,
+    "geboren": null,
+    "gestorben": null,
+    "pnd": null,
+    "gagliardi": null,
+    "dekanat": null,
+    "rektor": null,
+    "wikipedia": null,
+    "url": null,
+    "wikidata": null,
+    "fachgebiet": null,
     "habilitation": null,
     "berufung": null
   }

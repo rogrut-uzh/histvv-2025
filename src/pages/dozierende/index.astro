@@ -1,114 +1,124 @@
 ---
+export const prerender = false;
+
 import DefaultLayout from '~/layouts/DefaultLayout.astro';
 import Breadcrumb from "~/components/page/Breadcrumb.astro";
 import MetaHead from "~/components/page/MetaHead.astro";
-import SectionIntro from "~/components/page/SectionIntro.astro";
 import SectionTextPict from "~/components/page/SectionTextPict.astro";
-import loadJson from '~/lib/loadJson.js';
-
 import { pageinfo } from '~/constants.ts';
+import { esSearch } from '~/server/es';
+
 const page_title = "Dozierende";
 
-const dozierende = (await loadJson('/data/tbl_dozenten.json'))
-  .filter((d) => d.id_dozent?.trim() !== '')
-  .sort((a, b) => a.nachname.localeCompare(b.nachname));
-  
+// Dozierende laden (über esSearch) und in JS sortieren
+let dozierende: any[] = [];
+try {
+  const { hits } = await esSearch({
+    query: { term: { typ: 'dozent' } },
+    size: 10000,
+    _source: ['id','id_dozent','nachname','vorname','geboren','gestorben','fak','berufung']
+  });
+  dozierende = (hits?.hits ?? [])
+    .map((h: any) => h._source)
+    .filter((d: any) => (d.id ?? d.id_dozent) !== 'vakant')
+    .sort((a: any, b: any) => {
+      const an = (a.nachname || '').localeCompare(b.nachname || '');
+      if (an !== 0) return an;
+      return (a.vorname || '').localeCompare(b.vorname || '');
+    });
+} catch (e) {
+  return new Response('Suche nicht erreichbar', { status: 502 });
+}
+
 const breadcrumb = [
   { label: "Home", href: "/" },
   { label: "Dozierende", href: "/dozierende/" }
 ];
 ---
+
 <DefaultLayout>
-    <Breadcrumb items={breadcrumb} />
+  <Breadcrumb items={breadcrumb} />
 
-    <MetaHead slot="head"
-        title={`${page_title} | ${pageinfo.title} ${pageinfo.byline}`}
-        description={`${pageinfo.description}`}
-    />
-    
-    <SectionTextPict>
-        <h1>{page_title}</h1>
-        
-        <h3>Filter nach Nachname</h3>
-        <div id="abc-filter">
-          {Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i)).map(buchstabe => (
-            <button type="button" class="abc-btn" data-buchstabe={buchstabe}>{buchstabe}</button>
-          ))}
-        </div>
-        <button type="button" id="abc-reset">Filter aufheben</button>
-        
-        <table class="tablesorter">
-          <thead>
-            <tr>
-              <th>Nachname, Vorname</th>
-              <th>Geboren</th>
-              <th>Gestorben</th>
-              <th>Fakultät</th>
-              <th>Berufung</th>
-            </tr>
-          </thead>
-          <tbody>
-            {dozierende.map((d) =>
-              d.id_dozent !== "vakant" && (
-                <tr key={d.id_dozent}>
-                  <td>
-                    <a href={`/dozierende/${d.id_dozent}/`}>
-                      {d.nachname}, {d.vorname}
-                    </a>
-                  </td>
-                  <td>{d.geboren || ""}</td>
-                  <td>{d.gestorben || ""}</td>
-                  <td>{d.fak || ""}</td>
-                  <td>{d.berufung || ""}</td>
-                </tr>
-              )
-            )}
-          </tbody>
-        </table>
-    </SectionTextPict>
-    
-    <script is:inline>
-      document.addEventListener('DOMContentLoaded', function () {
-        const buttons = document.querySelectorAll('.abc-btn');
-        const reset = document.getElementById('abc-reset');
+  <MetaHead slot="head"
+    title={`${page_title} | ${pageinfo.title} ${pageinfo.byline}`}
+    description={`${pageinfo.description}`}
+  />
 
-        function getRows() {
-          return document.querySelectorAll('table tbody tr');
-        }
+  <SectionTextPict>
+    <h1>{page_title}</h1>
 
-        function filterRows(letter) {
-          getRows().forEach(row => {
-            // Nur filtern, wenn es eine Zelle mit Link gibt
-            const link = row.querySelector('td a');
-            if (link) {
-              const text = link.textContent.trim().toUpperCase();
-              row.style.display = text.startsWith(letter) ? '' : 'none';
-            }
-          });
-          // Aktiv-Status aktualisieren
-          buttons.forEach(btn => {
-            btn.classList.toggle('is-active', btn.dataset.buchstabe === letter);
-          });
-          // Reset-Button de-aktivieren (optional)
-          reset.classList.remove('is-active');
-        }
+    <h3>Filter nach Nachname</h3>
+    <div id="abc-filter">
+      {Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i)).map(buchstabe => (
+        <button type="button" class="abc-btn" data-buchstabe={buchstabe}>{buchstabe}</button>
+      ))}
+    </div>
+    <button type="button" id="abc-reset">Filter aufheben</button>
 
-        function resetRows() {
-          getRows().forEach(row => row.style.display = '');
-          // Alle Buttons deaktivieren
-          buttons.forEach(btn => btn.classList.remove('is-active'));
-          reset.classList.add('is-active');
-        }
+    <table class="tablesorter">
+      <thead>
+        <tr>
+          <th>Nachname, Vorname</th>
+          <th>Geboren</th>
+          <th>Gestorben</th>
+          <th>Fakultät</th>
+          <th>Berufung</th>
+        </tr>
+      </thead>
+      <tbody>
+        {dozierende.map((d:any) => (
+          <tr key={d.id ?? d.id_dozent}>
+            <td>
+              <a href={`/dozierende/${d.id ?? d.id_dozent}/`}>
+                {d.nachname}{d.vorname ? `, ${d.vorname}` : ''}
+              </a>
+            </td>
+            <td>{d.geboren || ""}</td>
+            <td>{d.gestorben || ""}</td>
+            <td>{d.fak || ""}</td>
+            <td>{d.berufung || ""}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </SectionTextPict>
 
-        buttons.forEach(btn => {
-          btn.addEventListener('click', function () {
-            filterRows(this.dataset.buchstabe);
-          });
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function () {
+      const buttons = document.querySelectorAll('.abc-btn');
+      const reset = document.getElementById('abc-reset');
+
+      function getRows() {
+        return document.querySelectorAll('table tbody tr');
+      }
+
+      function filterRows(letter) {
+        getRows().forEach(row => {
+          const link = row.querySelector('td a');
+          if (link) {
+            const text = link.textContent.trim().toUpperCase();
+            row.style.display = text.startsWith(letter) ? '' : 'none';
+          }
         });
+        buttons.forEach(btn => {
+          btn.classList.toggle('is-active', btn.dataset.buchstabe === letter);
+        });
+        reset.classList.remove('is-active');
+      }
 
-        reset.addEventListener('click', resetRows);
+      function resetRows() {
+        getRows().forEach(row => row.style.display = '');
+        buttons.forEach(btn => btn.classList.remove('is-active'));
+        reset.classList.add('is-active');
+      }
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', function () {
+          filterRows(this.dataset.buchstabe);
+        });
       });
-    </script>
 
-    
+      reset.addEventListener('click', resetRows);
+    });
+  </script>
 </DefaultLayout>

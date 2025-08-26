@@ -3,64 +3,85 @@ stages:
   - test
 
 variables:
+  # GitLab setzt diese automatisch:
+  # CI_REGISTRY, CI_REGISTRY_IMAGE, CI_COMMIT_SHORT_SHA, CI_COMMIT_BRANCH, ...
   IMAGE: $CI_REGISTRY_IMAGE
-  TAG_COMMIT: $CI_COMMIT_SHORT_SHA
-  IMG_COMMIT: $IMAGE:$TAG_COMMIT
+  TAG_SHA: $CI_COMMIT_SHORT_SHA
 
 workflow:
   rules:
+    # Falls du Commits mit -nodeployment suffix von CI ausschließen willst:
     - if: $CI_COMMIT_TITLE =~ /-nodeployment$/
       when: never
     - when: always
 
-include:
-  - template: Jobs/Container-Scanning.gitlab-ci.yml
-
-# ===== Test-Image =====
-build_test:
+# Hilfsjob: baut ein Image mit Kaniko und pusht zu den angegebenen Destination-Tags
+.build_with_kaniko:
   stage: build
   image:
     name: gcr.io/kaniko-project/executor:v1.23.2-debug
     entrypoint: [""]
+  script:
+    # Login für Kaniko (GitLab Registry)
+    - >
+      printf '{"auths":{"%s":{"username":"%s","password":"%s"}}}'
+      "$CI_REGISTRY" "$CI_REGISTRY_USER" "$CI_REGISTRY_PASSWORD"
+      > /kaniko/.docker/config.json
+
+    # Safety: SITE_URL muss gesetzt sein
+    - '[ -n "$SITE_URL" ] || { echo "ERROR: SITE_URL not set"; exit 1; }'
+
+    # Build & Push (mehrere --destination sind erlaubt)
+    - >
+      /kaniko/executor
+      --context "${CI_PROJECT_DIR}"
+      --dockerfile "${CI_PROJECT_DIR}/Dockerfile"
+      --build-arg SITE_URL="$SITE_URL"
+      --destination "$IMAGE:$DEST1"
+      ${DEST2:+--destination "$IMAGE:$DEST2"}
+      ${DEST3:+--destination "$IMAGE:$DEST3"}
+      --cache=true
+      --cache-repo "$IMAGE/cache"
+
+# ===== Build: TEST-Branch =====
+build_test:
+  extends: .build_with_kaniko
   rules:
     - if: '$CI_COMMIT_BRANCH == "test"'
-  script: |
-    set -euo pipefail
-    SITE_URL="https://histvv-2025.t01.cs.zi.uzh.ch"
-    [ -n "$SITE_URL" ] || { echo "SITE_URL is empty"; exit 1; }
-    /kaniko/executor \
-      --context "${CI_PROJECT_DIR}" \
-      --dockerfile "${CI_PROJECT_DIR}/Dockerfile" \
-      --build-arg SITE_URL="$SITE_URL" \
-      --destination "$IMG_COMMIT"
+  variables:
+    SITE_URL: https://test.histvv.uzh.ch        # <-- ANPASSEN
+    DEST1: "test"
+    DEST2: "test-$TAG_SHA"
 
-# ===== Prod-Image =====
+# ===== Build: MAIN-Branch =====
 build_prod:
-  stage: build
-  image:
-    name: gcr.io/kaniko-project/executor:v1.23.2-debug
-    entrypoint: [""]
+  extends: .build_with_kaniko
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
-  script: |
-    set -euo pipefail
-    SITE_URL="https://histvv-2025.p01.cs.zi.uzh.ch"
-    [ -n "$SITE_URL" ] || { echo "SITE_URL is empty"; exit 1; }
-    /kaniko/executor \
-      --context "${CI_PROJECT_DIR}" \
-      --dockerfile "${CI_PROJECT_DIR}/Dockerfile" \
-      --build-arg SITE_URL="$SITE_URL" \
-      --destination "$IMG_COMMIT"
+  variables:
+    SITE_URL: https://www.histvv.uzh.ch         # <-- ANPASSEN
+    DEST1: "latest"
+    DEST2: "$TAG_SHA"
 
+# ===== Optional: Container Scanning (kannst du entfernen) =====
 container_scanning:
   stage: test
+  image: registry.gitlab.com/security-products/container-scanning:5
   needs:
     - job: build_prod
       optional: true
     - job: build_test
       optional: true
-  variables:
-    CS_IMAGE: $IMG_COMMIT
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
     - if: '$CI_COMMIT_BRANCH == "test"'
+  variables:
+    CS_REGISTRY_USER: "$CI_REGISTRY_USER"
+    CS_REGISTRY_PASSWORD: "$CI_REGISTRY_PASSWORD"
+    CS_IMAGE: "$IMAGE:$TAG_SHA"
+  script:
+    - /analyzer run
+  artifacts:
+    when: always
+    reports:
+      container_scanning: gl-container-scanning-report.json

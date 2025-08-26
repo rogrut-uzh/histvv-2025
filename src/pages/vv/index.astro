@@ -1,49 +1,46 @@
 ---
+export const prerender = false;
+
 import DefaultLayout from '~/layouts/DefaultLayout.astro';
 import Breadcrumb from "~/components/page/Breadcrumb.astro";
 import MetaHead from "~/components/page/MetaHead.astro";
-import SectionIntro from "~/components/page/SectionIntro.astro";
 import SectionTextPict from "~/components/page/SectionTextPict.astro";
-import loadJson from '~/lib/loadJson.js';
-
 import { pageinfo } from '~/constants.ts';
+import { groupByDecade, semesterLabel, compareSemester, isValidSemesterId } from '~/lib/semester';
+
+const ES = process.env.ELASTICSEARCH_URL || 'http://elasticsearch:9200';
 const page_title = "Vorlesungsverzeichnisse";
 
-const veranstaltungen = await loadJson('/data/tbl_veranstaltungen-merged.json');
+// Alle Semester-IDs per Aggregation
+const res = await fetch(`${ES}/histvv/_search`, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    query: { term: { typ: 'veranstaltung' } },
+    size: 0,
+    aggs: {
+      semesters: { terms: { field: 'id_semester', size: 20000, order: { _key: 'asc' } } }
+    }
+  })
+});
+if (!res.ok) return new Response('Suche nicht erreichbar', { status: 502 });
+const j = await res.json();
+const buckets = j.aggregations?.semesters?.buckets ?? [];
+const semesterIDs = buckets.map((b:any) => String(b.key)).filter(isValidSemesterId).sort(compareSemester);
+const veranstaltungenCount: Record<string, number> = Object.fromEntries(buckets.map((b:any) => [String(b.key), Number(b.doc_count)]));
 
-// 1. Alle Semester-IDs extrahieren & sortieren
-let semesterIDs = veranstaltungen
-  .map(v => v.id_semester?.trim())
-  .filter(Boolean);
+// Gruppierung nach Jahrzehnt
+const groupedByDecade = groupByDecade(semesterIDs);
+const decades = Object.keys(groupedByDecade).sort();
 
-// Optional: Duplikate entfernen, falls vorhanden
-semesterIDs = Array.from(new Set(semesterIDs));
-
-// 2. Semester-Titel bauen (SS/WS + Jahr)
-function semesterTitel(id) {
-  if (!id) return '';
-  const year = id.slice(0, 4);
-  const typ = id.endsWith('s') ? 'Sommersemester' : 'Wintersemester';
-  return `${typ} ${year}`;
-}
-
-// 3. Sortieren (neuste zuerst, falls gewünscht: umdrehen)
-semesterIDs.sort((a, b) => a.localeCompare(b)); // Ändere ggf. Reihenfolge
-
-// 4. Nach Jahrzehnt gruppieren
-const groupedByDecade = {};
-for (const id of semesterIDs) {
-  const decade = id.slice(0, 3) + "0–" + id.slice(0, 3) + "9";
-  if (!groupedByDecade[decade]) groupedByDecade[decade] = [];
-  groupedByDecade[decade].push({ id_semester: id, titel: semesterTitel(id) });
-}
-const decades = Object.keys(groupedByDecade).sort(); // Sortiert Jahrzehnte
-
-// 5. Veranstaltungen pro Semester zählen
-const veranstaltungenCount = {};
-for (const v of veranstaltungen) {
-  if (!veranstaltungenCount[v.id_semester]) veranstaltungenCount[v.id_semester] = 0;
-  veranstaltungenCount[v.id_semester]++;
+function buildByYear(ids: string[]) {
+  const byYear: Record<string, { s?: string; w?: string }> = {};
+  for (const id of ids) {
+    const year = id.slice(0, 4);
+    const t = id[4].toLowerCase() as 's' | 'w';
+    (byYear[year] ??= {} as any)[t] = id;
+  }
+  return byYear;
 }
 
 const breadcrumb = [
@@ -53,58 +50,44 @@ const breadcrumb = [
 ---
 
 <DefaultLayout>
-    <Breadcrumb items={breadcrumb} />
-    
-    <MetaHead slot="head"
-        title={`${page_title} | ${pageinfo.title} ${pageinfo.byline}`}
-        description={`${pageinfo.description}`}
-    />
-    
-    <SectionTextPict>
-      <h1>{page_title}</h1>
-      
-      <div>
-        {decades.map((decade, i) => {
-          // Map: { [Jahr]: { s: {...}, w: {...} } }
-          const byYear = {};
-          groupedByDecade[decade].forEach((s) => {
-            const year = s.id_semester.slice(0, 4);
-            const semType = s.id_semester[4].toLowerCase(); // 's' oder 'w'
-            if (!byYear[year]) byYear[year] = {};
-            byYear[year][semType] = s;
-          });
+  <Breadcrumb items={breadcrumb} />
+  <MetaHead slot="head"
+    title={`${page_title} | ${pageinfo.title} ${pageinfo.byline}`}
+    description={`${pageinfo.description}`}
+  />
 
-          // Jetzt gibt's für jedes Jahr die vorhandenen Semester
-          return (
-            <>
-              <h3 class={`toggle${i === 0 ? " is-open" : ""}`}>{decade}</h3>
-              <div>
-                  <div class="l-Flex gap-none gutter-small">
-                    {Object.keys(byYear).sort().map((year) => (
-                      // Gib ein Fragment für jede Jahres-Zeile zurück:
-                      <>
-                        {/* Sommersemester zuerst, falls vorhanden */}
-                        {byYear[year].s && (
-                          <div class="l-1of2">
-                            <a href={`/vv/${byYear[year].s.id_semester}/`} class="Link">{byYear[year].s.titel}</a>
-                            <span style="color: #666; font-size: 0.8em;"> ({veranstaltungenCount[byYear[year].s.id_semester] || 0})</span>
-                          </div>
-                        )}
-                        {/* Dann Wintersemester, falls vorhanden */}
-                        {byYear[year].w && (
-                          <div class="l-1of2">
-                            <a href={`/vv/${byYear[year].w.id_semester}/`} class="Link">{byYear[year].w.titel}</a>
-                            <span style="color: #666; font-size: 0.8em;"> ({veranstaltungenCount[byYear[year].w.id_semester] || 0})</span>
-                          </div>
-                        )}
-                      </>
-                    ))}
-                  </div>
+  <SectionTextPict>
+    <h1>{page_title}</h1>
+
+    <div>
+      {decades.map((decade, i) => {
+        const byYear = buildByYear(groupedByDecade[decade] || []);
+        return (
+          <>
+            <h3 class={`toggle${i === 0 ? " is-open" : ""}`}>{decade}</h3>
+            <div>
+              <div class="l-Flex gap-none gutter-small">
+                {Object.keys(byYear).sort().map((year) => (
+                  <>
+                    {byYear[year].s && (
+                      <div class="l-1of2">
+                        <a href={`/vv/${byYear[year].s}/`} class="Link">{semesterLabel(byYear[year].s)}</a>
+                        <span style="color: #666; font-size: 0.8em;"> ({veranstaltungenCount[byYear[year].s] || 0})</span>
+                      </div>
+                    )}
+                    {byYear[year].w && (
+                      <div class="l-1of2">
+                        <a href={`/vv/${byYear[year].w}/`} class="Link">{semesterLabel(byYear[year].w)}</a>
+                        <span style="color: #666; font-size: 0.8em;"> ({veranstaltungenCount[byYear[year].w] || 0})</span>
+                      </div>
+                    )}
+                  </>
+                ))}
               </div>
-            </>
-          );
-        })}
-      </div>
-    </SectionTextPict>
-
+            </div>
+          </>
+        );
+      })}
+    </div>
+  </SectionTextPict>
 </DefaultLayout>

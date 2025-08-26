@@ -1,240 +1,237 @@
 ---
+export const prerender = false;
+
 import DefaultLayout from '~/layouts/DefaultLayout.astro';
 import Breadcrumb from "~/components/page/Breadcrumb.astro";
 import MetaHead from "~/components/page/MetaHead.astro";
 import SectionTextPict from "~/components/page/SectionTextPict.astro";
-import loadJson from '~/lib/loadJson.js';
-import fetchWikipediaLinks from '~/lib/wikidataWikipediaLinks.js';
-import fetchWikipediaImage from '~/lib/wikipediaArticleImage.js';
+import { pageinfo } from '~/constants.ts';
+import { fetchWikipediaLinks, fetchWikipediaImage } from '~/lib/wiki';
+import { semesterLabel } from '~/lib/semester';
+
+const ES = process.env.ELASTICSEARCH_URL || 'http://elasticsearch:9200';
 
 // Helper
-function getWikipediaTitle(url) {
-  const m = url.match(/\/wiki\/(.+)$/);
+function getWikipediaTitle(wiki_url?: string) {
+  const m = wiki_url?.match?.(/\/wiki\/(.+)$/);
   return m ? decodeURIComponent(m[1]) : null;
 }
 
-export async function getStaticPaths() {
-  const dozenten = await loadJson('/data/tbl_dozenten.json');
-  const veranstaltungen = await loadJson('/data/tbl_veranstaltungen-merged.json');
-  //const veranstaltungen1 = await loadJson('/data/tbl_veranstaltungen.json');
-  //const veranstaltungen2 = await loadJson('/data/tbl_veranstaltungen-ab-1900w.json');
-  //const veranstaltungen = [...veranstaltungen1, ...veranstaltungen2];
+const dozentId = String(Astro.params.id ?? '').trim();
+if (!dozentId) return new Response('Ungültige Dozenten-ID', { status: 400 });
 
-  return dozenten.map((dozent) => {
-    const veranstaltungen_dozent = veranstaltungen.filter(
-      (v) =>
-        Array.isArray(v.dozenten) &&
-        v.dozenten.some((d) => d.id_dozent === dozent.id_dozent)
-    );
-
-    return {
-      params: { id: dozent.id_dozent },
-      props: {
-        dozent,
-        veranstaltungen_dozent,
-      }
-    };
+// 1) Dozent laden
+let dozent: any = null;
+{
+  const bodyDoz = {
+    query: { bool: { filter: [ { term: { typ: 'dozent' } }, { term: { id: dozentId } } ] } },
+    size: 1,
+    _source: [
+      'id','id_dozent','nachname','vorname','geboren','gestorben','fak','fachgebiet',
+      'habilitation','berufung','dekanat','rektor','gagliardi','pnd','wikidata','wikipedia',
+      'url' // externe Links-Array
+    ]
+  };
+  const r1 = await fetch(`${ES}/histvv/_search`, {
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(bodyDoz)
   });
+  if (!r1.ok) {
+    const txt = await r1.text().catch(() => '');
+    return new Response(`Suche nicht erreichbar: ${r1.status} ${txt}`, { status: 502 });
+  }
+  const j1 = await r1.json();
+  dozent = j1.hits?.hits?.[0]?._source ?? null;
+  if (!dozent) {
+    return new Response('Dozierender nicht gefunden', { status: 404 });
+  }
 }
 
-// Semester-Format-Helfer
-function formatSemesterLabel(id_semester) {
-  if (!id_semester || id_semester.length < 5) return id_semester;
-  const jahr = id_semester.slice(0, 4);
-  const typ = id_semester[4].toLowerCase();
-  return typ === "w" ? `WS ${jahr}` : typ === "s" ? `SS ${jahr}` : id_semester;
+// 2) Veranstaltungen des Dozenten laden
+let veranstaltungen_dozent: any[] = [];
+{
+  const bodyV = {
+    query: { bool: { filter: [
+      { term: { typ: 'veranstaltung' } },
+      // exakter Match auf eingebettetem Feld
+      { term: { 'dozenten.id_dozent': dozentId } }
+    ] } },
+    size: 5000,
+    _source: [
+      'id_veranstaltung','id_semester','thema','thema_anmerkung','zusatz',
+      'vorlesungsnummer','zeit','wochenstunden','ort','dozenten'
+    ]
+  };
+  const r2 = await fetch(`${ES}/histvv/_search`, {
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(bodyV)
+  });
+  if (!r2.ok) {
+    const txt = await r2.text().catch(() => '');
+    return new Response(`Suche nicht erreichbar: ${r2.status} ${txt}`, { status: 502 });
+  }
+  const j2 = await r2.json();
+  veranstaltungen_dozent = (j2.hits?.hits ?? []).map((h:any) => h._source)
+    .sort((a:any,b:any) => String(a.id_semester).localeCompare(String(b.id_semester)));
 }
 
-const { dozent, veranstaltungen_dozent } = Astro.props;
+// 3) Wikipedia/Wikidata-Infos aufbereiten
+let wikipediaDe: string | null = null;
+let wikipediaEn: string | null = null;
+let wikidataLink: string | null = null;
+let wikipediaImage: string | null = null;
 
-// Initialisiere alle Ausgabewerte
-let wikipediaDe = null;
-let wikipediaEn = null;
-let wikidataLink = null;
-let wikipediaImage = null;
-
-// Fall 1: Kein wikidata, kein wikipedia → nichts anzeigen
 if (!dozent.wikidata && !dozent.wikipedia) {
-  // Alles bleibt null
-}
-
-// Fall 2: Nur wikipedia vorhanden (DE-Link)
-else if (!dozent.wikidata && dozent.wikipedia) {
+  // nichts
+} else if (!dozent.wikidata && dozent.wikipedia) {
   wikipediaDe = dozent.wikipedia;
-  // Bild laden (nur wenn Wikipedia-Link DE da)
-  wikipediaImage = await fetchWikipediaImage("de", getWikipediaTitle(wikipediaDe), 300);
-}
-
-// Fall 3 + 4: wikidata vorhanden, egal ob wikipedia vorhanden
-else if (dozent.wikidata) {
+  wikipediaImage = await fetchWikipediaImage("de", getWikipediaTitle(wikipediaDe)!, 300);
+} else if (dozent.wikidata) {
   const links = await fetchWikipediaLinks(dozent.wikidata);
   wikipediaDe = links.de || null;
   wikipediaEn = links.en || null;
   wikidataLink = `https://www.wikidata.org/wiki/${dozent.wikidata}`;
-  // Überschreibe bestehenden Wikipedia-Link (de), falls vorhanden (deine Vorgabe)
-  // Also: immer Wikidata-Links nutzen, auch wenn in JSON schon DE-Link da ist!
-  // Bild laden – DE bevorzugt, sonst EN
   if (wikipediaDe) {
-    wikipediaImage = await fetchWikipediaImage("de", getWikipediaTitle(wikipediaDe), 300);
+    wikipediaImage = await fetchWikipediaImage("de", getWikipediaTitle(wikipediaDe)!, 300);
   } else if (wikipediaEn) {
-    wikipediaImage = await fetchWikipediaImage("en", getWikipediaTitle(wikipediaEn), 300);
+    wikipediaImage = await fetchWikipediaImage("en", getWikipediaTitle(wikipediaEn)!, 300);
   }
 }
 
-// breadcrumb
+// breadcrumb & Titel
 const breadcrumb = [
   { label: "Home", href: "/" },
   { label: "Dozierende", href: "/dozierende/" },
   { 
-    label: dozent.vorname 
-      ? `${dozent.nachname}, ${dozent.vorname}` 
-      : dozent.nachname, 
-    href: `/dozierende/${dozent.id_dozent}/` 
+    label: dozent.vorname ? `${dozent.nachname}, ${dozent.vorname}` : dozent.nachname, 
+    href: `/dozierende/${dozent.id ?? dozent.id_dozent}/` 
   }
 ];
-
-import { pageinfo } from '~/constants.ts';
-const page_title = dozent.vorname 
-  ? `${dozent.nachname}, ${dozent.vorname}` 
-  : dozent.nachname;
+const page_title = dozent.vorname ? `${dozent.nachname}, ${dozent.vorname}` : dozent.nachname;
 ---
-
 
 <DefaultLayout>
   <Breadcrumb items={breadcrumb} />
 
   <MetaHead slot="head"
-      title={`${page_title} | ${pageinfo.title} ${pageinfo.byline}`}
-      description={`${pageinfo.description}`}
+    title={`${page_title} | ${pageinfo.title} ${pageinfo.byline}`}
+    description={`${pageinfo.description}`}
   />
 
-<SectionTextPict>
-  {dozent.id_dozent !== "vakant" ? (
-    <>
-      {wikipediaImage && (
-        <img
-          class="wiki-image"
-          src={wikipediaImage}
-          alt={`Bild aus Wikipedia`}
-        />
-      )}
-
-      <h1>{dozent.nachname}, {dozent.vorname}</h1>
-
-      <p>
-        {dozent.geboren && (
-          <>
-            <span>
-              <span style="width:18px;display:inline-block;">&#10025;</span>
-              {dozent.geboren}
-            </span>
-            {dozent.gestorben && (
-              <>
-                <span style="margin-left:30px;display:inline-block;">
-                  <span style="width:18px;display:inline-block;">&dagger;</span>
-                  {dozent.gestorben}
-                </span>
-              </>
-            )}
-          </>
+  <SectionTextPict>
+    {dozent.id !== "vakant" ? (
+      <>
+        {wikipediaImage && (
+          <img class="wiki-image" src={wikipediaImage} alt="Bild aus Wikipedia" />
         )}
-        {!dozent.geboren && dozent.gestorben && (
-          <>
+
+        <h1>{dozent.nachname}{dozent.vorname ? `, ${dozent.vorname}` : ''}</h1>
+
+        <p>
+          {dozent.geboren && (
+            <>
+              <span>
+                <span style="width:18px;display:inline-block;">&#10025;</span>
+                {dozent.geboren}
+              </span>
+              {dozent.gestorben && (
+                <>
+                  <span style="margin-left:30px;display:inline-block;">
+                    <span style="width:18px;display:inline-block;">&dagger;</span>
+                    {dozent.gestorben}
+                  </span>
+                </>
+              )}
+            </>
+          )}
+          {!dozent.geboren && dozent.gestorben && (
             <span>
               <span style="width:18px;display:inline-block;">&dagger;</span>
               {dozent.gestorben}
             </span>
-          </>
+          )}
+        </p>
+
+        {dozent.gagliardi && <p>{dozent.gagliardi}</p>}
+        {dozent.fak && <p>{dozent.fak}</p>}
+        {dozent.fachgebiet && <p>Fachgebiet: {dozent.fachgebiet}</p>}
+        {(dozent.habilitation || dozent.berufung) && (
+          <p>{[dozent.habilitation, dozent.berufung].filter(Boolean).join(', ')}</p>
         )}
-      </p>
+        {dozent.dekanat && <p>{dozent.dekanat}</p>}
+        {dozent.rektor && <p>{dozent.rektor}</p>}
 
-      {dozent.gagliardi && <p>{dozent.gagliardi}</p>}
-      {dozent.fak && <p>{dozent.fak}</p>}
-      {dozent.fachgebiet && <p>Fachgebiet: {dozent.fachgebiet}</p>}
-      {(dozent.habilitation || dozent.berufung) && (
-        <p>
-          {[dozent.habilitation, dozent.berufung].filter(Boolean).join(', ')}
-        </p>
-      )}
-      {dozent.dekanat && <p>{dozent.dekanat}</p>}
-      {dozent.rektor && <p>{dozent.rektor}</p>}
-
-      {(dozent.pnd || wikipediaDe || wikipediaEn || wikidataLink || (dozent.url && dozent.url.length > 0)) && (
-        <p>
-          {[
-            dozent.pnd && <a class="Link" href={`https://d-nb.info/gnd/${dozent.pnd}`}>GND</a>,
-            wikipediaDe && <a class="Link" href={wikipediaDe} target="_blank" rel="noopener noreferrer">Wikipedia (DE)</a>,
-            wikipediaEn && <a class="Link" href={wikipediaEn} target="_blank" rel="noopener noreferrer">Wikipedia (EN)</a>,
-            wikidataLink && <a class="Link" href={wikidataLink} target="_blank" rel="noopener noreferrer">Wikidata</a>,
-            ...(Array.isArray(dozent.url) ? dozent.url.map((u, i) =>
-              <a class="Link" href={u} target="_blank" rel="noopener noreferrer">{u}</a>
-            ) : [])
-          ]
-            .filter(Boolean)
-            .map((elem, i, arr) => (
-              <span key={i}>
-                {elem}
-                {i < arr.length - 1 && <br />}
-              </span>
-            ))}
-        </p>
-      )}
-      
-      
-
-  <h2>Veranstaltungen</h2>
-  <table class="tablesorter">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Semester</th>
-        <th>Veranstaltung</th>
-        <th>Grad</th>
-        <th>Funktion</th>
-      </tr>
-    </thead>
-    <tbody>
-      {veranstaltungen_dozent.map((v, index) => {
-        const meineInfos = (Array.isArray(v.dozenten) ? v.dozenten : [])
-          .filter(d => d.id_dozent === dozent.id_dozent);
-
-        return (
-          <tr key={v.id_veranstaltung ?? index}>
-            <td>{index + 1}</td>
-            <td>
-              <a href={`/vv/${v.id_semester}#${v.id_veranstaltung}`}>
-                {formatSemesterLabel(v.id_semester)}
-              </a>
-            </td>
-            <td>{v.thema}</td>
-            <td>
-              {meineInfos.map((d, i) => (
-                <span key={`grad-${i}`}>
-                  {i > 0 && ', '}
-                  {d.grad || ''}
+        {(dozent.pnd || wikipediaDe || wikipediaEn || wikidataLink || (Array.isArray(dozent.url) && dozent.url.length > 0)) && (
+          <p>
+            {[
+              dozent.pnd && <a class="Link" href={`https://d-nb.info/gnd/${dozent.pnd}`}>GND</a>,
+              wikipediaDe && <a class="Link" href={wikipediaDe} target="_blank" rel="noopener noreferrer">Wikipedia (DE)</a>,
+              wikipediaEn && <a class="Link" href={wikipediaEn} target="_blank" rel="noopener noreferrer">Wikipedia (EN)</a>,
+              wikidataLink && <a class="Link" href={wikidataLink} target="_blank" rel="noopener noreferrer">Wikidata</a>,
+              ...(Array.isArray(dozent.url) ? dozent.url.map((u: string) =>
+                <a class="Link" href={u} target="_blank" rel="noopener noreferrer">{u}</a>
+              ) : [])
+            ]
+              .filter(Boolean)
+              .map((elem, i, arr) => (
+                <span key={i}>
+                  {elem}
+                  {i < arr.length - 1 && <br />}
                 </span>
               ))}
-            </td>
-            <td>
-              {meineInfos.map((d, i) => (
-                <span key={`funktion-${i}`}>
-                  {i > 0 && ', '}
-                  {d.funktion || ''}
-                </span>
-              ))}
-            </td>
-          </tr>
-        );
-      })}
-    </tbody>
-  </table>
-    </>
-  ) : (
-    <>
-      <h1>Vakant</h1>
-      <p>Zum Zeitpunkt des Drucks waren die Dozierenden noch nicht bekannt.</p>
-    </>
-  )}
+          </p>
+        )}
 
-</SectionTextPict>
+        <h2>Veranstaltungen</h2>
+        <table class="tablesorter">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Semester</th>
+              <th>Veranstaltung</th>
+              <th>Grad</th>
+              <th>Funktion</th>
+            </tr>
+          </thead>
+          <tbody>
+            {veranstaltungen_dozent.map((v:any, index:number) => {
+              const meineInfos = (Array.isArray(v.dozenten) ? v.dozenten : [])
+                .filter((d:any) => (d.id_dozent ?? '') === dozentId);
+
+              return (
+                <tr key={v.id_veranstaltung ?? index}>
+                  <td>{index + 1}</td>
+                  <td>
+                    <a href={`/vv/${v.id_semester}#${v.id_veranstaltung}`}>
+                      {semesterLabel(v.id_semester)}
+                    </a>
+                  </td>
+                  <td>{v.thema}</td>
+                  <td>
+                    {meineInfos.map((d:any, i:number) => (
+                      <span key={`grad-${i}`}>
+                        {i > 0 && ', '}
+                        {d.grad || ''}
+                      </span>
+                    ))}
+                  </td>
+                  <td>
+                    {meineInfos.map((d:any, i:number) => (
+                      <span key={`funktion-${i}`}>
+                        {i > 0 && ', '}
+                        {d.funktion || ''}
+                      </span>
+                    ))}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </>
+    ) : (
+      <>
+        <h1>Vakant</h1>
+        <p>Zum Zeitpunkt des Drucks waren die Dozierenden noch nicht bekannt.</p>
+      </>
+    )}
+  </SectionTextPict>
 </DefaultLayout>
