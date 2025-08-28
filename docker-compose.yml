@@ -18,9 +18,6 @@ services:
       - "80:80"
     networks: [histvv-nw]
     restart: always
-    depends_on:
-      indexer:
-        condition: service_completed_successfully  # ⬅️ warte bis Indexer fertig ist
   indexer:
     image: node:20-alpine
     container_name: histvv2025-indexer
@@ -34,8 +31,6 @@ services:
       ELASTICSEARCH_PASSWORD: ${ELASTICSEARCH_PASSWORD}
       DATA_VERANST: ${DATA_VERANST:-data/tbl_veranstaltungen-merged.json}
       DATA_DOZ: ${DATA_DOZ:-data/tbl_dozenten.json}
-      # Hard Drop+Recreate:
-      # FORCE_REINDEX: "1"
     command: ["node","scripts/index-elasticsearch.mjs"]
     networks: [histvv-nw]
     restart: "no"

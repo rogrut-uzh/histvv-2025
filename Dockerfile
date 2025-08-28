@@ -21,7 +21,6 @@ RUN apk add --no-cache curl
 
 # App + Skripte übernehmen
 COPY --from=build /app/dist     ./dist
-COPY --from=build /app/scripts  ./scripts
 COPY --from=build /app/package*.json ./
 RUN npm ci --omit=dev
 
