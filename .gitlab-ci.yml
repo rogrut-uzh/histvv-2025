@@ -48,14 +48,13 @@ include:
       --destination "$IMAGE:$DEST1"
       ${DEST2:+--destination "$IMAGE:$DEST2"}
       ${DEST3:+--destination "$IMAGE:$DEST3"}
-# no cache - only this line active:
-#      --cache=false
-# with cache - both lines active:
-#      --cache=true
-#      --cache-repo "$IMAGE/cache"
       --cache=true
       --cache-repo "$IMAGE/cache"
-
+      # no cache - only this line active:
+      #      --cache=false
+      # with cache - both lines active:
+      #      --cache=true
+      #      --cache-repo "$IMAGE/cache"
 
 # ==============================
 # ===== Build: TEST-Branch =====
