@@ -4,7 +4,6 @@ stages:
 
 variables:
   IMAGE: $CI_REGISTRY_IMAGE
-  # Tags, die wir im Build setzen
   TEST_TAG: "test-$CI_COMMIT_SHORT_SHA"
   TEST_LATEST: "test"
   PROD_TAG: "main-$CI_COMMIT_SHORT_SHA"
@@ -25,6 +24,10 @@ include:
   image:
     name: gcr.io/kaniko-project/executor:v1.23.2-debug
     entrypoint: [""]
+  variables:
+    SITE_URL: https://test.histvv.uzh.ch
+    HISTVV_INDEX: histvv
+    #ELASTICSEARCH_PASSWORD: -----is set in gitlab variables-----
   script:
     # Login für Kaniko (GitLab Registry)
     - >
@@ -54,8 +57,10 @@ build_test:
     - if: '$CI_COMMIT_BRANCH == "test"'
   variables:
     SITE_URL: https://test.histvv.uzh.ch
-    DEST1: "test"
-    DEST2: "test-$TAG_SHA"
+    ELASTICSEARCH_URL: https://ziwwwsearchprod01.uzh.ch:9200
+    ELASTICSEARCH_USERNAME: uzh_archiv_admin
+    DEST1: "$TEST_TAG"     # z.B. test-<sha>
+    DEST2: "$TEST_LATEST"  # z.B. test
 
 # ===== Build: MAIN-Branch =====
 build_prod:
@@ -64,19 +69,21 @@ build_prod:
     - if: '$CI_COMMIT_BRANCH == "main"'
   variables:
     SITE_URL: https://www.histvv.uzh.ch
-    DEST1: "latest"
-    DEST2: "$TAG_SHA"
+    ELASTICSEARCH_URL: https://ziwwwsearchtest01.uzh.ch:9200
+    ELASTICSEARCH_USERNAME: uzh_archiv_admin_prod
+    DEST1: "$PROD_LATEST"  # latest
+    DEST2: "$PROD_TAG"     # main-<sha>
 
 # --- Container Scanning aus Template für TEST ---
 scan_test:
-  extends: container_scanning          # kommt aus include: Jobs/Container-Scanning.gitlab-ci.yml
+  extends: container_scanning
   stage: test
-  needs: ["build_test"]                # wartet auf das Test-Image
+  needs: ["build_test"]
   rules:
     - if: '$CI_COMMIT_BRANCH == "test"'
   variables:
-    GIT_STRATEGY: none                 # wir brauchen keinen Checkout
-    CS_IMAGE: "$IMAGE:$TEST_TAG"       # alternativ: "$IMAGE:$TEST_LATEST"
+    GIT_STRATEGY: none
+    CS_IMAGE: "$IMAGE:$TEST_TAG"   # <- existiert jetzt sicher
     CS_REGISTRY: "$CI_REGISTRY"
     CS_REGISTRY_USER: "$CI_REGISTRY_USER"
     CS_REGISTRY_PASSWORD: "$CI_JOB_TOKEN"
@@ -90,7 +97,7 @@ scan_prod:
     - if: '$CI_COMMIT_BRANCH == "main"'
   variables:
     GIT_STRATEGY: none
-    CS_IMAGE: "$IMAGE:$PROD_LATEST"    # alternativ: "$IMAGE:$PROD_TAG"
+    CS_IMAGE: "$IMAGE:$PROD_LATEST"  # oder $PROD_TAG
     CS_REGISTRY: "$CI_REGISTRY"
     CS_REGISTRY_USER: "$CI_REGISTRY_USER"
     CS_REGISTRY_PASSWORD: "$CI_JOB_TOKEN"

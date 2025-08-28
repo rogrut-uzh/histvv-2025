@@ -5,9 +5,6 @@ ENV LANG=en_US.UTF-8
 COPY package*.json ./
 RUN npm ci
 COPY . .
-# ❌ Nicht mehr in public kopieren – Daten sollen nicht öffentlich sein
-# RUN mkdir -p public/data && cp data/*.json public/data/
-
 ARG SITE_URL
 ENV SITE_URL=$SITE_URL
 RUN npm run build   # erzeugt dist/server/entry.mjs dank Node-Adapter
@@ -18,12 +15,19 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV HOST=0.0.0.0
 ENV PORT=80
-# Optional: ELASTICSEARCH_URL hier setzen oder via Compose
-# ENV ELASTICSEARCH_URL=http://elasticsearch:9200
 
-COPY --from=build /app/dist ./dist
+# Tools, die wir im Entrypoint verwenden (curl für einen schnellen HEAD-Check)
+RUN apk add --no-cache curl
+
+# App + Skripte übernehmen
+COPY --from=build /app/dist     ./dist
+COPY --from=build /app/scripts  ./scripts
 COPY --from=build /app/package*.json ./
 RUN npm ci --omit=dev
 
+# Entrypoint-Skript
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
 EXPOSE 80
-CMD ["node", "./dist/server/entry.mjs"]
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]

@@ -1,48 +1,50 @@
 export const prerender = false;
 
 import type { APIRoute } from 'astro';
-
-const ES    = process.env.ELASTICSEARCH_URL || 'http://elasticsearch:9200';
-const INDEX = process.env.HISTVV_INDEX || 'histvv';
+import { esSearch } from '~/server/es';
 
 export const GET: APIRoute = async ({ request }) => {
   const url   = new URL(request.url);
   const qRaw  = (url.searchParams.get('q') || '').trim();
   const limit = Math.min(parseInt(url.searchParams.get('limit') || '50', 10) || 50, 200);
 
-  // Mehrfach-Filter
-  const typs = url.searchParams.getAll('typ').filter(Boolean);  // dozent / veranstaltung
+  // Filter aus dem UI
+  const typs = url.searchParams.getAll('typ').filter(Boolean);   // 'dozent' | 'veranstaltung'
   const faks = url.searchParams.getAll('fak').filter(Boolean);
   const wantFacets = url.searchParams.has('facets');
 
-  // Nur Facets (ohne Suche)
+  // Nur Facets (ohne Suchstring)
   if (wantFacets && !qRaw) {
-    const aggBody = {
-      query: { match_all: {} },
-      size: 0,
-      aggs: { fak: { terms: { field: 'fak', size: 200 } } }
-    };
-    const r = await fetch(`${ES}/${INDEX}/_search`, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(aggBody) });
-    if (!r.ok) return json({ facets:{ fak:[] }, error:`ES ${r.status} ${await safeText(r)}` }, 500);
-    const j = await r.json();
-    return json({ results: [], facets: { fak: (j.aggregations?.fak?.buckets ?? []).map((b:any)=>b.key) } });
+    try {
+      const { aggregations } = await esSearch({
+        query: { match_all: {} },
+        size: 0,
+        aggs: { fak: { terms: { field: 'fak', size: 200 } } }
+      });
+      const list = (aggregations?.fak?.buckets ?? []).map((b: any) => b.key);
+      return json({ results: [], facets: { fak: list } });
+    } catch (e: any) {
+      return json({ facets: { fak: [] }, error: String(e?.message || e) }, 500);
+    }
   }
 
-  if (qRaw && qRaw.length < 3) return json({ results: [], tooShort: true });
+  if (qRaw && qRaw.length < 3) {
+    return json({ results: [], tooShort: true });
+  }
 
-  // Common Filter (vom UI gesetzt)
-  const filters:any[] = [];
+  // Gemeinsame Filter
+  const filters: any[] = [];
   if (typs.length) filters.push({ terms: { typ: typs } });
   if (faks.length) filters.push({ terms: { fak: faks } });
 
-  // Welche Typen durchsuchen? (wenn nichts gewählt, beide)
-  const typesToSearch = typs.length ? typs : ['veranstaltung','dozent'];
+  // Welche Typen durchsuchen? (wenn nichts gewählt → beide)
+  const typesToSearch = typs.length ? typs : ['veranstaltung', 'dozent'];
 
-  // Für Wikidata Klein->Groß-Q-Hilfe
-  const qForKw = (qRaw.length >= 1 && qRaw[0] === 'q') ? ('Q' + qRaw.slice(1)) : qRaw;
+  // Genau-Matches Hilfen
   const onlyDigits = /^\d+$/.test(qRaw);
+  const qForKw = (qRaw[0] === 'q') ? ('Q' + qRaw.slice(1)) : qRaw;
 
-  const shouldClauses:any[] = [];
+  const shouldClauses: any[] = [];
 
   // ─────────────────────────────────────────────
   // VERANSTALTUNG: fak, vorlesungsnummer, thema, thema_anmerkung
@@ -52,6 +54,7 @@ export const GET: APIRoute = async ({ request }) => {
       bool: {
         filter: [{ term: { typ: 'veranstaltung' } }],
         should: [
+          // Freitext auf thema/thema_anmerkung + fak (keyword → exakt)
           {
             multi_match: {
               query: qRaw,
@@ -62,18 +65,20 @@ export const GET: APIRoute = async ({ request }) => {
               fields: [
                 'thema^3',
                 'thema_anmerkung',
-                'fak' // keyword → exakte Übereinstimmung
+                'fak'
               ]
             }
           },
+          // Prefix-Feeling auf thema
           { match_phrase_prefix: { thema: { query: qRaw, slop: 3, max_expansions: 50, boost: 1.2 } } },
           { match_phrase:        { thema: { query: qRaw, boost: 1.2 } } },
 
-          // 👇 case-insensitive Prefix auf fak:
+          // Fak-Prefix case-insensitive (keyword-Feld → wildcard)
           ...(qRaw.length >= 2 ? [
             { wildcard: { fak: { value: `${qRaw}*`, case_insensitive: true, boost: 1.1 } } }
           ] : []),
 
+          // Vorlesungsnummer → prefix
           ...(qRaw.length >= 3 ? [
             { prefix: { vorlesungsnummer: { value: qRaw, boost: 2 } } } as any
           ] : [])
@@ -87,7 +92,8 @@ export const GET: APIRoute = async ({ request }) => {
   // DOZENT: fak, nachname, vorname, pnd (exact), wikidata (exact)
   // ─────────────────────────────────────────────
   if (typesToSearch.includes('dozent') && qRaw.length >= 3) {
-    const dozentShould:any[] = [
+    const dozentShould: any[] = [
+      // Freitext mit Boosts
       {
         multi_match: {
           query: qRaw,
@@ -103,18 +109,20 @@ export const GET: APIRoute = async ({ request }) => {
           ]
         }
       },
+      // Exakte Phrasen geben extra Punkte
       { match_phrase:        { nachname: { query: qRaw, boost: 6 } } },
       { match_phrase:        { vorname:  { query: qRaw, boost: 3 } } },
+      // Prefix-Feeling
       { match_phrase_prefix: { nachname: { query: qRaw, slop: 2, max_expansions: 50, boost: 1.5 } } },
       { match_phrase_prefix: { vorname:  { query: qRaw, slop: 2, max_expansions: 50, boost: 1.2 } } },
     ];
 
-    // PND → exact match (nur Ziffern sinnvoll)
-    if (qRaw.length >= 3 && onlyDigits) {
+    // PND: nur exakter Treffer (nur Ziffern)
+    if (onlyDigits && qRaw.length >= 3) {
       dozentShould.push({ term: { pnd: { value: qRaw, boost: 5 } } });
     }
 
-    // Wikidata → exact match (unterstütze klein/ groß „q“)
+    // Wikidata: exakter Treffer (unterstütze 'q...' und 'Q...')
     if (qRaw.length >= 2) {
       if (qRaw[0] === 'q') {
         dozentShould.push(
@@ -135,7 +143,8 @@ export const GET: APIRoute = async ({ request }) => {
     });
   }
 
-  const body:any = {
+  // Gesamtabfrage
+  const body: any = {
     query: shouldClauses.length
       ? { bool: { filter: filters, should: shouldClauses, minimum_should_match: 1 } }
       : { bool: { filter: filters, must: [{ match_all: {} }] } },
@@ -149,25 +158,25 @@ export const GET: APIRoute = async ({ request }) => {
     ],
     sort: [{ _score: 'desc' }]
   };
+  if (wantFacets) {
+    body.aggs = { fak: { terms: { field: 'fak', size: 200 } } };
+  }
 
-  if (wantFacets) body.aggs = { fak: { terms: { field: 'fak', size: 200 } } };
-
-  const r = await fetch(`${ES}/${INDEX}/_search`, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
-  if (!r.ok) return json({ results: [], error:`ES ${r.status} ${await safeText(r)}` }, 500);
-
-  const j = await r.json();
-  const results = (j.hits?.hits ?? []).map((h:any) => h._source);
-
-  const out:any = { results };
-  if (wantFacets) out.facets = { fak: (j.aggregations?.fak?.buckets ?? []).map((b:any)=>b.key) };
-
-  return json(out);
+  try {
+    const { hits, aggregations } = await esSearch(body);
+    const results = (hits?.hits ?? []).map((h: any) => h._source);
+    const out: any = { results };
+    if (wantFacets) out.facets = { fak: (aggregations?.fak?.buckets ?? []).map((b: any) => b.key) };
+    return json(out);
+  } catch (e: any) {
+    return json({ results: [], error: String(e?.message || e) }, 500);
+  }
 };
 
-function json(data:any, status=200) {
+// kleine Helper
+function json(data: any, status = 200) {
   return new Response(JSON.stringify(data), {
     status,
-    headers: { 'Content-Type':'application/json; charset=utf-8', 'Cache-Control':'no-store' }
+    headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' }
   });
 }
-async function safeText(r:Response){ try { return await r.text(); } catch { return ''; } }

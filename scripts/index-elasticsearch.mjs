@@ -5,12 +5,25 @@ const ES    = process.env.ELASTICSEARCH_URL || 'http://localhost:9200';
 const INDEX = process.env.HISTVV_INDEX      || 'histvv';
 const PATH_V = process.env.DATA_VERANST     || 'data/tbl_veranstaltungen-merged.json';
 const PATH_D = process.env.DATA_DOZ         || 'data/tbl_dozenten.json';
-const FORCE  = process.env.FORCE_REINDEX === '1';
+
+const ES_USER = process.env.ELASTICSEARCH_USERNAME || process.env.ES_USERNAME_ADM || '';
+const ES_PASS = process.env.ELASTICSEARCH_PASSWORD || process.env.ES_PASSWORD || '';
+
+const FORCE = process.env.FORCE_REINDEX === '1';
+
+function authHeaders(extra = {}) {
+  const h = { ...extra };
+  if (ES_USER && ES_PASS) {
+    h.Authorization = 'Basic ' + Buffer.from(`${ES_USER}:${ES_PASS}`).toString('base64');
+  }
+  return h;
+}
 
 async function sleep(ms){ return new Promise(r => setTimeout(r, ms)); }
+
 async function waitForES(url, tries = 60) {
   for (let i=0; i<tries; i++) {
-    try { const r = await fetch(url); if (r.ok) return; } catch {}
+    try { const r = await fetch(url, { headers: authHeaders() }); if (r.ok) return; } catch {}
     await sleep(2000);
   }
   throw new Error('Elasticsearch nicht erreichbar.');
@@ -87,22 +100,22 @@ const mapping = {
 
 
 async function ensureIndex() {
-  const head = await fetch(`${ES}/${INDEX}`, { method: 'HEAD' });
+  const head = await fetch(`${ES}/${INDEX}`, { method: 'HEAD', headers: authHeaders() });
   if (head.status === 200) {
     if (!FORCE) {
-      console.log(`Index ${INDEX} existiert – überspringe Reindex. (FORCE_REINDEX=1 zum Erzwingen)`);
-      return false; // nichts löschen, nichts neu aufbauen
+      console.log(`Index ${INDEX} existiert – lasse Mapping wie ist (FORCE_REINDEX!=1).`);
+      return false; // nichts neu angelegt
     }
-    console.log(`FORCE_REINDEX=1 – lösche Index ${INDEX}`);
-    await fetch(`${ES}/${INDEX}`, { method: 'DELETE' });
+    console.log(`Index ${INDEX} existiert – wird überschrieben (reindex).`);
+    await fetch(`${ES}/${INDEX}`, { method: 'DELETE', headers: authHeaders() });
   }
   const res = await fetch(`${ES}/${INDEX}`, {
     method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
+    headers: authHeaders({ 'Content-Type': 'application/json' }),
     body: JSON.stringify(mapping)
   });
   if (!res.ok) throw new Error(`Index anlegen fehlgeschlagen: ${res.status} ${await res.text()}`);
-  return true;
+  return true; // frisch angelegt
 }
 
 // --- buildDocs ---
@@ -194,19 +207,19 @@ function buildDocs(V, D) {
   return [...veranstaltungen, ...dozierende];
 }
 
-
 async function bulkUpload(docs, chunkDocs = 5000) {
   let i = 0;
   while (i < docs.length) {
     const slice = docs.slice(i, i + chunkDocs);
     let ndjson = '';
     for (const doc of slice) {
-      ndjson += JSON.stringify({ index: { _index: INDEX, _id: doc.id } }) + '\n';
+      const _id = `${doc.typ}:${doc.id}`;
+      ndjson += JSON.stringify({ index: { _index: INDEX, _id } }) + '\n';
       ndjson += JSON.stringify(doc) + '\n';
     }
     const res = await fetch(`${ES}/_bulk`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-ndjson' },
+      headers: authHeaders({ 'Content-Type': 'application/x-ndjson' }),
       body: ndjson
     });
     const json = await res.json();
@@ -217,7 +230,7 @@ async function bulkUpload(docs, chunkDocs = 5000) {
     i += slice.length;
     console.log(`Bulk: ${i}/${docs.length} Dokumente`);
   }
-  await fetch(`${ES}/${INDEX}/_refresh`, { method: 'POST' });
+  await fetch(`${ES}/${INDEX}/_refresh`, { method: 'POST', headers: authHeaders() });
 }
 
 (async () => {
@@ -230,19 +243,16 @@ async function bulkUpload(docs, chunkDocs = 5000) {
     fs.readFile(PATH_D, 'utf8').then(JSON.parse)
   ]);
 
-  console.log('Lege Index/Mappings an ...');
-  const createdOrRecreated = await ensureIndex();
+  const created = await ensureIndex();
+  console.log(created
+    ? 'Index neu angelegt --> Vollaufbau.'
+    : 'Index vorhanden --> Upsert via Bulk (Dokumente mit gleicher _id werden überschrieben).');
 
-  if (!createdOrRecreated) {
-    console.log('Index existiert und FORCE_REINDEX!=1 – breche ab ohne Reindex.');
-    return;
-  }
-
-  console.log('Baue Dokumente ...');
+  console.log('Baue Dokumente...');
   const docs = buildDocs(Vraw, Draw);
   console.log(`Dokumente gesamt: ${docs.length}`);
 
-  console.log('Bulk-Upload ...');
+  console.log('Bulk-Upload...');
   await bulkUpload(docs);
 
   console.log(`Fertig: ${docs.length} Dokumente in "${INDEX}" indiziert.`);

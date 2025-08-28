@@ -8,8 +8,7 @@ import SectionTextPict from "~/components/page/SectionTextPict.astro";
 import { pageinfo } from '~/constants.ts';
 import { fetchWikipediaLinks, fetchWikipediaImage } from '~/lib/wiki';
 import { semesterLabel } from '~/lib/semester';
-
-const ES = process.env.ELASTICSEARCH_URL || 'http://elasticsearch:9200';
+import { esSearch } from '~/server/es';
 
 // Helper
 function getWikipediaTitle(wiki_url?: string) {
@@ -20,39 +19,32 @@ function getWikipediaTitle(wiki_url?: string) {
 const dozentId = String(Astro.params.id ?? '').trim();
 if (!dozentId) return new Response('Ungültige Dozenten-ID', { status: 400 });
 
-// 1) Dozent laden
+// 1) Dozent laden (aus ES)
 let dozent: any = null;
-{
-  const bodyDoz = {
+try {
+  const { hits } = await esSearch({
     query: { bool: { filter: [ { term: { typ: 'dozent' } }, { term: { id: dozentId } } ] } },
     size: 1,
     _source: [
-      'id','id_dozent','nachname','vorname','geboren','gestorben','fak','fachgebiet',
-      'habilitation','berufung','dekanat','rektor','gagliardi','pnd','wikidata','wikipedia',
-      'url' // externe Links-Array
+      'id','nachname','vorname','geboren','gestorben','fak','fachgebiet',
+      'habilitation','berufung','pnd','wikidata','wikipedia',
+      'external_urls','gagliardi','dekanat','rektor'
     ]
-  };
-  const r1 = await fetch(`${ES}/histvv/_search`, {
-    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(bodyDoz)
   });
-  if (!r1.ok) {
-    const txt = await r1.text().catch(() => '');
-    return new Response(`Suche nicht erreichbar: ${r1.status} ${txt}`, { status: 502 });
-  }
-  const j1 = await r1.json();
-  dozent = j1.hits?.hits?.[0]?._source ?? null;
-  if (!dozent) {
-    return new Response('Dozierender nicht gefunden', { status: 404 });
-  }
+  dozent = hits?.hits?.[0]?._source ?? null;
+} catch (e: any) {
+  return new Response(`Suche nicht erreichbar: ${e?.message || e}`, { status: 502 });
+}
+if (!dozent) {
+  return new Response('Dozierender nicht gefunden', { status: 404 });
 }
 
 // 2) Veranstaltungen des Dozenten laden
 let veranstaltungen_dozent: any[] = [];
-{
-  const bodyV = {
+try {
+  const { hits } = await esSearch({
     query: { bool: { filter: [
       { term: { typ: 'veranstaltung' } },
-      // exakter Match auf eingebettetem Feld
       { term: { 'dozenten.id_dozent': dozentId } }
     ] } },
     size: 5000,
@@ -60,17 +52,12 @@ let veranstaltungen_dozent: any[] = [];
       'id_veranstaltung','id_semester','thema','thema_anmerkung','zusatz',
       'vorlesungsnummer','zeit','wochenstunden','ort','dozenten'
     ]
-  };
-  const r2 = await fetch(`${ES}/histvv/_search`, {
-    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(bodyV)
   });
-  if (!r2.ok) {
-    const txt = await r2.text().catch(() => '');
-    return new Response(`Suche nicht erreichbar: ${r2.status} ${txt}`, { status: 502 });
-  }
-  const j2 = await r2.json();
-  veranstaltungen_dozent = (j2.hits?.hits ?? []).map((h:any) => h._source)
+  veranstaltungen_dozent = (hits?.hits ?? [])
+    .map((h:any) => h._source)
     .sort((a:any,b:any) => String(a.id_semester).localeCompare(String(b.id_semester)));
+} catch (e: any) {
+  return new Response(`Suche nicht erreichbar: ${e?.message || e}`, { status: 502 });
 }
 
 // 3) Wikipedia/Wikidata-Infos aufbereiten
@@ -83,18 +70,24 @@ if (!dozent.wikidata && !dozent.wikipedia) {
   // nichts
 } else if (!dozent.wikidata && dozent.wikipedia) {
   wikipediaDe = dozent.wikipedia;
-  wikipediaImage = await fetchWikipediaImage("de", getWikipediaTitle(wikipediaDe)!, 300);
+  const t = getWikipediaTitle(wikipediaDe);
+  if (t) wikipediaImage = await fetchWikipediaImage("de", t, 300);
 } else if (dozent.wikidata) {
   const links = await fetchWikipediaLinks(dozent.wikidata);
   wikipediaDe = links.de || null;
   wikipediaEn = links.en || null;
   wikidataLink = `https://www.wikidata.org/wiki/${dozent.wikidata}`;
-  if (wikipediaDe) {
-    wikipediaImage = await fetchWikipediaImage("de", getWikipediaTitle(wikipediaDe)!, 300);
-  } else if (wikipediaEn) {
-    wikipediaImage = await fetchWikipediaImage("en", getWikipediaTitle(wikipediaEn)!, 300);
+  const tDe = wikipediaDe ? getWikipediaTitle(wikipediaDe) : null;
+  const tEn = wikipediaEn ? getWikipediaTitle(wikipediaEn) : null;
+  if (tDe) {
+    wikipediaImage = await fetchWikipediaImage("de", tDe, 300);
+  } else if (tEn) {
+    wikipediaImage = await fetchWikipediaImage("en", tEn, 300);
   }
 }
+
+// externe Links
+const externalLinks: string[] = Array.isArray(dozent.external_urls) ? dozent.external_urls : [];
 
 // breadcrumb & Titel
 const breadcrumb = [
@@ -102,7 +95,7 @@ const breadcrumb = [
   { label: "Dozierende", href: "/dozierende/" },
   { 
     label: dozent.vorname ? `${dozent.nachname}, ${dozent.vorname}` : dozent.nachname, 
-    href: `/dozierende/${dozent.id ?? dozent.id_dozent}/` 
+    href: `/dozierende/${dozent.id}/`
   }
 ];
 const page_title = dozent.vorname ? `${dozent.nachname}, ${dozent.vorname}` : dozent.nachname;
@@ -133,12 +126,10 @@ const page_title = dozent.vorname ? `${dozent.nachname}, ${dozent.vorname}` : do
                 {dozent.geboren}
               </span>
               {dozent.gestorben && (
-                <>
-                  <span style="margin-left:30px;display:inline-block;">
-                    <span style="width:18px;display:inline-block;">&dagger;</span>
-                    {dozent.gestorben}
-                  </span>
-                </>
+                <span style="margin-left:30px;display:inline-block;">
+                  <span style="width:18px;display:inline-block;">&dagger;</span>
+                  {dozent.gestorben}
+                </span>
               )}
             </>
           )}
@@ -159,16 +150,16 @@ const page_title = dozent.vorname ? `${dozent.nachname}, ${dozent.vorname}` : do
         {dozent.dekanat && <p>{dozent.dekanat}</p>}
         {dozent.rektor && <p>{dozent.rektor}</p>}
 
-        {(dozent.pnd || wikipediaDe || wikipediaEn || wikidataLink || (Array.isArray(dozent.url) && dozent.url.length > 0)) && (
+        {(dozent.pnd || wikipediaDe || wikipediaEn || wikidataLink || externalLinks.length > 0) && (
           <p>
             {[
               dozent.pnd && <a class="Link" href={`https://d-nb.info/gnd/${dozent.pnd}`}>GND</a>,
               wikipediaDe && <a class="Link" href={wikipediaDe} target="_blank" rel="noopener noreferrer">Wikipedia (DE)</a>,
               wikipediaEn && <a class="Link" href={wikipediaEn} target="_blank" rel="noopener noreferrer">Wikipedia (EN)</a>,
               wikidataLink && <a class="Link" href={wikidataLink} target="_blank" rel="noopener noreferrer">Wikidata</a>,
-              ...(Array.isArray(dozent.url) ? dozent.url.map((u: string) =>
+              ...externalLinks.map((u: string) =>
                 <a class="Link" href={u} target="_blank" rel="noopener noreferrer">{u}</a>
-              ) : [])
+              ),
             ]
               .filter(Boolean)
               .map((elem, i, arr) => (

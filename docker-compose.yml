@@ -1,65 +1,41 @@
 networks:
   histvv-nw:
 
-volumes:
-  es-data:
-
 services:
   prod:
     init: true
-    container_name: histvv2025
+    container_name: histvv
     build:
       context: .
       args:
         SITE_URL: http://localhost
     environment:
-      - ELASTICSEARCH_URL=http://elasticsearch:9200
+      ELASTICSEARCH_URL: ${ELASTICSEARCH_URL:-https://ziwwwsearchtest01.uzh.ch:9200}
+      HISTVV_INDEX: ${HISTVV_INDEX:-uzh_archiv_histvv}
+      ELASTICSEARCH_USERNAME: ${ELASTICSEARCH_USERNAME:-uzh_archiv_admin}
+      ELASTICSEARCH_PASSWORD: ${ELASTICSEARCH_PASSWORD}
     ports:
       - "80:80"
     networks: [histvv-nw]
-    volumes:
-      - ./data:/app/data:ro
     restart: always
     depends_on:
-      elasticsearch:
-        condition: service_healthy
       indexer:
         condition: service_completed_successfully  # ⬅️ warte bis Indexer fertig ist
-
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.14.0
-    container_name: histvv2025-elasticsearch
-    environment:
-      - discovery.type=single-node
-      - xpack.security.enabled=false
-      - ES_JAVA_OPTS=-Xms512m -Xmx512m
-      - ingest.geoip.downloader.enabled=false
-    ports:
-      - "9200:9200"
-    healthcheck:
-      test: ["CMD-SHELL", "curl -fsS http://localhost:9200 >/dev/null || exit 1"]
-      interval: 10s
-      timeout: 2s
-      retries: 30
-    networks: [histvv-nw]
-    volumes:
-      - es-data:/usr/share/elasticsearch/data
-
   indexer:
     image: node:20-alpine
     container_name: histvv2025-indexer
-    working_dir: /work
+    working_dir: /app
     volumes:
-      - .:/work
+      - .:/app:ro
     environment:
-      - ELASTICSEARCH_URL=http://elasticsearch:9200
-      - HISTVV_INDEX=histvv
-      - DATA_VERANST=data/tbl_veranstaltungen-merged.json
-      - DATA_DOZ=data/tbl_dozenten.json
-      # - FORCE_REINDEX=1  # optional: erzwinge Neuaufbau
-    depends_on:
-      elasticsearch:
-        condition: service_healthy
-    command: ["node", "scripts/index-elasticsearch.mjs"]
+      ELASTICSEARCH_URL: ${ELASTICSEARCH_URL:-https://ziwwwsearchtest01.uzh.ch:9200}
+      HISTVV_INDEX: ${HISTVV_INDEX:-uzh_archiv_histvv}
+      ELASTICSEARCH_USERNAME: ${ELASTICSEARCH_USERNAME:-uzh_archiv_admin}
+      ELASTICSEARCH_PASSWORD: ${ELASTICSEARCH_PASSWORD}
+      DATA_VERANST: ${DATA_VERANST:-data/tbl_veranstaltungen-merged.json}
+      DATA_DOZ: ${DATA_DOZ:-data/tbl_dozenten.json}
+      # Hard Drop+Recreate:
+      # FORCE_REINDEX: "1"
+    command: ["node","scripts/index-elasticsearch.mjs"]
     networks: [histvv-nw]
     restart: "no"

@@ -34,11 +34,13 @@ try {
       'site_url','url'
     ]
   });
+  const collator = new Intl.Collator('de', { sensitivity: 'base' });
   items = (hits?.hits ?? []).map((h: any) => h._source)
     .sort((a: any, b: any) =>
-      String(a.fak || '').localeCompare(String(b.fak || '')) ||
-      String(a.thema || '').localeCompare(String(b.thema || ''))
+      collator.compare(String(a.fak || ''),   String(b.fak || '')) ||
+      collator.compare(String(a.thema || ''), String(b.thema || ''))
     );
+
 } catch (e) {
   return new Response('Suche nicht erreichbar', { status: 502 });
 }
@@ -54,10 +56,10 @@ const sortedFakultaetNamen = sortFakultaeten(Object.keys(byFak));
 
 // Anchor-ID
 function anchorFrom(v: any) {
-  const direct = (v?.id_veranstaltung ?? '').toString().trim();
+  const direct = (v?.id_veranstaltung ?? v?.id ?? '').toString().trim();
   if (direct) return direct;
   const u = (v?.site_url || v?.url || '').toString();
-  if (u.includes('#')) return u.split('#').pop();
+  if (u.includes('#')) return u.split('#').pop()!;
   return '';
 }
 

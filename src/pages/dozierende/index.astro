@@ -10,22 +10,27 @@ import { esSearch } from '~/server/es';
 
 const page_title = "Dozierende";
 
-// Dozierende laden (über esSearch) und in JS sortieren
+// Dozierende laden (über esSearch) und sortieren
 let dozierende: any[] = [];
 try {
   const { hits } = await esSearch({
-    query: { term: { typ: 'dozent' } },
+    query: {
+      bool: {
+        filter: [{ term: { typ: 'dozent' } }],
+        must_not: [{ term: { id: 'vakant' } }]
+      }
+    },
     size: 10000,
-    _source: ['id','id_dozent','nachname','vorname','geboren','gestorben','fak','berufung']
+    _source: ['id','nachname','vorname','geboren','gestorben','fak','berufung']
   });
+
+  const collator = new Intl.Collator('de', { sensitivity: 'base' });
   dozierende = (hits?.hits ?? [])
     .map((h: any) => h._source)
-    .filter((d: any) => (d.id ?? d.id_dozent) !== 'vakant')
-    .sort((a: any, b: any) => {
-      const an = (a.nachname || '').localeCompare(b.nachname || '');
-      if (an !== 0) return an;
-      return (a.vorname || '').localeCompare(b.vorname || '');
-    });
+    .sort((a: any, b: any) =>
+      collator.compare(a.nachname || '', b.nachname || '') ||
+      collator.compare(a.vorname || '', b.vorname || '')
+    );
 } catch (e) {
   return new Response('Suche nicht erreichbar', { status: 502 });
 }
@@ -67,9 +72,9 @@ const breadcrumb = [
       </thead>
       <tbody>
         {dozierende.map((d:any) => (
-          <tr key={d.id ?? d.id_dozent}>
+          <tr key={d.id}>
             <td>
-              <a href={`/dozierende/${d.id ?? d.id_dozent}/`}>
+              <a href={`/dozierende/${d.id}/`}>
                 {d.nachname}{d.vorname ? `, ${d.vorname}` : ''}
               </a>
             </td>

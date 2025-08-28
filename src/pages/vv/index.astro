@@ -7,27 +7,36 @@ import MetaHead from "~/components/page/MetaHead.astro";
 import SectionTextPict from "~/components/page/SectionTextPict.astro";
 import { pageinfo } from '~/constants.ts';
 import { groupByDecade, semesterLabel, compareSemester, isValidSemesterId } from '~/lib/semester';
+import { esSearch } from '~/server/es';
 
-const ES = process.env.ELASTICSEARCH_URL || 'http://elasticsearch:9200';
 const page_title = "Vorlesungsverzeichnisse";
 
-// Alle Semester-IDs per Aggregation
-const res = await fetch(`${ES}/histvv/_search`, {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
+// Alle Semester-IDs per Aggregation via esSearch()
+let buckets: Array<{ key: string; doc_count: number }> = [];
+try {
+  const { aggregations } = await esSearch({
     query: { term: { typ: 'veranstaltung' } },
     size: 0,
     aggs: {
       semesters: { terms: { field: 'id_semester', size: 20000, order: { _key: 'asc' } } }
     }
-  })
-});
-if (!res.ok) return new Response('Suche nicht erreichbar', { status: 502 });
-const j = await res.json();
-const buckets = j.aggregations?.semesters?.buckets ?? [];
-const semesterIDs = buckets.map((b:any) => String(b.key)).filter(isValidSemesterId).sort(compareSemester);
-const veranstaltungenCount: Record<string, number> = Object.fromEntries(buckets.map((b:any) => [String(b.key), Number(b.doc_count)]));
+  });
+  buckets = (aggregations?.semesters?.buckets ?? []) as typeof buckets;
+} catch (e) {
+  return new Response('Suche nicht erreichbar', { status: 502 });
+}
+
+const semesterIDs = buckets
+  .map(b => String(b.key))
+  .filter(isValidSemesterId)
+  .sort(compareSemester);
+
+if (!semesterIDs.length) {
+  return new Response('Keine Semester gefunden.', { status: 404 });
+}
+
+const veranstaltungenCount: Record<string, number> =
+  Object.fromEntries(buckets.map(b => [String(b.key), Number(b.doc_count)]));
 
 // Gruppierung nach Jahrzehnt
 const groupedByDecade = groupByDecade(semesterIDs);
