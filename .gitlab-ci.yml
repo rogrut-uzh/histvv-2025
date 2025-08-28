@@ -81,6 +81,14 @@ build_prod:
     DEST1: "$PROD_TAG"     # main-<sha>
     DEST2: "$PROD_LATEST"  # latest
 
+# ===========================================
+# ===== Container Scanning aus Template =====
+# ===========================================
+# Deactivate the default template job, but keep it available for "extends"
+container_scanning:
+  rules:
+    - when: never
+
 # ====================================================
 # ===== Container Scanning aus Template für TEST =====
 # ====================================================
