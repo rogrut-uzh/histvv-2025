@@ -19,15 +19,16 @@ workflow:
 include:
   - template: Jobs/Container-Scanning.gitlab-ci.yml
 
+# =================
+# ===== Build =====
+# =================
 .build_with_kaniko:
   stage: build
   image:
     name: gcr.io/kaniko-project/executor:v1.23.2-debug
     entrypoint: [""]
-  variables:
-    SITE_URL: https://test.histvv.uzh.ch
-    HISTVV_INDEX: histvv
-    #ELASTICSEARCH_PASSWORD: -----is set in gitlab variables-----
+#  variables:
+#    ELASTICSEARCH_PASSWORD: -----is set in gitlab variables-----
   script:
     # Login für Kaniko (GitLab Registry)
     - >
@@ -47,34 +48,42 @@ include:
       --destination "$IMAGE:$DEST1"
       ${DEST2:+--destination "$IMAGE:$DEST2"}
       ${DEST3:+--destination "$IMAGE:$DEST3"}
-      --cache=true
-      --cache-repo "$IMAGE/cache"
+      --cache=false
+#      --cache=true
+#      --cache-repo "$IMAGE/cache"
 
+# ==============================
 # ===== Build: TEST-Branch =====
+# ==============================
 build_test:
   extends: .build_with_kaniko
   rules:
     - if: '$CI_COMMIT_BRANCH == "test"'
   variables:
     SITE_URL: https://test.histvv.uzh.ch
-    ELASTICSEARCH_URL: https://ziwwwsearchprod01.uzh.ch:9200
+    ELASTICSEARCH_URL: https://ziwwwsearchtest01.uzh.ch:9200
     ELASTICSEARCH_USERNAME: uzh_archiv_admin
+    HISTVV_INDEX: uzh_archiv_histvv
     DEST1: "$TEST_TAG"     # z.B. test-<sha>
     DEST2: "$TEST_LATEST"  # z.B. test
 
+# ==============================
 # ===== Build: MAIN-Branch =====
+# ==============================
 build_prod:
   extends: .build_with_kaniko
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
   variables:
     SITE_URL: https://www.histvv.uzh.ch
-    ELASTICSEARCH_URL: https://ziwwwsearchtest01.uzh.ch:9200
+    ELASTICSEARCH_URL: https://ziwwwsearchprod01.uzh.ch:9200
     ELASTICSEARCH_USERNAME: uzh_archiv_admin_prod
-    DEST1: "$PROD_LATEST"  # latest
-    DEST2: "$PROD_TAG"     # main-<sha>
+    DEST1: "$PROD_TAG"     # main-<sha>
+    DEST2: "$PROD_LATEST"  # latest
 
-# --- Container Scanning aus Template für TEST ---
+# ====================================================
+# ===== Container Scanning aus Template für TEST =====
+# ====================================================
 scan_test:
   extends: container_scanning
   stage: test
@@ -83,12 +92,14 @@ scan_test:
     - if: '$CI_COMMIT_BRANCH == "test"'
   variables:
     GIT_STRATEGY: none
-    CS_IMAGE: "$IMAGE:$TEST_TAG"   # <- existiert jetzt sicher
+    CS_IMAGE: "$IMAGE:$TEST_TAG" 
     CS_REGISTRY: "$CI_REGISTRY"
     CS_REGISTRY_USER: "$CI_REGISTRY_USER"
     CS_REGISTRY_PASSWORD: "$CI_JOB_TOKEN"
 
-# --- Container Scanning aus Template für PROD ---
+# ====================================================
+# ===== Container Scanning aus Template für PROD =====
+# ====================================================
 scan_prod:
   extends: container_scanning
   stage: test
@@ -97,7 +108,7 @@ scan_prod:
     - if: '$CI_COMMIT_BRANCH == "main"'
   variables:
     GIT_STRATEGY: none
-    CS_IMAGE: "$IMAGE:$PROD_LATEST"  # oder $PROD_TAG
+    CS_IMAGE: "$IMAGE:$PROD_TAG"
     CS_REGISTRY: "$CI_REGISTRY"
     CS_REGISTRY_USER: "$CI_REGISTRY_USER"
     CS_REGISTRY_PASSWORD: "$CI_JOB_TOKEN"
