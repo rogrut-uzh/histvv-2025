@@ -1,36 +1,62 @@
 networks:
   histvv-nw:
 
+volumes:
+  es-data:
+
 services:
+  es:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.18.2
+    container_name: histvv_es
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    ports:
+      - "9200:9200"
+    networks: [histvv-nw]
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:9200 >/dev/null || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+    volumes:
+      - es-data:/usr/share/elasticsearch/data
+
   prod:
     init: true
-    container_name: histvv
+    container_name: histvv2025
     build:
       context: .
       args:
         SITE_URL: http://localhost
     environment:
-      ELASTICSEARCH_URL: ${ELASTICSEARCH_URL:-https://ziwwwsearchtest01.uzh.ch:9200}
+      # Lokales ES (ohne Auth)
+      ELASTICSEARCH_URL: ${ELASTICSEARCH_URL:-http://es:9200}
       HISTVV_INDEX: ${HISTVV_INDEX:-uzh_archiv_histvv}
-      ELASTICSEARCH_USERNAME: ${ELASTICSEARCH_USERNAME:-uzh_archiv_admin}
-      ELASTICSEARCH_PASSWORD: ${ELASTICSEARCH_PASSWORD}
+      ELASTICSEARCH_USERNAME: ${ELASTICSEARCH_USERNAME:-}
+      ELASTICSEARCH_PASSWORD: ${ELASTICSEARCH_PASSWORD:-}
     ports:
       - "80:80"
     networks: [histvv-nw]
-    restart: always
-  indexer:
-    image: node:20-alpine
-    container_name: histvv2025-indexer
-    working_dir: /app
     volumes:
-      - .:/app:ro
-    environment:
-      ELASTICSEARCH_URL: ${ELASTICSEARCH_URL:-https://ziwwwsearchtest01.uzh.ch:9200}
-      HISTVV_INDEX: ${HISTVV_INDEX:-uzh_archiv_histvv}
-      ELASTICSEARCH_USERNAME: ${ELASTICSEARCH_USERNAME:-uzh_archiv_admin}
-      ELASTICSEARCH_PASSWORD: ${ELASTICSEARCH_PASSWORD}
-      DATA_VERANST: ${DATA_VERANST:-data/tbl_veranstaltungen-merged.json}
-      DATA_DOZ: ${DATA_DOZ:-data/tbl_dozenten.json}
-    command: ["node","scripts/index-elasticsearch.mjs"]
-    networks: [histvv-nw]
-    restart: "no"
+      - ./data:/app/data:ro
+    restart: unless-stopped
+    depends_on:
+      es:
+        condition: service_healthy
+
+# sudo sysctl -w vm.max_map_count=262144 (in wsl2)
+# docker compose build --no-cache prod
+# docker compose up -d --remove-orphans
+# curl -XDELETE http://localhost:9200/uzh_archiv_histvv
+# curl -XPUT http://localhost:9200/uzh_archiv_histvv -H 'Content-Type: application/json' --data-binary @scripts/es/mapping.json
+# docker run --rm --network histvv-2025_histvv-nw -v "$PWD:/app" -w /app -e ELASTICSEARCH_URL="http://es:9200" -e HISTVV_INDEX="uzh_archiv_histvv" node:20-alpine node scripts/es/index-elasticsearch.mjs
+# curl -XPOST http://localhost:9200/uzh_archiv_histvv/_refresh
+# api testen:
+# rogrut@UZH-1225-600510:~/gitlab-repositories/histvv-2025$ curl -s "http://localhost/api/suche.json?q=m%C3%BCller&typ=dozent&limit=5" | jq .
+# {
+#   "results": [],
+#   "error": "[es.ts] Fehlende Umgebungsvariablen: ELASTICSEARCH_USERNAME. Bitte via .env / Vault / Deployment-Env setzen."
+# }
+# curl -I http://localhost:9200/uzh_archiv_histvv

@@ -1,20 +1,12 @@
 {
   "settings": {
-    "index": {
-      "max_ngram_diff": 50
-    },
     "analysis": {
       "analyzer": {
         "de_analyzer": { "type": "standard", "stopwords": "_german_" },
         "autocomplete": { "tokenizer": "autocomplete", "filter": ["lowercase"] }
       },
       "tokenizer": {
-        "autocomplete": {
-          "type": "edge_ngram",
-          "min_gram": 2,
-          "max_gram": 20,
-          "token_chars": ["letter", "digit"]
-        }
+        "autocomplete": { "type": "edge_ngram", "min_gram": 2, "max_gram": 20, "token_chars": ["letter","digit"] }
       }
     }
   },
@@ -23,18 +15,12 @@
       "typ":         { "type": "keyword" },
       "id_semester": { "type": "keyword" },
       "fak":         { "type": "keyword" },
-
       "site_url":    { "type": "keyword" },
       "url":         { "type": "keyword" },
-
       "hauptfeld":   { "type": "text", "analyzer": "autocomplete", "search_analyzer": "de_analyzer" },
 
       "id_veranstaltung": { "type": "keyword" },
-      "thema": {
-        "type": "text",
-        "analyzer": "de_analyzer",
-        "fields": { "keyword": { "type": "keyword" } }
-      },
+      "thema":            { "type": "text", "analyzer": "de_analyzer", "fields": { "keyword": { "type": "keyword" } } },
       "thema_anmerkung":  { "type": "text", "analyzer": "de_analyzer" },
       "zusatz":           { "type": "text", "analyzer": "de_analyzer" },
       "vorlesungsnummer": { "type": "keyword" },

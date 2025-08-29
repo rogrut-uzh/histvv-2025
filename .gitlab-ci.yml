@@ -11,7 +11,6 @@ variables:
 
 workflow:
   rules:
-    # Falls du Commits mit -nodeployment suffix von CI ausschließen willst:
     - if: $CI_COMMIT_TITLE =~ /-nodeployment$/
       when: never
     - when: always
@@ -19,27 +18,17 @@ workflow:
 include:
   - template: Jobs/Container-Scanning.gitlab-ci.yml
 
-# =================
-# ===== Build =====
-# =================
 .build_with_kaniko:
   stage: build
   image:
     name: gcr.io/kaniko-project/executor:v1.23.2-debug
     entrypoint: [""]
-#  variables:
-#    ELASTICSEARCH_PASSWORD: -----is set in gitlab variables-----
   script:
-    # Login für Kaniko (GitLab Registry)
     - >
       printf '{"auths":{"%s":{"username":"%s","password":"%s"}}}'
       "$CI_REGISTRY" "$CI_REGISTRY_USER" "$CI_REGISTRY_PASSWORD"
       > /kaniko/.docker/config.json
-
-    # Safety: SITE_URL muss gesetzt sein
     - '[ -n "$SITE_URL" ] || { echo "ERROR: SITE_URL not set"; exit 1; }'
-
-    # Build & Push (mehrere --destination sind erlaubt)
     - >
       /kaniko/executor
       --context "${CI_PROJECT_DIR}"
@@ -47,55 +36,29 @@ include:
       --build-arg SITE_URL="$SITE_URL"
       --destination "$IMAGE:$DEST1"
       ${DEST2:+--destination "$IMAGE:$DEST2"}
-      ${DEST3:+--destination "$IMAGE:$DEST3"}
-      --cache=true
-      --cache-repo "$IMAGE/cache"
-      # no cache - only this line active:
-      #      --cache=false
-      # with cache - both lines active:
-      #      --cache=true
-      #      --cache-repo "$IMAGE/cache"
+      --cache=false
 
-# ==============================
-# ===== Build: TEST-Branch =====
-# ==============================
+# TEST
 build_test:
   extends: .build_with_kaniko
   rules:
     - if: '$CI_COMMIT_BRANCH == "test"'
   variables:
     SITE_URL: https://test.histvv.uzh.ch
-    ELASTICSEARCH_URL: https://ziwwwsearchtest01.uzh.ch:9200
-    ELASTICSEARCH_USERNAME: uzh_archiv_admin
-    HISTVV_INDEX: uzh_archiv_histvv
-    DEST1: "$TEST_TAG"     # z.B. test-<sha>
-    DEST2: "$TEST_LATEST"  # z.B. test
+    DEST1: "$TEST_TAG"
+    DEST2: "$TEST_LATEST"
 
-# ==============================
-# ===== Build: MAIN-Branch =====
-# ==============================
+# MAIN
 build_prod:
   extends: .build_with_kaniko
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
   variables:
     SITE_URL: https://www.histvv.uzh.ch
-    ELASTICSEARCH_URL: https://ziwwwsearchprod01.uzh.ch:9200
-    ELASTICSEARCH_USERNAME: uzh_archiv_admin_prod
-    DEST1: "$PROD_TAG"     # main-<sha>
-    DEST2: "$PROD_LATEST"  # latest
+    DEST1: "$PROD_TAG"
+    DEST2: "$PROD_LATEST"
 
-# ===========================================
-# ===== Container Scanning aus Template =====
-# ===========================================
-# Deactivate the default template job, but keep it available for "extends"
-container_scanning:
-  rules:
-    - when: never
-
-# ====================================================
-# ===== Container Scanning aus Template für TEST =====
-# ====================================================
+# Scan TEST
 scan_test:
   extends: container_scanning
   stage: test
@@ -104,14 +67,12 @@ scan_test:
     - if: '$CI_COMMIT_BRANCH == "test"'
   variables:
     GIT_STRATEGY: none
-    CS_IMAGE: "$IMAGE:$TEST_TAG" 
+    CS_IMAGE: "$IMAGE:$TEST_TAG"
     CS_REGISTRY: "$CI_REGISTRY"
     CS_REGISTRY_USER: "$CI_REGISTRY_USER"
     CS_REGISTRY_PASSWORD: "$CI_JOB_TOKEN"
 
-# ====================================================
-# ===== Container Scanning aus Template für PROD =====
-# ====================================================
+# Scan MAIN
 scan_prod:
   extends: container_scanning
   stage: test
