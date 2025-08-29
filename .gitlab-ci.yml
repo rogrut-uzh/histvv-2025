@@ -37,6 +37,11 @@ include:
       --destination "$IMAGE:$DEST1"
       ${DEST2:+--destination "$IMAGE:$DEST2"}
       --cache=false
+      # no cache - only this line active:
+      #      --cache=false
+      # with cache - both lines active:
+      #      --cache=true
+      #      --cache-repo "$IMAGE/cache"
 
 # TEST
 build_test:
@@ -58,6 +63,11 @@ build_prod:
     DEST1: "$PROD_TAG"
     DEST2: "$PROD_LATEST"
 
+# Deactivate the default template job, but keep it available for "extends"
+container_scanning:
+  rules:
+    - when: never
+
 # Scan TEST
 scan_test:
   extends: container_scanning
@@ -67,7 +77,7 @@ scan_test:
     - if: '$CI_COMMIT_BRANCH == "test"'
   variables:
     GIT_STRATEGY: none
-    CS_IMAGE: "$IMAGE:$TEST_TAG"
+    CS_IMAGE: "$IMAGE:$TEST_LATEST"
     CS_REGISTRY: "$CI_REGISTRY"
     CS_REGISTRY_USER: "$CI_REGISTRY_USER"
     CS_REGISTRY_PASSWORD: "$CI_JOB_TOKEN"
@@ -81,7 +91,7 @@ scan_prod:
     - if: '$CI_COMMIT_BRANCH == "main"'
   variables:
     GIT_STRATEGY: none
-    CS_IMAGE: "$IMAGE:$PROD_TAG"
+    CS_IMAGE: "$IMAGE:$PROD_LATEST"
     CS_REGISTRY: "$CI_REGISTRY"
     CS_REGISTRY_USER: "$CI_REGISTRY_USER"
     CS_REGISTRY_PASSWORD: "$CI_JOB_TOKEN"
