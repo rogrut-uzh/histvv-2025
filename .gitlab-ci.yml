@@ -18,7 +18,26 @@ workflow:
 include:
   - template: Jobs/Container-Scanning.gitlab-ci.yml
 
-.build_with_kaniko:
+build_es_8_18_2:
+  stage: build
+  image:
+    name: gcr.io/kaniko-project/executor:v1.23.2-debug
+    entrypoint: [""]
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+  script:
+    - >
+      printf '{"auths":{"%s":{"username":"%s","password":"%s"}}}'
+      "$CI_REGISTRY" "$CI_REGISTRY_USER" "$CI_REGISTRY_PASSWORD"
+      > /kaniko/.docker/config.json
+    - >
+      /kaniko/executor
+      --context "${CI_PROJECT_DIR}"
+      --dockerfile "${CI_PROJECT_DIR}/es.Dockerfile"
+      --destination "$CI_REGISTRY_IMAGE/elasticsearch:8.18.2"
+      --cache=false
+
+.build_app:
   stage: build
   image:
     name: gcr.io/kaniko-project/executor:v1.23.2-debug
@@ -45,21 +64,21 @@ include:
 
 # TEST
 build_test:
-  extends: .build_with_kaniko
+  extends: .build_app
   rules:
     - if: '$CI_COMMIT_BRANCH == "test"'
   variables:
-    SITE_URL: https://test.histvv.uzh.ch
+    SITE_URL: https://histvv-2025.t01.cs.zi.uzh.ch
     DEST1: "$TEST_TAG"
     DEST2: "$TEST_LATEST"
 
 # MAIN
 build_prod:
-  extends: .build_with_kaniko
+  extends: .build_app
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
   variables:
-    SITE_URL: https://www.histvv.uzh.ch
+    SITE_URL: https://histvv.uzh.ch
     DEST1: "$PROD_TAG"
     DEST2: "$PROD_LATEST"
 
