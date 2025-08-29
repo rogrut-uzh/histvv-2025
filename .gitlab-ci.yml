@@ -24,7 +24,7 @@ build_es_8_18_2:
     name: gcr.io/kaniko-project/executor:v1.23.2-debug
     entrypoint: [""]
   rules:
-    - if: '$CI_COMMIT_BRANCH == "main"'
+    - if: '$CI_COMMIT_BRANCH == "test"'
   script:
     - >
       printf '{"auths":{"%s":{"username":"%s","password":"%s"}}}'
