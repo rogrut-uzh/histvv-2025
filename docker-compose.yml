@@ -1,9 +1,6 @@
 networks:
   histvv-nw:
 
-volumes:
-  es-data:
-
 services:
   prod:
     init: true
@@ -16,17 +13,14 @@ services:
       # Lokales ES (ohne Auth)
       ELASTICSEARCH_URL: ${ELASTICSEARCH_URL:-https://www.zi.uzh.ch/cgi-bin/esproxy/archiv_proxy_test.py}
       HISTVV_INDEX: ${HISTVV_INDEX:-uzh_archiv_histvv}
-      ELASTICSEARCH_USERNAME: ${ELASTICSEARCH_USERNAME:-}
-      ELASTICSEARCH_PASSWORD: ${ELASTICSEARCH_PASSWORD:-}
+      #ELASTICSEARCH_USERNAME: ${ELASTICSEARCH_USERNAME:-}
+      #ELASTICSEARCH_PASSWORD: ${ELASTICSEARCH_PASSWORD:-}
     ports:
       - "80:80"
     networks: [histvv-nw]
     volumes:
       - ./data:/app/data:ro
     restart: unless-stopped
-    depends_on:
-      es:
-        condition: service_healthy
 
 # sudo sysctl -w vm.max_map_count=262144 (in wsl2)
 # docker compose build --no-cache prod
