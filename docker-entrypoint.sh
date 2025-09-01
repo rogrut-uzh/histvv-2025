@@ -9,12 +9,13 @@ fi
 
 ES_URL="${ELASTICSEARCH_URL:-}"
 ES_INDEX="${HISTVV_INDEX:-}"
-ES_USER="${ELASTICSEARCH_USERNAME:-}"
-ES_PASS="${ELASTICSEARCH_PASSWORD:-}"
+#ES_USER="${ELASTICSEARCH_USERNAME:-}"
+#ES_PASS="${ELASTICSEARCH_PASSWORD:-}"
 
 mask_pw() { [ -n "${1:-}" ] && echo '***' || echo '<none>'; }
 
-echo "[entrypoint] ES_URL=${ES_URL:-<none>} ES_INDEX=${ES_INDEX:-<none>} ES_USER=${ES_USER:-<none>} ES_PASS=$(mask_pw "$ES_PASS")"
+#echo "[entrypoint] ES_URL=${ES_URL:-<none>} ES_INDEX=${ES_INDEX:-<none>} ES_USER=${ES_USER:-<none>} ES_PASS=$(mask_pw "$ES_PASS")"
+echo "[entrypoint] ES_URL=${ES_URL:-<none>} ES_INDEX=${ES_INDEX:-<none>}"
 
 # Optionaler, rein informativer Check (bricht NICHT ab)
 if command -v curl >/dev/null 2>&1 && [ -n "$ES_URL" ] && [ -n "$ES_INDEX" ]; then
