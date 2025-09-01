@@ -8,14 +8,13 @@ if [ -f "$DOTENV_CONFIG_PATH" ]; then
 fi
 
 ES_URL="${ELASTICSEARCH_URL:-}"
-ES_INDEX="${HISTVV_INDEX:-}"
 
 mask_pw() { [ -n "${1:-}" ] && echo '***' || echo '<none>'; }
 
-echo "[entrypoint] ES_URL=${ES_URL:-<none>} ES_INDEX=${ES_INDEX:-<none>}"
+echo "[entrypoint] ES_URL=${ES_URL:-<none>}"
 
 # Optionaler, rein informativer Check (bricht NICHT ab)
-if command -v curl >/dev/null 2>&1 && [ -n "$ES_URL" ] && [ -n "$ES_INDEX" ]; then
+if command -v curl >/dev/null 2>&1 && [ -n "$ES_URL" ]; then
   code=$(curl -ksS -o /dev/null -w '%{http_code}' "$ES_URL" || true)
   if [ "$code" != "200" ]; then
     echo "[entrypoint] WARN: ES nicht erreichbar oder Index fehlt (HTTP $code). Starte trotzdem."
