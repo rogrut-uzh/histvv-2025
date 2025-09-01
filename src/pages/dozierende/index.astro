@@ -12,6 +12,7 @@ const page_title = "Dozierende";
 
 // Dozierende laden (über esSearch) und sortieren
 let dozierende: any[] = [];
+let esError = ''; // <-- Fehlertext für Anzeige/Log
 try {
   const { hits } = await esSearch({
     query: {
@@ -32,7 +33,9 @@ try {
       collator.compare(a.vorname || '', b.vorname || '')
     );
 } catch (e) {
-  return new Response('Suche nicht erreichbar', { status: 502 });
+  esError = String(e);
+  console.error('[dozierende] ES-Fehler:', e); // <-- im Server-Log sehen
+  // Keine Response mit 502 zurückgeben -> Seite rendert weiter
 }
 
 const breadcrumb = [
