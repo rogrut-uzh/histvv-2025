@@ -1,32 +1,25 @@
 # STAGE 1 — Build
 FROM node:20-alpine AS build
 WORKDIR /app
-ENV LANG=en_US.UTF-8
+ENV LANG=C.UTF-8
 COPY package*.json ./
 RUN npm ci
 COPY . .
 ARG SITE_URL
 ENV SITE_URL=$SITE_URL
-RUN npm run build   # erzeugt dist/server/entry.mjs (Astro Node-Adapter)
+RUN npm run build
 
-# STAGE 2 — Runtime
+# STAGE 2 — Runtime (non-root)
 FROM node:20-alpine
 WORKDIR /app
 ENV NODE_ENV=production
 ENV HOST=0.0.0.0
-ENV PORT=80
+ENV PORT=3001
 
-# Optional: curl für den rein informativen ES-Check im Entrypoint
-RUN apk add --no-cache curl
-
-# App übernehmen
 COPY --from=build /app/dist ./dist
 COPY --from=build /app/package*.json ./
-RUN npm ci --omit=dev
+RUN npm ci --omit=dev --no-audit --no-fund
 
-# Entrypoint
-COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
-
-EXPOSE 80
-ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
+USER node
+EXPOSE 3001
+CMD ["node","./dist/server/entry.mjs"]

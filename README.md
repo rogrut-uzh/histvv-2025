@@ -256,8 +256,11 @@ npm run dev
 ### Container build & start
 
 ```
-docker compose build (--no-cache) prod
-docker compose up -d (--remove-orphans)
+docker compose build prod     # or
+docker compose build --no-cache prod
+
+docker compose up -d          # or
+docker compose up -d --remove-orphans
 ```
 
 Website: `http://localhost`. Falls nötig, kann man sich mit `docker exec -it histvv2025 /bin/sh` in den Container wählen. Logs lassen sich mit `docker compose logs` oder `docker logs histvv2025` anzeigen.
