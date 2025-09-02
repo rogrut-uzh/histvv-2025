@@ -22,6 +22,16 @@ Die [vorherige Version der Website](https://gitlab.uzh.ch/histvv) wurde unter Ve
 
 ---
 
+## Vorbereitung: Git Repo klonen
+
+```
+cd ~/gitlab-repositories
+git clone git@gitlab.uzh.ch:dba/histvv-2025.git
+cd ~/gitlab-repositories/histvv-2025
+```
+
+---
+
 ## Aufbereitung der Rohdaten
 
 Die Rohdaten (Vorlesungsverzeichnis, Dozierende u.a.) liegen in zwei verschiedenen Formaten vor. 
@@ -118,6 +128,81 @@ Das JSON Resultat wird unter `data/tbl_veranstaltungen-merged.json` abgelegt. Di
 
 ---
 
+## Elasticsearch
+
+Die Daten zu den Dozierenden und Vorlesungsverzeichnissen liegen auf einem ES-Server der ZI. 
+
+Da die Website öffentlich in der UZH-Cloud in Zone 1 liegt, kann keine direkte Verbindung zu ES aufgebaut werden. Deshalb hat Lars Frasseck ein Proxy eingerichtet. Dort ist der Index und der read-user bereits fest hinterlegt. Es muss somit nur noch die Suchquery als Body an den Endpoint gesendet werden und es braucht keine Authentifizierung mehr.
+
+### Testumgebung
+
+  - ES-Instanz: `https://ziwwwsearchtest01.uzh.ch:9200`
+  - Index: `uzh_archiv_histvv`
+  - Users: `uzh_archiv_admin` und `uzh_archiv_user` für read.
+  - Proxy Endpoint: `https://www.zi.uzh.ch/cgi-bin/esproxy/archiv_proxy_test.py`
+
+
+### Index erstellen und befüllen
+
+Der ES-Index wird ausschliesslich vom lokalen Rechner manuell gepflegt. Als Vorbereitung muss im Root-Ordner ein .env file erstellt werden, wobei `<seeKeePass>` vor- oder nachher angepasst werden muss.
+
+#### .env Datei anlegen
+
+```
+cd ~/gitlab-repositories/histvv-2025
+
+echo -e "ES_PASSWORD_ADM=<seeKeePass>\nES_USERNAME_ADM=uzh_archiv_admin\nES=https://ziwwwsearchtest01.uzh.ch:9200\nES_INDEX=uzh_archiv_histvv\nPATH_D=data/tbl_dozenten.json\nPATH_V=data/tbl_veranstaltungen-merged.json" > ~/gitlab-repositories/histvv-2025/.env
+```
+
+#### Index anlegen und befüllen
+
+```
+cd ~/gitlab-repositories/histvv-2025 && docker run --rm --network histvv-2025_histvv-nw -e FORCE_REES_INDEX=1 --env-file .env -v "$PWD:/app" -w /app node:20-alpine node scripts/es/index-elasticsearch.mjs
+```
+
+Der Befehl startet einen einmaligen Node-20-Container, hängt ihn ins Docker-Netz histvv-2025_histvv-nw, bindet das aktuelle Verzeichnis ins Container-Verzeichnis /app ein, setzt die Umgebungsvariable FORCE_REES_INDEX, lädt die restlichen Umgebungsvariablen aus .env rein, und führt darin das Reindex-Script aus:
+
+  1. `waitForES(ES)` – wartet, bis ES erreichbar ist.
+  2. `ensureIndex(mapping)`
+    - `HEAD /{index}`
+    - Falls der Index existiert und `FORCE_REES_INDEX=1`:
+      - `DELETE /{index}`
+      - `PUT /{index}` mit `scripts/es/mapping.json`
+    - Falls der Index nicht existiert: direkt `PUT` mit Mapping.
+  3. `bulkUpload(...)` – lädt alle Dokumente per `_bulk` und `/_refresh`.
+
+#### Check ob Daten vorhanden sind
+
+```
+# Von localhost aus
+###################
+
+# Auf 200 Status prüfen
+curl -u uzh_archiv_admin:<seeKeePass> -I https://ziwwwsearchtest01.uzh.ch:9200/uzh_archiv_histvv
+
+# Kleine Such-Query:
+curl -s "http://localhost/api/suche.json?q=m%C3%BCller&typ=dozent&limit=5" | jq .
+
+
+# Vom pod aus:
+##############
+
+# mit curl:
+curl -sS -X POST 'https://www.zi.uzh.ch/cgi-bin/esproxy/archiv_proxy_test.py' -H 'Content-Type: application/json' --data '{"query":{"simple_query_string":{"query":"Dogmatik","fields":["hauptfeld"]}}}'
+
+# oder mit node:
+node -e "fetch('https://www.zi.uzh.ch/cgi-bin/esproxy/archiv_proxy_test.py',{  method:'POST',  headers:{'Content-Type':'application/json'},  body: JSON.stringify({query:{simple_query_string:{query:'Dogmatik',fields:['hauptfeld']}}}) }).then(r=>r.text()).then(console.log).catch(console.error)"
+```
+
+#### Index löschen (falls nötig)
+
+```
+curl -u uzh_archiv_admin:rHZOvorAqVId19DKcG9i -XDELETE https://ziwwwsearchtest01.uzh.ch:9200/uzh_archiv_histvv
+```
+
+
+---
+
 ## Lokal - docker compose
 
 ### Projektbeginn
@@ -156,52 +241,44 @@ npm -v
 #### Astro Projekt installieren
 
 ```
-mkdir /xyz/histvv-2025
-cd /xyz/histvv-2025
+cd ~/gitlab-repositories/histvv-2025
 
-# erstellt package.json
+# erstellt package.json:
 npm create astro@latest .
 
-# Wenn das Create-Tool nach dem Setu nicht automatisch npm install ausführt, mach das einfach selbst:
+# Wenn das Create-Tool nach dem Setup nicht automatisch npm install ausführt, selber machen:
 npm install
 
-# starten
+# starten:
 npm run dev
 ```
 
 ### Container build & start
 
 ```
-docker compose build prod && docker compose up -d prod
+docker compose build (--no-cache) prod
+docker compose up -d (--remove-orphans)
 ```
 
-Wenn das builden der `dozierenden` Dateien ausgelassen werden soll (build dauert lange für die Dozierenden), kann dies über einen Build Parameter gesteuert werden:
-
-```
-docker compose build --build-arg EXCLUDE_DOZIERENDE=true prod && docker compose up -d prod
-```
-
-Website: `http://localhost'
-
-### SSH in Container:
-
-```
-docker exec -it histvv2025-prod /bin/sh
-```
-
-Die HTML-Seite ist unter `/usr/share/nginx/html`
+Website: `http://localhost`. Falls nötig, kann man sich mit `docker exec -it histvv2025 /bin/sh` in den Container wählen. Logs lassen sich mit `docker compose logs` oder `docker logs histvv2025` anzeigen.
 
 ---
 
 ## UZH Cloud
 
-Es gibt eine Cloud __Test-Umgebung__ und ein Cloud __Prod-Umgebung__. Für jede Umgebung ist ein __eigenes Container Image__ vorgesehen. In diesem Projekt ist dies mit __unterschiedlichen Branches__ gelöst. Auf dem `main` Git Branch ist die Version ist die Prod-Website. Im `test` Branch kann parallel dazu weiter entwickelt werden, respektive lokal gemachte Anpassungen können in der Cloud Test-Umgebung anderen Personen zur Vorschau gezeigt werden.
+Es gibt eine Cloud __Test-Umgebung__ und ein Cloud __Prod-Umgebung__. Für jede Umgebung ist ein __eigenes Container Image__ vorgesehen. In diesem Projekt ist dies mit __unterschiedlichen Branches__ gelöst. Auf dem `main` Git Branch ist die Version für die Prod-Website. Im `test` Branch kann parallel dazu weiter entwickelt werden, respektive lokal gemachte Anpassungen können in der Cloud Test-Umgebung anderen Personen zur Vorschau gezeigt werden.
 
 ### GitLab CI/CD-Pipeline
 
-Gemäss Definition in `.gitlab-ci.yml`, wird das Container Image erstellt und in der GitLab Registry abgespeichert. Danach wird das Image noch auf Schwachstellen gescannt.
+Gemäss der Definition in `.gitlab-ci.yml`, wird das Container Image erstellt und in der GitLab Registry abgespeichert. Danach wird das Image noch auf Schwachstellen gescannt.
 
 Hinweis: Falls auf GitLab nur Dateien aktualisiert werden sollen, ohne Auslösen der CI/CD Pipeline, kann in der Commit Message am Ende `-nodeployement` angegeben werden. Bsp.: `git commit -m "Update Readme -nodeployment"`
+
+Vom Image werden jeweils 2 Tags erstellt. 
+
+  - `test` zeigt immer auf das neuste Image.
+  - `test-<short-sha-tag>` sollte für K8s verwendet werden, damit immer klar ist, welches Image für den Pod verwendet wurde.
+  - Alle Images: https://gitlab.uzh.ch/dba/histvv-2025/container_registry/452
 
 ### Deployment in UZH Cloud (K8s)
 
@@ -218,19 +295,15 @@ folgt... noch nicht umgesetzt.
 ### Deployment
 
   1. Aktueller Stand vom `helm-charts` Repository holen: `cd ~/gitlab-repositories/helm-charts && git pull`
-  2. Anpassung an `~/gitlab-repositories/helm-charts/argocd/zicstest01api.uzh.ch/zi-iti-dba/histvv.yaml` vornehmen. Und zwar muss in der Zeile `image` der SHORT_SHA Tag (*) des soeben erstellten Containers in GitLab geändert werden (die letzten 8 Stellen nach dem Doppelpunkt).
+  2. Anpassung an `~/gitlab-repositories/helm-charts/argocd/zicstest01api.uzh.ch/zi-iti-dba/histvv.yaml` vornehmen. Und in der Zeile `image` den Pfad/Tag angeben.
 ```
 helm:
   values: |-
-    image: cr.gitlab.uzh.ch/dba/histvv-2025:3a8f1a30 
+    image: cr.gitlab.uzh.ch/dba/histvv-2025:test-3a8f1a30 
 ```
   3. Datei speichern
-  4. Commit und Push: `git add . && git commit -m "new version" && git push`
+  4. Commit und Push: `git add . && git commit -m "update to test-3a8f1a30" && git push`
   5. Nach ein paar Minuten ist die Website deployed. [Man kann ArgoCD auch dabei zuschauen](https://argocd.t01.cs.zi.uzh.ch/applications/custom-infra-argocd/histvv-2025-test?view=tree&resource=)
-
-(*) Den SHORT_SHA Tag sieht man hier:
-
-![SHORT_SHA Tag](./README_IMAGES/gitlab-short-sha-tag.png)
 
 ---
 

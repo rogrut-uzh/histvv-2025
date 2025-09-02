@@ -10,42 +10,10 @@ services:
       args:
         SITE_URL: http://localhost
     environment:
-      # Lokales ES (ohne Auth)
       ELASTICSEARCH_URL: ${ELASTICSEARCH_URL:-https://www.zi.uzh.ch/cgi-bin/esproxy/archiv_proxy_test.py}
-      HISTVV_INDEX: ${HISTVV_INDEX:-uzh_archiv_histvv}
-      #ELASTICSEARCH_USERNAME: ${ELASTICSEARCH_USERNAME:-}
-      #ELASTICSEARCH_PASSWORD: ${ELASTICSEARCH_PASSWORD:-}
     ports:
       - "80:80"
     networks: [histvv-nw]
     volumes:
       - ./data:/app/data:ro
     restart: unless-stopped
-
-
-# docker compose build --no-cache prod
-# docker compose up -d --remove-orphans
-
-  
-# curl -u uzh_archiv_admin:rHZOvorAqVId19DKcG9i -XDELETE https://ziwwwsearchtest01.uzh.ch:9200/uzh_archiv_histvv
-
-# curl -u uzh_archiv_admin:rHZOvorAqVId19DKcG9i -XPUT https://ziwwwsearchtest01.uzh.ch:9200/uzh_archiv_histvv -H 'Content-Type: application/json' --data-binary @scripts/es/mapping.json
-
-# docker run --rm --network histvv-2025_histvv-nw -v "$PWD:/app" -w /app -e ELASTICSEARCH_URL="https://ziwwwsearchtest01.uzh.ch:9200" -e HISTVV_INDEX="uzh_archiv_histvv" node:20-alpine node scripts/es/index-elasticsearch.mjs
-
-# curl -XPOST -u uzh_archiv_admin:rHZOvorAqVId19DKcG9i https://ziwwwsearchtest01.uzh.ch:9200/uzh_archiv_histvv/_refresh
-
-# api testen auf localhost:
-# rogrut@UZH-1225-600510:~/gitlab-repositories/histvv-2025$ curl -s "http://localhost/api/suche.json?q=m%C3%BCller&typ=dozent&limit=5" | jq .
-
-# curl -u uzh_archiv_admin:rHZOvorAqVId19DKcG9i -I https://ziwwwsearchtest01.uzh.ch:9200/uzh_archiv_histvv
-
-
-# https://ziwwwsearchtest01.uzh.ch:9200/uzh_archiv_histvv
-
-
-
-# test vom pod aus:
-# curl -sS -X POST 'https://www.zi.uzh.ch/cgi-bin/esproxy/archiv_proxy_test.py' -H 'Content-Type: application/json' --data '{"query":{"simple_query_string":{"query":"Dogmatik","fields":["hauptfeld"]}}}'  
-# oder
-# node -e "fetch('https://www.zi.uzh.ch/cgi-bin/esproxy/archiv_proxy_test.py',{  method:'POST',  headers:{'Content-Type':'application/json'},  body: JSON.stringify({query:{simple_query_string:{query:'Dogmatik',fields:['hauptfeld']}}}) }).then(r=>r.text()).then(console.log).catch(console.error)"
