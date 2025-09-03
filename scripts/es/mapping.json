@@ -51,7 +51,13 @@
       "habilitation": { "type": "text", "analyzer": "de_analyzer" },
       "berufung":     { "type": "text", "analyzer": "de_analyzer" },
 
-      "external_urls": { "type": "keyword" }
+      "external_urls": { "type": "keyword" },
+
+      "universitaet": { "type": "text", "analyzer": "de_analyzer", "fields": { "keyword": { "type": "keyword" } } },
+      "beginn":       { "type": "keyword" },
+      "ende":         { "type": "keyword" },
+      "quelle":       { "type": "text", "analyzer": "de_analyzer" },
+      "titel":        { "type": "text", "analyzer": "de_analyzer" }
     }
   }
 }

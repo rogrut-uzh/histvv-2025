@@ -14,6 +14,7 @@ import { esSearch } from '~/server/es';
 const page_title = "Vorlesungsverzeichnisse";
 const zeit_trenner = " - ";
 
+
 // Semester-ID prüfen
 const raw = String(Astro.params.id ?? '').trim();
 if (!isValidSemesterId(raw)) {
@@ -21,6 +22,7 @@ if (!isValidSemesterId(raw)) {
 }
 const semesterId = normalizeSemesterId(raw);
 const sem = { id_semester: semesterId, titel: semesterLabel(semesterId) };
+
 
 // Daten laden (über esSearch)
 let items: any[] = [];
@@ -46,13 +48,50 @@ try {
 }
 if (!items.length) return new Response(`Kein Eintrag für ${sem.titel}`, { status: 404 });
 
-// Gruppieren
+
+// Gruppieren nach Fakultät
 const byFak = items.reduce((acc: any, v: any) => {
   const fak = v?.fak || 'Unbekannte Fakultät';
   (acc[fak] ??= []).push(v);
   return acc;
 }, {});
 const sortedFakultaetNamen = sortFakultaeten(Object.keys(byFak));
+
+
+// Header-Felder laden
+type VvHeader = {
+  universitaet?: string;
+  beginn?: string;
+  ende?: string;
+  quelle?: string;
+  titel?: string;
+};
+let header: VvHeader | null = null;
+try {
+  const { hits } = await esSearch({
+    query: {
+      bool: {
+        filter: [
+          { term: { typ: 'vv_header' } },
+          { term: { id_semester: semesterId } }
+        ]
+      }
+    },
+    size: 1,
+    _source: ['universitaet', 'beginn', 'ende', 'quelle', 'titel']
+  });
+  header = (hits?.hits?.[0]?._source as VvHeader) ?? null;
+  // Fallback (falls kein Datensatz vorhanden): Titel aus deinem Helper übernehmen
+  if (!header) {
+    header = { titel: sem.titel };
+  } else if (!header.titel) {
+    header.titel = sem.titel;
+  }
+} catch {
+  // Wenn ES down ist, die Seite nicht hart abbrechen – du hast oben schon Fehlerhandling
+  header = { titel: sem.titel };
+}
+
 
 // Anchor-ID
 function anchorFrom(v: any) {
@@ -62,6 +101,7 @@ function anchorFrom(v: any) {
   if (u.includes('#')) return u.split('#').pop()!;
   return '';
 }
+
 
 const breadcrumb = [
   { label: "Home", href: "/" },
@@ -78,7 +118,18 @@ const breadcrumb = [
   />
 
   <SectionTextPict>
-    <h1>{sem.titel}</h1>
+    
+    {/* Semester-Header nur zeigen, wenn mindestens 1 Feld vorhanden ist */}
+    {(header?.universitaet || header?.beginn || header?.ende || header?.quelle || header?.titel) && (
+      <>
+        {header?.titel && (
+          <h1 style="margin:0">{header.titel}</h1>
+        )}
+        {header?.quelle && (
+          <p class="quelle">Quelle: {header.quelle}</p>
+        )}
+      </>
+    )}
 
     <div>
       {sortedFakultaetNamen.map((fakname) => (
