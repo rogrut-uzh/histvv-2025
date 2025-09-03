@@ -24,7 +24,7 @@ Die [vorherige Version der Website](https://gitlab.uzh.ch/histvv) wurde unter Ve
 
 ## Vorbereitung: Git Repo klonen
 
-```
+```shell
 cd ~/gitlab-repositories
 git clone git@gitlab.uzh.ch:dba/histvv-2025.git
 cd ~/gitlab-repositories/histvv-2025
@@ -71,7 +71,7 @@ Das JSON Resultat wird unter `/data/tbl_dozenten.json` abgelegt.
 
 Aufruf:
 
-```
+```shell
 python3 1_dozenten_xml-and-xlsx.py ~/gitlab-repositories/histvv-2025/data-migration/xml_1833-1900/dozenten.xml ~/gitlab-repositories/histvv-2025/data-migration/xlsx_1900-/Dozierendenverzeichnis.xlsx
 
 JSON geschrieben: /home/rogrut/gitlab-repositories/histvv-2025/data/tbl_dozenten.json
@@ -89,13 +89,13 @@ Das JSON Resultat wird unter `data/tbl_semester_header.json` abgelegt.
 
 Aufruf:
 
-```
-$ python3 2_semester-header_xml.py ~/gitlab-repositories/histvv-2025/data-migration/xml_1833-1900
+```shell
+python3 2_semester-header_xml.py ~/gitlab-repositories/histvv-2025/data-migration/xml_1833-1900
 
 JSON geschrieben: /home/rogrut/gitlab-repositories/histvv-2025/data/tbl_semester_header.json
 ```
 
-Ab 1900 liegen keine Semester Header Informationen mehr vor. Daher wurde das JSON einmalig manuell erstellt und bleibt statisch: `/data/tbl_veranstaltungen-ab-1900w.json`
+Ab 1900 liegen keine Semester Header Informationen mehr vor.
 
 #### Semester-Veranstaltungen (XML)
 
@@ -120,7 +120,7 @@ Zuletzt werden die beiden Semester-JSON `tbl_veranstaltungen.json` und `tbl_vera
 
 Aufruf:
 
-```
+```shell
 python3 4_semester-veranstaltungen_merge.py --sort
 ```
 
@@ -148,15 +148,15 @@ Der ES-Index wird ausschliesslich vom lokalen Rechner manuell gepflegt. Als Vorb
 
 #### .env Datei anlegen
 
-```
+```shell
 cd ~/gitlab-repositories/histvv-2025
 
-echo -e "ES_PASSWORD_ADM=<seeKeePass>\nES_USERNAME_ADM=uzh_archiv_admin\nES=https://ziwwwsearchtest01.uzh.ch:9200\nES_INDEX=uzh_archiv_histvv\nPATH_D=data/tbl_dozenten.json\nPATH_V=data/tbl_veranstaltungen-merged.json" > ~/gitlab-repositories/histvv-2025/.env
+echo -e "ES_PASSWORD_ADM=<seeKeePass>\nES_USERNAME_ADM=uzh_archiv_admin\nES=https://ziwwwsearchtest01.uzh.ch:9200\nES_INDEX=uzh_archiv_histvv\nPATH_D=data/tbl_dozenten.json\nPATH_V=data/tbl_veranstaltungen-merged.json\nPATH_V_HEADER=data/tbl_semester_header.json" > ~/gitlab-repositories/histvv-2025/.env
 ```
 
 #### Index anlegen und befüllen
 
-```
+```shell
 cd ~/gitlab-repositories/histvv-2025 && docker run --rm --network histvv-2025_histvv-nw -e FORCE_REES_INDEX=1 --env-file .env -v "$PWD:/app" -w /app node:20-alpine node scripts/es/index-elasticsearch.mjs
 ```
 
@@ -173,7 +173,7 @@ Der Befehl startet einen einmaligen Node-20-Container, hängt ihn ins Docker-Net
 
 #### Check ob Daten vorhanden sind
 
-```
+```shell
 # Von localhost aus
 ###################
 
@@ -196,7 +196,7 @@ node -e "fetch('https://www.zi.uzh.ch/cgi-bin/esproxy/archiv_proxy_test.py',{  m
 
 #### Index löschen (falls nötig)
 
-```
+```shell
 curl -u uzh_archiv_admin:rHZOvorAqVId19DKcG9i -XDELETE https://ziwwwsearchtest01.uzh.ch:9200/uzh_archiv_histvv
 ```
 
@@ -213,34 +213,34 @@ Für den Anfang der lokalen Entwicklung, und für das Erstellen der package.json
 
 nvm installieren:
 
-```
+```shell
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 ```
 
 nvm aktivieren (oder neu einloggen):
 
-```
+```shell
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 ```
 
 Node 20 installieren:
 
-```
+```shell
 nvm install 20
 nvm use 20
 ```
 
 Prüfen:
 
-```
+```shell
 node -v
 npm -v
 ```
 
 #### Astro Projekt installieren
 
-```
+```shell
 cd ~/gitlab-repositories/histvv-2025
 
 # erstellt package.json:
@@ -255,9 +255,12 @@ npm run dev
 
 ### Container build & start
 
-```
-docker compose build (--no-cache) prod
-docker compose up -d (--remove-orphans)
+```shell
+docker compose build prod     # or
+docker compose build --no-cache prod
+
+docker compose up -d          # or
+docker compose up -d --remove-orphans
 ```
 
 Website: `http://localhost`. Falls nötig, kann man sich mit `docker exec -it histvv2025 /bin/sh` in den Container wählen. Logs lassen sich mit `docker compose logs` oder `docker logs histvv2025` anzeigen.
@@ -296,7 +299,7 @@ folgt... noch nicht umgesetzt.
 
   1. Aktueller Stand vom `helm-charts` Repository holen: `cd ~/gitlab-repositories/helm-charts && git pull`
   2. Anpassung an `~/gitlab-repositories/helm-charts/argocd/zicstest01api.uzh.ch/zi-iti-dba/histvv.yaml` vornehmen. Und in der Zeile `image` den Pfad/Tag angeben.
-```
+```yaml
 helm:
   values: |-
     image: cr.gitlab.uzh.ch/dba/histvv-2025:test-3a8f1a30 

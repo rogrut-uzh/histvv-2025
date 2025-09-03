@@ -7,11 +7,12 @@ const ES_PASS = process.env.ES_PASSWORD_ADM;
 const ES = process.env.ES;
 const ES_INDEX = process.env.ES_INDEX;
 const PATH_V = process.env.PATH_V;
+const PATH_V_HEADER = process.env.PATH_V_HEADER;
 const PATH_D = process.env.PATH_D;
 
 /*
   - typeof process.env.FORCE_REES_INDEX !== 'undefined' → prüft, ob die Env-Variable überhaupt gesetzt ist.
-  - ? process.env.FORCE_REES_INDEX : '0' → nimm ihren Wert, sonst den Default '0'.
+  - ? process.env.FORCE_REES_INDEX : '0' → nimm ihren Wert, sonst den Default '1'.
   - === '1' → ergibt true, wenn der (String-)Wert exakt '1' ist, sonst false.
 
 Kurz: Nur wenn FORCE_REES_INDEX auf '1' steht, ist FORCE_REES_INDEX (die Konstante) true.
@@ -229,7 +230,19 @@ async function bulkUpload(docs, chunkDocs = 5000) {
   console.log('Lese JSON-Daten ...');
   const Vraw = JSON.parse(await fs.readFile(PATH_V, 'utf8'));
   const Draw = JSON.parse(await fs.readFile(PATH_D, 'utf8'));
-
+  let Hraw = [];
+  if (PATH_V_HEADER) {
+    try {
+      Hraw = JSON.parse(await fs.readFile(PATH_V_HEADER, 'utf8'));
+      if (!Array.isArray(Hraw)) {
+        console.warn('WARN: PATH_V_HEADER ist gesetzt, aber die Datei enthält kein Array – ignoriere Header.');
+        Hraw = [];
+      }
+    } catch (e) {
+      console.warn('WARN: Header-Datei konnte nicht gelesen werden – ignoriere Header:', e?.message || e);
+    }
+  }
+  
   const created = await ensureIndex(mapping);
   if (created) {
     console.log('Index neu angelegt --> Vollaufbau.');
@@ -240,7 +253,23 @@ async function bulkUpload(docs, chunkDocs = 5000) {
   console.log('Baue Dokumente...');
   const docs = buildDocs(Vraw, Draw);
   console.log('Dokumente gesamt: ' + docs.length);
+  if (Hraw.length) {
+    for (const h of Hraw) {
+      const id = String(h?.id_semester ?? '').trim();
+      if (!id) continue; 
 
+      docs.push({
+        typ: 'vv_header',
+        id,                 // <- wichtig, wird für _id verwendet (typ:id)
+        id_semester:  id,
+        universitaet: h?.universitaet ?? null,
+        beginn:       h?.beginn ?? null,
+        ende:         h?.ende ?? null,
+        quelle:       h?.quelle ?? null,
+        titel:        h?.titel ?? null
+      });
+    }
+  }
   console.log('Bulk-Upload...');
   await bulkUpload(docs);
 
