@@ -99,7 +99,7 @@ Ab 1900 liegen keine Semester Header Informationen mehr vor.
 
 #### Semester-Veranstaltungen (XML)
 
-Das Script `3_semester-veranstaltungen_xml.py` verlangt 1 Parameter:
+Script `31_semester-veranstaltungen_xml.py` mit optionalem Parameter. Ansonsten wird der default verwendet. 
 
   - Vollständiger Pfad zum Ordner, der die Semester-XML-Dateien enthält
   
@@ -107,7 +107,7 @@ Das JSON Resultat wird unter `data/tbl_veranstaltungen.json` abgelegt.
 
 #### Semester-Veranstaltungen (XLSX)
 
-Das Script `3_semester-veranstaltungen_xlsx.py` verlangt 1 Parameter:
+Script `32_semester-veranstaltungen_xlsx.py` verlangt 1 Parameter. Ansonsten wird der default verwendet. 
 
   - Vollständiger Pfad zum Ordner, der die Semester-XML-Dateien enthält
   
@@ -121,7 +121,7 @@ Zuletzt werden die beiden Semester-JSON `tbl_veranstaltungen.json` und `tbl_vera
 Aufruf:
 
 ```shell
-python3 4_semester-veranstaltungen_merge.py --sort
+python3 33_semester-veranstaltungen_merge.py --sort
 ```
 
 Das JSON Resultat wird unter `data/tbl_veranstaltungen-merged.json` abgelegt. Die Quelldateien werden anschliessend gelöscht. Mit dem `--keep` Parameter werden sie behalten.

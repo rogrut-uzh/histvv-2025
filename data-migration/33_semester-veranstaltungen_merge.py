@@ -1,16 +1,16 @@
 # BENUTZUNG
 #
 # Standard (merge, sortiert/ohne dedup, löscht Inputs):
-# python3 4_semester-veranstaltungen_merge.py --sort
+# python3 33_semester-veranstaltungen_merge.py --sort
 # 
 # Inputs behalten:
-# python3 4_semester-veranstaltungen_merge.py --sort --keep
+# python3 33_semester-veranstaltungen_merge.py --sort --keep
 # 
 # Duplikate (nach id_veranstaltung) entfernen:
-# python3 4_semester-veranstaltungen_merge.py --sort --dedup
+# python3 33_semester-veranstaltungen_merge.py --sort --dedup
 # 
 # Anderer Ausgabename:
-# python3 4_semester-veranstaltungen_merge.py --out pfad/zur/tbl_veranstaltungen-merged.json
+# python3 33_semester-veranstaltungen_merge.py --out pfad/zur/tbl_veranstaltungen-merged.json
 import json
 import argparse
 from pathlib import Path

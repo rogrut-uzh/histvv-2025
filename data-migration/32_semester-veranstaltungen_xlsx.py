@@ -1,5 +1,6 @@
 import pandas as pd
 from pathlib import Path
+import argparse
 import json
 import sys
 import re
@@ -7,7 +8,20 @@ import os
 import hashlib
 import math
 
-veranstaltungen_json = os.path.expanduser("~/gitlab-repositories/histvv-2025/data/tbl_veranstaltungen-ab-1900w.json")
+default_source_folder = Path("~/gitlab-repositories/histvv-2025/data-migration/xlsx_1900-").expanduser()
+veranstaltungen_json  = Path("~/gitlab-repositories/histvv-2025/data/tbl_veranstaltungen-ab-1900w.json").expanduser()
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(description="XLSX-Dateien einlesen und JSON erzeugen.")
+    parser.add_argument(
+        "xlsx_folder",
+        nargs="?",
+        default=default_source_folder,  # bereits Path
+        type=lambda s: Path(os.path.expandvars(s)).expanduser().resolve(),  # ~ und $VARS
+        help=f"Ordner mit den XLSX-Dateien (Default: {default_source_folder})",
+    )
+    return parser.parse_args()
 
 def get_cell(row, i):
     # Liefert None zurück, wenn Spalte i nicht existiert
@@ -51,7 +65,7 @@ def process_xlsx_file(filepath):
         vorlesungsnummer = clean(get_cell(row, 3))
         vorlesungsnummer_without_dot = vorlesungsnummer.rstrip(".")
 
-        # Dozenten-Array aufbauen (max. 3)
+        # Dozenten-Array aufbauen (max. 4)
         dozenten = []
         # 1. Dozent (id, grad, funktion)
         id1 = clean(get_cell(row, 7))
@@ -80,6 +94,15 @@ def process_xlsx_file(filepath):
                 "funktion":  "",
             })
 
+        # 4. Dozent (id, grad, KEINE funktion)
+        id4 = clean(get_cell(row, 14))
+        if id4:
+            dozenten.append({
+                "id_dozent": id4,
+                "grad":      clean(get_cell(row, 15)),
+                "funktion":  "",
+            })
+
         id_veranstaltung = f"v-{make_unique_id(semester_id, vorlesungsnummer, thema, zusatz, id1)}"
 
         veranstaltungen.append({
@@ -99,8 +122,12 @@ def process_xlsx_file(filepath):
 
     return veranstaltungen
 
-def main(xlsx_folder):
+def main(xlsx_folder: Path):
     folder = Path(xlsx_folder)
+    if not folder.exists():
+        print(f"Ordner nicht gefunden: {folder}")
+        sys.exit(1)
+
     alle_veranstaltungen = []
 
     for file in sorted(folder.glob("*Sommer.xlsx")) + sorted(folder.glob("*Winter.xlsx")):
@@ -113,7 +140,5 @@ def main(xlsx_folder):
     print(f"JSON geschrieben: {veranstaltungen_json}")
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Verwendung: python 3_semester-veranstaltungen.py ordner/mit/xlsx")
-        sys.exit(1)
-    main(sys.argv[1])
+    args = parse_args()
+    main(args.xlsx_folder)

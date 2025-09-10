@@ -4,12 +4,25 @@ from pathlib import Path
 import re
 import sys
 import os
+import argparse
 
 # Namespace definieren
 NS     = "{http://histvv.uni-leipzig.de/ns/2007}"
 XML_NS = "{http://www.w3.org/XML/1998/namespace}"
 
-veranstaltungen_json = os.path.expanduser("~/gitlab-repositories/histvv-2025/data/tbl_veranstaltungen.json")
+default_source_folder = Path("~/gitlab-repositories/histvv-2025/data-migration/xml_1833-1900").expanduser()
+veranstaltungen_json = Path("~/gitlab-repositories/histvv-2025/data/tbl_veranstaltungen.json").expanduser()
+
+def parse_args():
+    parser = argparse.ArgumentParser(description="XML-Dateien einlesen und JSON erzeugen.")
+    parser.add_argument(
+        "xml_folder",
+        nargs="?",
+        default=default_source_folder,  # bereits Path
+        type=lambda s: Path(os.path.expandvars(s)).expanduser().resolve(),  # ~ und $VARS
+        help=f"Ordner mit den XML-Dateien (Default: {default_source_folder})",
+    )
+    return parser.parse_args()
 
 def normalize_whitespace(text):
     if text is None:
@@ -150,14 +163,15 @@ def parse_semester_files(pfad):
         json.dump(alle_veranstaltungen, f, ensure_ascii=False, indent=2)
     print(f"JSON geschrieben: {veranstaltungen_json}")
 
+def main(xml_folder: Path):
+    folder = Path(xml_folder)
+    if not folder.exists():
+        print(f"Ordner nicht gefunden: {folder}")
+        sys.exit(1)
+
+    parse_semester_files(folder)
+
+
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Verwendung: python 3_semester-veranstaltungen.py ordnerpfad/zu/semester-xml-files")
-        sys.exit(1)
-
-    pfad = Path(sys.argv[1])
-    if not pfad.exists() or not pfad.is_dir():
-        print(f"Pfad ungültig oder kein Verzeichnis: {pfad}")
-        sys.exit(1)
-
-    parse_semester_files(pfad)
+    args = parse_args()
+    main(args.xml_folder)
