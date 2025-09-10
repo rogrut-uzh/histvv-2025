@@ -22,7 +22,7 @@ grey text:      #888888
 
 .label-dozierender-pill::before,
 .label-veranstaltung-pill::before {
-    left: 6px;
+    left: 6px !important;
 }
 
 .such-treffer.dozierender .pill,

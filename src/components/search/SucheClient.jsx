@@ -156,7 +156,7 @@ export default function SucheClient() {
           <div className="Options js-OptionInput inline" id="typ-filter">
             <div className="OptionInput OptionInput--doz">
               <input id="typ_dozent" type="checkbox" checked={typen.has('dozent')} onChange={() => toggleTyp('dozent')} />
-              <label className="label-dozierender-pill" htmlFor="typ_dozent">DozentIn(r)</label>
+              <label className="label-dozierender-pill" htmlFor="typ_dozent">DozentIn</label>
             </div>
             <div className="OptionInput OptionInput--ver">
               <input id="typ_veranstaltung" type="checkbox" checked={typen.has('veranstaltung')} onChange={() => toggleTyp('veranstaltung')} />
