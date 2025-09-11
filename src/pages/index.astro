@@ -12,6 +12,7 @@ const page_title = "Home";
     <MetaHead slot="head"
         title={`${page_title} | ${pageinfo.title} ${pageinfo.byline}`}
         description={`${pageinfo.description}`}
+        matomo_tracking_id={`${pageinfo.matomo_tracking_id}`}
     />
     
     <SectionIntro>{`${pageinfo.title} ${pageinfo.byline}`}
