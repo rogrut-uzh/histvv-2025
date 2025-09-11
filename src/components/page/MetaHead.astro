@@ -18,7 +18,7 @@ const titleSuffix = " | UZH";
 <meta name="author"             content="Roger Rutishauser, UZH ZI ADB-DBA">
 
 <!-- Matomo -->
-<script is:inline>
+<script is:inline define:vars={{ matomo_tracking_id }}>
   var _paq = window._paq = window._paq || [];
   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
   _paq.push(['setAPIUrl', 'https://webstats.uzh.ch/']); // overlay fix
@@ -27,10 +27,13 @@ const titleSuffix = " | UZH";
   (function() {
     var u = '//webstats.uzh.ch/';
     _paq.push(['setTrackerUrl', u + 'piwik.php']);
-    _paq.push(['setSiteId', {JSON.stringify(matomo_tracking_id)}]); // <— Wert inline einsetzen
+
+    _paq.push(['setSiteId', String(matomo_tracking_id)]); 
+
     var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
     g.async = true; g.defer = true; g.src = u + 'piwik.js'; s.parentNode.insertBefore(g, s);
   })();
 </script>
+
 <!-- End Matomo Code -->
 
