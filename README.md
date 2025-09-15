@@ -59,6 +59,31 @@ Die Rohdaten (Vorlesungsverzeichnis, Dozierende u.a.) liegen in zwei verschieden
 Die Website zieht die Daten nicht aus einer Datenbank. Die Webseiten werden beim Build-Prozess "gebacken", wobei die Rohdaten zuerst in JSON umgewandelt werden müssen.
 Die JSON-Dateien werden mit Python Scripts erstellt und gleich am korrekten Ort unter [data/](data/) abgelegt.
 
+Als erstes die .venv aktivieren mit pandas etc. `source .venv/bin/activate`. Falls nicht vorhanden: 
+
+```shell
+# 1) Prüfen, ob das vorhandene venv Linux- oder Windows-Format hat
+ls -ld .venv/bin .venv/Scripts 2>/dev/null
+
+# 2a) FALL A – .venv hat 'bin' (Linux-venv): einfach aktivieren
+if [ -d .venv/bin ]; then
+  source .venv/bin/activate
+else
+  # 2b) FALL B – .venv ist Windows-venv (nur 'Scripts') oder fehlt:
+  # benötigte Pakete sicherstellen
+  sudo apt update
+  sudo apt install -y python3-venv python3-pip
+  # neues Linux-venv anlegen (separat, damit nichts kollidiert)
+  python3 -m venv .venv-wsl
+  source .venv-wsl/bin/activate
+fi
+
+# 3) Pip aktualisieren und benötigte Libs installieren
+python -m pip install --upgrade pip
+pip install pandas openpyxl lxml
+
+# 4) Skript starten (im aktivierten venv)
+```
 
 #### Dozierende
 
