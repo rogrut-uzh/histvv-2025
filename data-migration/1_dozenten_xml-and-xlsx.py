@@ -2,7 +2,15 @@ import xml.etree.ElementTree as ET
 import sys
 import json
 import os
+import argparse
 import pandas as pd
+
+DEFAULT_XML = "~/gitlab-repositories/histvv-2025/data-migration/xml_1833-1900/dozenten.xml"
+DEFAULT_XLSX = "~/gitlab-repositories/histvv-2025/data-migration/xlsx_1900-/Dozierendenverzeichnis.xlsx"
+DEFAULT_OUT = "~/gitlab-repositories/histvv-2025/data/tbl_dozenten.json"
+
+def resolve(p: str) -> str:
+    return os.path.abspath(os.path.expanduser(p))
 
 def parse_xml(xml_path):
     NS = "{http://histvv.uni-leipzig.de/ns/2007}"
@@ -75,9 +83,10 @@ def parse_xml(xml_path):
     return dozenten_data
 
 def parse_xlsx(xlsx_path):
-    df = pd.read_excel(xlsx_path, dtype=str)
+    df = pd.read_excel(xlsx_path, dtype=str)  # engine=openpyxl optional
     df.columns = [c.lower() for c in df.columns]
     dozenten_data = []
+
     for _, row in df.iterrows():
         def safe_get(col):
             return str(row[col]).strip() if col in row and pd.notnull(row[col]) else None
@@ -98,7 +107,7 @@ def parse_xlsx(xlsx_path):
             "gagliardi": None,
             "dekanat": safe_get('dekanat'),
             "rektor": safe_get('rektor'),
-            "wikipedia": None,  # Kein Wikipedia im XLSX
+            "wikipedia": None,  # kein Wikipedia im XLSX
             "url": url_list,
             "wikidata": safe_get('wikidata'),
             "fachgebiet": safe_get('fachgebiet'),
@@ -108,14 +117,28 @@ def parse_xlsx(xlsx_path):
         dozenten_data.append(dozent_entry)
     return dozenten_data
 
-def main(xml_path, xlsx_path):
-    doz_json = os.path.expanduser("~/gitlab-repositories/histvv-2025/data/tbl_dozenten.json")
+def main(xml_path, xlsx_path, out_json):
+    # Pfade auflösen
+    xml_path = resolve(xml_path)
+    xlsx_path = resolve(xlsx_path)
+    out_json = resolve(out_json)
+
+    # Existenz prüfen
+    if not os.path.exists(xml_path):
+        print(f"Fehler: XML nicht gefunden: {xml_path}", file=sys.stderr)
+        sys.exit(2)
+    if not os.path.exists(xlsx_path):
+        print(f"Fehler: XLSX nicht gefunden: {xlsx_path}", file=sys.stderr)
+        sys.exit(2)
+
+    # Output-Ordner anlegen
+    os.makedirs(os.path.dirname(out_json), exist_ok=True)
 
     dozenten_xml = parse_xml(xml_path)
     dozenten_xlsx = parse_xlsx(xlsx_path)
 
     # Dict mit allen XML-Dozenten nach ID
-    dozenten_by_id = {d["id_dozent"]: d for d in dozenten_xml if d["id_dozent"]}
+    dozenten_by_id = {d["id_dozent"]: d for d in dozenten_xml if d.get("id_dozent")}
 
     for d_xlsx in dozenten_xlsx:
         idd = d_xlsx.get("id_dozent")
@@ -123,18 +146,17 @@ def main(xml_path, xlsx_path):
             continue
         if idd in dozenten_by_id:
             d_xml = dozenten_by_id[idd]
-            # Wikipedia und URL (aus XML behalten/zusammenführen)
             wikipedia = d_xml.get("wikipedia")
             urls_xml = d_xml.get("url") or []
             urls_xlsx = d_xlsx.get("url") or []
-            if isinstance(urls_xml, str):  # Nur für Sicherheit
+
+            if isinstance(urls_xml, str):  # safety
                 urls_xml = [urls_xml]
             if isinstance(urls_xlsx, str):
                 urls_xlsx = [urls_xlsx]
-            # Zusammenführen, keine Doppelte
-            merged_urls = list(dict.fromkeys(urls_xml + urls_xlsx)) if urls_xml or urls_xlsx else None
 
-            # Alle anderen Felder vom XLSX übernehmen (außer wikipedia und url)
+            merged_urls = list(dict.fromkeys(urls_xml + urls_xlsx)) if (urls_xml or urls_xlsx) else None
+
             for k in d_xlsx:
                 if k not in ["wikipedia", "url"]:
                     d_xml[k] = d_xlsx[k]
@@ -146,12 +168,15 @@ def main(xml_path, xlsx_path):
 
     dozenten_gesamt = list(dozenten_by_id.values())
 
-    with open(doz_json, "w", encoding="utf-8") as f:
+    with open(out_json, "w", encoding="utf-8") as f:
         json.dump(dozenten_gesamt, f, ensure_ascii=False, indent=2)
-    print(f"JSON geschrieben: {doz_json}")
+    print(f"JSON geschrieben: {out_json}")
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        print("Verwendung: python 1_dozenten_xml-and-xlsx.py pfad/zu/dozenten.xml pfad/zu/Dozierendenverzeichnis.xlsx")
-        sys.exit(1)
-    main(sys.argv[1], sys.argv[2])
+    parser = argparse.ArgumentParser(description="XML + XLSX zu Dozenten-JSON mergen")
+    parser.add_argument("--xml", default=DEFAULT_XML, help="Pfad zur XML-Datei")
+    parser.add_argument("--xlsx", default=DEFAULT_XLSX, help="Pfad zur XLSX-Datei")
+    parser.add_argument("-o", "--out", default=DEFAULT_OUT, help="Zielpfad für JSON")
+
+    args = parser.parse_args()
+    main(args.xml, args.xlsx, args.out)

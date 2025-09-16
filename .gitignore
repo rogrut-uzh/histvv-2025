@@ -8,6 +8,7 @@ build/
 astro-out/
 
 # ── Python / Virtualenv
+.venv-wsl/
 .venv/
 venv/
 env/
