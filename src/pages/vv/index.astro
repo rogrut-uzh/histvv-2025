@@ -61,8 +61,9 @@ const breadcrumb = [
 <DefaultLayout>
   <Breadcrumb items={breadcrumb} />
   <MetaHead slot="head"
-    title={`${page_title} | ${pageinfo.title} ${pageinfo.byline}`}
+    title={`${page_title} | ${pageinfo.title}`}
     description={`${pageinfo.description}`}
+        matomo_tracking_id={`${pageinfo.matomo_tracking_id}`}
   />
 
   <SectionTextPict>
@@ -75,7 +76,7 @@ const breadcrumb = [
           <>
             <h3 class={`toggle${i === 0 ? " is-open" : ""}`}>{decade}</h3>
             <div>
-              <div class="l-Flex gap-none gutter-small">
+              <div class="l-Flex gap-none gutter-small tab_vv">
                 {Object.keys(byYear).sort().map((year) => (
                   <>
                     {byYear[year].s && (

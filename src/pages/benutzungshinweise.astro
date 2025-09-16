@@ -17,8 +17,9 @@ const breadcrumb = [
     <Breadcrumb items={breadcrumb} />
 
     <MetaHead slot="head"
-        title={`${page_title} | ${pageinfo.title} ${pageinfo.byline}`}
+    title={`${page_title} | ${pageinfo.title}`}
         description={`${pageinfo.description}`}
+        matomo_tracking_id={`${pageinfo.matomo_tracking_id}`}
     />
     
     <SectionTextPict>
@@ -38,7 +39,7 @@ const breadcrumb = [
                 </div>
                 <!-- /component: Image -->
             </div>
-            <figcaption class="TextImage--image--caption">Beispieleintrag aus dem Vorlesungsverzeichnis, mit den 4 Absätzen.</figcaption>
+            <figcaption class="TextImage--image--caption">Beispieleintrag aus dem Vorlesungsverzeichnis, mit den vier Absätzen.</figcaption>
         </figure>
         <p>Unter <a href="/vv/" class="Link">Vorlesungsverzeichnisse</a> lassen sich die angekündigten Lehrveranstaltungen der einzelnen Semester - analog den gedruckten Vorlesungsverzeichnissen - anzeigen. Die bibliographischen Angaben der jeweiligen Vorlage werden auf den einzelnen Semesterseiten jeweils zuoberst unter "Quelle" festgehalten.</p>
 
@@ -51,11 +52,11 @@ const breadcrumb = [
             <ul>
               <li><i>Vorlesungsnummer:</i> Nummer der Vorlesung im jeweiligen Semester. In den ersten drei Semestern (1833, 1833/34 und 1834) fehlt in den entsprechenden Vorlesungsverzeichnissen eine solche Nummerierung. In diesen Fällen werden die Vorlesungsnummern in eckigen Klammern ergänzt. Fehlnummerierungen in den Vorlagen, die sich selbst neutralisieren (etwa "10, 10, 11, 12, 14"), werden stillschweigend korrigiert.</li>
               
-              <li><i>Dozent:</i> Familien- und Vorname(n) des Dozenten. Die Namensansetzung richtet sich - wo möglich - nach der Personennamendatei (PND) der Deutschen Nationalbibliothek.</li>
+              <li><i>DozentIn:</i> Familien- und Vorname(n) der Lehrkraft. Die Namensansetzung richtet sich - wo möglich - nach der gemeinsamen Normdatei (GND) der Deutschen Nationalbibliothek.</li>
               
-              <li><i>Anstellungsverhältnis/akademischer Titel:</i> Folgende Abkürzungen finden Verwendung: PD (Privatdozent), EO (Extraordinarius), O (Ordinarius), HP (Honorarprofessor). Lehrkräfte, die nicht in einem solchen Anstellungsverhältnis stehen bzw. einen solchen akademischen Titel führen, werden als "Dozenten" (Doz) bezeichnet.</li>
+              <li><i>Anstellungsverhältnis/akademischer Titel:</i> Folgende Abkürzungen finden Verwendung: PD (Privatdozierende), EO (Extraordinarius/Extraordinaria), O (Ordinarius/Ordinaria), HP (HonorarprofessorIn). Lehrkräfte, die nicht in einem solchen Anstellungsverhältnis stehen bzw. einen solchen akademischen Titel führen, werden als "Dozierende" (Doz) bezeichnet.</li>
               
-              <li><i>Dekanat/Rektorat:</i> Amtiert der jeweilige Dozent im entsprechenden Semester als Rektor oder als Dekan, wird dies vermerkt. Die Dekanate werden nach dem Muster "Dekan/Fakultät" abgekürzt, wobei "T" für die theologische, "S" für die staatswissenschaftliche, "M" für die medizinische und "P" (ab 1860 "P1" und "P2") für die philosophische Fakultät respektive für deren Sektionen steht. - Wurde eine Lehrveranstaltung von mehreren Dozenten gemeinsam durchgeführt, werden die genannten Punkte für jeden der beteiligten Dozenten angegeben.</li>
+              <li><i>Dekanat/Rektorat:</i> Amtiert die jeweilige Lehrkraft im entsprechenden Semester als RektorIn oder als DekanIn, wird dies vermerkt. Die Dekanate werden nach dem Muster "Dekan/Fakultät" abgekürzt, wobei "T" für die theologische, "S" für die staatswissenschaftliche, "M" für die medizinische und "P" (ab 1860 "P1" und "P2") für die philosophische Fakultät respektive für deren Sektionen steht. Wurde eine Lehrveranstaltung von mehreren Dozierenden gemeinsam durchgeführt, werden die genannten Punkte für sämtliche beteiligten Dozierende angegeben.</li>
             </ul>
           </li>
           <li>
@@ -73,7 +74,7 @@ const breadcrumb = [
           <li>
             <p>4. Absatz</p>
             <ul>
-              <li><i>Zeitangaben/Wochenstunden:</i> Am Ende folgen in zusammengefasster und normalisierter Form Angaben zur Veranstaltungshäufigkeit und -zeit und der daraus resultierenden Anzahl an Wochenstunden (<i>St</i>). Enthält die Vorlage keine Angabe zur Anzahl der Wochenstunden, werden diese - sofern möglich - aus den übrigen Angaben berechnet und ergänzt. Eine Schwierigkeit ergibt sich aus der Tatsache, dass in den Vorlagen die Zeitangaben in der Form der sog. 12-Stunden-Zählung erfolgen, so dass Unklarheiten entstehen können, ob Morgen- oder Abendstunden gemeint sind. Zeitangaben, die mit fünf Uhr beginnen (meist "5-6" oder "5-7"), werden deshalb als Morgenstunden wiedergegeben, außer wenn sie in der Vorlage durch nähere Angaben als Abendstunden charakterisiert sind. Weitere nicht näher spezifizierte Zeitangaben ab 6 Uhr, die sowohl als Morgen- als auch als Abendstunden interpretierbar sind, erscheinen als Morgenstunden. Der Hinweis "im Polytechnikum" weist darauf hin, dass die entsprechende Lehrveranstaltung am eidgenössischen Polytechnikum (heute Eidgenössische Technische Hochschule Zürich) gehalten wurde und auch von den Studierenden der Universität besucht werden konnten. In den gedruckten Vorlesungsverzeichnissen sind diese Veranstaltungen mit einem Asterisk (*) gekennzeichnet.</li>
+              <li><i>Zeitangaben/Wochenstunden:</i> Am Ende folgen in zusammengefasster und normalisierter Form Angaben zur Veranstaltungshäufigkeit und -zeit und der daraus resultierenden Anzahl an Wochenstunden (<i>St</i>). Enthält die Vorlage keine Angabe zur Anzahl der Wochenstunden, werden diese - sofern möglich - aus den übrigen Angaben berechnet und ergänzt. Eine Schwierigkeit ergibt sich aus der Tatsache, dass in den Vorlagen die Zeitangaben in der Form der sogenannten 12-Stunden-Zählung erfolgen, so dass Unklarheiten entstehen können, ob Morgen- oder Abendstunden gemeint sind. Zeitangaben, die mit fünf Uhr beginnen (meist "5–6" oder "5–7"), werden deshalb als Morgenstunden wiedergegeben, außer wenn sie in der Vorlage durch nähere Angaben als Abendstunden charakterisiert sind. Weitere nicht näher spezifizierte Zeitangaben ab 6 Uhr, die sowohl als Morgen- als auch als Abendstunden interpretierbar sind, erscheinen als Morgenstunden. Der Hinweis "im Polytechnikum" weist darauf hin, dass die entsprechende Lehrveranstaltung am eidgenössischen Polytechnikum (heute: Eidgenössische Technische Hochschule Zürich) gehalten wurde und auch von den Studierenden der Universität besucht werden konnte. In den gedruckten Vorlesungsverzeichnissen sind diese Veranstaltungen mit einem Asterisk (*) gekennzeichnet.</li>
             </ul>
             
           </li>
@@ -82,12 +83,12 @@ const breadcrumb = [
         <h2>Dozierende</h2>
 
         <p>Unter <a href="/dozierende/" class="Link">Dozierende</a> lassen sich die in den gedruckten Vorlesungsverzeichnissen der Universität Zürich im 19. Jahrhundert angekündigten Lehrveranstaltungen der einzelnen Dozierenden anzeigen.</p>
-        <p>Die Auflistung der jeweiligen Lehrveranstaltungen wird durch einen Kopftext eingeleitet, der folgende Elemente enthält:</p>
+        <p>Die Auflistung der jeweiligen Lehrveranstaltungen wird durch einen Kopftext eingeleitet, der die folgenden Elemente enthält:</p>
 
         <ul>
           <li>Familien- und Vorname(n)</li>
           <li>Lebensdaten</li>
-          <li>Verweis auf das entsprechende Dozentenbiogramm in der von Ernst Gagliardi et al. bearbeiteten Universitätsgeschichte (UZV: Die Universität Zürich 1833-1933 und ihre Vorläufer, bearbeitet von Ernst Gagliardi, Hans Nabholz und Jean Strohl, Zürich 1938, S. 956-1001)</li>
+          <li>Verweis auf das entsprechende Dozierendenbiogramm in der von Ernst Gagliardi et al. bearbeiteten Universitätsgeschichte (UZV: Die Universität Zürich 1833–1933 und ihre Vorläufer, bearbeitet von Ernst Gagliardi, Hans Nabholz und Jean Strohl, Zürich 1938, S. 956–1001).</li>
           <li>Fakultätszugehörigkeit</li>
           <li>Rektorate/Dekanate</li>
           <li>Links zu Normdateien (GND, Wikipedia und Wikidata)</li>
@@ -96,19 +97,16 @@ const breadcrumb = [
         <p>Die Wiedergabe der einzelnen Lehrveranstaltungen enthält in Tabellenform folgende Bestandteile:</p>
         
         <ul>
-          <li><i>Nummer:</i> Diese Nummer zeigt an, um die wievielte Veranstaltung des jeweiligen Dozenten es sich handelt. Die erste durch den Dozenten überhaupt angekündigte Veranstaltung trägt folglich die Nummer 1.</li>
+          <li><i>Nummer:</i> Diese Nummer zeigt an, um die wievielte Veranstaltung der jeweiligen Lehrkraft es sich handelt. Die erste durch die Lehrkraft überhaupt angekündigte Veranstaltung trägt folglich die Nummer 1.</li>
           
           <li><i>Semester:</i> Angabe des Semesters, für das die Lehrveranstaltung angekündigt wurde. Die Semesterangabe ist verlinkt mit der jeweiligen Veranstaltung im entsprechenden Vorlesungsverzeichnis.</li>
           
           <li><i>Veranstaltungstitel:</i> Die Angabe beschränkt sich auf den eigentlichen Veranstaltungstitel. Hinweise auf den Veranstaltungsmodus sowie zur Veranstaltungshäufigkeit und -zeit sind im Vorlesungsverzeichnis des entsprechenden Semesters nachzusehen.</li>
           
-          <li><i>Grad:</i> Anstellungsverhältnis/akademischer Titel im jeweiligen Semester. Folgende Abkürzungen finden Verwendung: PD (Privatdozent), EO (Extraordinarius), O (Ordinarius), HP (Honorarprofessor). Lehrkräfte, die nicht in einem solchen Anstellungsverhältnis stehen bzw. einen solchen akademischen Titel führen, werden als "Dozierende" (Doz) bezeichnet. Falls mehrere Angaben erscheinen, ist dies ein Hinweis darauf, dass die Veranstaltung von mehreren Dozierenden gemeinsam durchgeführt bzw. angekündigt wurde.</li>
+          <li><i>Grad:</i> Anstellungsverhältnis/akademischer Titel im jeweiligen Semester. Folgende Abkürzungen finden Verwendung: PD (Privatdozierende), EO (Extraordinarius/Extraordinaria), O (Ordinarius/Ordinaria), HP (HonorarprofessorIn). Lehrkräfte, die nicht in einem solchen Anstellungsverhältnis stehen bzw. einen solchen akademischen Titel führen, werden als "Dozierende" (Doz) bezeichnet. Falls mehrere Angaben erscheinen, ist dies ein Hinweis darauf, dass die Veranstaltung von mehreren Dozierenden gemeinsam durchgeführt bzw. angekündigt wurde.</li>
           
-          <li><i>Funktion:</i> Rektorate/Dekanate. Amtieren die Dozierenden im jeweiligen Semester als Dekan oder als Rektor, wird dies vermerkt. Die Dekanate werden nach dem Muster "Dekan/Fakultät" abgekürzt, wobei "T" für die theologische, "S" für die staatswissenschaftliche, "M" für die medizinische und "P" für die philosophische Fakultät respektive für deren Sektionen steht (ab 1860 "P1" und "P2").</li> 
+          <li><i>Funktion:</i> Rektorate/Dekanate. Amtieren die Dozierenden im jeweiligen Semester als DekanIn oder als RektorIn, wird dies vermerkt. Die Dekanate werden nach dem Muster "Dekan/Fakultät" abgekürzt, wobei "T" für die theologische, "S" für die staatswissenschaftliche, "M" für die medizinische und "P" für die philosophische Fakultät respektive für deren Sektionen steht (ab 1860 "P1" und "P2").</li> 
         </ul> 
 
-        <h2>Suche</h2>
-
-        <p>Die Suchmöglichkeiten und die verschiedenen Suchfunktionen werden auf der <a href="/suche/" class="Link">Suchseite</a> erklärt.</p>
     </SectionTextPict>
 </DefaultLayout>

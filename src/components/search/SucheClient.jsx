@@ -154,11 +154,11 @@ export default function SucheClient() {
         <fieldset className="FormInput">
           <legend className="FormLabel">Typ</legend>
           <div className="Options js-OptionInput inline" id="typ-filter">
-            <div className="OptionInput">
+            <div className="OptionInput OptionInput--doz">
               <input id="typ_dozent" type="checkbox" checked={typen.has('dozent')} onChange={() => toggleTyp('dozent')} />
-              <label className="label-dozierender-pill" htmlFor="typ_dozent">Dozierende(r)</label>
+              <label className="label-dozierender-pill" htmlFor="typ_dozent">DozentIn</label>
             </div>
-            <div className="OptionInput">
+            <div className="OptionInput OptionInput--ver">
               <input id="typ_veranstaltung" type="checkbox" checked={typen.has('veranstaltung')} onChange={() => toggleTyp('veranstaltung')} />
               <label className="label-veranstaltung-pill" htmlFor="typ_veranstaltung">Vorlesung</label>
             </div>

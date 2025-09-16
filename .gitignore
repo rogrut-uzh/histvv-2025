@@ -1,39 +1,48 @@
-# Node
+# ── Node
 node_modules/
+**/node_modules/
 
 # Build Output
 dist/
 build/
 astro-out/
 
-# Local config
-.env
-.env.local
-.env.development
-.env.production
+# ── Python / Virtualenv
+.venv-wsl/
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+*.egg-info/
+.eggs/
 
-# System files
+# ── Environment Files (niemals commiten)
+.env
+.env.*
+!.env.example          # Vorlage darf rein
+
+# ── System / Editor
 .~*
 .DS_Store
 Thumbs.db
 *.tmp
-
-# Docker
-*.log
-docker-compose.debug.yml
-
-# Kubernetes
-k8s/*.secret.yaml
-
-# GitLab
-.gitlab-ci-token
-.gitlab-ci.env
-
-# VSCode & IDEs
 .vscode/
 .idea/
 *.swp
-
-# MacOS Finder
 .AppleDouble
 .LSOverride
+
+# ── Docker / K8s
+*.log
+docker-compose.debug.yml
+k8s/*.secret.yaml
+
+# ── GitLab
+.gitlab-ci-token
+.gitlab-ci.env
+

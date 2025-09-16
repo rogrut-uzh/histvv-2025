@@ -17,8 +17,9 @@ const breadcrumb = [
     <Breadcrumb items={breadcrumb} />
 
     <MetaHead slot="head"
-        title={`${page_title} | ${pageinfo.title} ${pageinfo.byline}`}
+    title={`${page_title} | ${pageinfo.title}`}
         description={`${pageinfo.description}`}
+        matomo_tracking_id={`${pageinfo.matomo_tracking_id}`}
     />
     
     <SectionTextPict2>
@@ -40,7 +41,7 @@ const breadcrumb = [
         </figure>
         
         <div class="TextImage--content richtext">
-            <h3>Repertorium der Vorlesungen an der Universität Zürich 1833-1900</h3>
+            <h3>Repertorium der Vorlesungen an der Universität Zürich 1833–1900</h3>
             <p>hg. von Christian Moser<br/>
             Zug (Achius) 2011
             </p>

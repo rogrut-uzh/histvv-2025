@@ -48,8 +48,9 @@ const breadcrumb = [
   <Breadcrumb items={breadcrumb} />
 
   <MetaHead slot="head"
-    title={`${page_title} | ${pageinfo.title} ${pageinfo.byline}`}
+    title={`${page_title} | ${pageinfo.title}`}
     description={`${pageinfo.description}`}
+    matomo_tracking_id={`${pageinfo.matomo_tracking_id}`}
   />
 
   <SectionTextPict>
@@ -63,7 +64,7 @@ const breadcrumb = [
     </div>
     <button type="button" id="abc-reset">Filter aufheben</button>
 
-    <table class="tablesorter">
+    <table class="tablesorter tab_doz">
       <thead>
         <tr>
           <th>Nachname, Vorname</th>

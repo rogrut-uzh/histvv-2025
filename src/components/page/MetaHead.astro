@@ -2,9 +2,10 @@
 interface Props {
     title: string;
     description: string;
+    matomo_tracking_id: string;
 }
-const { title, description } = Astro.props;
-const titleSuffix = " | UZH";
+const { title, description, matomo_tracking_id } = Astro.props;
+const titleSuffix = "| UZH";
 ---
 <title>{title}</title>
 <meta name="description"        content={description} />
@@ -13,3 +14,27 @@ const titleSuffix = " | UZH";
 <meta property="og:url"         content={Astro.url} />
 <meta property="og:type"        content="website">
 <!-- <meta property="og:image"  content="../../../dummy/shareimage_example_1200x630.jpg"> -->
+<meta name="author"             content="Roger Rutishauser, UZH ZI ADB-DBA">
+<!-- Matomo -->
+<script
+  is:inline
+  data-matomo-site-id={String(matomo_tracking_id)}
+>
+  (function () {
+    var _paq = window._paq = window._paq || [];
+    _paq.push(['setAPIUrl', 'https://webstats.uzh.ch/']);
+
+    var u = '//webstats.uzh.ch/';
+    _paq.push(['setTrackerUrl', u + 'piwik.php']);
+
+    var siteId = document.currentScript && document.currentScript.dataset.matomoSiteId;
+    _paq.push(['setSiteId', siteId]);
+    
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+
+    var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+    g.async = true; g.defer = true; g.src = u + 'piwik.js'; s.parentNode.insertBefore(g, s);
+  })();
+</script>
+<!-- End Matomo -->

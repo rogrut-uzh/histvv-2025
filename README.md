@@ -32,11 +32,16 @@ cd ~/gitlab-repositories/histvv-2025
 
 ---
 
-## Aufbereitung der Rohdaten
+## Datenaufbereitung
 
-Die Rohdaten (Vorlesungsverzeichnis, Dozierende u.a.) liegen in zwei verschiedenen Formaten vor. 
+Der Workflow ist wie folgt:
 
-### Die "alten" Rohdaten 
+  1. Rohdaten Umwandlung in JSON
+  2. JSON Daten in Elasticsearch indizieren
+
+Die __Rohdaten__ (Vorlesungsverzeichnis, Dozierende u.a.) liegen in zwei verschiedenen Formaten vor.
+
+Die "alten" Rohdaten:
 
   - als XML
   - Wurden von der alten Website übernommen und bleiben unverändert
@@ -44,8 +49,7 @@ Die Rohdaten (Vorlesungsverzeichnis, Dozierende u.a.) liegen in zwei verschieden
   - Semester: `/data-migration/xml_1833-1900/1833s.xml [...] /data-migration/xml_1833-1900/1900s.xml`
   - Dozierende: `/data-migration/xml_1833-1900/dozenten.xml`
 
-
-### Die "neuen" Rohdaten (ab 1900) 
+Die "neuen" Rohdaten (ab 1900):
 
   - als XLSX. 
   - Bearbeitung durch Team Archiv UZH bearbeitet
@@ -56,75 +60,71 @@ Die Rohdaten (Vorlesungsverzeichnis, Dozierende u.a.) liegen in zwei verschieden
 
 ### Umwandlung in JSON
 
-Die Website zieht die Daten nicht aus einer Datenbank. Die Webseiten werden beim Build-Prozess "gebacken", wobei die Rohdaten zuerst in JSON umgewandelt werden müssen.
-Die JSON-Dateien werden mit Python Scripts erstellt und gleich am korrekten Ort unter [data/](data/) abgelegt.
+Die Rohdaten müssen zuerst in __JSON__ umgewandelt werden. Die JSON-Dateien werden mit Python Scripts erstellt und gleich am korrekten Ort unter [data/](data/) abgelegt.
 
-
-#### Dozierende
-
-Das Script `1_dozenten_xml-and-xlsx.py` verlangt 2 Parameter:
-
-  - Vollständiger Pfad zur XML-Dozenten-Datei
-  - Vollständiger Pfad zur XLSX-Dozenten-Datei
-  
-Das JSON Resultat wird unter `/data/tbl_dozenten.json` abgelegt.
-
-Aufruf:
+#### Vorbereitung
 
 ```shell
-python3 1_dozenten_xml-and-xlsx.py ~/gitlab-repositories/histvv-2025/data-migration/xml_1833-1900/dozenten.xml ~/gitlab-repositories/histvv-2025/data-migration/xlsx_1900-/Dozierendenverzeichnis.xlsx
+### EINMALIG
+sudo apt update
+sudo apt install -y python3-venv python3-pip
 
-JSON geschrieben: /home/rogrut/gitlab-repositories/histvv-2025/data/tbl_dozenten.json
+### für dieses Projekt
+cd ~/gitlab-repositories/histvv-2025/data-migration
+python3 -m venv .venv-wsl          # venv im Projekt anlegen
+source .venv-wsl/bin/activate      # venv aktivieren
+
+# Pip aktualisieren und benötigte Libs installieren
+python -m pip install --upgrade pip
+pip install pandas openpyxl lxml
+
+# ---------- Skript starten (im aktivierten venv), immer python, nicht als python3 ----------
+
+deactivate                        # venv wieder verlassen
 ```
+
+#### Umwandlung Dozierende
+
+  - Script `1_dozenten_xml-and-xlsx.py` 
+  - 3 optonale Parameter, ansonsten wird Default verwendet:
+    - `--xml "~/pfad/zu/dozenten.xml"`
+    - `--xlsx "~/pfad/zu/Dozierendenverzeichnis.xlsx"`
+    - `-o "~/ziel/tbl_dozenten.json"`
+  - Aufruf Beispiel: `python script.py --xml "~/pfad/zu/dozenten.xml" --xlsx "~/pfad/zu/Dozierendenverzeichnis.xlsx" -o "~/ziel/tbl_dozenten.json"`
+  - Das JSON Resultat wird unter `/data/tbl_dozenten.json` abgelegt.
 
 #### Semester Header
 
 Für jedes Semester gibt es allgemeine Informationen, die oben auf der Webpage angezeigt werden. Bis 1900 waren die Infos gehaltvoller und werden aus den XML-Dateien der Semester extrahiert. 
 
-Das Script `2_semester-header_xml.py` verlangt 1 Parameter:
-
-  - Vollständiger Pfad zum Ordner, der die Semester-XML-Dateien enthält
-  
-Das JSON Resultat wird unter `data/tbl_semester_header.json` abgelegt.
-
-Aufruf:
-
-```shell
-python3 2_semester-header_xml.py ~/gitlab-repositories/histvv-2025/data-migration/xml_1833-1900
-
-JSON geschrieben: /home/rogrut/gitlab-repositories/histvv-2025/data/tbl_semester_header.json
-```
-
-Ab 1900 liegen keine Semester Header Informationen mehr vor.
+  - Das Script `2_semester-header_xml.py` 
+  - 2 optionale Parameter. Ansonsten wird der default verwendet.
+    - Vollständiger Pfad zum Ordner, der die Semester-XML-Dateien enthält
+    - Output json: `-o "~/andere/ablage/semester.json"`
+  - Das JSON Resultat wird unter `data/tbl_semester_header.json` abgelegt.
+  - Hinweis: Ab 1900 liegen keine Semester Header Informationen mehr vor.
 
 #### Semester-Veranstaltungen (XML)
 
-Das Script `3_semester-veranstaltungen_xml.py` verlangt 1 Parameter:
-
-  - Vollständiger Pfad zum Ordner, der die Semester-XML-Dateien enthält
-  
-Das JSON Resultat wird unter `data/tbl_veranstaltungen.json` abgelegt.
+  - Script `31_semester-veranstaltungen_xml.py`
+  - 1 optionaler Parameter. Ansonsten wird der default verwendet. 
+    - Vollständiger Pfad zum Ordner, der die Semester-XML-Dateien enthält
+  - Das JSON Resultat wird unter `data/tbl_veranstaltungen.json` abgelegt.
 
 #### Semester-Veranstaltungen (XLSX)
 
-Das Script `3_semester-veranstaltungen_xlsx.py` verlangt 1 Parameter:
-
-  - Vollständiger Pfad zum Ordner, der die Semester-XML-Dateien enthält
-  
-Das JSON Resultat wird unter `data/tbl_veranstaltungen-ab-1900w.json` abgelegt.
+  - Script `32_semester-veranstaltungen_xlsx.py` 
+  - 1 optionaler Parameter. Ansonsten wird der default verwendet. 
+    - Vollständiger Pfad zum Ordner, der die Semester-XML-Dateien enthält
+  - Das JSON Resultat wird unter `data/tbl_veranstaltungen-ab-1900w.json` abgelegt.
 
 
 #### Merge Semester-Veranstaltungen
 
 Zuletzt werden die beiden Semester-JSON `tbl_veranstaltungen.json` und `tbl_veranstaltungen-ab-1900w.json` in eine einzige Datei zusammengeführt.
 
-Aufruf:
-
-```shell
-python3 4_semester-veranstaltungen_merge.py --sort
-```
-
-Das JSON Resultat wird unter `data/tbl_veranstaltungen-merged.json` abgelegt. Die Quelldateien werden anschliessend gelöscht. Mit dem `--keep` Parameter werden sie behalten.
+  - Script `33_semester-veranstaltungen_merge.py --sort`
+  - Das JSON Resultat wird unter `data/tbl_veranstaltungen-merged.json` abgelegt. Die Quelldateien werden anschliessend gelöscht. Mit dem `--keep` Parameter werden sie behalten.
 
 ---
 
