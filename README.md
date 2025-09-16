@@ -1,6 +1,6 @@
 # HistVV-2025
 
-Diese README beschreibt den Unterhalt der Website "Historische Vorlesungsverzeichnisse der Universiät Zürich" (aka HistVV). 
+Diese README beschreibt den Unterhalt der Website "Historische Vorlesungsverzeichnisse der Universiät Zürich" (aka HistVV).
 
 ## Übersicht
 
@@ -22,12 +22,38 @@ Die [vorherige Version der Website](https://gitlab.uzh.ch/histvv) wurde unter Ve
 
 ---
 
-## Vorbereitung: Git Repo klonen
+## Arbeiten mit Git
+
+### Repository klonen
 
 ```shell
 cd ~/gitlab-repositories
 git clone git@gitlab.uzh.ch:dba/histvv-2025.git
 cd ~/gitlab-repositories/histvv-2025
+```
+
+### Arbeitsweise 
+
+!!! Immer im `test` Branch arbeiten !!! Anschliessend in den `Main` Branch mergen (nur nötig für PROD-Deployments).
+
+Merge in `Main`-Branch:
+
+```
+# 1) Alles frisch holen (in test Branch)
+git fetch --prune origin
+
+# 2) Lokalen main wieder exakt auf den Remote-Stand bringen
+git switch main
+git reset --hard origin/main
+
+# 3) test in main mergen (Merge-Commit)
+git merge --no-ff origin/test    # Konflikte lösen, committen
+
+# 4) Push
+git push origin main
+
+# 5) Wieder auf test wechseln
+git switch test
 ```
 
 ---
