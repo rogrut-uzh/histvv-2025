@@ -167,6 +167,13 @@ Da die Website öffentlich in der UZH-Cloud in Zone 1 liegt, kann keine direkte 
   - Users: `uzh_archiv_admin` und `uzh_archiv_user` für read.
   - Proxy Endpoint: `https://www.zi.uzh.ch/cgi-bin/esproxy/archiv_proxy_test.py`
 
+### Produktivumgebung
+
+  - ES-Instanz: `https://ziwwwsearch01.uzh.ch:9200`
+  - Index: `uzh_archiv_histvv`
+  - Users: `uzh_archiv_admin` und `uzh_archiv_user` für read.
+  - Proxy Endpoint: `https://www.zi.uzh.ch/cgi-bin/esproxy/archiv_proxy.py`
+
 
 ### Index erstellen und befüllen
 
@@ -177,16 +184,24 @@ Der ES-Index wird ausschliesslich vom lokalen Rechner manuell gepflegt. Als Vorb
 ```shell
 cd ~/gitlab-repositories/histvv-2025
 
+# für TEST
 echo -e "ES_PASSWORD_ADM=<seeKeePass>\nES_USERNAME_ADM=uzh_archiv_admin\nES=https://ziwwwsearchtest01.uzh.ch:9200\nES_INDEX=uzh_archiv_histvv\nPATH_D=data/tbl_dozenten.json\nPATH_V=data/tbl_veranstaltungen-merged.json\nPATH_V_HEADER=data/tbl_semester_header.json" > ~/gitlab-repositories/histvv-2025/.env
+
+# für PROD
+echo -e "ES_PASSWORD_ADM=<seeKeePass>\nES_USERNAME_ADM=uzh_archiv_admin\nES=https://ziwwwsearch01.uzh.ch:9200\nES_INDEX=uzh_archiv_histvv\nPATH_D=data/tbl_dozenten.json\nPATH_V=data/tbl_veranstaltungen-merged.json\nPATH_V_HEADER=data/tbl_semester_header.json" > ~/gitlab-repositories/histvv-2025/.env-prod
 ```
 
 #### Index anlegen und befüllen
 
 ```shell
-cd ~/gitlab-repositories/histvv-2025 && docker run --rm --network histvv-2025_histvv-nw -e FORCE_REES_INDEX=1 --env-file .env -v "$PWD:/app" -w /app node:20-alpine node scripts/es/index-elasticsearch.mjs
+# für TEST
+cd ~/gitlab-repositories/histvv-2025 && docker run --rm --network histvv-2025_histvv-nw -e FORCE_REES_INDEX=1 --env-file .env-test -v "$PWD:/app" -w /app node:20-alpine node scripts/es/index-elasticsearch.mjs
+
+# für PROD
+cd ~/gitlab-repositories/histvv-2025 && docker run --rm --network histvv-2025_histvv-nw -e FORCE_REES_INDEX=1 --env-file .env-prod -v "$PWD:/app" -w /app node:20-alpine node scripts/es/index-elasticsearch.mjs
 ```
 
-Der Befehl startet einen einmaligen Node-20-Container, hängt ihn ins Docker-Netz histvv-2025_histvv-nw, bindet das aktuelle Verzeichnis ins Container-Verzeichnis /app ein, setzt die Umgebungsvariable FORCE_REES_INDEX, lädt die restlichen Umgebungsvariablen aus .env rein, und führt darin das Reindex-Script aus:
+Der Befehl startet einen einmaligen Node-20-Container, hängt ihn ins Docker-Netz histvv-2025_histvv-nw, bindet das aktuelle Verzeichnis ins Container-Verzeichnis /app ein, setzt die Umgebungsvariable FORCE_REES_INDEX, lädt die restlichen Umgebungsvariablen aus den env-files rein, und führt darin das Reindex-Script aus:
 
   1. `waitForES(ES)` – wartet, bis ES erreichbar ist.
   2. `ensureIndex(mapping)`
@@ -205,6 +220,7 @@ Der Befehl startet einen einmaligen Node-20-Container, hängt ihn ins Docker-Net
 
 # Auf 200 Status prüfen
 curl -u uzh_archiv_admin:<seeKeePass> -I https://ziwwwsearchtest01.uzh.ch:9200/uzh_archiv_histvv
+curl -u uzh_archiv_admin:<seeKeePass> -I https://ziwwwsearch01.uzh.ch:9200/uzh_archiv_histvv
 
 # Kleine Such-Query:
 curl -s "http://localhost/api/suche.json?q=m%C3%BCller&typ=dozent&limit=5" | jq .
