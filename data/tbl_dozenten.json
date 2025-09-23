@@ -10043,7 +10043,7 @@
     "url": null,
     "wikidata": "Q94941123",
     "fachgebiet": "Innere Medizin",
-    "habilitation": "PD 1921",
+    "habilitation": "PD 1920",
     "berufung": null
   },
   {
@@ -10079,7 +10079,7 @@
     "url": null,
     "wikidata": "Q55847143",
     "fachgebiet": "Geschichte der Medizin",
-    "habilitation": "PD 1921",
+    "habilitation": "PD 1920",
     "berufung": null
   },
   {
@@ -10537,6 +10537,24 @@
     "fak": "Medizinische Fakultät",
     "nachname": "Jadassohn",
     "vorname": "W",
+    "geboren": null,
+    "gestorben": null,
+    "pnd": null,
+    "gagliardi": null,
+    "dekanat": null,
+    "rektor": null,
+    "wikipedia": null,
+    "url": null,
+    "wikidata": null,
+    "fachgebiet": null,
+    "habilitation": null,
+    "berufung": null
+  },
+  {
+    "id_dozent": "staehli_j",
+    "fak": "Medizinische Fakultät",
+    "nachname": "Stähli",
+    "vorname": "J",
     "geboren": null,
     "gestorben": null,
     "pnd": null,
@@ -12191,7 +12209,7 @@
     "berufung": null
   },
   {
-    "id_dozent": "useri_p",
+    "id_dozent": "usteri_p",
     "fak": "Philosophische Fakultät I",
     "nachname": "Usteri",
     "vorname": "Paul",
