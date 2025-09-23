@@ -22,7 +22,7 @@ __pycache__/
 .eggs/
 
 # ── Environment Files (niemals commiten)
-.env
+.env*
 .env.*
 !.env.example          # Vorlage darf rein
 
