@@ -5,6 +5,7 @@ import linkTargetUrl from '~/scripts/link-target-highlight.js?url';
 const home = new URL('/', Astro.site ?? Astro.url);
 ---
 <!DOCTYPE html>
+<!-- BUILD: 2025-01-22-15:30 TEST CHANGE -->
 <html lang="de" data-template="st01">
 <head>
     <meta charset="utf-8">
@@ -400,24 +401,5 @@ const home = new URL('/', Astro.site ?? Astro.url);
 
 <script type="module" src={mainNavUrl}></script>
 <script type="module" src={linkTargetUrl}></script>
-
-<script>
-  (function() {
-    const TARGET = 'https://www.archiv.uzh.ch/';
-    function apply() {
-      const a = document.querySelector('.Header--department--link');
-      if (a && a.getAttribute('href') !== TARGET) a.setAttribute('href', TARGET);
-    }
-    // einmal nach DOM und nach load
-    document.addEventListener('DOMContentLoaded', () => setTimeout(apply, 0));
-    window.addEventListener('load', () => setTimeout(apply, 0));
-    // falls später wieder überschrieben wird
-    const obs = new MutationObserver(apply);
-    document.addEventListener('readystatechange', () => {
-      const a = document.querySelector('.Header--department--link');
-      if (a) obs.observe(a, {attributes: true, attributeFilter: ['href']});
-    });
-  })();
-</script>
 </body>
 </html>
