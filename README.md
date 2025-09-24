@@ -46,14 +46,21 @@ git fetch --prune origin
 git switch main
 git reset --hard origin/main
 
-# 3) test in main mergen (Merge-Commit)
-git merge --no-ff origin/test    # Konflikte lösen, committen
+# 3) test in main mergen (Merge-Commit), Konflikte lösen, committen
+git merge --no-ff origin/test
 
 # 4) Push
 git push origin main
 
 # 5) Wieder auf test wechseln
 git switch test
+```
+
+__two-liner:__
+
+```
+git switch test && git fetch --prune origin && git switch main && git reset --hard origin/main && git merge --no-ff origin/test
+git push origin main && git switch test
 ```
 
 ---
