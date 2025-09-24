@@ -90,6 +90,8 @@ Die Rohdaten müssen zuerst in __JSON__ umgewandelt werden. Die JSON-Dateien wer
 
 #### Vorbereitung
 
+Einmalig, das erste Mal
+
 ```shell
 ### EINMALIG
 sudo apt update
@@ -103,9 +105,14 @@ source .venv-wsl/bin/activate      # venv aktivieren
 # Pip aktualisieren und benötigte Libs installieren
 python -m pip install --upgrade pip
 pip install pandas openpyxl lxml
+deactivate                         # venv wieder verlassen
+```
 
+Bei jeder Anwendung der Scripts:
+
+```
+source .venv-wsl/bin/activate
 # ---------- Skript starten (im aktivierten venv), immer python, nicht als python3 ----------
-
 deactivate                        # venv wieder verlassen
 ```
 
@@ -181,11 +188,13 @@ Der ES-Index wird ausschliesslich vom lokalen Rechner manuell gepflegt. Als Vorb
 
 #### .env Datei anlegen
 
+Einmalig, respektive wenn `.env-test` und `.env-prod` nicht vorhanden:
+
 ```shell
 cd ~/gitlab-repositories/histvv-2025
 
 # für TEST
-echo -e "ES_PASSWORD_ADM=<seeKeePass>\nES_USERNAME_ADM=uzh_archiv_admin\nES=https://ziwwwsearchtest01.uzh.ch:9200\nES_INDEX=uzh_archiv_histvv\nPATH_D=data/tbl_dozenten.json\nPATH_V=data/tbl_veranstaltungen-merged.json\nPATH_V_HEADER=data/tbl_semester_header.json" > ~/gitlab-repositories/histvv-2025/.env
+echo -e "ES_PASSWORD_ADM=<seeKeePass>\nES_USERNAME_ADM=uzh_archiv_admin\nES=https://ziwwwsearchtest01.uzh.ch:9200\nES_INDEX=uzh_archiv_histvv\nPATH_D=data/tbl_dozenten.json\nPATH_V=data/tbl_veranstaltungen-merged.json\nPATH_V_HEADER=data/tbl_semester_header.json" > ~/gitlab-repositories/histvv-2025/.env-test
 
 # für PROD
 echo -e "ES_PASSWORD_ADM=<seeKeePass>\nES_USERNAME_ADM=uzh_archiv_admin\nES=https://ziwwwsearch01.uzh.ch:9200\nES_INDEX=uzh_archiv_histvv\nPATH_D=data/tbl_dozenten.json\nPATH_V=data/tbl_veranstaltungen-merged.json\nPATH_V_HEADER=data/tbl_semester_header.json" > ~/gitlab-repositories/histvv-2025/.env-prod
@@ -298,10 +307,12 @@ npm run dev
 ### Container build & start
 
 ```shell
-docker compose build prod     # or
+docker compose build prod     # hat nichts mit prod oder test Umgebung zu tun    
+# oder ohne cache:
 docker compose build --no-cache prod
 
-docker compose up -d          # or
+docker compose up -d          
+# oder um orphans zu eliminieren:
 docker compose up -d --remove-orphans
 ```
 
