@@ -56,10 +56,11 @@ git push origin main
 git switch test
 ```
 
-__one-liner:__
+__two-liner:__
 
 ```
-git switch test && git fetch --prune origin && git switch main && git reset --hard origin/main && git merge --no-ff origin/test && git push origin main && git switch test
+git switch test && git fetch --prune origin && git switch main && git reset --hard origin/main && git merge --no-ff origin/test
+git push origin main && git switch test
 ```
 
 ---
