@@ -135,14 +135,7 @@ const breadcrumb = [
     <div>
       {sortedFakultaetNamen.map((fakname) => (
         <div class="vv-detail-fak">
-          <a class="Link layout-standalone icon-position-before icon-orientation-down" href={`#${slugify(fakname)}`}>
-            {fakname}
-            <span class="Link--icon">
-              <span class="Icon" data-name="16--link-internal">
-                <svg><use xlink:href="#16--link-internal"></use></svg>
-              </span>
-            </span>
-          </a>
+          <a href={`#${slugify(fakname)}`}>{fakname}</a>
         </div>
       ))}
     </div>

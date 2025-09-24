@@ -8,16 +8,32 @@ export default defineConfig({
   adapter: node({ mode: 'standalone' }),
   integrations: [react()],
   compressHTML: true,
-  /*compressHTML: false,*/
   vite: { 
     resolve: { 
       alias: { '~': new URL('./src', import.meta.url).pathname } 
-    }/*,
-    build: {
-      minify: false  // Explizit erzwingen
-    }*/
+    }
   }
 });
+
+/*
+// -------- debug version, ohne minify ---------------
+export default defineConfig({
+  site: process.env.SITE_URL,
+  output: 'server',
+  adapter: node({ mode: 'standalone' }),
+  integrations: [react()],
+  compressHTML: false,
+  vite: { 
+    resolve: { 
+      alias: { '~': new URL('./src', import.meta.url).pathname } 
+    },
+    build: {
+      minify: false  // Explizit erzwingen
+    }
+  }
+});
+*/
+
 // Anmerkung zu site:
 //
 // site ist optional bei output: 'server'. 
