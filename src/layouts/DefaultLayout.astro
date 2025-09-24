@@ -2,18 +2,15 @@
 import histvvCssUrl from '~/styles/histvv.css?url';
 import mainNavUrl from '~/scripts/main-nav-active.js?url';
 import linkTargetUrl from '~/scripts/link-target-highlight.js?url';
+const home = new URL('/', Astro.site ?? Astro.url);
 ---
 <!DOCTYPE html>
 <html lang="de" data-template="st01">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- UZH CSS (extern, unverändert) -->
     <link rel="stylesheet" href="https://www.uzh.ch/static/magnolia/assets/css/main.css">
-    <!-- deine CSS aus src/… via ?url -->
     <link rel="stylesheet" href={histvvCssUrl} />
-
     <link rel="modulepreload" href="https://www.uzh.ch/static/magnolia/assets/js/ui.mjs">
     <link rel="preload" href="https://www.uzh.ch/static/magnolia/assets/fonts/WOFF2/SourceSans3-Regular.otf.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="https://www.uzh.ch/static/magnolia/assets/fonts/WOFF2/SourceSans3-Semibold.otf.woff2" as="font" type="font/woff2" crossorigin="anonymous">
@@ -25,14 +22,11 @@ import linkTargetUrl from '~/scripts/link-target-highlight.js?url';
     <meta name="msapplication-config" content="/favicons/browserconfig.xml">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
-
     <slot name='head' />
-
     <script>
         window.app_config = { language: 'de' };
     </script>
 </head>
-
 <body class="template-st01">
 <!-- component: Header -->
 <header class="Header js-Header">
@@ -82,8 +76,12 @@ import linkTargetUrl from '~/scripts/link-target-highlight.js?url';
             </button>
         </div>
         <h2 class="Header--department">
-            <a class="Header--department--link" href="https://www.histvv.uzh.ch/">UZH Archiv</a>
-            <a class="Header--subDepartment--link" href="https://www.histvv.uzh.ch/">Historische Vorlesungsverzeichnisse der Universität Zürich</a>
+            <!-- 
+              ACHTUNG wird von ui.mjs/ui.js überschrieben!
+              Daher JS nötig.
+            -->
+            <a class="Header--department--link" href="https://www.archiv.uzh.ch/">UZH Archiv</a>
+            <a class="Header--subDepartment--link" href={home.href}>Historische Vorlesungsverzeichnisse der Universität Zürich</a>
         </h2>
     </div>
     <div class="Header--bottom js-Header--bottom">
@@ -96,10 +94,10 @@ import linkTargetUrl from '~/scripts/link-target-highlight.js?url';
                     <nav class="ServiceNav">
                         <ul class="ServiceNav--list">
                             <li class="ServiceNav--list--item">
-                                <a class="ServiceNav--link" href="">Home</a>
+                                <a class="ServiceNav--link" href="https://www.archiv.uzh.ch/">Home</a>
                             </li>
                             <li class="ServiceNav--list--item">
-                                <a class="ServiceNav--link" href="">Kontakt</a>
+                                <a class="ServiceNav--link" href="https://www.archiv.uzh.ch/de/contact.html">Kontakt</a>
                             </li>
                             <!--<li class="ServiceNav--list--item">
                                 <a class="ServiceNav--link" href="">English</a>
@@ -108,7 +106,7 @@ import linkTargetUrl from '~/scripts/link-target-highlight.js?url';
                     </nav>
                     <!-- /component: ServiceNav -->
                     <!-- component: SearchTrigger -->
-                    <a class="SearchTrigger" href="../../../pages/tt02/tt02_search.html">
+                    <a class="SearchTrigger" href="https://www.archiv.uzh.ch/de/search.html">
                         <!-- component: Icon -->
                         <span class="Icon" data-name="24--search">
                             <svg>
@@ -252,7 +250,7 @@ import linkTargetUrl from '~/scripts/link-target-highlight.js?url';
             <nav>
                 <ul class="FooterMeta--linkList">
                       <li>
-                        <a class="FooterMeta--link" href="/impressum/">Impressum</a>
+                        <a class="FooterMeta--link" href="https://www.archiv.uzh.ch/de/impressum.html">Impressum</a>
                       </li>
                     
                       <li>
@@ -271,7 +269,7 @@ import linkTargetUrl from '~/scripts/link-target-highlight.js?url';
 </footer>
 
 
-<!-- UZH Scripts (extern) -->
+<!-- *** UZH Scripts (extern) *** -->
 <script src="https://www.uzh.ch/static/magnolia/assets/js/ui.mjs" type="module"></script>
 <script src="https://www.uzh.ch/static/magnolia/assets/js/ui.js" nomodule defer></script>
 
@@ -402,5 +400,24 @@ import linkTargetUrl from '~/scripts/link-target-highlight.js?url';
 
 <script type="module" src={mainNavUrl}></script>
 <script type="module" src={linkTargetUrl}></script>
+
+<script>
+  (function() {
+    const TARGET = 'https://www.archiv.uzh.ch/';
+    function apply() {
+      const a = document.querySelector('.Header--department--link');
+      if (a && a.getAttribute('href') !== TARGET) a.setAttribute('href', TARGET);
+    }
+    // einmal nach DOM und nach load
+    document.addEventListener('DOMContentLoaded', () => setTimeout(apply, 0));
+    window.addEventListener('load', () => setTimeout(apply, 0));
+    // falls später wieder überschrieben wird
+    const obs = new MutationObserver(apply);
+    document.addEventListener('readystatechange', () => {
+      const a = document.querySelector('.Header--department--link');
+      if (a) obs.observe(a, {attributes: true, attributeFilter: ['href']});
+    });
+  })();
+</script>
 </body>
 </html>
