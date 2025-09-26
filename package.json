@@ -12,6 +12,7 @@
     "@astrojs/node": "^9.4.3",
     "@astrojs/react": "^4.3.0",
     "astro": "^5.9.2",
+    "he": "^1.2.0",
     "minisearch": "^7.1.2",
     "papaparse": "^5.4.1",
     "react": "^19.1.0",
