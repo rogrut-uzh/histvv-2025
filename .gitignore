@@ -23,7 +23,6 @@ __pycache__/
 
 # ── Environment Files (niemals commiten)
 .env*
-.env.*
 !.env.example          # Vorlage darf rein
 
 # ── System / Editor
@@ -32,6 +31,7 @@ __pycache__/
 Thumbs.db
 *.tmp
 .vscode/
+.vs/
 .idea/
 *.swp
 .AppleDouble
