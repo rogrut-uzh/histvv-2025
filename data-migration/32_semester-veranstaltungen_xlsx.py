@@ -29,13 +29,13 @@ def get_cell(row, i):
 
 def clean(cell):
     if cell is None:
-        return ""
+        return None # wird automatisch zu null
     # echte NaN (float) erkennen
     if isinstance(cell, float) and math.isnan(cell):
-        return ""
+        return None
     s = str(cell).strip()
     if s == "" or s.lower() in {"nan", "na", "n/a", "null", "none", "-"}:
-        return ""
+        return None
     return s
 
 def get_semester_id_from_filename(filename):
@@ -82,7 +82,7 @@ def process_xlsx_file(filepath):
             dozenten.append({
                 "id_dozent": id2,
                 "grad":      clean(get_cell(row, 11)),
-                "funktion":  "",
+                "funktion":  None,
             })
 
         # 3. Dozent (id, grad, KEINE funktion)
@@ -91,7 +91,7 @@ def process_xlsx_file(filepath):
             dozenten.append({
                 "id_dozent": id3,
                 "grad":      clean(get_cell(row, 13)),
-                "funktion":  "",
+                "funktion":  None,
             })
 
         # 4. Dozent (id, grad, KEINE funktion)
@@ -100,7 +100,7 @@ def process_xlsx_file(filepath):
             dozenten.append({
                 "id_dozent": id4,
                 "grad":      clean(get_cell(row, 15)),
-                "funktion":  "",
+                "funktion":  None,
             })
 
         id_veranstaltung = f"v-{make_unique_id(semester_id, vorlesungsnummer, thema, zusatz, id1)}"
@@ -112,11 +112,11 @@ def process_xlsx_file(filepath):
             "vorlesungsnummer": vorlesungsnummer_without_dot,
             "fak": fak,
             "thema": thema,
-            "thema_anmerkung": "",
+            "thema_anmerkung": None,
             "zusatz": zusatz,
-            "zeit": "",
-            "ort": "",
-            "wochenstunden": "",
+            "zeit": None,
+            "ort": None,
+            "wochenstunden": None,
             "dozenten": dozenten
         })
 

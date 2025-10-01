@@ -189,49 +189,51 @@ const page_title = dozent.vorname ? `${dozent.nachname}, ${dozent.vorname}` : do
 
         <h2>Veranstaltungen</h2>
         <table class="tablesorter">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Semester</th>
-              <th>Veranstaltung</th>
-              <th>Grad</th>
-              <th>Funktion</th>
-            </tr>
-          </thead>
-          <tbody>
-            {veranstaltungen_dozent.map((v:any, index:number) => {
-              const meineInfos = (Array.isArray(v.dozenten) ? v.dozenten : [])
-                .filter((d:any) => (d.id_dozent ?? '') === dozentId);
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Semester</th>
+                <th>Veranstaltung</th>
+                <th>Grad</th>
+                <th>Funktion</th>
+              </tr>
+            </thead>
+            <tbody>
+              {veranstaltungen_dozent.map((v:any, index:number) => {
+                const veranstaltungsInfos = (Array.isArray(v.dozenten) ? v.dozenten : [])
+                  .filter((d:any) => (d.id_dozent ?? '') === dozentId);
 
-              return (
-                <tr key={v.id_veranstaltung ?? index}>
-                  <td>{index + 1}</td>
-                  <td>
-                    <a href={`/vv/${v.id_semester}#${v.id_veranstaltung}`}>
-                      {semesterLabel(v.id_semester)}
-                    </a>
-                  </td>
-                  <td>{v.thema}</td>
-                  <td>
-                    {meineInfos.map((d:any, i:number) => (
-                      <span key={`grad-${i}`}>
-                        {i > 0 && ', '}
-                        {d.grad || ''}
-                      </span>
-                    ))}
-                  </td>
-                  <td>
-                    {meineInfos.map((d:any, i:number) => (
-                      <span key={`funktion-${i}`}>
-                        {i > 0 && ', '}
-                        {d.funktion || ''}
-                      </span>
-                    ))}
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
+                    //     Für v-18718 debuggen......... anschauen mit docker compose logs.
+                    //     if (v.id_veranstaltung === 'v-18718') {
+                    //       console.log('v-18718 raw dozenten:', JSON.stringify(v.dozenten, null, 2));
+                    //       console.log('v-18718 grad values:', v.dozenten.map(d => `[${d.grad}]`));
+                    //     }
+
+                return (
+                  <tr key={v.id_veranstaltung ?? index}>
+                    <td>{index + 1}</td>
+                    <td>
+                      <a href={`/vv/${v.id_semester}#${v.id_veranstaltung}`}>
+                        {semesterLabel(v.id_semester)}
+                      </a>
+                    </td>
+                    <td>{v.thema}</td>
+                    <td>
+                      {veranstaltungsInfos
+                        .map((d:any) => (d.grad || '').trim())
+                        .filter(Boolean)
+                        .join(', ')}
+                    </td>
+                    <td>
+                      {veranstaltungsInfos
+                        .map((d:any) => (d.funktion || '').trim())
+                        .filter(Boolean)
+                        .join(', ')}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
         </table>
       </>
     ) : (
