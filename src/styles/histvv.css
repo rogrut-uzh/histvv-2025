@@ -1,58 +1,65 @@
 /*
 colors:
-blue:           #0000ff
-light blue:     #ccccff (used for href link target highlighting)
-light yellow:   #ffffcc (used for Dozierende in Search)
-light green:    #ccffcc (used for Veranstaltung in Search)
-grey text:      #888888
+blue:               #0000ff
+light yellow:       #FFFFCC (used for href link target highlighting)
+light orange:       #ffbc66 (used for Dozierende in Search)
+light greenblue:    #66ffb2 (used for Veranstaltung in Search)
+grey text:          rgba(var(--c-text-grey),1); or #888888
 */
 
 /* --------------- Suche --------------- */
 #such-ergebnisse { 
-    margin-top: 40px;
+  margin-top: 40px;
 }
-.such-treffer { 
-    margin-bottom: 0.55em; 
+.such-treffer {
+  display: contents;
+  line-height: 1em;
 }
-.such-treffer .pill{
-    margin-right: 4px;
-    padding: 2px 4px;
-    font-size: 0.75em;
-}
-
-.label-dozierender-pill::before,
-.label-veranstaltung-pill::before {
-    left: 6px !important;
+.such-treffer-grid {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 1.4rem 0.75rem; /* erster Wert = vertikal, zweiter = horizontal */
+  align-items: start;
 }
 
-.such-treffer.dozierender .pill,
+.such-treffer .pill {
+  font-size: 0.75em;
+  color: rgba(var(--c-text-grey),1);
+}
+.such-treffer .title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.such-treffer .title .title2 {
+  font-size: 0.75em;
+}
+.such-treffer.dozierender .pill span,
 .OptionInput--doz {
-    background-color: #ffffcc;
+  border-bottom: 2px solid #ffbc66;
 }
-.such-treffer.veranstaltung .pill,
+.such-treffer.veranstaltung .pill span,
 .OptionInput--ver {
-    background-color: #ccffcc;
+  border-bottom: 2px solid #66ffb2;
 }
-
-.OptionInput--doz,
-.OptionInput--ver {
-    padding-right: 6px;
-}
-
 .such-treffer a {
   display: inline !important;          /* evtl. von Framework zurücksetzen */
   white-space: normal !important;      /* kein nowrap */
   word-break: break-word !important;   /* Fallback für ältere Browser */
-  margin-left:0.2em !important; 
+  margin-left:0 !important; 
   padding-left: 0 !important;
 }
-.such-treffer a::before { display:none !important; }
+.such-treffer a::before { 
+  display:none !important; 
+}
 
 
 /* --------------- Link Target Highlighting --------------- */
-.grautext { color: #888888; }
+.grautext { 
+  color: rgba(var(--c-text-grey),1);
+}
 .target_highlight {
-  background-color: #ccccff;
+  background-color: #ffffcc;
   transition: background-color 1s ease-in-out;
 }
 

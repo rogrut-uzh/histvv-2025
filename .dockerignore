@@ -1,8 +1,7 @@
 # Node stuff → wir wollen node_modules im Container bauen, aber package-lock.json WIRD gebraucht
 node_modules
 npm-debug.log
-.env*
-.venv
+.venv*
 .venv-wsl
 
 # Git

@@ -14,7 +14,7 @@ services:
       PORT: "3001"  # Prozess lauscht in Container auf 3001
       ELASTICSEARCH_URL: ${ELASTICSEARCH_URL:-https://www.zi.uzh.ch/cgi-bin/esproxy/archiv_proxy_test.py}
     ports:
-      - "80:3001"
+      - "3001:3001"
     networks: [histvv-nw]
     volumes:
       - ./data:/app/data:ro
