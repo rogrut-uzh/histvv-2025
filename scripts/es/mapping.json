@@ -1,63 +1,182 @@
 {
   "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 1,
     "analysis": {
       "analyzer": {
-        "de_analyzer": { "type": "standard", "stopwords": "_german_" },
-        "autocomplete": { "tokenizer": "autocomplete", "filter": ["lowercase"] }
+        "de_analyzer": {
+          "type": "standard",
+          "stopwords": "_german_"
+        },
+        "name_analyzer": {
+          "type": "custom",
+          "tokenizer": "standard",
+          "filter": [
+            "lowercase",
+            "asciifolding"
+          ]
+        }
       },
-      "tokenizer": {
-        "autocomplete": { "type": "edge_ngram", "min_gram": 2, "max_gram": 20, "token_chars": ["letter","digit"] }
+      "normalizer": {
+        "lowercase_normalizer": {
+          "type": "custom",
+          "filter": ["lowercase", "asciifolding"]
+        }
       }
     }
   },
   "mappings": {
     "properties": {
-      "typ":         { "type": "keyword" },
-      "id_semester": { "type": "keyword" },
-      "fak":         { "type": "keyword" },
-      "site_url":    { "type": "keyword" },
-      "url":         { "type": "keyword" },
-      "hauptfeld":   { "type": "text", "analyzer": "autocomplete", "search_analyzer": "de_analyzer" },
-
-      "id_veranstaltung": { "type": "keyword" },
-      "thema":            { "type": "text", "analyzer": "de_analyzer", "fields": { "keyword": { "type": "keyword" } } },
-      "thema_anmerkung":  { "type": "text", "analyzer": "de_analyzer" },
-      "zusatz":           { "type": "text", "analyzer": "de_analyzer" },
-      "vorlesungsnummer": { "type": "keyword" },
-      "zeit":             { "type": "keyword" },
-      "wochenstunden":    { "type": "keyword" },
-      "ort":              { "type": "keyword" },
+      "typ": {
+        "type": "keyword"
+      },
+      "id_semester": {
+        "type": "keyword"
+      },
+      "vorlesungsnummer": {
+        "type": "keyword"
+      },
+      "id_veranstaltung": {
+        "type": "keyword"
+      },
       "dozenten": {
-        "type": "object",
+        "type": "nested",
         "properties": {
-          "id_dozent": { "type": "keyword" },
-          "nachname":  { "type": "text", "analyzer": "de_analyzer" },
-          "vorname":   { "type": "text", "analyzer": "de_analyzer" },
-          "grad":      { "type": "keyword" },
-          "funktion":  { "type": "keyword" }
+          "id_dozent": {
+            "type": "keyword"
+          },
+          "nachname": {
+            "type": "text",
+            "analyzer": "name_analyzer",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          },
+          "vorname": {
+            "type": "text",
+            "analyzer": "name_analyzer",
+            "fields": {
+              "keyword": {
+                "type": "keyword"
+              }
+            }
+          },
+          "grad": {
+            "type": "keyword"
+          },
+          "funktion": {
+            "type": "keyword"
+          }
         }
       },
-
-      "id":         { "type": "keyword" },
-      "nachname":   { "type": "text", "analyzer": "de_analyzer" },
-      "vorname":    { "type": "text", "analyzer": "de_analyzer" },
-      "geboren":    { "type": "keyword" },
-      "gestorben":  { "type": "keyword" },
-      "pnd":        { "type": "keyword" },
-      "wikidata":   { "type": "keyword" },
-      "wikipedia":  { "type": "keyword" },
-
-      "fachgebiet":   { "type": "text", "analyzer": "de_analyzer" },
-      "habilitation": { "type": "text", "analyzer": "de_analyzer" },
-      "berufung":     { "type": "text", "analyzer": "de_analyzer" },
-
-      "external_urls": { "type": "keyword" },
-
-      "universitaet": { "type": "text", "analyzer": "de_analyzer", "fields": { "keyword": { "type": "keyword" } } },
-      "beginn":       { "type": "keyword" },
-      "ende":         { "type": "keyword" },
-      "quelle":       { "type": "text", "analyzer": "de_analyzer" },
-      "titel":        { "type": "text", "analyzer": "de_analyzer" }
+      "thema": {
+        "type": "text",
+        "analyzer": "de_analyzer",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "thema_anmerkung": {
+        "type": "text",
+        "analyzer": "de_analyzer"
+      },
+      "zusatz": {
+        "type": "text",
+        "analyzer": "de_analyzer"
+      },
+      "zeit": {
+        "type": "keyword"
+      },
+      "wochenstunden": {
+        "type": "keyword"
+      },
+      "ort": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "fak": {
+        "type": "keyword",
+        "normalizer": "lowercase_normalizer",
+        "fields": {
+          "raw": {
+            "type": "keyword"
+          }
+        }
+      },
+      "id": {
+        "type": "keyword"
+      },
+      "nachname": {
+        "type": "text",
+        "analyzer": "name_analyzer",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "vorname": {
+        "type": "text",
+        "analyzer": "name_analyzer",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      },
+      "geboren": {
+        "type": "keyword"
+      },
+      "gestorben": {
+        "type": "keyword"
+      },
+      "pnd": {
+        "type": "keyword"
+      },
+      "wikidata": {
+        "type": "keyword"
+      },
+      "wikipedia": {
+        "type": "keyword"
+      },
+      "fachgebiet": {
+        "type": "text",
+        "analyzer": "de_analyzer"
+      },
+      "habilitation": {
+        "type": "text",
+        "analyzer": "de_analyzer"
+      },
+      "berufung": {
+        "type": "text",
+        "analyzer": "de_analyzer"
+      },
+      "external_urls": {
+        "type": "keyword"
+      },
+      "gagliardi": {
+        "type": "text"
+      },
+      "dekanat": {
+        "type": "text"
+      },
+      "rektor": {
+        "type": "text"
+      },
+      "site_url": {
+        "type": "keyword"
+      },
+      "url": {
+        "type": "keyword"
+      }
     }
   }
 }

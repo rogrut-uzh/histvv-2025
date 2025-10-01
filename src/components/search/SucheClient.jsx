@@ -152,17 +152,23 @@ export default function SucheClient() {
         </div>
 
         <fieldset className="FormInput">
+        
           <legend className="FormLabel">Typ</legend>
+          
           <div className="Options js-OptionInput inline" id="typ-filter">
+          
             <div className="OptionInput OptionInput--doz">
               <input id="typ_dozent" type="checkbox" checked={typen.has('dozent')} onChange={() => toggleTyp('dozent')} />
               <label className="label-dozierender-pill" htmlFor="typ_dozent">DozentIn</label>
             </div>
+            
             <div className="OptionInput OptionInput--ver">
               <input id="typ_veranstaltung" type="checkbox" checked={typen.has('veranstaltung')} onChange={() => toggleTyp('veranstaltung')} />
               <label className="label-veranstaltung-pill" htmlFor="typ_veranstaltung">Vorlesung</label>
             </div>
+            
           </div>
+
         </fieldset>
 
         <fieldset className="FormInput">
@@ -189,33 +195,38 @@ export default function SucheClient() {
         {!loading && !msg && grouped.length > 0 && (
           <>
             <p style={{marginBottom:'.5rem'}}>Resultate</p>
-            {grouped.map((r, i) => {
-              const href = r.site_url || r.url || '#';
-              if (r.typ === 'veranstaltung') {
-                return (
+            <div className="such-treffer-grid">
+              {grouped.map((r, i) => {
+                const href = r.site_url || r.url || '#';
+                if (r.typ === 'veranstaltung') {
+                  return (
                   <div className="such-treffer veranstaltung" key={`v-${i}`}>
-                    <span className="pill">Vorlesung:</span>{' '}
-                    <a href={href}>
-                      {r.thema}{' '}
-                      <span className="grautext">
-                        ({r.fak || ''}{r.id_semester ? `, ${fmtSemester(r.id_semester)}` : ''})
-                      </span>
-                    </a>
+                    <div className="pill"><span>Vorlesung</span></div>
+                    <div className="title">
+                        <div className="title1"><a href={href}>{r.thema}</a></div>
+                        <div className="title2 grautext">
+                          {r.fak || ''}{r.id_semester ? `, ${fmtSemester(r.id_semester)}` : ''}
+                        </div>
+                    </div>
                   </div>
-                );
-              } else {
-                // dozent
-                const name = [r.nachname, r.vorname].filter(Boolean).join(', ');
-                return (
+                  );
+                } else {
+                  // dozent
+                  const name = [r.nachname, r.vorname].filter(Boolean).join(', ');
+                  return (
                   <div className="such-treffer dozierender" key={`d-${i}`}>
-                    <span className="pill">Dozierende(r):</span>{' '}
-                    <a href={href}>
-                      {name}{r.fak ? <span className="grautext"> ({r.fak})</span> : null}
-                    </a>
+                    <div className="pill"><span>Dozierende(r)</span></div>
+                    <div className="title">
+                        <div className="title1"><a href={href}>{name}</a></div>
+                        <div className="title2 grautext">
+                          {r.fak || ''}
+                        </div>
+                    </div>
                   </div>
-                );
-              }
-            })}
+                  );
+                }
+              })}
+            </div>
           </>
         )}
       </div>

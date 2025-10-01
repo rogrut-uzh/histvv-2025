@@ -38,24 +38,39 @@ try {
 if (!dozent) {
   return new Response('Dozierender nicht gefunden', { status: 404 });
 }
-
 // 2) Veranstaltungen des Dozenten laden
 let veranstaltungen_dozent: any[] = [];
 try {
   const { hits } = await esSearch({
-    query: { bool: { filter: [
-      { term: { typ: 'veranstaltung' } },
-      { term: { 'dozenten.id_dozent': dozentId } }
-    ] } },
+    query: { 
+      bool: { 
+        filter: [
+          { term: { typ: 'veranstaltung' } }
+        ],
+        must: [
+          {
+            nested: {
+              path: 'dozenten',
+              query: {
+                term: {
+                  'dozenten.id_dozent': dozentId
+                }
+              }
+            }
+          }
+        ]
+      } 
+    },
     size: 5000,
     _source: [
       'id_veranstaltung','id_semester','thema','thema_anmerkung','zusatz',
       'vorlesungsnummer','zeit','wochenstunden','ort','dozenten'
+    ],
+    sort: [
+      { 'id_semester': 'asc' }
     ]
   });
-  veranstaltungen_dozent = (hits?.hits ?? [])
-    .map((h:any) => h._source)
-    .sort((a:any,b:any) => String(a.id_semester).localeCompare(String(b.id_semester)));
+  veranstaltungen_dozent = (hits?.hits ?? []).map((h:any) => h._source);
 } catch (e: any) {
   return new Response(`Suche nicht erreichbar: ${e?.message || e}`, { status: 502 });
 }

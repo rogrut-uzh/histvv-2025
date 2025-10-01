@@ -239,7 +239,7 @@ curl -u uzh_archiv_admin:<seeKeePass> -I https://ziwwwsearchtest01.uzh.ch:9200/u
 curl -u uzh_archiv_admin:<seeKeePass> -I https://ziwwwsearch01.uzh.ch:9200/uzh_archiv_histvv
 
 # Kleine Such-Query:
-curl -s "http://localhost/api/suche.json?q=m%C3%BCller&typ=dozent&limit=5" | jq .
+curl -s "http://localhost:3001/api/suche.json?q=m%C3%BCller&typ=dozent&limit=5" | jq .
 
 
 # Vom pod aus:
@@ -323,7 +323,7 @@ docker compose up -d
 docker compose up -d --remove-orphans
 ```
 
-Website: `http://localhost`. Falls nötig, kann man sich mit `docker exec -it histvv2025 /bin/sh` in den Container wählen. Logs lassen sich mit `docker compose logs` oder `docker logs histvv2025` anzeigen.
+__Website: `http://localhost:3001`__. Falls nötig, kann man sich mit `docker exec -it histvv2025 /bin/sh` in den Container wählen. Logs lassen sich mit `docker compose logs` oder `docker logs histvv2025` anzeigen.
 
 ---
 

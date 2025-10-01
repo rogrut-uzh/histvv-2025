@@ -141,8 +141,6 @@ function buildDocs(V, D) {
         ort: v.ort ?? null,
 
         dozenten: dozentenArr,
-
-        hauptfeld: [v.thema, v.zusatz, v.fak].filter(Boolean).join(' ')
       };
     });
 
@@ -173,13 +171,7 @@ function buildDocs(V, D) {
       berufung: d.berufung ?? null,
 
       id_semester: null,
-      thema: null,
-
-      hauptfeld: [
-        d.nachname, d.vorname, d.fak,
-        d.fachgebiet, d.berufung, d.habilitation,
-        d.wikipedia, d.wikidata, d.pnd
-      ].filter(Boolean).join(' ')
+      thema: null
     };
   });
 
