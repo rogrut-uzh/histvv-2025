@@ -12,7 +12,7 @@ const page_title = "Dozierende";
 
 // Dozierende laden (über esSearch) und sortieren
 let dozierende: any[] = [];
-let esError = ''; // <-- Fehlertext für Anzeige/Log
+let esError = '';                        // <-- Fehlertext für Anzeige/Log
 try {
   const { hits } = await esSearch({
     query: {
@@ -22,7 +22,7 @@ try {
       }
     },
     size: 10000,
-    _source: ['id','nachname','vorname','geboren','gestorben','fak','berufung']
+    _source: ['id','nachname','vorname','geboren','gestorben','fak','berufung','habilitation']
   });
 
   const collator = new Intl.Collator('de', { sensitivity: 'base' });
@@ -34,7 +34,7 @@ try {
     );
 } catch (e) {
   esError = String(e);
-  console.error('[dozierende] ES-Fehler:', e); // <-- im Server-Log sehen
+  console.error('[dozierende] ES-Fehler:', e);                      // <-- im Server-Log sehen
   // Keine Response mit 502 zurückgeben -> Seite rendert weiter
 }
 
@@ -71,23 +71,33 @@ const breadcrumb = [
           <th>Geboren</th>
           <th>Gestorben</th>
           <th>Fakultät</th>
-          <th>Berufung</th>
+          <th>Grad</th>
         </tr>
       </thead>
       <tbody>
-        {dozierende.map((d:any) => (
-          <tr key={d.id}>
-            <td>
-              <a href={`/dozierende/${d.id}/`}>
-                {d.nachname}{d.vorname ? `, ${d.vorname}` : ''}
-              </a>
-            </td>
-            <td>{d.geboren || ""}</td>
-            <td>{d.gestorben || ""}</td>
-            <td>{d.fak || ""}</td>
-            <td>{d.berufung || ""}</td>
-          </tr>
-        ))}
+        {dozierende.map((d:any) => {
+          const habilitation = d.habilitation?.trim();
+          const berufung = d.berufung?.trim();
+          
+          return (
+            <tr key={d.id}>
+              <td>
+                <a href={`/dozierende/${d.id}/`}>
+                  {d.nachname}{d.vorname ? `, ${d.vorname}` : ''}
+                </a>
+              </td>
+              <td>{d.geboren || ""}</td>
+              <td>{d.gestorben || ""}</td>
+              <td>{d.fak || ""}</td>
+              <td>
+                {[
+                  habilitation,
+                  berufung
+                ].filter(Boolean).join(', ')}
+              </td>
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   </SectionTextPict>
