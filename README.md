@@ -341,19 +341,19 @@ Vom Image werden jeweils 2 Tags erstellt.
 
   - `test` zeigt immer auf das neuste Image.
   - `test-<short-sha-tag>` sollte für K8s verwendet werden, damit immer klar ist, welches Image für den Pod verwendet wurde.
-  - Alle Images: [https://gitlab.uzh.ch/dba/histvv-2025/container_registry/452](https://gitlab.uzh.ch/dba/histvv-2025/container_registry/452)
+  - [Alle Images](https://gitlab.uzh.ch/dba/histvv-2025/container_registry/452)
 
 ### Deployment in UZH Cloud (K8s)
 
 ### Test-Cluster
 
-  - [argoCD Manifest] (https://gitlab.uzh.ch/zi-container-services/helm-charts/-/blob/main/argocd/zicstest01api.uzh.ch/zi-adb-dba-all/histvv.yaml?ref_type=heads)
+  - [argoCD Manifest](https://gitlab.uzh.ch/zi-container-services/helm-charts/-/blob/main/argocd/zicstest01api.uzh.ch/zi-adb-dba-all/histvv.yaml?ref_type=heads)
   - Website: [https://histvv-2025.t01.cs.zi.uzh.ch](https://histvv-2025.t01.cs.zi.uzh.ch)
 
 ### Prod-Cluster
 
-  - [argoCD Manifest] (https://gitlab.uzh.ch/zi-container-services/helm-charts/-/blob/main/argocd/zicsprod01api.uzh.ch/zi-adb-dba-histvv/histvv.yaml?ref_type=heads)
-  - Website: [https://histvv-2025.p01.cs.zi.uzh.ch](https://histvv-2025.p01.cs.zi.uzh.ch) oder [https://histvv.uzh.ch](https://histvv.uzh.ch) (SSL-Zertifikate wurden vom Cloud-Team beantragt).
+  - [argoCD Manifest](https://gitlab.uzh.ch/zi-container-services/helm-charts/-/blob/main/argocd/zicsprod01api.uzh.ch/zi-adb-dba-histvv/histvv.yaml?ref_type=heads)
+  - Website: https://histvv-2025.p01.cs.zi.uzh.ch oder https://histvv.uzh.ch (SSL-Zertifikate wurden vom Cloud-Team beantragt).
 
 ### Deployment
 
