@@ -53,6 +53,8 @@ export const GET: APIRoute = async ({ request }) => {
   // Filter aus dem UI
   const typs = url.searchParams.getAll('typ').filter(Boolean);
   const faks = url.searchParams.getAll('fak').filter(Boolean);
+  const nurDekanat = url.searchParams.get('dekanat') === '1' || url.searchParams.get('dekanat') === 'true';
+  const nurRektor = url.searchParams.get('rektor') === '1' || url.searchParams.get('rektor') === 'true';
   const wantFacets = url.searchParams.has('facets');
 
   // ──────────────────────────────────────────────────────────────────────────
@@ -306,9 +308,32 @@ export const GET: APIRoute = async ({ request }) => {
       }
     }
 
+    // Baue Filter-Array für Dozenten
+    const dozentFilters: any[] = [{ term: { typ: 'dozent' } }];
+    
+    // ODER-Verknüpfung wenn beide ausgewählt sind, sonst einzelner Filter
+    if (nurDekanat && nurRektor) {
+      // Beide ausgewählt: Dekanat ODER Rektor
+      dozentFilters.push({
+        bool: {
+          should: [
+            { exists: { field: 'dekanat' } },
+            { exists: { field: 'rektor' } }
+          ],
+          minimum_should_match: 1
+        }
+      });
+    } else if (nurDekanat) {
+      // Nur Dekanat
+      dozentFilters.push({ exists: { field: 'dekanat' } });
+    } else if (nurRektor) {
+      // Nur Rektor
+      dozentFilters.push({ exists: { field: 'rektor' } });
+    }
+
     shouldClauses.push({
       bool: {
-        filter: [{ term: { typ: 'dozent' } }],
+        filter: dozentFilters,
         should: dozentShould,
         minimum_should_match: 1
       }

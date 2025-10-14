@@ -170,6 +170,10 @@ function buildDocs(V, D) {
       habilitation: d.habilitation ?? null,
       berufung: d.berufung ?? null,
 
+      dekanat: d.dekanat ?? null,
+      rektor: d.rektor ?? null,
+      gagliardi: d.gagliardi ?? null,
+
       id_semester: null,
       thema: null
     };

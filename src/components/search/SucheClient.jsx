@@ -20,6 +20,8 @@ export default function SucheClient() {
   const debounced = useDebouncedValue(query);
   const [typen, setTypen] = useState(new Set());           // leeres Set = beide zulassen
   const [faks, setFaks]   = useState(new Set());
+  const [nurDekanat, setNurDekanat] = useState(false);     // Filter für Dekanat
+  const [nurRektor, setNurRektor] = useState(false);       // NEU: Filter für Rektor
   const [facets, setFacets] = useState([]);                // Liste aller Fächer
   const [results, setResults] = useState([]);
   const [msg, setMsg] = useState('Bitte mindestens 3 Zeichen eingeben.');
@@ -79,6 +81,14 @@ export default function SucheClient() {
       if (faks.size > 0) {
         for (const f of faks) params.append('fak', f);
       }
+      // Dekanat-Filter (nur wenn typ_dozent aktiv ist)
+      if (nurDekanat && typen.has('dozent')) {
+        params.set('dekanat', '1');
+      }
+      // NEU: Rektor-Filter (nur wenn typ_dozent aktiv ist)
+      if (nurRektor && typen.has('dozent')) {
+        params.set('rektor', '1');
+      }
 
       try {
         const r = await fetch(`/api/suche.json?${params.toString()}`, { signal: ac.signal });
@@ -114,13 +124,18 @@ export default function SucheClient() {
     run();
 
     return () => ac.abort();
-  }, [debounced, Array.from(typen).join('|'), Array.from(faks).join('|')]); // deps über Strings
+  }, [debounced, Array.from(typen).join('|'), Array.from(faks).join('|'), nurDekanat, nurRektor]); // nurRektor hinzugefügt
 
   // Render-Helpers
   function toggleTyp(t) {
     setTypen(prev => {
       const s = new Set(prev);
       if (s.has(t)) s.delete(t); else s.add(t);
+      // Wenn typ_dozent deaktiviert wird, auch nurDekanat und nurRektor zurücksetzen
+      if (t === 'dozent' && s.has(t)) {
+        setNurDekanat(false);
+        setNurRektor(false);
+      }
       return s;
     });
   }
@@ -161,6 +176,32 @@ export default function SucheClient() {
               <input id="typ_dozent" type="checkbox" checked={typen.has('dozent')} onChange={() => toggleTyp('dozent')} />
               <label className="label-dozierender-pill" htmlFor="typ_dozent">DozentIn</label>
             </div>
+            
+            {/* Dekanat-Checkbox, nur sichtbar wenn typ_dozent ausgewählt ist */}
+            {typen.has('dozent') && (
+              <div className="OptionInput OptionInput--dekanat">
+                <input 
+                  id="typ_dekanat" 
+                  type="checkbox" 
+                  checked={nurDekanat} 
+                  onChange={(e) => setNurDekanat(e.target.checked)} 
+                />
+                <label htmlFor="typ_dekanat">Dekan</label>
+              </div>
+            )}
+            
+            {/* NEU: Rektor-Checkbox, nur sichtbar wenn typ_dozent ausgewählt ist */}
+            {typen.has('dozent') && (
+              <div className="OptionInput OptionInput--rektor">
+                <input 
+                  id="typ_rektor" 
+                  type="checkbox" 
+                  checked={nurRektor} 
+                  onChange={(e) => setNurRektor(e.target.checked)} 
+                />
+                <label htmlFor="typ_rektor">Rektor</label>
+              </div>
+            )}
             
             <div className="OptionInput OptionInput--ver">
               <input id="typ_veranstaltung" type="checkbox" checked={typen.has('veranstaltung')} onChange={() => toggleTyp('veranstaltung')} />
