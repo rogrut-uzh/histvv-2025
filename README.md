@@ -54,11 +54,9 @@ git push origin main
 
 # 5) Wieder auf test wechseln
 git switch test
-```
 
-__two-liner:__
 
-```
+# Als 2-liner zum rauskopieren:
 git switch test && git fetch --prune origin && git switch main && git reset --hard origin/main && git merge --no-ff origin/test
 git push origin main && git switch test
 ```
@@ -97,24 +95,6 @@ Die Rohdaten müssen zuerst in __JSON__ umgewandelt werden. Die JSON-Dateien wer
 
 #### Vorbereitung
 
-Einmalig, das erste Mal
-
-```shell
-### EINMALIG
-sudo apt update
-sudo apt install -y python3-venv python3-pip
-
-### für dieses Projekt
-cd ~/gitlab-repositories/histvv-2025/data-migration
-python3 -m venv .venv-wsl          # venv im Projekt anlegen
-source .venv-wsl/bin/activate      # venv aktivieren
-
-# Pip aktualisieren und benötigte Libs installieren
-python -m pip install --upgrade pip
-pip install pandas openpyxl lxml
-deactivate                         # venv wieder verlassen
-```
-
 Bei jeder Anwendung der Scripts:
 
 ```
@@ -122,6 +102,8 @@ source .venv-wsl/bin/activate
 # ---------- Skript starten (im aktivierten venv), immer python, nicht als python3 ----------
 deactivate                        # venv wieder verlassen
 ```
+
+Für das Einrichten der Umgebung siehe Appendix II (unten in dieser README).
 
 #### Umwandlung Dozierende
 
@@ -334,11 +316,15 @@ helm:
 
 2019-67: Historisches Vorlesungsverzeichnis HistVV: Erweiterung Datenbank ab 1900/1901
 
-## Appendix: Initiales Projekt-Setup (historisch)
+---
+
+---
+
+# Appendix I: Initiales Projekt-Setup (historisch)
 
 Für den Anfang der lokalen Entwicklung, und für das Erstellen der package.json, muss npm installiert werden. Installation mit nvm, damit je nach Projekt individuelle Node Versionen installiert werden können.
 
-### GitLab
+## GitLab
 
 Nur zur Dokumentation - für neue Entwickler nicht relevant. 
 
@@ -352,7 +338,7 @@ git clone git@gitlab.uzh.ch:dba/histvv-2025.git
 cd ~/gitlab-repositories/histvv-2025
 ```
 
-#### node installieren
+### node installieren
 
 nvm installieren:
 
@@ -381,7 +367,7 @@ node -v
 npm -v
 ```
 
-#### Astro Projekt installieren
+### Astro Projekt installieren
 
 ```shell
 cd ~/gitlab-repositories/histvv-2025
@@ -397,3 +383,26 @@ npm run dev
 ```
 
 Anschl. Dockerfile und docker-compose.yml erstellen.
+
+---
+
+# Appendix II: Datenmigration 
+
+## Einrichten der Umgebung für die Datenmigration
+
+Muss nur einmalig ausgeführt werden.
+
+```shell
+sudo apt update
+sudo apt install -y python3-venv python3-pip
+
+### für dieses Projekt
+cd ~/gitlab-repositories/histvv-2025/data-migration
+python3 -m venv .venv-wsl          # venv im Projekt anlegen
+source .venv-wsl/bin/activate      # venv aktivieren
+
+# Pip aktualisieren und benötigte Libs installieren
+python -m pip install --upgrade pip
+pip install pandas openpyxl lxml
+deactivate                         # venv wieder verlassen
+```
