@@ -258,65 +258,25 @@ node -e "fetch('https://www.zi.uzh.ch/cgi-bin/esproxy/archiv_proxy_test.py',{  m
 curl -u uzh_archiv_admin:rHZOvorAqVId19DKcG9i -XDELETE https://ziwwwsearchtest01.uzh.ch:9200/uzh_archiv_histvv
 ```
 
-
 ---
 
 ## Lokal - docker compose
 
-### Projektbeginn
-
-Für den Anfang der lokalen Entwicklung, und für das Erstellen der package.json, muss npm installiert werden. Installation mit nvm, damit je nach Projekt individuelle Node Versionen installiert werden können.
-
-#### node installieren
-
-nvm installieren:
-
-```shell
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-```
-
-nvm aktivieren (oder neu einloggen):
-
-```shell
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-```
-
-Node 20 installieren:
-
-```shell
-nvm install 20
-nvm use 20
-```
-
-Prüfen:
-
-```shell
-node -v
-npm -v
-```
-
-#### Astro Projekt installieren
-
 ```shell
 cd ~/gitlab-repositories/histvv-2025
-
-# erstellt package.json:
-npm create astro@latest .
-
-# Wenn das Create-Tool nach dem Setup nicht automatisch npm install ausführt, selber machen:
-npm install
-
-# starten:
-npm run dev
 ```
 
 ### Container build & start
 
 ```shell
-docker compose build prod     # hat nichts mit prod oder test Umgebung zu tun    
+docker compose build
+# es kann auch explizit der Service angegeben werden, 
+# der in docker-compose verwendet wird. 
+# Zurzeit ist sowieso nur 1 Service vorhanden, 
+# daher nicht nötig.
+docker compose build webserver
 # oder ohne cache:
-docker compose build --no-cache prod
+docker compose build --no-cache webserver
 
 docker compose up -d          
 # oder um orphans zu eliminieren:
@@ -373,3 +333,67 @@ helm:
 ## CMI Geschäft zur neuen HistVV Website
 
 2019-67: Historisches Vorlesungsverzeichnis HistVV: Erweiterung Datenbank ab 1900/1901
+
+## Appendix: Initiales Projekt-Setup (historisch)
+
+Für den Anfang der lokalen Entwicklung, und für das Erstellen der package.json, muss npm installiert werden. Installation mit nvm, damit je nach Projekt individuelle Node Versionen installiert werden können.
+
+### GitLab
+
+Nur zur Dokumentation - für neue Entwickler nicht relevant. 
+
+Diese Schritte wurden __einmalig__ beim Projekt-Start durchgeführt. Wer das Repository klont, braucht dies __nicht__ mehr!
+
+In gitlab.uzh.ch ein neues, leeres Projekt anlegen. Anschliessend klonen:
+
+```shell
+cd ~/gitlab-repositories
+git clone git@gitlab.uzh.ch:dba/histvv-2025.git
+cd ~/gitlab-repositories/histvv-2025
+```
+
+#### node installieren
+
+nvm installieren:
+
+```shell
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+```
+
+nvm aktivieren (oder neu einloggen):
+
+```shell
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+```
+
+Node 20 installieren:
+
+```shell
+nvm install 20
+nvm use 20
+```
+
+Prüfen:
+
+```shell
+node -v
+npm -v
+```
+
+#### Astro Projekt installieren
+
+```shell
+cd ~/gitlab-repositories/histvv-2025
+
+# erstellt package.json:
+npm create astro@latest .
+
+# Wenn das Create-Tool nach dem Setup nicht automatisch npm install ausführt, selber machen:
+npm install
+
+# starten:
+npm run dev
+```
+
+Anschl. Dockerfile und docker-compose.yml erstellen.

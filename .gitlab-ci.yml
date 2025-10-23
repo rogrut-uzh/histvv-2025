@@ -60,8 +60,8 @@ build_prod:
     - if: '$CI_COMMIT_BRANCH == "main"'
   variables:
     # SITE_URL is used for the link in the header section of the website.
-    #SITE_URL: https://histvv.uzh.ch
-    SITE_URL: https://histvv-2025.p01.cs.zi.uzh.ch
+    SITE_URL: https://histvv.uzh.ch
+    #SITE_URL: https://histvv-2025.p01.cs.zi.uzh.ch
     DEST1: "$PROD_TAG"
     DEST2: "$PROD_LATEST"
 
