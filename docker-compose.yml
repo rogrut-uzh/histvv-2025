@@ -1,21 +1,61 @@
 networks:
-  histvv-nw:
+  histvv2025-nw:
+# Erstellt virtuelles Netzwerk für Container
+# Hier aktuell nur ein Service, aber erweiterbar
 
 services:
-  prod:
+  webserver:
+# webserver ist der Service name. In diesem Fall gibt es nur den, aber es könnte noch mehr geben. Frei wählbar.
     init: true
+# init: true = Startet Container mit PID 1 Init-System
+# Wichtig für sauberes Signal-Handling (SIGTERM bei Shutdown)
     container_name: histvv2025
+# Fester Name (sonst auto-generiert wie z.b. histvv-prod-1)
     build:
       context: .
+# context: . = Aktuelles Verzeichnis als Build-Kontext
       args:
+# Diese ARGs werden an Stage 1 (build) übergeben
         SITE_URL: "http://127.0.0.1/"
     environment:
+# Diese Variablen sieht dein Runtime-Code (nicht Build-Zeit)
+      NODE_ENV: development    # Überschreibt Dockerfile
       HOST: "0.0.0.0"
-      PORT: "3001"  # Prozess lauscht in Container auf 3001
+      PORT: "3001"
       ELASTICSEARCH_URL: ${ELASTICSEARCH_URL:-https://www.zi.uzh.ch/cgi-bin/esproxy/archiv_proxy_test.py}
+# Diese Schreibweise führt dazu, dass .env-Datei oder der hier angegebene Fallback verwendet wird.
     ports:
       - "3001:3001"
-    networks: [histvv-nw]
+# Port-Mapping: HOST:CONTAINER
+# localhost:3001 auf dem PC → Port 3001 im Container
+    networks: [histvv2025-nw]
+# Es wird das Netzwerk verwendet, das zu oberst definiert wurde
     volumes:
       - ./data:/app/data:ro
+# Bindet lokales ./data Verzeichnis ein
+# :ro = read-only (Container kann nicht schreiben)
     restart: unless-stopped
+# Container startet automatisch nach Reboot, ausser wenn er manuell gestoppt wurde.
+
+
+# Beim Build (docker compose build)
+# 
+# Stage 1 (Build):
+# 
+# Wird ausgeführt
+# Erstellt temporäre Layer
+# KEIN finales Image
+# KEIN Container
+# Wird nach dem Build verworfen
+# 
+# Stage 2 (Runtime):
+# 
+# Wird ausgeführt
+# Erstellt EIN finales Image
+# Noch kein Container (erst bei up)
+# 
+# 
+# Beim Start (docker compose up)
+# 
+# EIN Container aus dem finalen Image (Stage 2)
+# Kein Container für Stage 1
