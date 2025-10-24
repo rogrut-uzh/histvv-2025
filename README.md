@@ -1,8 +1,11 @@
 # HistVV-2025
 
-Diese README beschreibt den Unterhalt der Website "Historische Vorlesungsverzeichnisse der Universiät Zürich" (aka HistVV).
+__Diese README beschreibt den Unterhalt der Website "Historische Vorlesungsverzeichnisse der Universiät Zürich" (aka HistVV).__
 
+[!note]
 Ergänzend dazu besteht die [Power-Point Präsentation](powerpoint-presentation/2025-10-21_Präsentation-HistVV_rogrut.pptx)
+
+[[_TOC_]]
 
 ## Übersicht
 
@@ -36,9 +39,9 @@ cd ~/gitlab-repositories/histvv-2025
 
 ### Arbeitsweise 
 
-!!! Immer im `test` Branch arbeiten !!! Anschliessend in den `Main` Branch mergen (nur nötig für PROD-Deployments).
+__!!! Immer im `test` Branch arbeiten__. Anschliessend in den `Main` Branch mergen (nur nötig für PROD-Deployments).
 
-Merge in `Main`-Branch:
+Merge `test` in `Main`-Branch:
 
 ```
 # 1) Alles frisch holen (in test Branch)
@@ -60,6 +63,7 @@ git switch test
 
 # Als 2-liner zum rauskopieren:
 git switch test && git fetch --prune origin && git switch main && git reset --hard origin/main && git merge --no-ff origin/test
+# hier commit message anpassen, anschliessend:
 git push origin main && git switch test
 ```
 
@@ -67,14 +71,11 @@ git push origin main && git switch test
 
 ## Datenaufbereitung
 
-Der Workflow ist wie folgt:
+Die __Rohdaten__ werden in ein einheitliches Format (JSON) gebracht, das anschliessend für die Indizierung in Elasticsearch gebraucht wird.
 
-  1. Rohdaten Umwandlung in JSON
-  2. JSON Daten in Elasticsearch indizieren
+Die Rohdaten (Vorlesungsverzeichnis, Dozierende u.a.) liegen in zwei verschiedenen Formaten vor.
 
-Die __Rohdaten__ (Vorlesungsverzeichnis, Dozierende u.a.) liegen in zwei verschiedenen Formaten vor.
-
-Die "alten" Rohdaten:
+### Die "alten" Rohdaten
 
   - als XML
   - Wurden von der alten Website übernommen und bleiben unverändert
@@ -82,7 +83,7 @@ Die "alten" Rohdaten:
   - Semester: `/data-migration/xml_1833-1900/1833s.xml [...] /data-migration/xml_1833-1900/1900s.xml`
   - Dozierende: `/data-migration/xml_1833-1900/dozenten.xml`
 
-Die "neuen" Rohdaten (ab 1900):
+### Die "neuen" Rohdaten (ab 1900)
 
   - als XLSX. 
   - Bearbeitung durch Team Archiv UZH bearbeitet
@@ -93,7 +94,7 @@ Die "neuen" Rohdaten (ab 1900):
 
 ### Umwandlung in JSON
 
-Die Rohdaten müssen zuerst in __JSON__ umgewandelt werden. Die JSON-Dateien werden mit Python Scripts erstellt und gleich am korrekten Ort unter [data/](data/) abgelegt.
+Die JSON-Dateien werden mit Python Scripts erstellt und gleich am korrekten Ort unter [data/](data/) abgelegt.
 
 #### Vorbereitung
 
@@ -101,13 +102,15 @@ Bei jeder Anwendung der Scripts:
 
 ```
 source .venv-wsl/bin/activate
+
 # ---------- Skript starten (im aktivierten venv), immer python, nicht als python3 ----------
+
 deactivate                        # venv wieder verlassen
 ```
 
-Für das Einrichten der Umgebung siehe Appendix II (unten in dieser README).
+Für das Einrichten der Umgebung siehe Appendix IV (unten in dieser README).
 
-#### Umwandlung Dozierende
+#### 1 Umwandlung Dozierende
 
   - Script `1_dozenten_xml-and-xlsx.py` 
   - 3 optonale Parameter, ansonsten wird Default verwendet:
@@ -117,7 +120,7 @@ Für das Einrichten der Umgebung siehe Appendix II (unten in dieser README).
   - Aufruf Beispiel: `python script.py --xml "~/pfad/zu/dozenten.xml" --xlsx "~/pfad/zu/Dozierendenverzeichnis.xlsx" -o "~/ziel/tbl_dozenten.json"`
   - Das JSON Resultat wird unter `/data/tbl_dozenten.json` abgelegt.
 
-#### Semester Header
+#### 2 Semester Header
 
 Für jedes Semester gibt es allgemeine Informationen, die oben auf der Webpage angezeigt werden. Bis 1900 waren die Infos gehaltvoller und werden aus den XML-Dateien der Semester extrahiert. 
 
@@ -128,14 +131,14 @@ Für jedes Semester gibt es allgemeine Informationen, die oben auf der Webpage a
   - Das JSON Resultat wird unter `data/tbl_semester_header.json` abgelegt.
   - Hinweis: Ab 1900 liegen keine Semester Header Informationen mehr vor.
 
-#### Semester-Veranstaltungen (XML)
+#### 31 Semester-Veranstaltungen (XML)
 
   - Script `31_semester-veranstaltungen_xml.py`
   - 1 optionaler Parameter. Ansonsten wird der default verwendet. 
     - Vollständiger Pfad zum Ordner, der die Semester-XML-Dateien enthält
   - Das JSON Resultat wird unter `data/tbl_veranstaltungen.json` abgelegt.
 
-#### Semester-Veranstaltungen (XLSX)
+#### 32 Semester-Veranstaltungen (XLSX)
 
   - Script `32_semester-veranstaltungen_xlsx.py` 
   - 1 optionaler Parameter. Ansonsten wird der default verwendet. 
@@ -143,7 +146,7 @@ Für jedes Semester gibt es allgemeine Informationen, die oben auf der Webpage a
   - Das JSON Resultat wird unter `data/tbl_veranstaltungen-ab-1900w.json` abgelegt.
 
 
-#### Merge Semester-Veranstaltungen
+#### 33 Merge Semester-Veranstaltungen
 
 Zuletzt werden die beiden Semester-JSON `tbl_veranstaltungen.json` und `tbl_veranstaltungen-ab-1900w.json` in eine einzige Datei zusammengeführt.
 
@@ -313,16 +316,21 @@ helm:
   5. Nach ein paar Minuten ist die Website deployed. [Man kann ArgoCD auch dabei zuschauen](https://argocd.t01.cs.zi.uzh.ch/applications/custom-infra-argocd/histvv-2025-test?view=tree&resource=)
 
 ---
+---
 
-## CMI Geschäft zur neuen HistVV Website
+# Appendix I: CMI Geschäft zur neuen HistVV Website
 
-2019-67: Historisches Vorlesungsverzeichnis HistVV: Erweiterung Datenbank ab 1900/1901
+[2019-67: Historisches Vorlesungsverzeichnis HistVV: Erweiterung Datenbank ab 1900/1901](https://uzhbenu.cmicloud.ch/#/link/1a68fca42abc45119ee481d4c0d64b30)
 
 ---
 
+# Appendix II: GitLab Pflege
+
+Von Zeit zu Zeit ist es sinnvoll, alte, nicht mehr verwendete Images, aus der [GitLab Container Registry](https://gitlab.uzh.ch/dba/histvv-2025/container_registry/452) zu löschen.
+
 ---
 
-# Appendix I: Initiales Projekt-Setup (historisch)
+# Appendix III: Initiales Projekt-Setup (historisch)
 
 Für den Anfang der lokalen Entwicklung, und für das Erstellen der package.json, muss npm installiert werden. Installation mit nvm, damit je nach Projekt individuelle Node Versionen installiert werden können.
 
@@ -388,7 +396,7 @@ Anschl. Dockerfile und docker-compose.yml erstellen.
 
 ---
 
-# Appendix II: Datenmigration 
+# Appendix IV: Datenmigration 
 
 ## Einrichten der Umgebung für die Datenmigration
 
