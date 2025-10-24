@@ -2,6 +2,8 @@
 
 Diese README beschreibt den Unterhalt der Website "Historische Vorlesungsverzeichnisse der Universiät Zürich" (aka HistVV).
 
+Ergänzend dazu besteht die [Power-Point Präsentation](powerpoint-presentation/2025-10-21_Präsentation-HistVV_rogrut.pptx)
+
 ## Übersicht
 
 Die [vorherige Version der Website](https://gitlab.uzh.ch/groups/histvv/-/inactive) wurde unter Verwendung der im Projekt [Historische Vorlesungsverzeichnisse der Universität Leipzig](http://histvv.uni-leipzig.de/) entwickelten Software erstellt. Die Daten lagen im XML Format. Die Website griff darauf über eine BaseX Datenbank zu. Die Vorlesungsverzeichnisse lagen in den Jahren 1833 bis 1900 vor. 2025 entschied sich das Archi-Team, weitere Jahre zu veröffentlichen. Der Unterhalt der alten Website gestaltete sich als schwierig, vorallem weil es kein Support seitens externem Programmierer mehr gab. Es wurde entschieden, die Website komplett neu zu erstellen, unter Berücksichtigung des aktuellen UZH Styleguides, und mit Deployment nach der UZH Cloud. Die Rohdaten der alten Website (XML) können dabei, mit einem Migrationsschritt, gleich weiterverwendet werden. Die Website-URL ist https://histvv.uzh.ch.
