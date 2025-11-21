@@ -481,7 +481,7 @@
 
     <veranstaltung xml:id="v-23716"><nr>62</nr> <dozent
     ref="frey_m"><nachname>Frey</nachname>, <vorname>Max von</vorname>,
-    <grad>O</grad></dozent> <dozent ref="frey_m"><nachname>Gaule</nachname>,
+    <grad>O</grad></dozent> <dozent ref="gaule_j"><nachname>Gaule</nachname>,
     <vorname>Justus</vorname>, <grad>O</grad></dozent> <thema>Arbeiten im
     Laboratorium für Fortgeschrittenere</thema>
     <zeit>Mo-Sa</zeit></veranstaltung>
@@ -527,9 +527,7 @@
 
     <veranstaltung xml:id="v-23723"><nr>68</nr> <dozent
     ref="silberschmidt_w"><nachname>Silberschmidt</nachname>,
-    <vorname>William</vorname>, <grad>PD</grad></dozent> <dozent
-    ref="silberschmidt_w"><nachname>Wyss-Kienast</nachname>,
-    <vorname>Oscar</vorname>, <grad>O</grad></dozent> <thema>Arbeiten im
+    <vorname>William</vorname>, <grad>PD</grad></dozent> <thema>Arbeiten im
     Hygien. Institut</thema> <zeit>Mo-Fr 8-12, 14-18, Sa 8-12</zeit>
     <wochenstunden>44</wochenstunden></veranstaltung>
 
@@ -960,7 +958,7 @@
         <wochenstunden>1</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-23792"><nr>137</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Geographie
         von Alt-Griechenland</thema> <zeit>Di, Mi, Fr 9-10</zeit>
         <wochenstunden>3</wochenstunden></veranstaltung>
@@ -972,7 +970,7 @@
         <wochenstunden>3</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-23794"><nr>139</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Attische
         Staatsaltertümer</thema> <zeit>Di-Fr 8-9</zeit>
         <wochenstunden>4</wochenstunden></veranstaltung>
@@ -989,7 +987,7 @@
         </zusatz> <wochenstunden>1</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-23797"><nr>142</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Ausgewählte
         Oden des Horaz</thema> <zeit>Do, Sa 9-10</zeit>
         <wochenstunden>2</wochenstunden></veranstaltung>
@@ -1013,7 +1011,7 @@
         <wochenstunden>1</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-23801"><nr>146a</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent>
         <thema>Philologisch-pädagogisches Seminar: Pausanias'
         Messeniaka</thema> <zeit>Mo 16-18</zeit>
@@ -1709,7 +1707,7 @@
       <veranstaltung xml:id="v-23915"><nr>246</nr> <dozent
       ref="dodel_a"><nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="dodel_a"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
+      ref="overton_e"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
       <grad>PD</grad></dozent> <thema>Mikroskopische Demonstrationen und
       praktische Übungen für Anfänger</thema> <zeit>Sa</zeit>
       <wochenstunden>2</wochenstunden></veranstaltung>
@@ -1717,7 +1715,7 @@
       <veranstaltung xml:id="v-23916"><nr>247</nr> <dozent
       ref="dodel_a"><nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="dodel_a"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
+      ref="overton_e"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
       <grad>PD</grad></dozent> <thema>Botanisches Halbpraktikum für
       Lehramtskandidaten</thema> <zeit>2-3x 4h</zeit>
       <wochenstunden>8-12</wochenstunden></veranstaltung>
@@ -1725,7 +1723,7 @@
       <veranstaltung xml:id="v-23917"><nr>248</nr> <dozent
       ref="dodel_a"><nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="dodel_a"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
+      ref="overton_e"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
       <grad>PD</grad></dozent> <thema>Mikroskopisches Vollpraktikum (Anleitung
       zu selbständiger wissenschaftlicher Arbeit), nur für
       Vorgerücktere</thema> <zeit>Mo-Sa</zeit></veranstaltung>
@@ -1790,7 +1788,7 @@
       <veranstaltung xml:id="v-23928"><nr>259</nr> <dozent
       ref="lang_a"><nachname>Lang</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad>, <funktion>Rektor</funktion></dozent> <dozent
-      ref="lang_a"><nachname>Hescheler</nachname>, <vorname>Karl</vorname>,
+      ref="hescheler_k"><nachname>Hescheler</nachname>, <vorname>Karl</vorname>,
       <grad>PD</grad></dozent> <thema>Zootomisch-mikroskopischer Übungskurs
       für Anfänger</thema> <zeit>Fr 14-18</zeit>
       <wochenstunden>4</wochenstunden></veranstaltung>
@@ -1798,7 +1796,7 @@
       <veranstaltung xml:id="v-23929"><nr>260</nr> <dozent
       ref="lang_a"><nachname>Lang</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad>, <funktion>Rektor</funktion></dozent> <dozent
-      ref="lang_a"><nachname>Hescheler</nachname>, <vorname>Karl</vorname>,
+      ref="hescheler_k"><nachname>Hescheler</nachname>, <vorname>Karl</vorname>,
       <grad>PD</grad></dozent> <thema>Zoologisch-vergl. anatomisches
       Vollpraktikum für Vorgerücktere und Leitung selbständiger
       Arbeiten</thema> <zeit>Mo-Do 7-12, 14-19, Fr, Sa 7-12</zeit>
@@ -1807,19 +1805,19 @@
       <veranstaltung xml:id="v-23930"><nr>261</nr> <dozent
       ref="lang_a"><nachname>Lang</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad>, <funktion>Rektor</funktion></dozent> <dozent
-      ref="lang_a"><nachname>Hescheler</nachname>, <vorname>Karl</vorname>,
+      ref="hescheler_k"><nachname>Hescheler</nachname>, <vorname>Karl</vorname>,
       <grad>PD</grad></dozent> <thema>Zoologisches Halbpraktikum, nur für
       Lehramtskandidaten</thema></veranstaltung>
 
       <veranstaltung xml:id="v-23931"><nr>262</nr> <dozent
-      ref="standfuss_mr"><nachname>Standfuss</nachname>, <vorname>Maximilian
+      ref="standfuss_m"><nachname>Standfuss</nachname>, <vorname>Maximilian
       Rudolph</vorname>, <grad>PD</grad></dozent> <thema>Systematik der
       Insekten (Übersicht aller Ordnungen) mit Bestimmungsübungen</thema>
       <zusatz> <gebühr>gratis</gebühr> </zusatz>
       <wochenstunden>2</wochenstunden></veranstaltung>
 
       <veranstaltung xml:id="v-23932"><nr>263</nr> <dozent
-      ref="standfuss_mr"><nachname>Standfuss</nachname>, <vorname>Maximilian
+      ref="standfuss_m"><nachname>Standfuss</nachname>, <vorname>Maximilian
       Rudolph</vorname>, <grad>PD</grad></dozent> <thema>Praktische
       Entomologie (schädliche und nützliche Insekten)</thema> <zusatz>
       <gebühr>gratis</gebühr> </zusatz>
@@ -1893,7 +1891,7 @@
     <veranstaltung xml:id="v-23943"><nr>6</nr> <dozent
     ref="koelliker_pa"><nachname>Kölliker</nachname>, <vorname>Paul
     Alfred</vorname>, <grad>Doz</grad></dozent> <dozent
-    ref="koelliker_pa"><nachname>Froehner</nachname>,
+    ref="froehner_j"><nachname>Froehner</nachname>,
     <vorname>Julius</vorname>, <grad>Doz</grad></dozent> <thema>Technisches
     Laboratorium, Demonstrationen der Leiter des technischen
     Laboratoriums</thema> <wochenstunden>34</wochenstunden></veranstaltung>

@@ -1327,14 +1327,14 @@
       <veranstaltung xml:id="v-16773"><nr>200</nr> <dozent
       ref="merz_v"><nachname>Merz</nachname>, <vorname>Viktor</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="merz_v"><nachname>Abeljanz</nachname>,
+      ref="abeljanz_h"><nachname>Abeljanz</nachname>,
       <vorname>Haruthiun</vorname>, <grad>EO</grad></dozent> <thema>Chemische
       Arbeiten im Laboratorium</thema> <zeit>Mo-Sa</zeit></veranstaltung>
 
       <veranstaltung xml:id="v-16774"><nr>201</nr> <dozent
       ref="merz_v"><nachname>Merz</nachname>, <vorname>Viktor</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="merz_v"><nachname>Abeljanz</nachname>,
+      ref="abeljanz_h"><nachname>Abeljanz</nachname>,
       <vorname>Haruthiun</vorname>, <grad>EO</grad></dozent> <thema>Anleitung
       zur selbständigen chemischen Forschung im Laboratorium</thema>
       <zeit>Mo-Sa</zeit></veranstaltung>
@@ -1342,7 +1342,7 @@
       <veranstaltung xml:id="v-16775"><nr>202</nr> <dozent
       ref="merz_v"><nachname>Merz</nachname>, <vorname>Viktor</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="merz_v"><nachname>Abeljanz</nachname>,
+      ref="abeljanz_h"><nachname>Abeljanz</nachname>,
       <vorname>Haruthiun</vorname>, <grad>EO</grad></dozent> <thema>Uebungen
       im Laboratorium, nur für Mediciner</thema>
       <zeit>Mo-Mi</zeit></veranstaltung>

@@ -897,19 +897,19 @@
         <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-17887"><nr>135</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Erklärung
         von Sophokles' Oedipus Rex</thema> <zeit>Mo, Do, Sa 9-10</zeit>
         <wochenstunden>3</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-17888"><nr>136</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Römische
         Litteraturgeschichte, II. Theil</thema> <zeit>Mo, Mi, Do 8-9</zeit>
         <wochenstunden>3</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-17889"><nr>137</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Erklärung
         der ars poetia des Horaz</thema> <zeit>Mi 9-10, Sa 8-9</zeit>
         <wochenstunden>2</wochenstunden></veranstaltung>
@@ -944,7 +944,7 @@
         10-12</zeit> <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-17894"><nr>141b</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent>
         <thema>Philologisch-pädagogisches Seminar: Interpretation von
         Antiphon</thema> <zeit>Mi 16-18</zeit>
@@ -1445,7 +1445,7 @@
       <veranstaltung xml:id="v-17973"><nr>209</nr> <dozent
       ref="merz_v"><nachname>Merz</nachname>, <vorname>Viktor</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="merz_v"><nachname>Abeljanz</nachname>,
+      ref="abeljanz_h"><nachname>Abeljanz</nachname>,
       <vorname>Haruthiun</vorname>, <grad>EO</grad></dozent> <thema>Uebungen
       im chemischen Laboratorium, nur für Mediciner</thema>
       <zeit>Mo-Mi</zeit></veranstaltung>
@@ -1453,7 +1453,7 @@
       <veranstaltung xml:id="v-17974"><nr>210</nr> <dozent
       ref="merz_v"><nachname>Merz</nachname>, <vorname>Viktor</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="merz_v"><nachname>Abeljanz</nachname>,
+      ref="abeljanz_h"><nachname>Abeljanz</nachname>,
       <vorname>Haruthiun</vorname>, <grad>EO</grad></dozent> <thema>Uebungen
       im chemischen Laboratorium, für Anfänger</thema>
       <zeit>Mo-Sa</zeit></veranstaltung>
@@ -1461,7 +1461,7 @@
       <veranstaltung xml:id="v-17975"><nr>211</nr> <dozent
       ref="merz_v"><nachname>Merz</nachname>, <vorname>Viktor</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="merz_v"><nachname>Abeljanz</nachname>,
+      ref="abeljanz_h"><nachname>Abeljanz</nachname>,
       <vorname>Haruthiun</vorname>, <grad>EO</grad></dozent> <thema>Arbeiten
       im chemischen Laboratorium für Vorgerücktere</thema>
       <zeit>Mo-Sa</zeit></veranstaltung>

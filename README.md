@@ -101,11 +101,16 @@ Die JSON-Dateien werden mit Python Scripts erstellt und gleich am korrekten Ort 
 Bei jeder Anwendung der Scripts:
 
 ```
+cd ~/gitlab-repositories/histvv-2025/data-migration
 source .venv-wsl/bin/activate
-
 # ---------- Skript starten (im aktivierten venv), immer python, nicht als python3 ----------
-
 deactivate                        # venv wieder verlassen
+```
+
+__ Neu kann nur 1 einzelnes Script ausgeführt werden, welches alle untenstehenden Scripts vereint __
+
+```
+python 0_prepare-data.py
 ```
 
 Für das Einrichten der Umgebung siehe Appendix IV (unten in dieser README).

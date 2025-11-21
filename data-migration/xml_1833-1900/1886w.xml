@@ -821,7 +821,7 @@
         <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-16925"><nr>121a</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent>
         <thema>Interpretation von Platons Phaedon</thema> <zeit>Mo-Do
         8-9</zeit> <wochenstunden>4</wochenstunden></veranstaltung>
@@ -872,7 +872,7 @@
         <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-16933"><nr>127c</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent>
         <thema>Philologisch-pädagogisches Seminar: Interpretation ausgewählter
         Reden des Thukydides</thema> <zeit>Mi 15-17</zeit>
@@ -1359,14 +1359,14 @@
       <veranstaltung xml:id="v-17010"><nr>195</nr> <dozent
       ref="merz_v"><nachname>Merz</nachname>, <vorname>Viktor</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="merz_v"><nachname>Abeljanz</nachname>,
+      ref="abeljanz_h"><nachname>Abeljanz</nachname>,
       <vorname>Haruthiun</vorname>, <grad>EO</grad></dozent> <thema>Chemische
       Arbeiten im Laboratorium</thema> <zeit>Mo-Sa</zeit></veranstaltung>
 
       <veranstaltung xml:id="v-17011"><nr>196</nr> <dozent
       ref="merz_v"><nachname>Merz</nachname>, <vorname>Viktor</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="merz_v"><nachname>Abeljanz</nachname>,
+      ref="abeljanz_h"><nachname>Abeljanz</nachname>,
       <vorname>Haruthiun</vorname>, <grad>EO</grad></dozent> <thema>Uebungen
       im Laboratorium, nur für Mediciner</thema>
       <zeit>Mo-Mi</zeit></veranstaltung>
@@ -1374,7 +1374,7 @@
       <veranstaltung xml:id="v-17012"><nr>197</nr> <dozent
       ref="merz_v"><nachname>Merz</nachname>, <vorname>Viktor</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="merz_v"><nachname>Abeljanz</nachname>,
+      ref="abeljanz_h"><nachname>Abeljanz</nachname>,
       <vorname>Haruthiun</vorname>, <grad>EO</grad></dozent> <thema>Anleitung
       zur selbständigen chemischen Forschung im Laboratorium</thema>
       <zeit>Mo-Sa</zeit></veranstaltung>

@@ -449,7 +449,7 @@
 
     <veranstaltung xml:id="v-19814"><nr>59</nr> <dozent
     ref="stoehr_p"><nachname>Stöhr</nachname>, <vorname>Philipp</vorname>,
-    <grad>O</grad></dozent> <dozent ref="stoehr_p"><nachname>Felix</nachname>,
+    <grad>O</grad></dozent> <dozent ref="felix_w"><nachname>Felix</nachname>,
     <vorname>Walther</vorname>, <grad>PD</grad></dozent>
     <thema>Präparirübungen</thema> <zeit>Mo-Fr 8-12, 14-17, Sa 8-12</zeit>
     <wochenstunden>39</wochenstunden></veranstaltung>
@@ -955,13 +955,13 @@
         <wochenstunden>3</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-19897"><nr>142</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Geschichte
         der griechischen Poesie mit Ausschluss der Epik</thema> <zeit>Di-Fr
         8-9</zeit> <wochenstunden>4</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-19898"><nr>143</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Sophocles'
         Ajax</thema> <zeit>Di, Do 9-10</zeit>
         <wochenstunden>2</wochenstunden></veranstaltung>
@@ -985,7 +985,7 @@
         <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-19902"><nr>147</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Kursorische
         Lektüre lateinischer Autoren</thema>
         <wochenstunden>2</wochenstunden></veranstaltung>
@@ -1004,7 +1004,7 @@
         <wochenstunden>1</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-19905"><nr>150a</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent>
         <thema>Philologisch-pädagogisches Seminar: Interpretation des
         Thukydides</thema> <zeit>Mi 16-18</zeit>
@@ -1595,7 +1595,7 @@
       <veranstaltung xml:id="v-20000"><nr>234</nr> <dozent
       ref="dodel_a"><nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="dodel_a"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
+      ref="overton_e"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
       <grad>PD</grad></dozent> <thema>Mikroskopische Demonstrationen und
       praktische Uebungen, im methodischen Anschluss an die allg. Botanik (für
       Anfänger)</thema> <wochenstunden>2</wochenstunden></veranstaltung>
@@ -1609,7 +1609,7 @@
       <veranstaltung xml:id="v-20002"><nr>236</nr> <dozent
       ref="dodel_a"><nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="dodel_a"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
+      ref="overton_e"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
       <grad>PD</grad></dozent> <thema>Anleitung zu selbständigen Arbeiten
       (Botanisches Vollpraktikum, nur für Vorgerücktere)</thema>
       <zeit>Mo-Sa</zeit></veranstaltung>
@@ -1660,7 +1660,7 @@
       <veranstaltung xml:id="v-20010"><nr>244</nr> <dozent
       ref="schinz_h"><nachname>Schinz</nachname>, <vorname>Hans</vorname>,
       <grad>EO</grad></dozent> <dozent
-      ref="schinz_h"><nachname>Fiedler</nachname>, <vorname>Karl</vorname>,
+      ref="fiedler_k"><nachname>Fiedler</nachname>, <vorname>Karl</vorname>,
       <grad>PD</grad></dozent> <thema>Botanisch-zoologisches Seminar</thema>
       <zusatz><modus>privatissime</modus> und <gebühr>gratis</gebühr></zusatz>
       <wochenstunden>2</wochenstunden></veranstaltung>
@@ -1680,21 +1680,21 @@
       <veranstaltung xml:id="v-20013"><nr>247</nr> <dozent
       ref="lang_a"><nachname>Lang</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="lang_a"><nachname>Fiedler</nachname>, <vorname>Karl</vorname>,
+      ref="fiedler_k"><nachname>Fiedler</nachname>, <vorname>Karl</vorname>,
       <grad>PD</grad></dozent> <thema>Zootomischer Kursus</thema> <zeit>Fr
       13-17</zeit> <wochenstunden>4</wochenstunden></veranstaltung>
 
       <veranstaltung xml:id="v-20014"><nr>248</nr> <dozent
       ref="lang_a"><nachname>Lang</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="lang_a"><nachname>Fiedler</nachname>, <vorname>Karl</vorname>,
+      ref="fiedler_k"><nachname>Fiedler</nachname>, <vorname>Karl</vorname>,
       <grad>PD</grad></dozent> <thema>Tägliche Arbeiten im
       Laboratorium</thema> <zeit>Mo-Sa</zeit></veranstaltung>
 
       <veranstaltung xml:id="v-20015"><nr>249</nr> <dozent
       ref="lang_a"><nachname>Lang</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="lang_a"><nachname>Fiedler</nachname>, <vorname>Karl</vorname>,
+      ref="fiedler_k"><nachname>Fiedler</nachname>, <vorname>Karl</vorname>,
       <grad>PD</grad></dozent> <thema>Halbprakticum für
       Lehramtskandidaten</thema></veranstaltung>
 
@@ -1705,7 +1705,7 @@
       <wochenstunden>2</wochenstunden></veranstaltung>
 
       <veranstaltung xml:id="v-20017"><nr>251</nr> <dozent
-      ref="standfuss_mr"><nachname>Standfuss</nachname>, <vorname>Maximilian
+      ref="standfuss_m"><nachname>Standfuss</nachname>, <vorname>Maximilian
       Rudolph</vorname>, <grad>PD</grad></dozent> <thema>Allgemeine Einleitung
       in die Entomologie</thema> <zusatz> <gebühr>gratis</gebühr> </zusatz>
       <wochenstunden>1</wochenstunden></veranstaltung>

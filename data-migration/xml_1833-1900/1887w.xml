@@ -764,7 +764,7 @@
         <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-17392"><nr>114</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Behandlung
         gymnasialpädagogischer Fragen</thema> <zusatz> <gebühr>gratis</gebühr>
         </zusatz> <zeit>Sa 9-10</zeit>
@@ -828,7 +828,7 @@
         Dialectologie</thema> <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-17401"><nr>123</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent>
         <thema>Encyclopädie der Philologie (Einleitung in das Studium der
         Philologie und Uebersicht über die Gebiete derselben)</thema>
@@ -836,7 +836,7 @@
         <wochenstunden>4</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-17402"><nr>124</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Erklärung
         der Isaeus</thema> <zeit>Mo, Mi, Do 9-10</zeit>
         <wochenstunden>3</wochenstunden></veranstaltung>
@@ -873,7 +873,7 @@
         <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-17408"><nr>129b</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent>
         <thema>Philologisch-pädagogisches Seminar: Euripides' Media</thema>
         <zeit>Mi 15-17</zeit> <wochenstunden>2</wochenstunden></veranstaltung>
@@ -1333,7 +1333,7 @@
       <veranstaltung xml:id="v-17481"><nr>192</nr> <dozent
       ref="merz_v"><nachname>Merz</nachname>, <vorname>Viktor</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="merz_v"><nachname>Abeljanz</nachname>,
+      ref="abeljanz_h"><nachname>Abeljanz</nachname>,
       <vorname>Haruthiun</vorname>, <grad>EO</grad></dozent> <thema>Uebungen
       im Laboratorium, nur für Mediciner</thema>
       <zeit>Mo-Mi</zeit></veranstaltung>
@@ -1341,14 +1341,14 @@
       <veranstaltung xml:id="v-17482"><nr>193</nr> <dozent
       ref="merz_v"><nachname>Merz</nachname>, <vorname>Viktor</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="merz_v"><nachname>Abeljanz</nachname>,
+      ref="abeljanz_h"><nachname>Abeljanz</nachname>,
       <vorname>Haruthiun</vorname>, <grad>EO</grad></dozent> <thema>Chemische
       Arbeiten im Laboratorium</thema> <zeit>Mo-Sa</zeit></veranstaltung>
 
       <veranstaltung xml:id="v-17483"><nr>194</nr> <dozent
       ref="merz_v"><nachname>Merz</nachname>, <vorname>Viktor</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="merz_v"><nachname>Abeljanz</nachname>,
+      ref="abeljanz_h"><nachname>Abeljanz</nachname>,
       <vorname>Haruthiun</vorname>, <grad>EO</grad></dozent> <thema>Anleitung
       zur selbständigen chemischen Forschung im Laboratorium</thema>
       <zeit>Mo-Sa</zeit></veranstaltung>

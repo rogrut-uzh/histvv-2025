@@ -930,7 +930,7 @@
         <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-19624"><nr>139</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Griechische
         Syntax</thema> <zeit>Di-Fr 7-8</zeit>
         <wochenstunden>4</wochenstunden></veranstaltung>
@@ -954,13 +954,13 @@
         <wochenstunden>1</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-19628"><nr>143</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Kursorische
         Lektüre griechischer Autoren</thema> <zeit>Di, Do 8-9</zeit>
         <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-19629"><nr>144</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Plautus'
         Pseudolus</thema> <zeit>Mi, Fr 8-9</zeit>
         <wochenstunden>2</wochenstunden></veranstaltung>
@@ -991,7 +991,7 @@
         <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-19634"><nr>148b</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent>
         <thema>Philologisch-pädagogisches Seminar: Cicero's Briefe ad
         Atticum</thema> <zeit>Mi 16-18</zeit>
@@ -1454,7 +1454,7 @@
       <veranstaltung xml:id="v-19708"><nr>211</nr> <dozent
       ref="merz_v"><nachname>Merz</nachname>, <vorname>Viktor</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="merz_v"><nachname>Abeljanz</nachname>,
+      ref="abeljanz_h"><nachname>Abeljanz</nachname>,
       <vorname>Haruthiun</vorname>, <grad>O</grad>,
       <funktion>Dekan/P2</funktion></dozent> <thema>Uebungen im chemischen
       Laboratorium, nur für Mediciner</thema>
@@ -1463,7 +1463,7 @@
       <veranstaltung xml:id="v-19709"><nr>212</nr> <dozent
       ref="merz_v"><nachname>Merz</nachname>, <vorname>Viktor</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="merz_v"><nachname>Abeljanz</nachname>,
+      ref="abeljanz_h"><nachname>Abeljanz</nachname>,
       <vorname>Haruthiun</vorname>, <grad>O</grad>,
       <funktion>Dekan/P2</funktion></dozent> <thema>Arbeiten im chemischen
       Laboratorium für Anfänger</thema> <zeit>Mo-Sa</zeit></veranstaltung>
@@ -1471,7 +1471,7 @@
       <veranstaltung xml:id="v-19710"><nr>213</nr> <dozent
       ref="merz_v"><nachname>Merz</nachname>, <vorname>Viktor</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="merz_v"><nachname>Abeljanz</nachname>,
+      ref="abeljanz_h"><nachname>Abeljanz</nachname>,
       <vorname>Haruthiun</vorname>, <grad>O</grad>,
       <funktion>Dekan/P2</funktion></dozent> <thema>Arbeiten im chemischen
       Laboratorium für Vorgerücktere</thema>
@@ -1693,7 +1693,7 @@
       <veranstaltung xml:id="v-19743"><nr>246</nr> <dozent
       ref="lang_a"><nachname>Lang</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="lang_a"><nachname>Fiedler</nachname>, <vorname>Karl</vorname>,
+      ref="fiedler_k"><nachname>Fiedler</nachname>, <vorname>Karl</vorname>,
       <grad>PD</grad></dozent> <thema>Zootomisch-mikroskopischer Uebungskurs
       für Anfänger</thema> <zeit>Fr 14-18</zeit>
       <wochenstunden>4</wochenstunden></veranstaltung>
@@ -1711,7 +1711,7 @@
       <veranstaltung xml:id="v-19745"><nr>248</nr> <dozent
       ref="lang_a"><nachname>Lang</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="lang_a"><nachname>Fiedler</nachname>, <vorname>Karl</vorname>,
+      ref="fiedler_k"><nachname>Fiedler</nachname>, <vorname>Karl</vorname>,
       <grad>PD</grad></dozent> <thema>Halbpraktikum für
       Lehramtskandidaten</thema></veranstaltung>
 

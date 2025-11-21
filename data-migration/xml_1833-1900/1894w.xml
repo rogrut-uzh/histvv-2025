@@ -794,7 +794,7 @@
                 <nachname>Stöhr</nachname>, <vorname>Philipp</vorname>,
     <grad>O</grad>
             </dozent>
-            <dozent ref="stoehr_p">
+            <dozent ref="felix_w">
                 <nachname>Felix</nachname>,
     <vorname>Walther</vorname>, <grad>PD</grad>
             </dozent>
@@ -1777,7 +1777,7 @@
                 </veranstaltung>
                 <veranstaltung xml:id="v-21014">
                     <nr>147</nr>
-                    <dozent ref="hitzig_h">
+                    <dozent ref="hitzigsteiner_h">
                         <nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad>
                     </dozent>
@@ -1788,7 +1788,7 @@
                 </veranstaltung>
                 <veranstaltung xml:id="v-21015">
                     <nr>148</nr>
-                    <dozent ref="hitzig_h">
+                    <dozent ref="hitzigsteiner_h">
                         <nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad>
                     </dozent>
@@ -1830,7 +1830,7 @@
                 </veranstaltung>
                 <veranstaltung xml:id="v-21019">
                     <nr>152</nr>
-                    <dozent ref="hitzig_h">
+                    <dozent ref="hitzigsteiner_h">
                         <nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad>
                     </dozent>
@@ -1876,7 +1876,7 @@
                 </veranstaltung>
                 <veranstaltung xml:id="v-21023">
                     <nr>156a</nr>
-                    <dozent ref="hitzig_h">
+                    <dozent ref="hitzigsteiner_h">
                         <nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad>
                     </dozent>
@@ -2928,7 +2928,7 @@
                     <nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad>
                 </dozent>
-                <dozent ref="dodel_a">
+                <dozent ref="overton_e">
                     <nachname>Overton</nachname>, <vorname>Ernst</vorname>,
       <grad>PD</grad>
                 </dozent>
@@ -2953,7 +2953,7 @@
                     <nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad>
                 </dozent>
-                <dozent ref="dodel_a">
+                <dozent ref="overton_e">
                     <nachname>Overton</nachname>, <vorname>Ernst</vorname>,
       <grad>PD</grad>
                 </dozent>
@@ -3082,7 +3082,7 @@
             </veranstaltung>
             <veranstaltung xml:id="v-21133">
                 <nr>256</nr>
-                <dozent ref="standfuss_mr">
+                <dozent ref="standfuss_m">
                     <nachname>Standfuss</nachname>, <vorname>Maximilian
       Rudolph</vorname>, <grad>PD</grad>
                 </dozent>

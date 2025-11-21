@@ -844,7 +844,7 @@
         <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-17636"><nr>127</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Erklärung
         der Eliaca des Pausanias</thema> <zeit>Mi, Sa 8-9</zeit>
         <wochenstunden>2</wochenstunden></veranstaltung>
@@ -864,13 +864,13 @@
         <wochenstunden>3</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-17639"><nr>130</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Römische
         Literaturgeschichte</thema> <zeit>Mo, Mi, Do, Sa 7-8</zeit>
         <wochenstunden>4</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-17640"><nr>131</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Cursorische
         Lectüre römischer Lyriker</thema> <zeit>Mo, Do 8-9</zeit>
         <wochenstunden>2</wochenstunden></veranstaltung>
@@ -911,7 +911,7 @@
         <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-17646"><nr>135c</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent>
         <thema>Philologisch-pädagogisches Seminar: Quintilian, Buch X</thema>
         <zeit>Mi 16-18</zeit> <wochenstunden>2</wochenstunden></veranstaltung>
@@ -1319,7 +1319,7 @@
       <veranstaltung xml:id="v-17711"><nr>190</nr> <dozent
       ref="merz_v"><nachname>Merz</nachname>, <vorname>Viktor</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="merz_v"><nachname>Abeljanz</nachname>,
+      ref="abeljanz_h"><nachname>Abeljanz</nachname>,
       <vorname>Haruthiun</vorname>, <grad>EO</grad></dozent> <thema>Uebungen
       im chemischen Laboratorium, nur für Mediciner</thema>
       <zeit>Mo-Mi</zeit></veranstaltung>
@@ -1327,7 +1327,7 @@
       <veranstaltung xml:id="v-17712"><nr>191</nr> <dozent
       ref="merz_v"><nachname>Merz</nachname>, <vorname>Viktor</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="merz_v"><nachname>Abeljanz</nachname>,
+      ref="abeljanz_h_v"><nachname>Abeljanz</nachname>,
       <vorname>Haruthiun</vorname>, <grad>EO</grad></dozent> <thema>Praktische
       Uebungen im chemischen Laboratorium, für Anfänger</thema>
       <zeit>Mo-Sa</zeit></veranstaltung>
@@ -1335,7 +1335,7 @@
       <veranstaltung xml:id="v-17713"><nr>192</nr> <dozent
       ref="merz_v"><nachname>Merz</nachname>, <vorname>Viktor</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="merz_v"><nachname>Abeljanz</nachname>,
+      ref="abeljanz_h"><nachname>Abeljanz</nachname>,
       <vorname>Haruthiun</vorname>, <grad>EO</grad></dozent> <thema>Arbeiten
       im chemischen Laboratorium für Vorgerücktere</thema>
       <zeit>Mo-Sa</zeit></veranstaltung>

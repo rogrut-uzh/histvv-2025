@@ -925,10 +925,6 @@
                 <nachname>Silberschmidt</nachname>,
     <vorname>William</vorname>, <grad>PD</grad>
             </dozent>
-            <dozent ref="silberschmidt_w">
-                <nachname>Wyss-Kienast</nachname>,
-    <vorname>Oscar</vorname>, <grad>O</grad>
-            </dozent>
             <thema>Bakteriologische
     Arbeiten im Hygien. Institut</thema>
             <zeit>Mo-Fr 8-12, 14-18, Sa
@@ -1700,7 +1696,7 @@
                 </veranstaltung>
                 <veranstaltung xml:id="v-24416">
                     <nr>141</nr>
-                    <dozent ref="hitzig_h">
+                    <dozent ref="hitzigsteiner_h">
                         <nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad>
                     </dozent>
@@ -1733,7 +1729,7 @@
                 </veranstaltung>
                 <veranstaltung xml:id="v-24419">
                     <nr>144</nr>
-                    <dozent ref="hitzig_h">
+                    <dozent ref="hitzigsteiner_h">
                         <nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad>
                     </dozent>
@@ -1744,7 +1740,7 @@
                 </veranstaltung>
                 <veranstaltung xml:id="v-24420">
                     <nr>145</nr>
-                    <dozent ref="hitzig_h">
+                    <dozent ref="hitzigsteiner_h">
                         <nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad>
                     </dozent>
@@ -1799,7 +1795,7 @@
                 </veranstaltung>
                 <veranstaltung xml:id="v-24425">
                     <nr>148c</nr>
-                    <dozent ref="hitzig_h">
+                    <dozent ref="hitzigsteiner_h">
                         <nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad>
                     </dozent>
@@ -3069,7 +3065,7 @@
                     <nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad>
                 </dozent>
-                <dozent ref="dodel_a">
+                <dozent ref="overton_e">
                     <nachname>Overton</nachname>, <vorname>Ernst</vorname>,
       <grad>PD</grad>
                 </dozent>
@@ -3085,7 +3081,7 @@
                     <nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad>
                 </dozent>
-                <dozent ref="dodel_a">
+                <dozent ref="overton_e">
                     <nachname>Overton</nachname>, <vorname>Ernst</vorname>,
       <grad>PD</grad>
                 </dozent>
@@ -3100,7 +3096,7 @@
                     <nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad>
                 </dozent>
-                <dozent ref="dodel_a">
+                <dozent ref="overton_e">
                     <nachname>Overton</nachname>, <vorname>Ernst</vorname>,
       <grad>PD</grad>
                 </dozent>
@@ -3279,7 +3275,7 @@
             </veranstaltung>
             <veranstaltung xml:id="v-24559">
                 <nr>271</nr>
-                <dozent ref="standfuss_mr">
+                <dozent ref="standfuss_m">
                     <nachname>Standfuss</nachname>, <vorname>Maximilian
       Rudolph</vorname>, <grad>PD</grad>
                 </dozent>
@@ -3293,7 +3289,7 @@
             </veranstaltung>
             <veranstaltung xml:id="v-24560">
                 <nr>272</nr>
-                <dozent ref="standfuss_mr">
+                <dozent ref="standfuss_m">
                     <nachname>Standfuss</nachname>, <vorname>Maximilian
       Rudolph</vorname>, <grad>PD</grad>
                 </dozent>
@@ -3417,7 +3413,7 @@
                 <nachname>Froehner</nachname>, <vorname>Julius</vorname>,
     <grad>Doz</grad>
             </dozent>
-            <dozent ref="froehner_j">
+            <dozent ref="koelliker_pa">
                 <nachname>Kölliker</nachname>, <vorname>Paul
     Alfred</vorname>, <grad>Doz</grad>
             </dozent>

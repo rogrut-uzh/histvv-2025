@@ -449,7 +449,7 @@
 
     <veranstaltung xml:id="v-22765"><nr>53</nr> <dozent
     ref="stoehr_p"><nachname>Stöhr</nachname>, <vorname>Philipp</vorname>,
-    <grad>O</grad></dozent> <dozent ref="stoehr_p"><nachname>Felix</nachname>,
+    <grad>O</grad></dozent> <dozent ref="felix_w"><nachname>Felix</nachname>,
     <vorname>Walther</vorname>, <grad>EO</grad></dozent>
     <thema>Präparirübungen, 3 Kurse. 1. Kurs: Muskeln, Gelenke und Bänder; 2.
     Kurs: Nerven, Gefässe und Eingeweide (mit Repetitorium); 3. Kurs:
@@ -541,9 +541,7 @@
 
     <veranstaltung xml:id="v-22780"><nr>68</nr> <dozent
     ref="silberschmidt_w"><nachname>Silberschmidt</nachname>,
-    <vorname>William</vorname>, <grad>PD</grad></dozent> <dozent
-    ref="silberschmidt_w"><nachname>Wyss-Kienast</nachname>,
-    <vorname>Oscar</vorname>, <grad>O</grad></dozent> <thema>Arbeiten im
+    <vorname>William</vorname>, <grad>PD</grad></dozent> <thema>Arbeiten im
     Hygien. Institut</thema> <zeit>Mo-Sa</zeit></veranstaltung>
 
     <veranstaltung xml:id="v-22781"><nr>69</nr> <dozent
@@ -1741,14 +1739,14 @@
       <veranstaltung xml:id="v-22974"><nr>249</nr> <dozent
       ref="dodel_a"><nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="dodel_a"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
+      ref="overton_e"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
       <grad>PD</grad></dozent> <thema>Mikroskopischer Demonstrations- und
       Übungskurs für Anfänger</thema> <zeit>Sa</zeit></veranstaltung>
 
       <veranstaltung xml:id="v-22975"><nr>250</nr> <dozent
       ref="dodel_a"><nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="dodel_a"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
+      ref="overton_e"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
       <grad>PD</grad></dozent> <thema>Botanisches Vollpraktikum, nur für
       Lehramtskandidaten</thema> <zeit>2x 4h</zeit>
       <wochenstunden>8</wochenstunden></veranstaltung>
@@ -1756,7 +1754,7 @@
       <veranstaltung xml:id="v-22976"><nr>251</nr> <dozent
       ref="dodel_a"><nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="dodel_a"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
+      ref="overton_e"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
       <grad>PD</grad></dozent> <thema>Botanisches Vollpraktikum, nur für
       Vorgerücktere</thema> <zeit>Mo-Fr</zeit></veranstaltung>
 
@@ -1849,13 +1847,13 @@
       <zeit>Mo-Sa</zeit></veranstaltung>
 
       <veranstaltung xml:id="v-22992"><nr>267</nr> <dozent
-      ref="standfuss_mr"><nachname>Standfuss</nachname>, <vorname>Maximilian
+      ref="standfuss_m"><nachname>Standfuss</nachname>, <vorname>Maximilian
       Rudolph</vorname>, <grad>PD</grad></dozent> <thema>Allgemeine Einleitung
       in die Entomologie</thema> <zusatz> <gebühr>gratis</gebühr> </zusatz>
       <wochenstunden>2</wochenstunden></veranstaltung>
 
       <veranstaltung xml:id="v-22993"><nr>268</nr> <dozent
-      ref="standfuss_mr"><nachname>Standfuss</nachname>, <vorname>Maximilian
+      ref="standfuss_m"><nachname>Standfuss</nachname>, <vorname>Maximilian
       Rudolph</vorname>, <grad>PD</grad></dozent> <thema>Systematik der
       Insekten</thema> <zusatz> <gebühr>gratis</gebühr> </zusatz>
       <wochenstunden>1</wochenstunden></veranstaltung>
@@ -1914,7 +1912,7 @@
     <veranstaltung xml:id="v-23002"><nr>5</nr> <dozent
     ref="machwuerth_j"><nachname>Machwürth</nachname>,
     <vorname>Joseph</vorname>, <grad>Doz</grad></dozent> <dozent
-    ref="machwuerth_j"><nachname>Stoppany</nachname>, <vorname>Giovanni
+    ref="stoppany_ga"><nachname>Stoppany</nachname>, <vorname>Giovanni
     Ambrogio</vorname>, <grad>Doz</grad></dozent> <thema>Zahnärztliche
     Klinik</thema> <zeit>Mo, Mi, Fr 16-18</zeit>
     <wochenstunden>6</wochenstunden></veranstaltung>
@@ -1922,7 +1920,7 @@
     <veranstaltung xml:id="v-23003"><nr>6</nr> <dozent
     ref="koelliker_pa"><nachname>Kölliker</nachname>, <vorname>Paul
     Alfred</vorname>, <grad>Doz</grad></dozent> <dozent
-    ref="koelliker_pa"><nachname>Froehner</nachname>,
+    ref="froehner_j"><nachname>Froehner</nachname>,
     <vorname>Julius</vorname>, <grad>Doz</grad></dozent> <thema>Technisches
     Laboratorium, technische Demonstrationen</thema> <zeit>Mo-Fr 14-17, Di
     9-12, Mi, Do 8-10</zeit> <wochenstunden>22</wochenstunden></veranstaltung>

@@ -1020,7 +1020,7 @@
         <wochenstunden>1</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-22539"><nr>150</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Erklärung
         der Bakchen des Euripides</thema> <zeit>Di, Fr 10-11</zeit>
         <wochenstunden>2</wochenstunden></veranstaltung>
@@ -1031,7 +1031,7 @@
         Autoren</thema> <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-22541"><nr>152</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Römische
         Literaturgeschichte, II. Teil</thema> <zeit>Di-Fr 9-19</zeit>
         <wochenstunden>4</wochenstunden></veranstaltung>
@@ -1047,7 +1047,7 @@
         Octavia</thema> <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-22544"><nr>155</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Kursorische
         Lektüre lateinischer Autoren</thema>
         <wochenstunden>2</wochenstunden></veranstaltung>
@@ -1085,7 +1085,7 @@
         <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-22550"><nr>160b</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent>
         <thema>Philologisch-pädagogisches Seminar: Vergil</thema> <zeit>Mo
         16-18</zeit> <wochenstunden>2</wochenstunden></veranstaltung>
@@ -1779,7 +1779,7 @@
       <veranstaltung xml:id="v-22662"><nr>259</nr> <dozent
       ref="dodel_a"><nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="dodel_a"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
+      ref="overton_e"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
       <grad>PD</grad></dozent> <thema>Mikroskopischer Demonstrationskurs in
       PflanzenAnatomie und -Physiologie für Anfänger</thema>
       <wochenstunden>2</wochenstunden></veranstaltung>
@@ -1787,14 +1787,14 @@
       <veranstaltung xml:id="v-22663"><nr>260</nr> <dozent
       ref="dodel_a"><nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="dodel_a"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
+      ref="overton_e"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
       <grad>PD</grad></dozent> <thema>Botanisches Halbpraktikum für
       Lehramtskandidaten</thema> <zeit>2-3x 1/2 Tag</zeit></veranstaltung>
 
       <veranstaltung xml:id="v-22664"><nr>261</nr> <dozent
       ref="dodel_a"><nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="dodel_a"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
+      ref="overton_e"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
       <grad>PD</grad></dozent> <thema>Botanisches Vollpraktikum (selbständige
       Arbeiten im Laboratorium) nur für Vorgerücktere</thema>
       <zeit>Mo-Fr</zeit></veranstaltung>
@@ -1894,14 +1894,14 @@
       Nachmittag</zeit></veranstaltung>
 
       <veranstaltung xml:id="v-22681"><nr>278</nr> <dozent
-      ref="standfuss_mr"><nachname>Standfuss</nachname>, <vorname>Maximilian
+      ref="standfuss_m"><nachname>Standfuss</nachname>, <vorname>Maximilian
       Rudolph</vorname>, <grad>PD</grad></dozent> <thema>Praktische
       Entomologie (schädliche und nützliche Insekten)</thema> <zusatz>
       <gebühr>gratis</gebühr> </zusatz>
       <wochenstunden>2</wochenstunden></veranstaltung>
 
       <veranstaltung xml:id="v-22682"><nr>279</nr> <dozent
-      ref="standfuss_mr"><nachname>Standfuss</nachname>, <vorname>Maximilian
+      ref="standfuss_m"><nachname>Standfuss</nachname>, <vorname>Maximilian
       Rudolph</vorname>, <grad>PD</grad></dozent> <thema>Entomologische
       Exkursionen</thema> <zusatz> <gebühr>gratis</gebühr>
       </zusatz></veranstaltung>
@@ -1959,7 +1959,7 @@
     <veranstaltung xml:id="v-22690"><nr>5</nr> <dozent
     ref="machwuerth_j"><nachname>Machwürth</nachname>,
     <vorname>Joseph</vorname>, <grad>Doz</grad></dozent> <dozent
-    ref="machwuerth_j"><nachname>Stoppany</nachname>, <vorname>Giovanni
+    ref="stoppany_ga"><nachname>Stoppany</nachname>, <vorname>Giovanni
     Ambrogio</vorname>, <grad>Doz</grad></dozent> <thema>Zahnärztliche
     Klinik</thema> <zeit>Mo, Mi, Fr 16-18</zeit>
     <wochenstunden>6</wochenstunden></veranstaltung>
@@ -1967,7 +1967,7 @@
     <veranstaltung xml:id="v-22691"><nr>6</nr> <dozent
     ref="koelliker_pa"><nachname>Kölliker</nachname>, <vorname>Paul
     Alfred</vorname>, <grad>Doz</grad></dozent> <dozent
-    ref="koelliker_pa"><nachname>Froehner</nachname>,
+    ref="froehner_j"><nachname>Froehner</nachname>,
     <vorname>Julius</vorname>, <grad>Doz</grad></dozent> <thema>Technisches
     Laboratorium, technische Demonstrationen</thema> <zeit>Mo-Fr 14-16</zeit>
     <wochenstunden>10</wochenstunden></veranstaltung>

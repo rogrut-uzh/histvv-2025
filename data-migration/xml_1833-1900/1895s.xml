@@ -1037,13 +1037,13 @@
         <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-21302"><nr>155</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Geschichte
         der klassischen Philosophie</thema> <zeit>Di, Mi, Fr, Sa 8-9</zeit>
         <wochenstunden>4</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-21303"><nr>156</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Hermeneutik
         und Kritik</thema> <zeit>Di, Fr 9-10</zeit>
         <wochenstunden>2</wochenstunden></veranstaltung>
@@ -1085,7 +1085,7 @@
         Dialekte</thema> <wochenstunden>3</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-21310"><nr>163</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent>
         <thema>Interpretation ausgewählter Oden des Horaz</thema> <zeit>Mi, Sa
         9-10</zeit> <wochenstunden>2</wochenstunden></veranstaltung>
@@ -1108,7 +1108,7 @@
         <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-21314"><nr>166b</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent>
         <thema>Philologisch-pädagogisches Seminar: Quintilian l. X</thema>
         <zeit>Do 15-17</zeit> <wochenstunden>2</wochenstunden></veranstaltung>
@@ -1754,7 +1754,7 @@
       <veranstaltung xml:id="v-21419"><nr>261</nr> <dozent
       ref="dodel_a"><nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="dodel_a"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
+      ref="overton_e"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
       <grad>PD</grad></dozent> <thema>Mikroskopische Demonstrationen und
       praktische Uebungen in pflanzlicher Anatomie und Physiologie, für
       Anfänger</thema> <wochenstunden>2</wochenstunden></veranstaltung>
@@ -1768,7 +1768,7 @@
       <veranstaltung xml:id="v-21421"><nr>263</nr> <dozent
       ref="dodel_a"><nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="dodel_a"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
+      ref="overton_e"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
       <grad>PD</grad></dozent> <thema>Anleitung zu selbständigen
       wissenschaftlichen Arbeiten, Vollpraktikum für Vorgerücktere</thema>
       <zeit>Mo-Sa</zeit></veranstaltung>
@@ -1866,14 +1866,14 @@
       Arbeiten</thema> <zeit>Mo-Sa</zeit></veranstaltung>
 
       <veranstaltung xml:id="v-21437"><nr>279</nr> <dozent
-      ref="standfuss_mr"><nachname>Standfuss</nachname>, <vorname>Maximilian
+      ref="standfuss_m"><nachname>Standfuss</nachname>, <vorname>Maximilian
       Rudolph</vorname>, <grad>PD</grad></dozent> <thema>Praktische
       Insektenkunde für Forstleute, Landwirte u. Gärtner</thema> <zusatz>
       <gebühr>gratis</gebühr> </zusatz> <zeit>Di 15-16, Fr 16-17</zeit>
       <wochenstunden>2</wochenstunden></veranstaltung>
 
       <veranstaltung xml:id="v-21438"><nr>280</nr> <dozent
-      ref="standfuss_mr"><nachname>Standfuss</nachname>, <vorname>Maximilian
+      ref="standfuss_m"><nachname>Standfuss</nachname>, <vorname>Maximilian
       Rudolph</vorname>, <grad>PD</grad></dozent> <thema>Exkursionen zum
       Zwecke des Sammelns und der Beobachtung von Insekten</thema> <zusatz>
       <gebühr>gratis</gebühr> </zusatz></veranstaltung>

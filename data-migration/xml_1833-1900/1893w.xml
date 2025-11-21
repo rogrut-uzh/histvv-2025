@@ -453,7 +453,7 @@
 
     <veranstaltung xml:id="v-20364"><nr>59</nr> <dozent
     ref="stoehr_p"><nachname>Stöhr</nachname>, <vorname>Philipp</vorname>,
-    <grad>O</grad></dozent> <dozent ref="stoehr_p"><nachname>Felix</nachname>,
+    <grad>O</grad></dozent> <dozent ref="felix_w"><nachname>Felix</nachname>,
     <vorname>Walther</vorname>, <grad>PD</grad></dozent>
     <thema>Präparirübungen</thema> <zeit>Mo-Fr 8-12, 14-17, Sa 8-12</zeit>
     <wochenstunden>39</wochenstunden></veranstaltung>
@@ -996,19 +996,19 @@
         14-15</zeit> <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-20453"><nr>147</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Römische
         Litteraturgeschichte, I. Teil</thema> <zeit>Di, Mi, Do, Sa 8-9</zeit>
         <wochenstunden>4</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-20454"><nr>148</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Erklärung
         der Sieben gegen Theben</thema> <zeit>Di, Do 9-10</zeit>
         <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-20455"><nr>149</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Lektüre
         griechischer Autoren</thema> <zeit>Mi, Sa 9-10</zeit>
         <wochenstunden>2</wochenstunden></veranstaltung>
@@ -1051,7 +1051,7 @@
         <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-20462"><nr>154c</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent>
         <thema>Philologisch-pädagogisches Seminar: Lateinische
         Stilübungen</thema> <zeit>Di, Fr 15-16</zeit>
@@ -1598,7 +1598,7 @@
       <veranstaltung xml:id="v-20551"><nr>234</nr> <dozent
       ref="dodel_a"><nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="dodel_a"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
+      ref="overton_e"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
       <grad>PD</grad></dozent> <thema>Mikroskopische Demonstrationen und
       Uebungen für Anfänger</thema>
       <wochenstunden>2</wochenstunden></veranstaltung>
@@ -1611,7 +1611,7 @@
       <veranstaltung xml:id="v-20553"><nr>236</nr> <dozent
       ref="dodel_a"><nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="dodel_a"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
+      ref="overton_e"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
       <grad>PD</grad></dozent> <thema>Anleitung zu selbständigen Arbeiten:
       Vollpraktikum nur für Vorgerücktere</thema>
       <zeit>Mo-Sa</zeit></veranstaltung>
@@ -1619,7 +1619,7 @@
       <veranstaltung xml:id="v-20554"><nr>237</nr> <dozent
       ref="schinz_h"><nachname>Schinz</nachname>, <vorname>Hans</vorname>,
       <grad>EO</grad></dozent> <dozent
-      ref="schinz_h"><nachname>Fiedler</nachname>, <vorname>Karl</vorname>,
+      ref="fiedler_k"><nachname>Fiedler</nachname>, <vorname>Karl</vorname>,
       <grad>PD</grad></dozent> <thema>Botanisch-zoologisches Seminar</thema>
       <zusatz><modus>privatissime</modus> und <gebühr>gratis</gebühr></zusatz>
       <wochenstunden>2</wochenstunden></veranstaltung>
@@ -1685,7 +1685,7 @@
       <wochenstunden>2</wochenstunden></veranstaltung>
 
       <veranstaltung xml:id="v-20565"><nr>248</nr> <dozent
-      ref="standfuss_mr"><nachname>Standfuss</nachname>, <vorname>Maximilian
+      ref="standfuss_m"><nachname>Standfuss</nachname>, <vorname>Maximilian
       Rudolph</vorname>, <grad>PD</grad></dozent> <thema>Allgemeine Einleitung
       in die Entomologie</thema> <zeit>Do 8-9</zeit>
       <wochenstunden>1</wochenstunden></veranstaltung>

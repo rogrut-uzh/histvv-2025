@@ -1008,13 +1008,13 @@ Sa 9-12</zeit> <wochenstunden>8</wochenstunden></veranstaltung>
         <wochenstunden>1</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-24109"><nr>147</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Geschichte
         der klassischen Philologie</thema> <zeit>Di-Do 9-10</zeit>
         <wochenstunden>3</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-24110"><nr>148</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent>
         <thema>Isäus</thema> <zeit>Di, Do 8-9</zeit>
         <wochenstunden>2</wochenstunden></veranstaltung>
@@ -1038,7 +1038,7 @@ Sa 9-12</zeit> <wochenstunden>8</wochenstunden></veranstaltung>
         <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-24114"><nr>152</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Kursorische
         Lektüre lateinischer Autoren</thema>
         <wochenstunden>2</wochenstunden></veranstaltung>
@@ -1057,14 +1057,14 @@ Sa 9-12</zeit> <wochenstunden>8</wochenstunden></veranstaltung>
         <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-24117"><nr>153c</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent>
         <thema>Philologisch-pädagogisches Seminar: Lateinische
         Stilübungen</thema> <zeit>Mo, Do 15-16</zeit>
         <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-24118"><nr>153d</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent>
         <thema>Philologisch-pädagogisches Seminar: Pädagogische
         Übungen</thema> <wochenstunden>1</wochenstunden></veranstaltung>
@@ -1846,14 +1846,14 @@ Sa 9-12</zeit> <wochenstunden>8</wochenstunden></veranstaltung>
       <wochenstunden>44</wochenstunden></veranstaltung>
 
       <veranstaltung xml:id="v-24246"><nr>271</nr> <dozent
-      ref="standfuss_mr"><nachname>Standfuss</nachname>, <vorname>Maximilian
+      ref="standfuss_m"><nachname>Standfuss</nachname>, <vorname>Maximilian
       Rudolph</vorname>, <grad>PD</grad></dozent> <thema>Übungen im Bestimmen
       der Insekten auf Grund einer systematischen Übersicht über die
       Ordnungen</thema> <zusatz> <gebühr>gratis</gebühr> </zusatz>
       <wochenstunden>2</wochenstunden></veranstaltung>
 
       <veranstaltung xml:id="v-24247"><nr>272</nr> <dozent
-      ref="standfuss_mr"><nachname>Standfuss</nachname>, <vorname>Maximilian
+      ref="standfuss_m"><nachname>Standfuss</nachname>, <vorname>Maximilian
       Rudolph</vorname>, <grad>PD</grad></dozent> <thema>Ausgewählte Kapitel
       aus der Biologie der Insekten, mit besonderer Berücksichtigung der
       Bedürfnisse der Lehramtskandidaten</thema> <zusatz>

@@ -860,13 +860,13 @@
         <wochenstunden>3</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-18381"><nr>126</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Geschichte
         der griechischen Prosa</thema> <zeit>Mo, Mi, Do, Sa 8-9</zeit>
         <wochenstunden>4</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-18382"><nr>127</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Demosthenes
         Kranzrede</thema> <zeit>Mo, Do, Sa 9-10</zeit>
         <wochenstunden>3</wochenstunden></veranstaltung>
@@ -885,7 +885,7 @@
         <wochenstunden>4</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-18385"><nr>130</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Lectüre
         lateinischer Komiker</thema> <zusatz><modus>publice</modus> et
         <gebühr>gratis</gebühr></zusatz> <zeit>Mo 10-11, Fr 11-12</zeit>
@@ -930,7 +930,7 @@
         Paläographie</thema> <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-18392"><nr>137a</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent>
         <thema>Philologisch-pädagogisches Seminar: Isaeus</thema> <zeit>Mi
         16-18</zeit> <wochenstunden>2</wochenstunden></veranstaltung>
@@ -1368,7 +1368,7 @@
       <veranstaltung xml:id="v-18461"><nr>194</nr> <dozent
       ref="merz_v"><nachname>Merz</nachname>, <vorname>Viktor</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="merz_v"><nachname>Abeljanz</nachname>,
+      ref="abeljanz_h"><nachname>Abeljanz</nachname>,
       <vorname>Haruthiun</vorname>, <grad>EO</grad></dozent> <thema>Uebungen
       im chemischen Laboratorium, nur für Mediciner</thema>
       <zeit>Mo-Mi</zeit></veranstaltung>
@@ -1376,7 +1376,7 @@
       <veranstaltung xml:id="v-18462"><nr>195</nr> <dozent
       ref="merz_v"><nachname>Merz</nachname>, <vorname>Viktor</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="merz_v"><nachname>Abeljanz</nachname>,
+      ref="abeljanz_h"><nachname>Abeljanz</nachname>,
       <vorname>Haruthiun</vorname>, <grad>EO</grad></dozent> <thema>Uebungen
       im chemischen Laboratorium für Anfänger</thema>
       <zeit>Mo-Sa</zeit></veranstaltung>
@@ -1384,7 +1384,7 @@
       <veranstaltung xml:id="v-18463"><nr>196</nr> <dozent
       ref="merz_v"><nachname>Merz</nachname>, <vorname>Viktor</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="merz_v"><nachname>Abeljanz</nachname>,
+      ref="abeljanz_h"><nachname>Abeljanz</nachname>,
       <vorname>Haruthiun</vorname>, <grad>EO</grad></dozent> <thema>Arbeiten
       im chemischen Laboratorium für Vorgerücktere</thema>
       <zeit>Mo-Sa</zeit></veranstaltung>

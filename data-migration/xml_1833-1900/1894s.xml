@@ -1067,13 +1067,13 @@
         <wochenstunden>4</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-20737"><nr>158</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Römische
         Litteraturgeschichte (II. Teil)</thema> <zeit>Di, Do-Sa 7-8</zeit>
         <wochenstunden>4</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-20738"><nr>159</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Erklärung
         des Isäus</thema> <zeit>Di, Fr 8-9</zeit>
         <wochenstunden>2</wochenstunden></veranstaltung>
@@ -1085,7 +1085,7 @@
         <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-20740"><nr>161</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Kursorische
         Lektüre lateinischer Autoren</thema> <zeit>Do, Sa 8-9</zeit>
         <wochenstunden>2</wochenstunden></veranstaltung>
@@ -1103,7 +1103,7 @@
         9-10</zeit> <wochenstunden>1</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-20743"><nr>164a</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent>
         <thema>Philologisch-pädagogisches Seminar: Griechische
         Stilübungen</thema> <zeit>Di, Fr 15-16</zeit>
@@ -1673,7 +1673,7 @@
       <veranstaltung xml:id="v-20835"><nr>245</nr> <dozent
       ref="dodel_a"><nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="dodel_a"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
+      ref="overton_e"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
       <grad>PD</grad></dozent> <thema>Mikroskopische Demonstrationen und
       praktische Uebungen als Repetitionskurs der allgemeinen Botanik</thema>
       <wochenstunden>2</wochenstunden></veranstaltung>
@@ -1681,7 +1681,7 @@
       <veranstaltung xml:id="v-20836"><nr>246</nr> <dozent
       ref="dodel_a"><nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="dodel_a"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
+      ref="overton_e"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
       <grad>PD</grad></dozent> <thema>Anleitung zu selbständigen
       wissenschaftlichen Arbeiten: Botanisches Vollpraktikum für
       Vorgerücktere</thema> <zeit>Mo-Fr</zeit></veranstaltung>
@@ -1754,7 +1754,7 @@
       <veranstaltung xml:id="v-20848"><nr>258</nr> <dozent
       ref="lang_a"><nachname>Lang</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="lang_a"><nachname>Fiedler</nachname>, <vorname>Karl</vorname>,
+      ref="fiedler_k"><nachname>Fiedler</nachname>, <vorname>Karl</vorname>,
       <grad>PD</grad></dozent> <thema>Mikroskopisch-zootomischer Uebungskurs
       für Anfänger</thema> <zeit>Fr 14-18</zeit>
       <wochenstunden>4</wochenstunden></veranstaltung>
@@ -1766,7 +1766,7 @@
       <wochenstunden>2</wochenstunden></veranstaltung>
 
       <veranstaltung xml:id="v-20850"><nr>260</nr> <dozent
-      ref="standfuss_mr"><nachname>Standfuss</nachname>, <vorname>Maximilian
+      ref="standfuss_m"><nachname>Standfuss</nachname>, <vorname>Maximilian
       Rudolph</vorname>, <grad>PD</grad></dozent> <thema>Praktische
       Entomologie mit besonderer Berücksichtigung der für Forstleute,
       Landwirte und Gartenfreunde wichtigen Insekten</thema> <zusatz>
@@ -1774,7 +1774,7 @@
       <wochenstunden>2</wochenstunden></veranstaltung>
 
       <veranstaltung xml:id="v-20851"><nr>261</nr> <dozent
-      ref="standfuss_mr"><nachname>Standfuss</nachname>, <vorname>Maximilian
+      ref="standfuss_m"><nachname>Standfuss</nachname>, <vorname>Maximilian
       Rudolph</vorname>, <grad>PD</grad></dozent> <thema>Exkursionen zum
       Zwecke des Sammelns und der Beobachtung von Insekten</thema> <zusatz>
       <gebühr>gratis</gebühr> </zusatz></veranstaltung>

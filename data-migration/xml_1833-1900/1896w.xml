@@ -1052,19 +1052,19 @@
         Fakultäten</zusatz> <wochenstunden>1</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-22234"><nr>152</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Römische
         Litteraturgeschichte, I. Teil</thema> <zeit>Di-Fr 9-10</zeit>
         <wochenstunden>4</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-22235"><nr>153</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent>
         <thema>Properz</thema> <zeit>Di, Fr 8-9</zeit>
         <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-22236"><nr>154</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent> <thema>Lektüre
         lateinischer Autoren</thema>
         <wochenstunden>2</wochenstunden></veranstaltung>
@@ -1076,7 +1076,7 @@
         11-12</zeit> <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-22238"><nr>156</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent>
         <thema>Unterrichtsübungen</thema> <zusatz> <gebühr>gratis</gebühr>
         </zusatz> <wochenstunden>1</wochenstunden></veranstaltung>
@@ -1105,7 +1105,7 @@
         mit Übungen</thema> <wochenstunden>2</wochenstunden></veranstaltung>
 
         <veranstaltung xml:id="v-22243"><nr>161a</nr> <dozent
-        ref="hitzig_h"><nachname>Hitzig</nachname>,
+        ref="hitzigsteiner_h"><nachname>Hitzig</nachname>,
         <vorname>Hermann</vorname>, <grad>O</grad></dozent>
         <thema>Philologisch-pädagogisches Seminar: Thukydides</thema> <zeit>Mo
         15-17</zeit> <wochenstunden>2</wochenstunden></veranstaltung>
@@ -1735,7 +1735,7 @@
       <veranstaltung xml:id="v-22344"><nr>251</nr> <dozent
       ref="dodel_a"><nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="dodel_a"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
+      ref="overton_e"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
       <grad>PD</grad></dozent> <thema>Mikroskopischer Demonstrations- und
       Übungskurs für Anfänger</thema>
       <wochenstunden>2</wochenstunden></veranstaltung>
@@ -1743,7 +1743,7 @@
       <veranstaltung xml:id="v-22345"><nr>252</nr> <dozent
       ref="dodel_a"><nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="dodel_a"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
+      ref="overton_e"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
       <grad>PD</grad></dozent> <thema>Botanisches Halbpraktikum für
       Lehramtskandidaten</thema> <zeit>2x 4h</zeit>
       <wochenstunden>8</wochenstunden></veranstaltung>
@@ -1751,7 +1751,7 @@
       <veranstaltung xml:id="v-22346"><nr>253</nr> <dozent
       ref="dodel_a"><nachname>Dodel</nachname>, <vorname>Arnold</vorname>,
       <grad>O</grad></dozent> <dozent
-      ref="dodel_a"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
+      ref="overton_e"><nachname>Overton</nachname>, <vorname>Ernst</vorname>,
       <grad>PD</grad></dozent> <thema>Botanisches Vollpraktikum, nur für
       Vorgerücktere</thema> <zeit>Mo-Sa</zeit></veranstaltung>
 
@@ -1838,13 +1838,13 @@
       <zeit>Mo-Sa</zeit></veranstaltung>
 
       <veranstaltung xml:id="v-22361"><nr>268</nr> <dozent
-      ref="standfuss_mr"><nachname>Standfuss</nachname>, <vorname>Maximilian
+      ref="standfuss_m"><nachname>Standfuss</nachname>, <vorname>Maximilian
       Rudolph</vorname>, <grad>PD</grad></dozent> <thema>Allgemeine Einleitung
       in die Entomologie</thema> <zusatz> <gebühr>gratis</gebühr> </zusatz>
       <wochenstunden>2</wochenstunden></veranstaltung>
 
       <veranstaltung xml:id="v-22362"><nr>269</nr> <dozent
-      ref="standfuss_mr"><nachname>Standfuss</nachname>, <vorname>Maximilian
+      ref="standfuss_m"><nachname>Standfuss</nachname>, <vorname>Maximilian
       Rudolph</vorname>, <grad>PD</grad></dozent> <thema>Systematik der
       Insekten</thema> <zusatz> <gebühr>gratis</gebühr> </zusatz>
       <wochenstunden>1</wochenstunden></veranstaltung>
@@ -1908,7 +1908,7 @@
     <veranstaltung xml:id="v-22371"><nr>5</nr> <dozent
     ref="machwuerth_j"><nachname>Machwürth</nachname>,
     <vorname>Joseph</vorname>, <grad>Doz</grad></dozent> <dozent
-    ref="machwuerth_j"><nachname>Stoppany</nachname>, <vorname>Giovanni
+    ref="stoppany_ga"><nachname>Stoppany</nachname>, <vorname>Giovanni
     Ambrogio</vorname>, <grad>Doz</grad></dozent> <thema>Zahnärztliche
     Klinik</thema> <zeit>Mo, Mi, Fr 16-18</zeit>
     <wochenstunden>6</wochenstunden></veranstaltung>
@@ -1916,7 +1916,7 @@
     <veranstaltung xml:id="v-22372"><nr>6</nr> <dozent
     ref="koelliker_pa"><nachname>Kölliker</nachname>, <vorname>Paul
     Alfred</vorname>, <grad>Doz</grad></dozent> <dozent
-    ref="koelliker_pa"><nachname>Froehner</nachname>,
+    ref="froehner_j"><nachname>Froehner</nachname>,
     <vorname>Julius</vorname>, <grad>Doz</grad></dozent> <thema>Technisches
     Laboratorium, technische Demonstrationen</thema> <zeit>Mo-Fr 14-16</zeit>
     <wochenstunden>10</wochenstunden></veranstaltung>
