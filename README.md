@@ -102,12 +102,13 @@ Bei jeder Anwendung der Scripts:
 
 ```
 cd ~/gitlab-repositories/histvv-2025/data-migration
+
 source .venv-wsl/bin/activate
 # ---------- Skript starten (im aktivierten venv), immer python, nicht als python3 ----------
 deactivate                        # venv wieder verlassen
 ```
 
-__ Neu kann nur 1 einzelnes Script ausgeführt werden, welches alle untenstehenden Scripts vereint __
+__Neu kann nur 1 einzelnes Script ausgeführt werden, welches alle untenstehenden Scripts vereint__
 
 ```
 python 0_prepare-data.py
